@@ -1,9 +1,10 @@
 <package>
-  <name>iai_pr2_description</name>
+  <name>iai_pr2_bringup</name>
   <version>0.0.0</version>
   <description>
-    Holds urdf descriptions of the PR2 at the Institute of Artificial
-    Intelligence, Universitaet Bremen, Germany.
+    Various launch-files to start experimental and infrastructure code
+    for the PR2 at the Institute of Artificial Intelligence, Universitaet
+    Bremen, Germany.
   </description>
 
   <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
@@ -16,6 +17,4 @@
   <url type="repository">https://github.com/code-iai/iai_robots</url>
 
   <buildtool_depend>catkin</buildtool_depend>
-
-  <run_depend>pr2_description</run_depend>
 </package>
