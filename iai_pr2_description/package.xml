@@ -17,4 +17,6 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <run_depend>pr2_description</run_depend>
+
 </package>
