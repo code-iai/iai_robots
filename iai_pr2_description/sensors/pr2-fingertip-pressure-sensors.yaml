@@ -1,6 +1,6 @@
 l_gripper_sensors:
   l_gripper_l_finger_sensors:
-    l_gripper_l_finger_sensors_sensor0:
+    l_gripper_l_finger_sensor0:
       finger_index: 0
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -16,7 +16,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 600.0
-    l_gripper_l_finger_sensors_sensor1:
+    l_gripper_l_finger_sensor1:
       finger_index: 1
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -32,7 +32,7 @@ l_gripper_sensors:
         y: -0.003
         z: 0.0
       force_per_unit: 400.0
-    l_gripper_l_finger_sensors_sensor2:
+    l_gripper_l_finger_sensor2:
       finger_index: 2
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -48,7 +48,7 @@ l_gripper_sensors:
         y: 0.0025
         z: 0.0
       force_per_unit: 600.0
-    l_gripper_l_finger_sensors_sensor3:
+    l_gripper_l_finger_sensor3:
       finger_index: 3
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -64,7 +64,7 @@ l_gripper_sensors:
         y: 0.0025
         z: 0.0
       force_per_unit: 600.0
-    l_gripper_l_finger_sensors_sensor4:
+    l_gripper_l_finger_sensor4:
       finger_index: 4
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -80,7 +80,7 @@ l_gripper_sensors:
         y: -0.0025
         z: 0.0
       force_per_unit: 600.0
-    l_gripper_l_finger_sensors_sensor5:
+    l_gripper_l_finger_sensor5:
       finger_index: 5
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -96,7 +96,7 @@ l_gripper_sensors:
         y: -0.0025
         z: 0.0
       force_per_unit: 600.0
-    l_gripper_l_finger_sensors_sensor6:
+    l_gripper_l_finger_sensor6:
       finger_index: 6
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -112,7 +112,7 @@ l_gripper_sensors:
         y: 0.003
         z: 0.0
       force_per_unit: 400.0
-    l_gripper_l_finger_sensors_sensor7:
+    l_gripper_l_finger_sensor7:
       finger_index: 7
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -128,7 +128,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor8:
+    l_gripper_l_finger_sensor8:
       finger_index: 8
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -144,7 +144,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor9:
+    l_gripper_l_finger_sensor9:
       finger_index: 9
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -160,7 +160,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor10:
+    l_gripper_l_finger_sensor10:
       finger_index: 10
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -176,7 +176,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor11:
+    l_gripper_l_finger_sensor11:
       finger_index: 11
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -192,7 +192,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor12:
+    l_gripper_l_finger_sensor12:
       finger_index: 12
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -208,7 +208,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor13:
+    l_gripper_l_finger_sensor13:
       finger_index: 13
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -224,7 +224,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor14:
+    l_gripper_l_finger_sensor14:
       finger_index: 14
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -240,7 +240,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor15:
+    l_gripper_l_finger_sensor15:
       finger_index: 15
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -256,7 +256,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor16:
+    l_gripper_l_finger_sensor16:
       finger_index: 16
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -272,7 +272,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor17:
+    l_gripper_l_finger_sensor17:
       finger_index: 17
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -288,7 +288,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor18:
+    l_gripper_l_finger_sensor18:
       finger_index: 18
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -304,7 +304,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor19:
+    l_gripper_l_finger_sensor19:
       finger_index: 19
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -320,7 +320,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor20:
+    l_gripper_l_finger_sensor20:
       finger_index: 20
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -336,7 +336,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_l_finger_sensors_sensor21:
+    l_gripper_l_finger_sensor21:
       finger_index: 21
       frame_id: l_gripper_l_finger_tip_link
       center:
@@ -353,7 +353,7 @@ l_gripper_sensors:
         z: 0.0
       force_per_unit: 1600.0
   l_gripper_r_finger_sensors:
-    l_gripper_r_finger_sensors_sensor0:
+    l_gripper_r_finger_sensor0:
       finger_index: 0
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -369,7 +369,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 600.0
-    l_gripper_r_finger_sensors_sensor1:
+    l_gripper_r_finger_sensor1:
       finger_index: 1
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -385,7 +385,7 @@ l_gripper_sensors:
         y: 0.003
         z: 0.0
       force_per_unit: 400.0
-    l_gripper_r_finger_sensors_sensor2:
+    l_gripper_r_finger_sensor2:
       finger_index: 2
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -401,7 +401,7 @@ l_gripper_sensors:
         y: -0.0025
         z: 0.0
       force_per_unit: 600.0
-    l_gripper_r_finger_sensors_sensor3:
+    l_gripper_r_finger_sensor3:
       finger_index: 3
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -417,7 +417,7 @@ l_gripper_sensors:
         y: -0.0025
         z: 0.0
       force_per_unit: 600.0
-    l_gripper_r_finger_sensors_sensor4:
+    l_gripper_r_finger_sensor4:
       finger_index: 4
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -433,7 +433,7 @@ l_gripper_sensors:
         y: 0.0025
         z: 0.0
       force_per_unit: 600.0
-    l_gripper_r_finger_sensors_sensor5:
+    l_gripper_r_finger_sensor5:
       finger_index: 5
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -449,7 +449,7 @@ l_gripper_sensors:
         y: 0.0025
         z: 0.0
       force_per_unit: 600.0
-    l_gripper_r_finger_sensors_sensor6:
+    l_gripper_r_finger_sensor6:
       finger_index: 6
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -465,7 +465,7 @@ l_gripper_sensors:
         y: -0.003
         z: 0.0
       force_per_unit: 400.0
-    l_gripper_r_finger_sensors_sensor7:
+    l_gripper_r_finger_sensor7:
       finger_index: 7
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -481,7 +481,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor8:
+    l_gripper_r_finger_sensor8:
       finger_index: 8
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -497,7 +497,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor9:
+    l_gripper_r_finger_sensor9:
       finger_index: 9
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -513,7 +513,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor10:
+    l_gripper_r_finger_sensor10:
       finger_index: 10
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -529,7 +529,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor11:
+    l_gripper_r_finger_sensor11:
       finger_index: 11
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -545,7 +545,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor12:
+    l_gripper_r_finger_sensor12:
       finger_index: 12
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -561,7 +561,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor13:
+    l_gripper_r_finger_sensor13:
       finger_index: 13
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -577,7 +577,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor14:
+    l_gripper_r_finger_sensor14:
       finger_index: 14
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -593,7 +593,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor15:
+    l_gripper_r_finger_sensor15:
       finger_index: 15
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -609,7 +609,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor16:
+    l_gripper_r_finger_sensor16:
       finger_index: 16
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -625,7 +625,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor17:
+    l_gripper_r_finger_sensor17:
       finger_index: 17
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -641,7 +641,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor18:
+    l_gripper_r_finger_sensor18:
       finger_index: 18
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -657,7 +657,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor19:
+    l_gripper_r_finger_sensor19:
       finger_index: 19
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -673,7 +673,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor20:
+    l_gripper_r_finger_sensor20:
       finger_index: 20
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -689,7 +689,7 @@ l_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    l_gripper_r_finger_sensors_sensor21:
+    l_gripper_r_finger_sensor21:
       finger_index: 21
       frame_id: l_gripper_r_finger_tip_link
       center:
@@ -707,7 +707,7 @@ l_gripper_sensors:
       force_per_unit: 1600.0
 r_gripper_sensors:
   r_gripper_l_finger_sensors:
-    r_gripper_l_finger_sensors_sensor0:
+    r_gripper_l_finger_sensor0:
       finger_index: 0
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -723,7 +723,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 600.0
-    r_gripper_l_finger_sensors_sensor1:
+    r_gripper_l_finger_sensor1:
       finger_index: 1
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -739,7 +739,7 @@ r_gripper_sensors:
         y: -0.003
         z: 0.0
       force_per_unit: 400.0
-    r_gripper_l_finger_sensors_sensor2:
+    r_gripper_l_finger_sensor2:
       finger_index: 2
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -755,7 +755,7 @@ r_gripper_sensors:
         y: 0.0025
         z: 0.0
       force_per_unit: 600.0
-    r_gripper_l_finger_sensors_sensor3:
+    r_gripper_l_finger_sensor3:
       finger_index: 3
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -771,7 +771,7 @@ r_gripper_sensors:
         y: 0.0025
         z: 0.0
       force_per_unit: 600.0
-    r_gripper_l_finger_sensors_sensor4:
+    r_gripper_l_finger_sensor4:
       finger_index: 4
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -787,7 +787,7 @@ r_gripper_sensors:
         y: -0.0025
         z: 0.0
       force_per_unit: 600.0
-    r_gripper_l_finger_sensors_sensor5:
+    r_gripper_l_finger_sensor5:
       finger_index: 5
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -803,7 +803,7 @@ r_gripper_sensors:
         y: -0.0025
         z: 0.0
       force_per_unit: 600.0
-    r_gripper_l_finger_sensors_sensor6:
+    r_gripper_l_finger_sensor6:
       finger_index: 6
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -819,7 +819,7 @@ r_gripper_sensors:
         y: 0.003
         z: 0.0
       force_per_unit: 400.0
-    r_gripper_l_finger_sensors_sensor7:
+    r_gripper_l_finger_sensor7:
       finger_index: 7
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -835,7 +835,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor8:
+    r_gripper_l_finger_sensor8:
       finger_index: 8
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -851,7 +851,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor9:
+    r_gripper_l_finger_sensor9:
       finger_index: 9
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -867,7 +867,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor10:
+    r_gripper_l_finger_sensor10:
       finger_index: 10
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -883,7 +883,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor11:
+    r_gripper_l_finger_sensor11:
       finger_index: 11
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -899,7 +899,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor12:
+    r_gripper_l_finger_sensor12:
       finger_index: 12
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -915,7 +915,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor13:
+    r_gripper_l_finger_sensor13:
       finger_index: 13
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -931,7 +931,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor14:
+    r_gripper_l_finger_sensor14:
       finger_index: 14
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -947,7 +947,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor15:
+    r_gripper_l_finger_sensor15:
       finger_index: 15
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -963,7 +963,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor16:
+    r_gripper_l_finger_sensor16:
       finger_index: 16
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -979,7 +979,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor17:
+    r_gripper_l_finger_sensor17:
       finger_index: 17
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -995,7 +995,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor18:
+    r_gripper_l_finger_sensor18:
       finger_index: 18
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -1011,7 +1011,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor19:
+    r_gripper_l_finger_sensor19:
       finger_index: 19
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -1027,7 +1027,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor20:
+    r_gripper_l_finger_sensor20:
       finger_index: 20
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -1043,7 +1043,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_l_finger_sensors_sensor21:
+    r_gripper_l_finger_sensor21:
       finger_index: 21
       frame_id: r_gripper_l_finger_tip_link
       center:
@@ -1060,7 +1060,7 @@ r_gripper_sensors:
         z: 0.0
       force_per_unit: 1600.0
   r_gripper_r_finger_sensors:
-    r_gripper_r_finger_sensors_sensor0:
+    r_gripper_r_finger_sensor0:
       finger_index: 0
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1076,7 +1076,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 600.0
-    r_gripper_r_finger_sensors_sensor1:
+    r_gripper_r_finger_sensor1:
       finger_index: 1
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1092,7 +1092,7 @@ r_gripper_sensors:
         y: 0.003
         z: 0.0
       force_per_unit: 400.0
-    r_gripper_r_finger_sensors_sensor2:
+    r_gripper_r_finger_sensor2:
       finger_index: 2
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1108,7 +1108,7 @@ r_gripper_sensors:
         y: -0.0025
         z: 0.0
       force_per_unit: 600.0
-    r_gripper_r_finger_sensors_sensor3:
+    r_gripper_r_finger_sensor3:
       finger_index: 3
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1124,7 +1124,7 @@ r_gripper_sensors:
         y: -0.0025
         z: 0.0
       force_per_unit: 600.0
-    r_gripper_r_finger_sensors_sensor4:
+    r_gripper_r_finger_sensor4:
       finger_index: 4
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1140,7 +1140,7 @@ r_gripper_sensors:
         y: 0.0025
         z: 0.0
       force_per_unit: 600.0
-    r_gripper_r_finger_sensors_sensor5:
+    r_gripper_r_finger_sensor5:
       finger_index: 5
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1156,7 +1156,7 @@ r_gripper_sensors:
         y: 0.0025
         z: 0.0
       force_per_unit: 600.0
-    r_gripper_r_finger_sensors_sensor6:
+    r_gripper_r_finger_sensor6:
       finger_index: 6
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1172,7 +1172,7 @@ r_gripper_sensors:
         y: -0.003
         z: 0.0
       force_per_unit: 400.0
-    r_gripper_r_finger_sensors_sensor7:
+    r_gripper_r_finger_sensor7:
       finger_index: 7
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1188,7 +1188,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor8:
+    r_gripper_r_finger_sensor8:
       finger_index: 8
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1204,7 +1204,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor9:
+    r_gripper_r_finger_sensor9:
       finger_index: 9
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1220,7 +1220,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor10:
+    r_gripper_r_finger_sensor10:
       finger_index: 10
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1236,7 +1236,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor11:
+    r_gripper_r_finger_sensor11:
       finger_index: 11
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1252,7 +1252,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor12:
+    r_gripper_r_finger_sensor12:
       finger_index: 12
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1268,7 +1268,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor13:
+    r_gripper_r_finger_sensor13:
       finger_index: 13
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1284,7 +1284,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor14:
+    r_gripper_r_finger_sensor14:
       finger_index: 14
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1300,7 +1300,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor15:
+    r_gripper_r_finger_sensor15:
       finger_index: 15
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1316,7 +1316,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor16:
+    r_gripper_r_finger_sensor16:
       finger_index: 16
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1332,7 +1332,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor17:
+    r_gripper_r_finger_sensor17:
       finger_index: 17
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1348,7 +1348,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor18:
+    r_gripper_r_finger_sensor18:
       finger_index: 18
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1364,7 +1364,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor19:
+    r_gripper_r_finger_sensor19:
       finger_index: 19
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1380,7 +1380,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor20:
+    r_gripper_r_finger_sensor20:
       finger_index: 20
       frame_id: r_gripper_r_finger_tip_link
       center:
@@ -1396,7 +1396,7 @@ r_gripper_sensors:
         y: 0.0
         z: 0.0
       force_per_unit: 1600.0
-    r_gripper_r_finger_sensors_sensor21:
+    r_gripper_r_finger_sensor21:
       finger_index: 21
       frame_id: r_gripper_r_finger_tip_link
       center:
