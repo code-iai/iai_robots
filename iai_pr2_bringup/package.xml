@@ -17,4 +17,6 @@
   <url type="repository">https://github.com/code-iai/iai_robots</url>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>iai_pr2_description</run_depend>
 </package>

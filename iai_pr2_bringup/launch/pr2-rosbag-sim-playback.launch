@@ -1,0 +1,10 @@
+<launch>
+  <!-- use simulated time, i.e. from rosbag -->
+  <param name="/use_sim_time" value="true"/>
+
+  <!-- upload pr2 description -->
+  <include file="$(find iai_pr2_description)/launch/upload_pr2.launch"/>
+
+  <!-- start the robot state publisher to have tf -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+</launch>
