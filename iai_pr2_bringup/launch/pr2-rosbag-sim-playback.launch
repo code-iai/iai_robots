@@ -12,4 +12,13 @@
 
   <!-- start restamping of recorded joint-states -->
   <include file="$(find iai_rosbag_utils)/launch/pr2_joint_state_restamper.launch"/>
+
+  <!-- start restamping of recorded fingertip readings -->
+  <include file="$(find iai_rosbag_utils)/launch/pr2_fingertip_restamper.launch"/>
+
+  <!-- publish fingertip visualization -->
+  <include file="$(find iai_pr2_bringup)/launch/pr2-fingertip-marker-viz.launch">
+    <arg name="l_gripper_topic" value="/pressure/l_gripper_motor/restamped"/>
+    <arg name="r_gripper_topic" value="/pressure/r_gripper_motor/restamped"/>
+  </include>
 </launch>
