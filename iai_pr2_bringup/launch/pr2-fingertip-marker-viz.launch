@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="fingertip_pressure" type="sensor_info.py"
+      name="pr2_fingertips_info_publisher" output="screen"/>
+
+  <node pkg="fingertip_pressure" type="sphere_viz.py"
+      name="pr2_fingertips_marker_viz" output="screen"/>
+</launch>
