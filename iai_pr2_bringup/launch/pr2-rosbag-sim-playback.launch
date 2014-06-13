@@ -21,4 +21,12 @@
     <arg name="l_gripper_topic" value="/pressure/l_gripper_motor/restamped"/>
     <arg name="r_gripper_topic" value="/pressure/r_gripper_motor/restamped"/>
   </include>
+
+  <!-- show fingertip visualization gui -->
+  <include file="$(find iai_pr2_bringup)/launch/pr2-fingertip-gui-viz.launch">
+    <arg name="l_gripper_topic" value="/pressure/l_gripper_motor/restamped"/>
+    <arg name="r_gripper_topic" value="/pressure/r_gripper_motor/restamped"/>
+  </include>
+
+
 </launch>
