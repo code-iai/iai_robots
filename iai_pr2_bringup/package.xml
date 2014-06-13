@@ -20,4 +20,5 @@
   <run_depend>robot_state_publisher</run_depend>
   <run_depend>iai_pr2_description</run_depend>
   <run_depend>iai_rosbag_utils</run_depend>
+  <run_depend>fingertip_pressure</run_depend>
 </package>
