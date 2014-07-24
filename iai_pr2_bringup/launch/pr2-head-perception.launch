@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- argument for resolution parameter of kinect rgb image -->
+  <!-- 1: SXGA 15Hz -->
+  <!-- 2: VGA 30Hz -->
+  <arg name="kinect-rgb-mode" default="1"/>
+
+  <!-- STARTING UP THE KINECT -->
+  <param name="/kinect_head/driver/image_mode" value="$(arg kinect-rgb-mode)"/>
+  <include file="/etc/ros/$(env ROS_DISTRO)/openni_head.launch"/>
+
+</launch>
