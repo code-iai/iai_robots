@@ -17,9 +17,14 @@
   <url type="repository">https://github.com/code-iai/iai_robots</url>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>openni_launch</run_depend>
+  <run_depend>pr2_machine</run_depend>
+  <run_depend>pr2_navigation_global</run_depend>
+  <run_depend>pr2_navigation_perception</run_depend>
+  <run_depend>snap_map_icp</run_depend>
+  <run_depend>iai_maps</run_depend>
   <run_depend>robot_state_publisher</run_depend>
   <run_depend>iai_pr2_description</run_depend>
   <run_depend>iai_rosbag_utils</run_depend>
   <run_depend>fingertip_pressure</run_depend>
-  <run_depend>iai_maps</run_depend>
 </package>
