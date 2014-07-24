@@ -1,16 +1,17 @@
 <launch>
 
-  <!--include file="$(find iai_maps)/launch/maps_only.launch" /-->
+  <include file="$(find iai_maps)/launch/maps_only.launch" />
 
-  <!--nclude file="$(find pr2_machine)/$(env ROBOT).machine" /-->
+  <include file="$(find pr2_machine)/$(env ROBOT).machine" />
 
-  <machine name="c1" address="c1" default="true"/>
-  <machine name="c2" address="c2" env-loader="/home/georg/hydro/rosbuild_ws/env.sh"/>
-<!-- rosrun SnapMapICP SnapMapICP -->
-  <include file="$(find pr2_navigation_global)/amcl_node.xml" />
-  <!--include file="$(find pr2_navigation_teleop)/teleop.xml" /-->
   <include file="$(find pr2_navigation_perception)/lasers_and_filters.xml" />
-  <!--include file="$(find pr2_navigation_perception)/ground_plane.xml" /-->
-  <!--include file="$(find pr2_navigation_global)/move_base.xml" /-->
+
+  <include file="$(find pr2_navigation_perception)/ground_plane.xml" />
+
+  <include file="$(find pr2_navigation_global)/amcl_node.xml" />
+
+  <include file="$(find pr2_navigation_global)/move_base.xml" />
+
+  <include file="$(find snap_map_icp)/launch/snap_map_icp.launch" />
 
 </launch>
