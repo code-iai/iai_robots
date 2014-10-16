@@ -1,0 +1,160 @@
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
+
+
+  <macro name="sensor_dummy_link" params="name link *origin">
+    <joint name="${name}_fixed_joint" type="fixed">
+      <insert_block name="origin"/>
+      <parent link="${link}"/>
+      <child link="${name}"/>
+    </joint>
+    <link name="${name}">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.001"/>
+        <cuboid_inertia_def length="0.001" width="0.001" height="0.001" mass="0.001"/>
+      </inertial>
+      <visual>
+        <geometry>
+          <box size="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+  </macro>
+    
+  <macro name="camera_sensor" params="name link *origin">
+    <sensor_dummy_link name="${name}" link="${link}">
+      <insert_block name="origin"/>
+    </sensor_dummy_link>
+    <gazebo reference="${name}">
+      <sensor:camera name="${name}_sensor">
+        <imageSize>400 300</imageSize>
+        <imageFormat>R8G8B8</imageFormat>
+        <hfov>104</hfov>
+        <nearClip>0.1</nearClip>
+        <farClip>100</farClip>
+        <updateRate>20.0</updateRate>
+        <controller:gazebo_ros_camera name="${name}_controller" plugin="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>20.0</updateRate>
+          <imageTopicName>cameras/${name}</imageTopicName>
+	  <cameraInfoTopicName>cameras/${name}Info</cameraInfoTopicName>
+          <frameName>${name}</frameName>
+          <interface:camera name="${name}_iface" />
+        </controller:gazebo_ros_camera>
+      </sensor:camera>
+    </gazebo>
+  </macro>
+
+  <macro name="laser_sensor_utm30lx" params="name link *origin">
+    <sensor_dummy_link name="${name}" link="${link}">
+      <insert_block name="origin"/>
+    </sensor_dummy_link>
+    <gazebo reference="${name}">
+      <sensor:ray name="${name}">
+        <rayCount>640</rayCount>
+        <rangeCount>640</rangeCount>
+        <laserCount>1</laserCount>
+
+        <origin>0.0 0.0 0.0</origin>
+        <displayRays>off</displayRays>
+
+        <minAngle>-80</minAngle>
+        <maxAngle>80</maxAngle>
+
+        <minRange>0.03</minRange>
+        <maxRange>60.00</maxRange>
+        <resRange>0.01</resRange>
+        <updateRate>20.0</updateRate>
+        <controller:gazebo_ros_laser name="${name}_controller" plugin="libgazebo_ros_laser.so">
+          <gaussianNoise>0.005</gaussianNoise>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>20.0</updateRate>
+          <topicName>laser/${name}</topicName>
+          <frameName>${name}</frameName>
+          <interface:laser name="${name}_iface" />
+        </controller:gazebo_ros_laser>
+      </sensor:ray>
+    </gazebo>
+  </macro>
+  
+  <macro name="laser_sensor_urg04lx" params="name link *origin">
+    <sensor_dummy_link name="${name}" link="${link}">
+      <insert_block name="origin"/>
+    </sensor_dummy_link>
+    <gazebo reference="${name}">
+      <sensor:ray name="${name}">
+        <rayCount>682</rayCount>
+        <rangeCount>682</rangeCount>
+        <laserCount>1</laserCount>
+
+        <origin>0.0 0.0 0.0</origin>
+        <displayRays>off</displayRays>
+
+        <minAngle>-120</minAngle>
+        <maxAngle>120</maxAngle>
+
+        <minRange>0.02</minRange>
+        <maxRange>5.60</maxRange>
+        <resRange>0.01</resRange>
+        <updateRate>20.0</updateRate>
+        <controller:gazebo_ros_laser name="${name}_controller" plugin="libgazebo_ros_laser.so">
+          <gaussianNoise>0.005</gaussianNoise>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>20.0</updateRate>
+          <topicName>laser/${name}</topicName>
+          <frameName>${name}</frameName>
+          <interface:laser name="${name}_iface" />
+        </controller:gazebo_ros_laser>
+      </sensor:ray>
+    </gazebo>
+  </macro>
+
+  <macro name="swissranger_sr4000" params="name link *origin">
+    <sensor_dummy_link name="${name}" link="${link}">
+      <insert_block name="origin"/>
+    </sensor_dummy_link>
+    <!--
+       Swissranger is quite expensive to simulate. Disable it for the moment.
+      -->
+    <!-- <gazebo reference="${name}"> -->
+    <!--   <sensor:ray name="${name}"> -->
+    <!--     <rayCount>176</rayCount> -->
+    <!--     <rangeCount>176</rangeCount> -->
+    <!--     <laserCount>1</laserCount> -->
+
+    <!--     <origin>0.0 0.0 0.0</origin> -->
+    <!--     <displayRays>off</displayRays> -->
+
+    <!--     <minAngle>-21.8</minAngle> -->
+    <!--     <maxAngle>21.8</maxAngle> -->
+
+    <!--     <minRange>0.8</minRange> -->
+    <!--     <maxRange>5</maxRange> -->
+    <!--     <resRange>0.01</resRange>         -->
+    <!--     <updateRate>30.0</updateRate> -->
+
+    <!--     <verticalRayCount>144</verticalRayCount> -->
+    <!--     <verticalRangeCount>144</verticalRangeCount> -->
+    <!--     <verticalMinAngle>-17.3</verticalMinAngle> -->
+    <!--     <verticalMaxAngle>17.3</verticalMaxAngle> -->
+        
+    <!--     <controller:ros_block_laser name="${name}_controller" plugin="libros_block_laser.so"> -->
+    <!--       <gaussianNoise>0.005</gaussianNoise> -->
+    <!--       <alwaysOn>true</alwaysOn> -->
+    <!--       <updateRate>1.0</updateRate> -->
+    <!--       <topicName>pointcloud/${name}</topicName> -->
+    <!--       <frameName>${name}</frameName> -->
+    <!--       <interface:laser name="${name}_iface" /> -->
+    <!--     </controller:ros_block_laser> -->
+    <!--   </sensor:ray> -->
+    <!-- </gazebo> -->
+  </macro>
+    
+</robot>

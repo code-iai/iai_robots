@@ -1,0 +1,174 @@
+<robot
+  name="pw070_v6">
+  <link
+    name="pw070_base_link">
+    <inertial>
+      <origin
+        xyz="1.00847964366636E-18 9.83435359832521E-19 0.0183994788995853"
+        rpy="0 0 0" />
+      <mass
+        value="0.115600516395015" />
+      <inertia
+        ixx="4.22762247390204E-05"
+        ixy="-1.61518323710916E-21"
+        ixz="1.64564610608109E-21"
+        iyy="4.22005265483119E-05"
+        iyz="-1.05221078652886E-21"
+        izz="5.93634422539094E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_schunk_pw070_v6//meshes/pw070_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_schunk_pw070_v6//meshes/pw070_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="pw070_box">
+    <inertial>
+      <origin
+        xyz="0.00797025295401261 9.94149680106761E-19 0.00180349929967392"
+        rpy="0 0 0" />
+      <mass
+        value="0.795464859270861" />
+      <inertia
+        ixx="0.00106829634194245"
+        ixy="8.63510385056357E-20"
+        ixz="-1.28767421479418E-05"
+        iyy="0.00158199067955857"
+        iyz="-1.66255748362911E-08"
+        izz="0.00115077124113952" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_schunk_pw070_v6//meshes/pw070_box.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_schunk_pw070_v6//meshes/pw070_box.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="head_pan_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0938"
+      rpy="3.1416 0 -1.5708" />
+    <parent
+      link="pw070_base_link" />
+    <child
+      link="pw070_box" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-6.28"
+      upper="6.28"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="pw070_plate">
+    <inertial>
+      <origin
+        xyz="-0.0183186378092207 -8.79591761068821E-18 -0.0206679097089721"
+        rpy="0 0 0" />
+      <mass
+        value="0.20324493262428" />
+      <inertia
+        ixx="0.00027991057755713"
+        ixy="4.77643348599192E-08"
+        ixz="-7.69501477424774E-05"
+        iyy="0.000674719224958911"
+        iyz="2.09169636982284E-20"
+        izz="0.000546047259750224" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_schunk_pw070_v6//meshes/pw070_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_schunk_pw070_v6//meshes/pw070_plate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="head_tilt_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="pw070_box" />
+    <child
+      link="pw070_plate" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14159"
+      upper="3.14159"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="pw070_frame_out" />
+  <joint
+    name="trans_frame_out"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.07"
+      rpy="3.1416 0 -1.5708" />
+    <parent
+      link="pw070_plate" />
+    <child
+      link="pw070_frame_out" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

@@ -1,0 +1,43 @@
+<robot
+  name="weiss_wsg50">
+  <link
+    name="gripper_base_link">
+    <inertial>
+      <origin
+        xyz="0.0015766 0.00011805 0.037064"
+        rpy="0 0 0" />
+      <mass
+        value="0.51377" />
+      <inertia
+        ixx="0.00034807"
+        ixy="-2.6717E-06"
+        ixz="-2.3096E-05"
+        iyy="0.001113"
+        iyz="-1.0753E-06"
+        izz="0.00097801" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_weiss_wsg50/meshes/gripper_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_weiss_wsg50/meshes/gripper_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

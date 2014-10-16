@@ -1,0 +1,131 @@
+<robot
+  name="torso">
+  <link
+    name="torso_base_link">
+    <inertial>
+      <origin
+        xyz="0.0307745199844149 -0.285 0.513294719377322"
+        rpy="0 0 0" />
+      <mass
+        value="3.82694041846288" />
+      <inertia
+        ixx="0.573902290642399"
+        ixy="-2.79383327284778E-16"
+        ixz="1.66346332789765E-05"
+        iyy="0.338648611077492"
+        iyz="-1.04080029390922E-16"
+        izz="0.239577094605918" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_boxy_torso/meshes/torso_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_boxy_torso/meshes/torso_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="triangle_base_link">
+    <inertial>
+      <origin
+        xyz="-0.302419226632933 -0.181352787411384 -0.0325004871109191"
+        rpy="0 0 0" />
+      <mass
+        value="7.36699467665114" />
+      <inertia
+        ixx="0.145376830313475"
+        ixy="0.00013303151578814"
+        ixz="4.5364480793564E-05"
+        iyy="0.280518816650801"
+        iyz="-0.00910948982082533"
+        izz="0.330070759835274" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_boxy_torso/meshes/triangle_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_boxy_torso/meshes/triangle_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="triangle_base_joint"
+    type="prismatic">
+    <origin
+      xyz="0.1 0.0175 0.00062489"
+      rpy="-1.5708 -5.5511E-17 1.5708" />
+    <parent
+      link="torso_base_link" />
+    <child
+      link="triangle_base_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0.636"
+      effort="1000"
+      velocity="2" />
+  </joint>
+  <link
+    name="triangle_arm_left_link" />
+  <joint
+    name="triangle_arm_left_joint"
+    type="fixed">
+    <origin
+      xyz="-0.239507442352261 -0.181209704131733 -0.137000000000002"
+      rpy="2.61799387796333 -1.5707963267949 0" />
+    <parent
+      link="triangle_base_link" />
+    <child
+      link="triangle_arm_left_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="triangle_arm_right_link" />
+  <joint
+    name="triangle_arm_right_joint"
+    type="fixed">
+    <origin
+      xyz="-0.365488160465715 -0.181209539931436 -0.137"
+      rpy="2.61799387801966 1.5707963267949 0" />
+    <parent
+      link="triangle_base_link" />
+    <child
+      link="triangle_arm_right_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

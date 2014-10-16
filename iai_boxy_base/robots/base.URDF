@@ -1,0 +1,73 @@
+<robot
+  name="base">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.25490068146997 -0.227666278193656 0.045962661102728"
+        rpy="0 0 0" />
+      <mass
+        value="70.4306942428661" />
+      <inertia
+        ixx="7.99622647278776"
+        ixy="-0.0894854703454988"
+        ixz="0.576697407260801"
+        iyy="11.5158519039036"
+        iyz="0.0157078278260758"
+        izz="7.49426546428967" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_boxy_base/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_boxy_base/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="laser_reference_front" />
+  <joint
+    name="laser_reference_front_joint"
+    type="fixed">
+    <origin
+      xyz="0.235926406871192 -0.497427516941588 0.157500000000002"
+      rpy="4.70027852409606E-15 -4.70862925338426E-15 -0.78539816339745" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser_reference_front" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="laser_reference_back" />
+  <joint
+    name="laser_reference_back_joint"
+    type="fixed">
+    <origin
+      xyz="-0.738426406871194 0.0504883651003683 0.157499999999995"
+      rpy="-4.33428293429891E-15 4.09876906549633E-15 2.35619449019234" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser_reference_back" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

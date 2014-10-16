@@ -1,0 +1,22 @@
+<package>
+  <name>iai_boxy_description</name>
+  <version>0.0.0</version>
+  <description>
+    Has the URDF description of the Boxy robot at the Institute of Artificial
+    Intelligence, Universitaet Bremen, Germany.
+  </description>
+
+  <maintainer email="amaldo@cs.uni-bremen.de">Alexis Maldonado</maintainer>
+
+  <author email="amaldo@cs.uni-bremen.de">Alexis Maldonado</author>
+  <author email="marc@snakenet.org">Marc Fiedler</author>
+
+  <license>GPLv3+</license>
+
+  <url type="bugtracker">https://github.com/code-iai/iai_robots/issues</url>
+  <url type="repository">https://github.com/code-iai/iai_robots</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!--run_depend>pr2_description</run_depend-->
+</package>

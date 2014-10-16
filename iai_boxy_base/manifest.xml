@@ -1,0 +1,6 @@
+<package>
+  <description brief="iai_boxy_base">Description of the base of boxy</description>
+  <depend package="gazebo" />
+  <author>Alexis Maldonado</author>
+  <license>GPLv3+</license>
+</package>

@@ -1,0 +1,7 @@
+<package>
+  <description brief="iai_kuka_lwr4_description">iai_kuka_lwr4_description</description>
+  <depend package="gazebo" />
+  <author>Ingo Kresse</author>
+  <author>Alexis Maldonado</author>
+  <license>GPLv3+</license>
+</package>
