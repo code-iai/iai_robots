@@ -7,9 +7,10 @@
   <arg name="urdf-name" default="boxy_description.urdf.xacro"/>
   <arg name="urdf-path" value="$(find iai_boxy_description)/robots/$(arg urdf-name)"/>
 
-  <param
-    name="robot_description"
-    command="$(find xacro)/xacro.py '$(arg urdf-path)'" />
+  <include file="$(find iai_boxy_description)/launch/upload_boxy.launch">
+    <arg name="urdf-name" value="$(arg urdf-name)"/>
+    <arg name="urdf-path" value="$(arg urdf-path)"/>
+  </include>
 
   <param
     name="use_gui"
