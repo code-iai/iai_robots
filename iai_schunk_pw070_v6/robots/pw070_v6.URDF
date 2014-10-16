@@ -98,6 +98,15 @@
       effort="0"
       velocity="0" />
   </joint>
+
+  <transmission
+    name="head_pan_transmission"
+    type="pr2_mechanism_model/SimpleTransmission">
+    <actuator name="head_pan_motor"/>
+    <joint name="head_pan_joint"/>
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </transmission>
+
   <link
     name="pw070_plate">
     <inertial>
@@ -156,6 +165,15 @@
       effort="0"
       velocity="0" />
   </joint>
+
+  <transmission
+    name="head_tilt_transmission"
+    type="pr2_mechanism_model/SimpleTransmission">
+    <actuator name="head_tilt_motor"/>
+    <joint name="head_tilt_joint"/>
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </transmission>
+
   <link
     name="pw070_frame_out" />
   <joint
