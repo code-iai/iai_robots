@@ -98,6 +98,15 @@
       effort="1000"
       velocity="2" />
   </joint>
+
+  <transmission 
+    name="triangle_base_transmission" 
+    type="pr2_mechanism_model/SimpleTransmission">
+    <actuator name="triangle_base_motor"/>
+    <joint name="triangle_base_joint"/>
+    <mechanicalReduction>1.0</mechanicalReduction>
+  </transmission>
+
   <link
     name="triangle_arm_left_link" />
   <joint
