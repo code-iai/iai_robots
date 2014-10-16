@@ -18,7 +18,10 @@ In rviz,
   * add a plugin of type ```RobotModel```
   * add the ```TF``` plugin
 
-Then you should see something like this... (TODO: add screenshot)
+Then you should see something like this...
+
+![rviz view](https://raw.github.com/code-iai/iai_robots/master/iai_boxy_bringup/doc/boxy_sim_rviz.png)
+
 
 ## Manually moving the joints
 For testing purposes, you can command the joints through publishing velocity commands from the console.
