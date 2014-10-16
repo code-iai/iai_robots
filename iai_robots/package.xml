@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+  <name>iai_robots</name>
+  <version>0.0.1</version>
+  <description>
+    Collection of descriptions, configurations, and launch-files for
+    the robots of the IAI institute at University Bremen, Germany.
+  </description>
+
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+
+  <author email="georg.bartels@cs.uni-bremen.de">Georg Bartels</author>
+
+  <license>BSD</license>
+
+  <url type="bugtracker">https://github.com/code-iai/iai_control_pkgs/issues</url>
+  <url type="repository">https://github.com/code-iai/iai_control_pkgs</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>iai_pr2_description</run_depend>
+  <run_depend>iai_pr2_bringup</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
