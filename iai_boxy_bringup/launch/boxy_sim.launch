@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find iai_boxy_bringup)/launch/boxy_loopback_sim_no_controllers.launch"/>
+
+  <include file="$(find iai_boxy_controller_configuration)/launch/boxy_sim_vel_controllers.launch"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="log" />
+</launch>
