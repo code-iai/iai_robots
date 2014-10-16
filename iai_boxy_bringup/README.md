@@ -1,6 +1,11 @@
 # Lightweight Boxy simulation
 
 ## Installation
+
+First, make sure you have the following packages installed:
+  * apt-get install ros-hydro-pr2-mechanism-model ros-hydro-pr2-controller-manager ros-hydro-control-toolbox ros-hydro-pr2-mechanism-controllers
+
+
 In addition to this repo, you need to have two more repos from code-iai in your workspace:
   * https://github.com/code-iai/iai_control_pkgs
   * https://github.com/code-iai/iai_common_msgs
@@ -33,7 +38,7 @@ To periodically tell the torso to move the up with 2cm/s, call:
 
 To the stop the torso joint, you need to publish a command with 0 velocity:
 
-```rostopic pub -r  /triangle_base_vel/command std_msgs/Float64 '{data: 0.0}'```
+```rostopic pub -r 10 /triangle_base_vel/command std_msgs/Float64 '{data: 0.0}'```
 
 NOTE: The current version of the torso joint simulation comes without a watchdog. So, you have to send a stop command to stop it!
 
@@ -45,7 +50,7 @@ NOTE: The current version of the head joints simulation comes without a watchdog
 ### Moving the arms
 The move, for instance, the first two joints of the right arm with a velocity of -0.1rad/s, call
 
-```rostopic pub -r  /r_arm_vel/command iai_control_msgs/JointVelocityImpedanceCommand '{velocity: [-0.1, -0.1, 0.0, 0.0, 0.0, 0.0, 0.0]}'```
+```rostopic pub -r 20 /r_arm_vel/command iai_control_msgs/JointVelocityImpedanceCommand '{velocity: [-0.1, -0.1, 0.0, 0.0, 0.0, 0.0, 0.0]}'```
 
 NOTE: The simulated arm controllers already have watchdogs stopping them if you do not send a command every 100ms.
 
