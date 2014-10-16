@@ -2,7 +2,10 @@
 <package>
   <name>iai_boxy_controller_configuration</name>
   <version>0.0.0</version>
-  <description>The iai_boxy_controller_configuration package</description>
+  <description>
+    Holds various controller configurations and launch-files for the controllers
+    the Boxy robot at the IAI institute, University Bremen, Germany.
+  </description>
 
   <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
 
