@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <name>iai_boxy_bringup</name>
+  <version>0.0.0</version>
+  <description>The iai_boxy_bringup package</description>
+
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+
+  <author email="georg.bartels@cs.uni-bremen.de">Georg Bartels</author>
+
+  <license>BSD</license>
+
+  <url type="bugtracker">https://github.com/code-iai/iai_control_pkgs/issues</url>
+  <url type="repository">https://github.com/code-iai/iai_control_pkgs</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>loopback_controller_manager</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>iai_boxy_controller_configuration</run_depend>
+</package>
