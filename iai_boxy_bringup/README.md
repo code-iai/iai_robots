@@ -46,7 +46,7 @@ NOTE: The current version of the head joints simulation comes without a watchdog
 ### Moving the arms
 The move, for instance, the first two joints of the right arm with a velocity of -0.1rad/s, call
 
-```rostopic pub -r 20 /r_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [-0.1, -0.1, 0.0, 0.0, 0.0, 0.0, 0.0]}'```
+```rostopic pub -r 20 /r_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [-0.1, -0.1, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0]}'```
 
 NOTE: The simulated arm controllers already have watchdogs stopping them if you do not send a command every 100ms.
 
