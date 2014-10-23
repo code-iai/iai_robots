@@ -32,15 +32,11 @@ Then you should see something like this...
 For testing purposes, you can command the joints through publishing velocity commands from the console.
 
 ### Moving the torso
-To periodically tell the torso to move the up with 2cm/s, call:
+The torso of the robot offers a velocity-resolved interface. To periodically tell the torso to move the up with 2cm/s, call:
 
-```rostopic pub -r 10 /triangle_base_vel/command std_msgs/Float64 '{data: 0.02}'```
+```rostopic pub -r 20 /torso_vel/command iai_control_msgs/MultiJointVelocityCommand '{velocity: [0.02]}'```
 
-To the stop the torso joint, you need to publish a command with 0 velocity:
-
-```rostopic pub -r 10 /triangle_base_vel/command std_msgs/Float64 '{data: 0.0}'```
-
-NOTE: The current version of the torso joint simulation comes without a watchdog. So, you have to send a stop command to stop it!
+NOTE: The current version of the torso joint simulation comes without a watchdog. It stops the torso if it has not received a command for 100ms.
 
 ### Moving the head joints
 The velocity-resolved controllers for the head_pan_joint and the head_tilt_joint have the same inferace as the triangle_base_joint in the torso. So, you can move them just like the torso joint. You only need to send your commands to the appropriate topics.
