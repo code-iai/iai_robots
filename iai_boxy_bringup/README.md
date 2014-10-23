@@ -36,18 +36,20 @@ The torso of the robot offers a velocity-resolved interface. To periodically tel
 
 ```rostopic pub -r 20 /torso_vel/command iai_control_msgs/MultiJointVelocityCommand '{velocity: [0.02]}'```
 
-NOTE: The current version of the torso joint simulation comes without a watchdog. It stops the torso if it has not received a command for 100ms.
+NOTE: The current version of the torso joint simulation comes with a watchdog. It stops the torso if it has not received a command for 100ms.
 
 ### Moving the head joints
-The velocity-resolved controllers for the head_pan_joint and the head_tilt_joint have the same inferace as the triangle_base_joint in the torso. So, you can move them just like the torso joint. You only need to send your commands to the appropriate topics.
+The pan-tilt unit of the head also offers a velocity-resolved interface. To move both joints with 0.1rad/s send:
 
-NOTE: The current version of the head joints simulation comes without a watchdog. So, you have to send a stop command to stop them!
+```rostopic pub -r 20 /head_vel/command iai_control_msgs/MultiJointVelocityCommand '{velocity: [0.1, 0.1]}'```
+
+NOTE: Also the simulated head controller comes with a watchdog. It stops the head joints if it has not received a command for 100ms.
 
 ### Moving the arms
-The move, for instance, the first two joints of the right arm with a velocity of -0.1rad/s, call
+The arms of the robot offer a velocity-resolved interface which also allows you to set desired joint stiffness with every command. The move, for instance, the first two joints of the right arm with a velocity of -0.1rad/s, and have all joints have a stiffness of 80Nm/rad call:
 
 ```rostopic pub -r 20 /r_arm_vel/command iai_control_msgs/MultiJointVelocityImpedanceCommand '{velocity: [-0.1, -0.1, 0.0, 0.0, 0.0, 0.0, 0.0], stiffness: [80.0, 80.0, 80.0, 80.0, 80.0, 80.0, 80.0]}'```
 
-NOTE: The simulated arm controllers already have watchdogs stopping them if you do not send a command every 100ms.
+NOTE: The simulated arm controllers also have watchdogs stopping them if you do not send a command at least every 100ms.
 
-NOTE: In the current version of the arm simulation, all fields of the command messages but ```velocity``` are ignored.
+NOTE: In the current version of the arm simulation, all fields of the command messages but ```velocity``` are ignored, i.e. we do not have a stiffness simulation.
