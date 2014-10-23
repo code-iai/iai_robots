@@ -40,17 +40,18 @@ l_arm_vel:
     left_arm_5_joint: *pid_gains
     left_arm_6_joint: *pid_gains
 
-head_pan_vel:
-  type: robot_mechanism_controllers/JointVelocityController
-  joint: head_pan_joint
-  pid: *pid_gains
+head_vel:
+  type: "iai_robot_mechanism_controllers/MultiJointVelocityController"
+  joints:
+    - head_pan_joint
+    - head_tilt_joint
+  gains:
+    head_pan_joint: *pid_gains
+    head_tilt_joint: *pid_gains
 
-head_tilt_vel:
-  type: robot_mechanism_controllers/JointVelocityController
-  joint: head_tilt_joint
-  pid: *pid_gains
-
-triangle_base_vel:
-  type: robot_mechanism_controllers/JointVelocityController
-  joint: triangle_base_joint
-  pid: *pid_gains
+torso_vel:
+  type: "iai_robot_mechanism_controllers/MultiJointVelocityController"
+  joints:
+    - triangle_base_joint
+  gains:
+    triangle_base_joint: *pid_gains
