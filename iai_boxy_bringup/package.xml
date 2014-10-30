@@ -18,4 +18,5 @@
   <run_depend>loopback_controller_manager</run_depend>
   <run_depend>robot_state_publisher</run_depend>
   <run_depend>iai_boxy_controller_configuration</run_depend>
+  <run_depend>dlr_action_bridge</run_depend>
 </package>

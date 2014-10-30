@@ -1,0 +1,24 @@
+<launch>
+  <include file="$(find iai_boxy_description)/launch/upload_boxy.launch" />
+
+  <include file="$(find dlr_action_bridge)/launch/single_arm.launch">
+    <arg name="action_name" value="right_arm"/>
+    <arg name="node_name" value="right_arm"/>
+    <arg name="joint_prefix" value="right_"/>
+    <arg name="joint_states_rate" value="40"/>
+  </include>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" 
+        name="robot_state_publisher" output="log" />
+
+  <node pkg="joint_state_publisher" type="joint_state_publisher"
+        name="joint_state_publisher" output="screen">
+    <rosparam param="source_list">
+      - right_arm/joint_states
+    </rosparam>
+    <rosparam param="zeros">
+      'triangle_base_joint': 0.3
+    </rosparam>
+    <param name="rate" value="20"/>
+  </node>
+</launch>
