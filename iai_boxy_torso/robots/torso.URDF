@@ -108,9 +108,9 @@
   </transmission>
 
   <link
-    name="triangle_arm_left_link" />
+    name="triangle_left_arm_link" />
   <joint
-    name="triangle_arm_left_joint"
+    name="triangle_left_arm_joint"
     type="fixed">
     <origin
       xyz="-0.239507442352261 -0.181209704131733 -0.137000000000002"
@@ -118,14 +118,14 @@
     <parent
       link="triangle_base_link" />
     <child
-      link="triangle_arm_left_link" />
+      link="triangle_left_arm_link" />
     <axis
       xyz="0 0 0" />
   </joint>
   <link
-    name="triangle_arm_right_link" />
+    name="triangle_right_arm_link" />
   <joint
-    name="triangle_arm_right_joint"
+    name="triangle_right_arm_joint"
     type="fixed">
     <origin
       xyz="-0.365488160465715 -0.181209539931436 -0.137"
@@ -133,7 +133,7 @@
     <parent
       link="triangle_base_link" />
     <child
-      link="triangle_arm_right_link" />
+      link="triangle_right_arm_link" />
     <axis
       xyz="0 0 0" />
   </joint>
