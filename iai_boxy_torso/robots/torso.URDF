@@ -84,7 +84,7 @@
     name="triangle_base_joint"
     type="prismatic">
     <origin
-      xyz="0.1 0.0175 0.00062489"
+      xyz="0.1 0.0175 0.58662489"
       rpy="-1.5708 -5.5511E-17 1.5708" />
     <parent
       link="torso_base_link" />
@@ -93,8 +93,8 @@
     <axis
       xyz="0 -1 0" />
     <limit
-      lower="0"
-      upper="0.636"
+      lower="-0.586"
+      upper="0"
       effort="1000"
       velocity="2" />
   </joint>
