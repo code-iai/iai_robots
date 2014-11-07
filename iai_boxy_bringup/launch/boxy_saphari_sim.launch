@@ -21,4 +21,6 @@
     </rosparam>
     <param name="rate" value="20"/>
   </node>
+
+  <include file="$(find iai_boxy_bringup)/launch/boxy_arm_ik.launch"/>
 </launch>

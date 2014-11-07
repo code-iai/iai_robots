@@ -1,0 +1,15 @@
+<launch>
+  <node name="left_arm_ik" pkg="kdl_arm_kinematics" type="arm_kinematics" output="screen">
+    <param name="root_name" value="calib_left_arm_base_link"/>
+    <param name="tip_name" value="left_arm_flange_link"/>
+    <param name="epsilon" value="0.001"/>
+    <param name="maxIterations" value="100"/>
+  </node>
+
+  <node name="right_arm_ik" pkg="kdl_arm_kinematics" type="arm_kinematics" output="screen">
+    <param name="root_name" value="calib_right_arm_base_link"/>
+    <param name="tip_name" value="right_arm_flange_link"/>
+    <param name="epsilon" value="0.001"/>
+    <param name="maxIterations" value="100"/>
+  </node>
+</launch>
