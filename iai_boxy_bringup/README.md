@@ -19,7 +19,7 @@ Run the following commands each in a new terminal:
   * ```rosrun rviz rviz```
 
 In rviz,
-  * set the fixed frame to ```map```
+  * set the fixed frame to ```odom```
   * add a plugin of type ```RobotModel```
   * add the ```TF``` plugin
 
@@ -57,7 +57,7 @@ NOTE: In the current version of the arm simulation, all fields of the command me
 ### Moving the base
 The base of the robot offers a twist interface. This is how to command it to move from the terminal:
 
-```rostopic pub -r 10 /odometry_sim/command geometry_msgs/Twist '{linear: {x: 0.1, y: 0.2}, angular: {z: 0.1}}'```
+```rostopic pub -r 10 /cmd_vel geometry_msgs/Twist '{linear: {x: 0.1, y: 0.2}, angular: {z: 0.1}}'```
 
 This command asks for translations of 10cm/s in x- and 20cm/s in y-direction, and a rotation of 0.1rad/s around the z-axis of the base_footprint of the robot.
 
