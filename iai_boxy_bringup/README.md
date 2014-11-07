@@ -19,7 +19,7 @@ Run the following commands each in a new terminal:
   * ```rosrun rviz rviz```
 
 In rviz,
-  * set the fixed frame to ```base_link```
+  * set the fixed frame to ```map```
   * add a plugin of type ```RobotModel```
   * add the ```TF``` plugin
 
