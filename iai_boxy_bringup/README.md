@@ -53,3 +53,14 @@ The arms of the robot offer a velocity-resolved interface which also allows you 
 NOTE: The simulated arm controllers also have watchdogs stopping them if you do not send a command at least every 100ms.
 
 NOTE: In the current version of the arm simulation, all fields of the command messages but ```velocity``` are ignored, i.e. we do not have a stiffness simulation.
+
+### Moving the base
+The base of the robot offers a twist interface. This is how to command it to move from the terminal:
+
+```rostopic pub -r 10 /odometry_sim/command geometry_msgs/Twist '{linear: {x: 0.1, y: 0.2}, angular: {z: 0.1}}'```
+
+This command asks for translations of 10cm/s in x- and 20cm/s in y-direction, and a rotation of 0.1rad/s around the z-axis of the base_footprint of the robot.
+
+NOTE: All other fields of the command message will be ignored.
+
+NOTE: There is a watchdog monitoring the commands. If none come in for 0.5s the base automatically stops.

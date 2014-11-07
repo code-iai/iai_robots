@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="tf" type="static_transform_publisher" name="localization_sim"
+        args="0 0 0 0 0 0 map odom 100" />
+
+  <node pkg="loopback_controller_manager" type="odometry_simulation" name="odometry_sim" output="screen">
+    <param name="watchdog_period" value="0.1" />
+    <param name="sim_period" value="0.02" />
+    <param name="odom_frame" value="odom" />
+    <param name="base_frame" value="base_footprint" />
+  </node>
+</launch>
