@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="default-starting-config" default="0"/>
+  <arg name="default-starting-config" default="1"/>
 
   <!-- some global variable -->
   <param name="/use_sim_time" value="false"/>
