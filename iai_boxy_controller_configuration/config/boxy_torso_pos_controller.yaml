@@ -1,0 +1,7 @@
+torso_state_separator:
+  joint_names:
+    - triangle_base_joint
+torso_pos_controller:
+  vel_command_type: MultiJointVelocityCommand
+  max_speed: 0.05
+  p_gain: 3.5

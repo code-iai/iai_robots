@@ -1,0 +1,14 @@
+<launch>
+  <rosparam command="load" 
+    file="$(find iai_boxy_controller_configuration)/config/boxy_torso_pos_controller.yaml"/>
+
+  <node name="torso_state_separator" pkg="iai_control_utils" type="separate_joint_states.py" args="" output="screen">
+    <remap from="~in_joint_states" to="/joint_states"/>
+    <remap from="~out_joint_states" to="/torso_pos_controller/joint_states"/>
+  </node>
+
+  <node name="torso_pos_controller" pkg="iai_control_utils" type="joint_p_ctrl.py" args="" output="screen">
+    <remap from="~pos_command_in" to="~command"/>
+    <remap from="~vel_command_out" to="/torso_vel/command"/>
+  </node>
+</launch>

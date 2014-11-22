@@ -21,4 +21,5 @@
   <run_depend>iai_robot_mechanism_controllers</run_depend>
   <run_depend>robot_mechanism_controllers</run_depend>
   <run_depend>pr2_controller_manager</run_depend>
+  <run_depend>iai_control_utils</run_depend>
 </package>
