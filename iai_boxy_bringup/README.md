@@ -28,7 +28,7 @@ Then you should see something like this...
 ![rviz view](https://raw.github.com/code-iai/iai_robots/master/iai_boxy_bringup/doc/boxy_sim_rviz.png)
 
 
-## Manually moving the joints
+## Manually moving the joints through the velocity-resolved interface
 For testing purposes, you can command the joints through publishing velocity commands from the console.
 
 ### Moving the torso
@@ -64,3 +64,17 @@ This command asks for translations of 10cm/s in x- and 20cm/s in y-direction, an
 NOTE: All other fields of the command message will be ignored.
 
 NOTE: There is a watchdog monitoring the commands. If none come in for 0.5s the base automatically stops.
+
+## Manually moving the joints through the position-resolved interface
+For convenience purposes, we are also running some naive position controllers on-top of the velocity-resolved. This section shows you how to use this interface from the console.
+
+### Moving the head
+```rostopic pub /head_pos_controller/command std_msgs/Float32MultiArray '{data: [0.4, 0.3]}'```
+
+### Moving the arms
+```rostopic pub /l_arm_pos_controller/command std_msgs/Float32MultiArray '{data: [0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0]}'```
+
+```rostopic pub /r_arm_pos_controller/command std_msgs/Float32MultiArray '{data: [0.0, -1.0, 0.0, -1.0, 0.0, 0.0, 0.0]}'```
+
+### Moving the torso
+```rostopic pub /torso_pos_controller/command std_msgs/Float32MultiArray '{data: [-0.25]}'```
