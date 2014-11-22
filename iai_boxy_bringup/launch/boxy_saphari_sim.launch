@@ -17,7 +17,9 @@
       - right_arm/joint_states
     </rosparam>
     <rosparam param="zeros">
-      'triangle_base_joint': 0.3
+      'triangle_base_joint': -0.3
+      'left_arm_0_joint': 0.64
+      'left_arm_1_joint': 2.0
     </rosparam>
     <param name="rate" value="20"/>
   </node>
