@@ -1,0 +1,49 @@
+r_arm_traj_controller:
+  type: "effort_controllers/JointTrajectoryController"
+  joints:
+    - right_arm_0_joint
+    - right_arm_1_joint
+    - right_arm_2_joint
+    - right_arm_3_joint
+    - right_arm_4_joint
+    - right_arm_5_joint
+    - right_arm_6_joint
+
+  constraints:
+    goal_time: 0.5                   # Override default
+    stopped_velocity_tolerance: 0.02 # Override default
+    right_arm_0_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    right_arm_1_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    right_arm_2_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    right_arm_3_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    right_arm_4_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    right_arm_5_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    right_arm_6_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+
+  gains: # Required because we're controlling an effort interface
+    right_arm_0_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    right_arm_1_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    right_arm_2_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    right_arm_3_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    right_arm_4_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    right_arm_5_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    right_arm_6_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+
+  state_publish_rate:  25            # Override default
+  action_monitor_rate: 30            # Override default
+  stop_trajectory_duration: 0        # Override default
+

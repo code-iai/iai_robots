@@ -1,0 +1,8 @@
+<launch>
+  <rosparam command="load" 
+    file="$(find iai_boxy_controller_configuration)/config/boxy_arm_joint_trajectory.yaml"/>
+
+  <node name="r_arm_joint_traj_ctrl_spawner" pkg="controller_manager" type="spawner" args="r_arm_traj_controller" output="screen"/>
+
+
+</launch>
