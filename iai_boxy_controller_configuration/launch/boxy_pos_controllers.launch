@@ -4,4 +4,6 @@
   <include file="$(find iai_boxy_controller_configuration)/launch/boxy_head_pos_controller.launch"/>
 
   <include file="$(find iai_boxy_controller_configuration)/launch/boxy_torso_pos_controller.launch"/>
+
+  <include file="$(find iai_boxy_controller_configuration)/launch/boxy_gripper_pos_controller.launch"/>
 </launch>

@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="boxy_description">
 	<xacro:include filename="$(find iai_kuka_lwr4_description)/defs/materials.xml"/>
-	<xacro:include filename="$(find iai_kuka_lwr4_description)/urdf/kuka_lwr_arm.urdf.xacro"/>	
+	<xacro:include filename="$(find iai_kuka_lwr4_description)/urdf/kuka_lwr_arm.urdf.xacro"/>
+	<xacro:include filename="$(find wsg_50_simulation)/urdf/wsg_50.urdf.xacro"/>	
 	
 	<!-- Property definitions e.g. constants -->
 	<xacro:property name="head_joint_x" value="0.2" />
@@ -51,17 +52,26 @@
           <origin xyz="0 0 0" rpy="0 0 1.047198"/>
 	</kuka_lwr_arm>
 	
+	<!-- Old gripper
 	<xacro:include filename="$(find iai_weiss_wsg50)/robots/weiss_wsg50.urdf" />
 	
-	<!-- JOINT to connect the base with the torso -->
 	<joint name="left_hand_joint" type="fixed">
 		<origin xyz="0 0 0.08" rpy="0 0 0" />
 		<parent link="left_arm_7_link" />
 		<child link="gripper_base_link" />
 	</joint>
-	<!-- /JOINT to connect the base with the torso -->
+  -->
 
 	<kuka_lwr_arm parent="triangle_right_arm_link" name="right">
           <origin xyz="0 0 0" rpy="0 0 -1.047198"/>
 	</kuka_lwr_arm>
+
+	<wsg_50_xacro name="left_gripper" parent="left_arm_flange_link">
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+	</wsg_50_xacro>
+
+	<wsg_50_xacro name="right_gripper" parent="right_arm_flange_link">
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+	</wsg_50_xacro>
+
 </robot>
