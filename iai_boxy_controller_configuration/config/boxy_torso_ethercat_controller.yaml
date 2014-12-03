@@ -1,0 +1,3 @@
+torso_pos_controller:
+  type: "position_controllers/JointPositionController"
+  joint: triangle_base_joint

@@ -1,0 +1,8 @@
+<launch>
+  <rosparam command="load" 
+    file="$(find iai_boxy_controller_configuration)/config/boxy_torso_ethercat_controller.yaml"/>
+
+  <node name="torso_pos_ctrl_spawner" pkg="controller_manager" type="spawner" args="torso_pos_controller" output="screen"/>
+
+
+</launch>
