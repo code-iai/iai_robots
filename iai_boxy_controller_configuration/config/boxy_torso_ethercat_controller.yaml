@@ -1,3 +1,7 @@
+# torso_pos_controller:
+#   type: "position_controllers/JointPositionController"
+#   joint: triangle_base_joint
 torso_pos_controller:
-  type: "position_controllers/JointPositionController"
+  type: "effort_controllers/JointPositionController"
   joint: triangle_base_joint
+  pid: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 0.0}
