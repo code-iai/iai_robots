@@ -9,6 +9,7 @@ First, make sure you have the following packages installed:
 In addition to this repo, you need to have two more repos from code-iai in your workspace:
   * https://github.com/code-iai/iai_control_pkgs
   * https://github.com/code-iai/iai_common_msgs
+  * https://github.com/code-iai/iai_robot_drivers
 
 Build them all by running ```catkin_make```
 
@@ -78,3 +79,28 @@ For convenience purposes, we are also running some naive position controllers on
 
 ### Moving the torso
 ```rostopic pub /torso_pos_controller/command std_msgs/Float32MultiArray '{data: [-0.25]}'```
+
+## Controlling the gripper
+Both fingers of a gripper always move symmetrical. The unit of the velocity is here mm/s and the position is the distance between the two fingers in mm.
+
+### Controlling the gripper through the velocity-resolved interface
+Open right gripper:
+
+```rostopic pub /r_gripper_vel/goal_speed wsg_50_msgs/SpeedCmd '{speed: 50.0}' ```
+
+Close left gripper:
+
+```rostopic pub /l_gripper_vel/goal_speed wsg_50_msgs/SpeedCmd '{speed: -50.0}' ```
+
+### Controlling the gripper through the position-resolved interface
+
+Opening the right gripper:
+
+```rostopic pub /r_gripper_pos/goal_position wsg_50_msgs/PositionCmd '{pos: 110, speed: 20.0}'```
+
+Closing left gripper:
+
+```rostopic pub /l_gripper_pos/goal_position wsg_50_msgs/PositionCmd '{pos: 0, speed: 20.0}'```
+
+
+NOTE: The force field of the Messages will be ignored.

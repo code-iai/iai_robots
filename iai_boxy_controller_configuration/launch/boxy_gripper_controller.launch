@@ -1,0 +1,34 @@
+<launch> 
+
+  <!-- Start controller for right gripper -->
+  <rosparam command="load" 
+    file="$(find iai_boxy_controller_configuration)/config/boxy_r_gripper_pos_controller.yaml"/>
+
+  <node name="r_gripper_state_separator" pkg="iai_control_utils" type="separate_joint_states.py" args="" output="screen">
+    <remap from="~in_joint_states" to="/joint_states"/>
+    <remap from="~out_joint_states" to="/r_gripper_pos_controller/joint_states"/>
+  </node>
+
+  <node name="r_gripper_pos_controller" pkg="iai_boxy_controller_configuration" type="wsg_50_controller.py" args="" output="screen">
+    <remap from="~pos_command_in" to="~do_not_use"/>
+    <remap from="~vel_command_out" to="/r_gripper_vel/command"/>
+    <remap from="~wsg_speed_in" to="/r_gripper_vel/goal_speed"/>
+    <remap from="~wsg_position_in" to="/r_gripper_pos/goal_position"/>
+  </node>
+
+  <!-- Start controller for left gripper -->
+  <rosparam command="load" 
+    file="$(find iai_boxy_controller_configuration)/config/boxy_l_gripper_pos_controller.yaml"/>
+
+  <node name="l_gripper_state_separator" pkg="iai_control_utils" type="separate_joint_states.py" args="" output="screen">
+    <remap from="~in_joint_states" to="/joint_states"/>
+    <remap from="~out_joint_states" to="/l_gripper_pos_controller/joint_states"/>
+  </node>
+
+  <node name="l_gripper_pos_controller" pkg="iai_boxy_controller_configuration" type="wsg_50_controller.py" args="" output="screen">
+    <remap from="~pos_command_in" to="~do_not_use"/>
+    <remap from="~vel_command_out" to="/l_gripper_vel/command"/>
+    <remap from="~wsg_speed_in" to="/l_gripper_vel/goal_speed"/>
+    <remap from="~wsg_position_in" to="/l_gripper_pos/goal_position"/>
+  </node>
+</launch>

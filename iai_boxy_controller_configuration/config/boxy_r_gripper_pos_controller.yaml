@@ -1,0 +1,8 @@
+r_gripper_state_separator:
+  joint_names:
+    - right_gripper_base_joint_gripper_left
+    - right_gripper_base_joint_gripper_right
+r_gripper_pos_controller:
+  vel_command_type: MultiJointVelocityCommand
+  max_speed: 1.2
+  p_gain: 3.5
