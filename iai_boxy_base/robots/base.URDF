@@ -36,7 +36,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://iai_boxy_base/meshes/base_link.STL" />
+          filename="package://iai_boxy_base/meshes/base_link_simple.STL" />
       </geometry>
     </collision>
   </link>
