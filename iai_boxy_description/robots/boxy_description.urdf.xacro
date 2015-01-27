@@ -37,6 +37,27 @@
 	<!-- /JOINT to connect the base with the pw070 -->
 	
 	<xacro:include filename="$(find iai_schunk_pw070_v6)/robots/pw070_v6.URDF" />
+
+	<!-- JOINT to place the kinect2 camera on the pw070 -->
+        <!-- Comes from tool_H_clink in the calibration
+             The quaternion was converted to RPY using python and KDL
+              halcon has quat: w x y z
+              kdl and tf_static_transform_publisher use: x y z w
+            So take the first number from the halcon quat and put it last for KDL.
+           import PyKDL as p; r2 = p.Rotation.Quaternion(-0.494547,0.491515,-0.506787,0.506955) ; r2.GetRPY() 
+  answer: (-1.5431199762943342, -0.0029080109443817533, -1.5676362600579434) -->
+	<joint name="kinect2_joint" type="fixed">
+		<origin xyz="0.0402529 -0.0959434 0.0332714" rpy="-1.5431199762943342 -0.0029080109443817533 -1.5676362600579434" />
+		<parent link="pw070_frame_out" />
+		<child link="head_mount_kinect2_rgb_optical_frame" />
+	</joint>
+	<!-- JOINT to place the kinect2 camera on the pw070 -->
+        <!-- empty link for the rgb_optical_frame -->
+        <link name="head_mount_kinect2_rgb_optical_frame">
+        </link>
+
+        
+
 	
 	<!-- JOINT to connect the base with the torso -->
 	<joint name="torso_joint" type="fixed">
@@ -62,6 +83,7 @@
 	</joint>
   -->
 
+	<!--This is a 60deg rotation to calib_right_arm_base_link -->
 	<kuka_lwr_arm parent="triangle_right_arm_link" name="right">
           <origin xyz="0 0 0" rpy="0 0 -1.047198"/>
 	</kuka_lwr_arm>
