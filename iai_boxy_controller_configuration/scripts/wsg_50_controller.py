@@ -20,7 +20,7 @@
 
 import rospy
 import sys
-from wsg_50_msgs.msg import SpeedCmd, PositionCmd
+from iai_wsg_50_msgs.msg import SpeedCmd, PositionCmd
 from std_msgs.msg import Float32MultiArray, Header
 from iai_control_utils.jcontroller import JController
 
