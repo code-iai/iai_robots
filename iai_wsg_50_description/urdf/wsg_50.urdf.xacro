@@ -55,7 +55,7 @@
      <limit lower="-0.055" upper="-0.0027" effort="1.0" velocity="0.42"/>
      <origin xyz="0 0 0" rpy="0 0 0" />      <!--origin xyz="-0.0067 0 0.049" rpy="0 0 0" /-->
      <parent link="${name}_base_link"/>
-     <child link="${name}_gripper_left" />
+     <child link="${name}_gripper_left_link" />
      <dynamics friction="100" damping="100" />
      <axis xyz="1 0 0"/>
      <!-- <limit effort="100" velocity="100"/> -->
@@ -68,7 +68,7 @@
      <motorTorqueConstant>1</motorTorqueConstant>
   </transmission>
 
-  <link name="${name}_gripper_left">
+  <link name="${name}_gripper_left_link">
       <inertial>
           <mass value="0.1" />
           <origin xyz="0 0 0" />
@@ -98,7 +98,7 @@
      <contact_coefficients kd="1.0" kp="1000.0" mu="0"/>
   </link>
 
-  <gazebo reference="${name}_gripper_left">
+  <gazebo reference="${name}_gripper_left_link">
     <material>Gazebo/Blue</material>
     <turnGravityOff>false</turnGravityOff>
   </gazebo>
@@ -108,14 +108,14 @@
 
   <joint name="${name}_guide_joint_finger_left" type="fixed">
      <origin xyz="0 0 0.023" rpy="0 0 0" />
-     <parent link="${name}_gripper_left"/>
-     <child link="${name}_finger_left" />
+     <parent link="${name}_gripper_left_link"/>
+     <child link="${name}_finger_left_link" />
      <dynamics friction="100" damping="100" />
      <axis xyz="1 0 0"/>
      <!-- <limit effort="100" velocity="100"/> -->
   </joint>
 
-  <link name="${name}_finger_left">
+  <link name="${name}_finger_left_link">
       <inertial>
           <mass value="0.1" />
           <origin xyz="0 0 0" />
@@ -155,7 +155,7 @@
      <limit lower="0.0027" upper="0.055" effort="1.0" velocity="0.42"/>
      <origin xyz="0 0 0" rpy="0 0 3.14159" />
      <parent link="${name}_base_link"/>
-     <child link="${name}_gripper_right" />
+     <child link="${name}_gripper_right_link" />
      <axis xyz="-1 0 0"/>
      <dynamics friction="100" damping="100" />
      <!-- <limit effort="100" velocity="100"/>-->
@@ -168,7 +168,7 @@
      <motorTorqueConstant>1</motorTorqueConstant>
   </transmission>
 	
-    <link name="${name}_gripper_right">
+    <link name="${name}_gripper_right_link">
       <inertial>
           <mass value="0.1" />
           <origin xyz="0 0 0" />
@@ -207,14 +207,14 @@
 
   <joint name="${name}_guide_joint_finger_right" type="fixed">
      <origin xyz="0 0 0.023" rpy="0 0 0" />
-     <parent link="${name}_gripper_right"/>
-     <child link="${name}_finger_right" />
+     <parent link="${name}_gripper_right_link"/>
+     <child link="${name}_finger_right_link" />
      <dynamics friction="100" damping="100" />
      <axis xyz="1 0 0"/>
      <limit effort="100" velocity="100"/>
   </joint>
 
-  <link name="${name}_finger_right">
+  <link name="${name}_finger_right_link">
       <inertial>
           <mass value="0.1" />
           <origin xyz="0 0 0" />
