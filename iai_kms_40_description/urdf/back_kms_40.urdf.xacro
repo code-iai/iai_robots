@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+       name="kms_40"> 
+
+  <xacro:macro name="kms_40_xacro" params="prefix parent">
+
+    <joint name="${prefix}_cabling_adaptor_joint" type="fixed">
+      <origin xyz="0 0 0.005" rpy="0 0 3.14159265359"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}_cabling_adaptor_link"/>
+    </joint>
+    
+
+    <link name="${prefix}_cabling_adaptor_link">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <cylinder length="0.01" radius="0.0315"/>
+        </geometry>
+        <material name="Black"/>
+      </visual>
+    </link>
+
+    <joint name="${prefix}_kms40_adaptor_joint" type="fixed">
+      <origin xyz="0 0 0.013" rpy="0 0 0" />
+      <parent link="${prefix}_cabling_adaptor_link"/>
+      <child link="${prefix}_kms40_adaptor_link"/>
+    </joint>
+
+    <link name="${prefix}_kms40_adaptor_link">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <cylinder length="0.016" radius="0.0315"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+    </link>
+
+    <joint name="${prefix}_kms40_joint" type="fixed">
+      <origin xyz="0 0 0.021" rpy="0 0 0" />
+      <parent link="${prefix}_kms40_adaptor_link"/>
+      <child link="${prefix}_kms40_link"/>
+    </joint>
+
+    <link name="${prefix}_kms40_link">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <cylinder length="0.026" radius="0.033"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+    </link>
+ 
+  </xacro:macro>
+</robot>
