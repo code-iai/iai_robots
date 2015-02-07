@@ -3,7 +3,8 @@
 	<xacro:include filename="$(find iai_kuka_lwr4_description)/defs/materials.xml"/>
 	<xacro:include filename="$(find iai_kuka_lwr4_description)/urdf/kuka_lwr_arm.urdf.xacro"/>
 	<xacro:include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/>	
-	
+	<xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
+
 	<!-- Property definitions e.g. constants -->
 	<xacro:property name="head_joint_x" value="0.2" />
 	<xacro:property name="head_joint_y" value="-0.21" />
@@ -88,12 +89,18 @@
           <origin xyz="0 0 0" rpy="0 0 -1.047198"/>
 	</kuka_lwr_arm>
 
-	<wsg_50_xacro name="left_gripper" parent="left_arm_flange_link">
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-	</wsg_50_xacro>
+        <kms_40_xacro parent="right_arm_cabling_adaptor_link" prefix="right_arm"/>
 
-	<wsg_50_xacro name="right_gripper" parent="right_arm_flange_link">
+
+
+
+
+	<!--wsg_50_xacro name="left_gripper" parent="left_arm_flange_link">
 		<origin xyz="0 0 0" rpy="0 0 0"/>
-	</wsg_50_xacro>
+	</wsg_50_xacro-->
+
+	<!--wsg_50_xacro name="right_gripper" parent="right_arm_flange_link">
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+	</wsg_50_xacro-->
 
 </robot>
