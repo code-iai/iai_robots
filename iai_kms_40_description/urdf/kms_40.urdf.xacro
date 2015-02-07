@@ -2,10 +2,10 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro"
        name="kms_40"> 
 
-  <xacro:macro name="kms_40_xacro" params="prefix parent">
+  <xacro:macro name="kms_40_xacro" params="prefix parent *origin">
 
     <joint name="${prefix}_kms40_adaptor_joint" type="fixed">
-      <origin xyz="0 0 0.013" rpy="0 0 3.14159265359" />
+      <insert_block name="origin"/>
       <parent link="${parent}"/>
       <child link="${prefix}_kms40_adaptor_link"/>
     </joint>

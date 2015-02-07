@@ -89,7 +89,9 @@
           <origin xyz="0 0 0" rpy="0 0 -1.047198"/>
 	</kuka_lwr_arm>
 
-        <kms_40_xacro parent="right_arm_cabling_adaptor_link" prefix="right_arm"/>
+        <kms_40_xacro parent="right_arm_cabling_adaptor_link" prefix="right_arm">
+          <origin xyz="0 0 0.013" rpy="0 0 3.14159265359" />
+        </kms_40_xacro>
 
 
 
