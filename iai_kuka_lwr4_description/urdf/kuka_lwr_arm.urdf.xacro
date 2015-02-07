@@ -404,13 +404,13 @@
 
     </link>
 
-    <joint name="${name}_cabling_adaptor_joint" type="fixed">
+    <joint name="${name}_arm_cabling_adaptor_joint" type="fixed">
       <origin xyz="0 0 0.005" rpy="0 0 0"/>
       <parent link="${name}_arm_flange_link"/>
-      <child link="${name}_cabling_adaptor_link"/>
+      <child link="${name}_arm_cabling_adaptor_link"/>
     </joint>
     
-    <link name="${name}_cabling_adaptor_link">
+    <link name="${name}_arm_cabling_adaptor_link">
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
