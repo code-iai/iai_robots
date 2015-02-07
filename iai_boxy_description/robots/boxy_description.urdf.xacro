@@ -74,16 +74,6 @@
           <origin xyz="0 0 0" rpy="0 0 1.047198"/>
 	</kuka_lwr_arm>
 	
-	<!-- Old gripper
-	<xacro:include filename="$(find iai_weiss_wsg50)/robots/weiss_wsg50.urdf" />
-	
-	<joint name="left_hand_joint" type="fixed">
-		<origin xyz="0 0 0.08" rpy="0 0 0" />
-		<parent link="left_arm_7_link" />
-		<child link="gripper_base_link" />
-	</joint>
-  -->
-
 	<!--This is a 60deg rotation to calib_right_arm_base_link -->
 	<kuka_lwr_arm parent="triangle_right_arm_link" name="right">
           <origin xyz="0 0 0" rpy="0 0 -1.047198"/>
