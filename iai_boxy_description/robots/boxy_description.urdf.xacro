@@ -74,9 +74,9 @@
           <origin xyz="0 0 0" rpy="0 0 1.047198"/>
 	</kuka_lwr_arm>
 
-	<!--wsg_50_xacro name="left_gripper" parent="left_arm_flange_link">
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-	</wsg_50_xacro-->
+	<wsg_50_xacro name="left_gripper" parent="left_arm_cabling_adaptor_link">
+          <origin xyz="0 0 0" rpy="0 0 0.005"/>
+	</wsg_50_xacro>
 
 	<!--This is a 60deg rotation to calib_right_arm_base_link -->
 	<kuka_lwr_arm parent="triangle_right_arm_link" name="right">
