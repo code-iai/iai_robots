@@ -404,7 +404,22 @@
 
     </link>
 
+    <joint name="${name}_cabling_adaptor_joint" type="fixed">
+      <origin xyz="0 0 0.005" rpy="0 0 0"/>
+      <parent link="${name}_arm_flange_link"/>
+      <child link="${name}_cabling_adaptor_link"/>
+    </joint>
     
+    <link name="${name}_cabling_adaptor_link">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <cylinder length="0.01" radius="0.0315"/>
+        </geometry>
+        <material name="Black"/>
+      </visual>
+    </link>
+
     <!-- joint name="${name}_arm_hand_fixed_joint" type="fixed">
       <origin xyz="${-right * 0.075} -0.075 -0.016"
               rpy="${0.5*right*M_PI} 0 ${(1.5 + 0.25*right)*M_PI}"/>
