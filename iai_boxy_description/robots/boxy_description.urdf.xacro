@@ -4,6 +4,7 @@
 	<xacro:include filename="$(find iai_kuka_lwr4_description)/urdf/kuka_lwr_arm.urdf.xacro"/>
 	<xacro:include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/>	
 	<xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
+	<xacro:include filename="$(find iai_boxy_description)/sensors/kinect.urdf.xacro"/>
 
 	<!-- Property definitions e.g. constants -->
 	<xacro:property name="head_joint_x" value="0.2" />
@@ -57,8 +58,15 @@
         <link name="head_mount_kinect2_rgb_optical_frame">
         </link>
 
-        
-
+        <!-- shoulder kinect -->
+        <!-- ORIGINAL DATA FROM HALCON CALIBRATION:
+             from: base_link to: shoulder_kinect_link
+             translation: -0.135394 -0.00764754 1.54755 (xyz)
+             quaternion: 0.0177781 0.202257 -0.0472198 0.978032 (xyzw) -->
+        <kinect name="shoulder_kinect" parent="base_link">
+          <origin xyz="-0.135394 -0.00764754 1.54755"
+                  rpy="0.01708077682636155 0.4085798647123734 -0.09294704527264909"/> 
+       </kinect>
 	
 	<!-- JOINT to connect the base with the torso -->
 	<joint name="torso_joint" type="fixed">
