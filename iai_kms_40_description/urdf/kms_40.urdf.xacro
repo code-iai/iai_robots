@@ -4,53 +4,71 @@
 
   <xacro:macro name="kms_40_xacro" params="prefix parent *origin">
 
-    <joint name="${prefix}_kms40_adaptor_joint" type="fixed">
+    <!-- Joint connecting the parent to our frame_in -->
+    <joint name="${prefix}_adapter_iso50_kms40_joint" type="fixed">
       <insert_block name="origin"/>
       <parent link="${parent}"/>
-      <child link="${prefix}_kms40_adaptor_link"/>
+      <child link="${prefix}_adapter_iso50_kms40_frame_in"/>
     </joint>
 
-    <link name="${prefix}_kms40_adaptor_link">
+    <!-- link for the adapter plate -->
+    <link name="${prefix}_adapter_iso50_kms40_frame_in">
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-          <cylinder length="0.016" radius="0.0315"/>
+          <mesh filename="package://iai_kms_40_description/meshes/adapter_plate_iso50_kms40_weiss.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Grey"/>
       </visual>
     </link>
+
+
+    <!-- Empty link just to get the frame out -->
+    <link name="${prefix}_adapter_iso50_kms40_frame_out"/>
+
+
+    <!-- joint positioning the frame_out -->
+    <joint name="${prefix}_adapter_iso50_kms40_trans_frame_out" type="fixed">
+      <origin xyz="0 0 0.016" rpy="0 0 0" />
+      <parent link="${prefix}_adapter_iso50_kms40_frame_in" />
+      <child link="${prefix}_adapter_iso50_kms40_frame_out" />
+      <axis xyz="0 0 0" />
+    </joint>
+
+
+    <!-- Now joint connecting the actual kms40 sensor -->
+
 
     <joint name="${prefix}_kms40_joint" type="fixed">
-      <origin xyz="0 0 0.021" rpy="0 0 0" />
-      <parent link="${prefix}_kms40_adaptor_link"/>
-      <child link="${prefix}_kms40_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}_adapter_iso50_kms40_frame_out"/>
+      <child link="${prefix}_kms40_frame_in"/>
     </joint>
 
-    <link name="${prefix}_kms40_link">
+    <!-- Link for the kms40 sensor-->
+    <link name="${prefix}_kms40_frame_in">
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-          <cylinder length="0.026" radius="0.033"/>
+          <mesh filename="package://iai_kms_40_description/meshes/kms40_simple.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Grey"/>
       </visual>
     </link>
- 
-    <joint name="${prefix}_kms40_connector_joint" type="fixed">
-      <origin xyz="0.021 0 0" rpy="0 0 0" />
-      <parent link="${prefix}_kms40_link"/>
-      <child link="${prefix}_kms40_connector_link"/>
+
+    <!-- Empty link just to get the frame out -->
+    <!-- This is also the reference frame for the force/torque data -->
+    <link name="${prefix}_kms40_frame_out"/>
+
+
+    <!-- joint positioning the frame_out -->
+    <joint name="${prefix}_kms40_trans_frame_out" type="fixed">
+      <origin xyz="0 0 0.027" rpy="0 0 0" />
+      <parent link="${prefix}_kms40_frame_in" />
+      <child link="${prefix}_kms40_frame_out" />
+      <axis xyz="0 0 0" />
     </joint>
 
-    <link name="${prefix}_kms40_connector_link">
-      <visual>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <geometry>
-          <box size="0.042 0.038 0.0255"/>
-        </geometry>
-        <material name="Grey"/>
-      </visual>
-    </link>
 
   </xacro:macro>
 </robot>

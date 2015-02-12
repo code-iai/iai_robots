@@ -407,14 +407,14 @@
 
     <!-- Many Kuka LWR4s are equipped with a little plate to let the cables go out sideways -->
     <joint name="${name}_arm_cabling_adaptor_joint" type="fixed">
-      <origin xyz="0 0 0.005" rpy="0 0 0"/>  <!--FIXME: this puts the link in the center of the adapter, instead of the end -->
+      <origin xyz="0 0 0.01" rpy="0 0 0"/>  <!-- This places the link at the end of the plate (frame_out) -->
       <parent link="${name}_arm_flange_link"/>
       <child link="${name}_arm_cabling_adaptor_link"/>
     </joint>
     
     <link name="${name}_arm_cabling_adaptor_link">
       <visual>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin xyz="0 0 -0.005" rpy="0 0 0" />  <!-- The cylinder is placed at the center -->
         <geometry>
           <cylinder length="0.01" radius="0.0315"/>
         </geometry>

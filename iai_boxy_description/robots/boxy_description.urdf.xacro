@@ -94,14 +94,13 @@
           <origin xyz="0 0 0" rpy="0 0 -1.047198"/>
 	</kuka_lwr_arm>
 
+        <!-- The following URDFs have frame_in / frame_out, so they are simply placed at their parent -->
         <kms_40_xacro parent="right_arm_cabling_adaptor_link" prefix="right_arm">
-          <origin xyz="0 0 0.013" rpy="0 0 3.14159265359" />  <!--places the kms40 frame 13mm from the parent -->
+          <origin xyz="0 0 0" rpy="0 0 3.14159265359" />  <!--places the kms40 frame 13mm from the parent -->
         </kms_40_xacro>
 
-        <!-- The following 3 URDFs have frame_in / frame_out, so they are simply placed at their parent -->
-
-        <adapter_kms40_fwk050_xacro parent="right_arm_kms40_link" prefix="right_arm">
-          <origin xyz="0 0 0.013" rpy="0 0 0" /> 
+        <adapter_kms40_fwk050_xacro parent="right_arm_kms40_frame_out" prefix="right_arm">
+          <origin xyz="0 0 0" rpy="0 0 0" /> 
         </adapter_kms40_fwk050_xacro>
 
         <fwk_fwa_050_xacro parent="right_arm_adapter_kms40_fwk050_frame_out" prefix="right_arm">
