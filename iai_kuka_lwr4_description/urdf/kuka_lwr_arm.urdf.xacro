@@ -404,8 +404,10 @@
 
     </link>
 
+
+    <!-- Many Kuka LWR4s are equipped with a little plate to let the cables go out sideways -->
     <joint name="${name}_arm_cabling_adaptor_joint" type="fixed">
-      <origin xyz="0 0 0.005" rpy="0 0 0"/>
+      <origin xyz="0 0 0.005" rpy="0 0 0"/>  <!--FIXME: this puts the link in the center of the adapter, instead of the end -->
       <parent link="${name}_arm_flange_link"/>
       <child link="${name}_arm_cabling_adaptor_link"/>
     </joint>
