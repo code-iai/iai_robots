@@ -5,6 +5,9 @@
 	<xacro:include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/>	
 	<xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
 	<xacro:include filename="$(find iai_boxy_description)/sensors/kinect.urdf.xacro"/>
+	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_fwa050_wsg50.urdf.xacro"/>
+	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
+	<xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
 
 	<!-- Property definitions e.g. constants -->
 	<xacro:property name="head_joint_x" value="0.2" />
@@ -92,11 +95,25 @@
 	</kuka_lwr_arm>
 
         <kms_40_xacro parent="right_arm_cabling_adaptor_link" prefix="right_arm">
-          <origin xyz="0 0 0.013" rpy="0 0 3.14159265359" />
+          <origin xyz="0 0 0.013" rpy="0 0 3.14159265359" />  <!--places the kms40 frame 13mm from the parent -->
         </kms_40_xacro>
 
-        <wsg_50_xacro name="right_gripper" parent="right_arm_kms40_link">
-          <origin xyz="0 0 0.013" rpy="0 0 3.14159265359"/>
+        <!-- The following 3 URDFs have frame_in / frame_out, so they are simply placed at their parent -->
+
+        <adapter_kms40_fwk050_xacro parent="right_arm_kms40_link" prefix="right_arm">
+          <origin xyz="0 0 0.013" rpy="0 0 0" /> 
+        </adapter_kms40_fwk050_xacro>
+
+        <fwk_fwa_050_xacro parent="right_arm_adapter_kms40_fwk050_frame_out" prefix="right_arm">
+          <origin xyz="0 0 0" rpy="0 0 0" />
+        </fwk_fwa_050_xacro>
+
+        <adapter_fwa050_wsg50_xacro parent="right_arm_fwk_fwa_050_frame_out" prefix="right_arm">
+          <origin xyz="0 0 0.0" rpy="0 0 0" />
+        </adapter_fwa050_wsg50_xacro>
+
+        <wsg_50_xacro name="right_gripper" parent="right_arm_adapter_fwa050_wsg50_frame_out">
+          <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
 	</wsg_50_xacro>
 
 </robot>
