@@ -247,6 +247,15 @@
     <turnGravityOff>false</turnGravityOff>
   </gazebo>
 
+
+  <link name="${name}_tool_frame"/>
+
+  <joint name="${name}_tool_frame_joint" type="fixed">
+     <origin xyz="0 0 0.154" rpy="0 0 0" />
+     <parent link="${name}_base_link"/>
+     <child link="${name}_tool_frame" />
+  </joint>
+
 </xacro:macro>
 
 </robot>
