@@ -8,6 +8,7 @@
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_fwa050_wsg50.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
+	<xacro:include filename="$(find iai_kinect2_description)/urdf/kinect2.urdf.xacro"/>
 
 	<!-- Property definitions e.g. constants -->
 	<xacro:property name="head_joint_x" value="0.2" />
@@ -43,23 +44,23 @@
 	
 	<xacro:include filename="$(find iai_schunk_pw070_v6)/robots/pw070_v6.URDF" />
 
-	<!-- JOINT to place the kinect2 camera on the pw070 -->
-        <!-- Comes from tool_H_clink in the calibration
+	<!-- Kinect2 -->
+        <!-- Pose comes from tool_H_clink in the calibration
              The quaternion was converted to RPY using python and KDL
-              halcon has quat: w x y z
-              kdl and tf_static_transform_publisher use: x y z w
-            So take the first number from the halcon quat and put it last for KDL.
-           import PyKDL as p; r2 = p.Rotation.Quaternion(-0.494547,0.491515,-0.506787,0.506955) ; r2.GetRPY() 
-  answer: (-1.5431199762943342, -0.0029080109443817533, -1.5676362600579434) -->
-	<joint name="kinect2_joint" type="fixed">
+               halcon has quat: w x y z
+               kdl and tf_static_transform_publisher use: x y z w
+             So take the first number from the halcon quat and put it last for KDL.
+               import PyKDL as p; r2 = p.Rotation.Quaternion(-0.494547,0.491515,-0.506787,0.506955) ; r2.GetRPY() 
+               answer: (-1.5431199762943342, -0.0029080109443817533, -1.5676362600579434) -->
+
+        <!-- The following kinect2_xacro defines the _kinect2_rgb_optical_frame
+        And includes the fixed joint to place the kinect on the pw070  -->
+        <kinect2_xacro parent="pw070_frame_out" prefix="head_mount">
 		<origin xyz="0.0402529 -0.0959434 0.0332714" rpy="-1.5431199762943342 -0.0029080109443817533 -1.5676362600579434" />
-		<parent link="pw070_frame_out" />
-		<child link="head_mount_kinect2_rgb_optical_frame" />
-	</joint>
-	<!-- JOINT to place the kinect2 camera on the pw070 -->
-        <!-- empty link for the rgb_optical_frame -->
-        <link name="head_mount_kinect2_rgb_optical_frame">
-        </link>
+        </kinect2_xacro>
+
+
+
 
         <!-- shoulder kinect -->
         <!-- ORIGINAL DATA FROM HALCON CALIBRATION:
