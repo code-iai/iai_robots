@@ -4,6 +4,10 @@
     <color rgba="0.3 0.3 0.3 1.0"/>
   </material>
 
+  <material name="DarkerGrey">
+    <color rgba="0.15 0.15 0.15 1.0"/>
+  </material>
+
   <material name="Black">
     <color rgba="0 0 0 1.0"/>
   </material>
