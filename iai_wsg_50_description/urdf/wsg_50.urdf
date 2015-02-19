@@ -81,7 +81,7 @@
       <visual>
           <origin xyz="0.0 0 0" rpy="0 0 0" />
           <geometry>
-             <mesh filename="package://iai_wsg_50_description/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+             <mesh filename="package://iai_wsg_50_description/meshes/GUIDE_WSG50_110.stl" "/>
 	     <!--box size="0.0175 0.03 0.024"/-->
           </geometry>
           <material name="black">
@@ -93,7 +93,7 @@
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
 	     <!--box size="0.0175 0.03 0.024"/-->
-             <mesh filename="package://iai_wsg_50_description/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+             <mesh filename="package://iai_wsg_50_description/meshes/GUIDE_WSG50_110.stl" "/>
          </geometry>
      </collision>
   </link>
@@ -127,7 +127,7 @@
       <visual>
           <origin xyz="0.0 0 0" rpy="0 0 0" />
           <geometry>
-             <mesh filename="package://iai_wsg_50_description/meshes/WSG-FMF.stl" scale="0.001 0.001 0.001"/>
+             <mesh filename="package://iai_wsg_50_description/meshes/WSG-FMF.stl" "/>
           </geometry>
           <material name="black">
 		<color rgba="0 0 0 0"/>
@@ -137,7 +137,7 @@
       <collision>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
-             <mesh filename="package://iai_wsg_50_description/meshes/WSG-FMF.stl" scale="0.001 0.001 0.001"/>
+             <mesh filename="package://iai_wsg_50_description/meshes/WSG-FMF.stl" "/>
          </geometry>
      </collision>
   </link>
@@ -179,7 +179,7 @@
       <visual>
           <origin xyz="0.0 0 0" rpy="0 0 0" />
           <geometry>
-             <mesh filename="package://iai_wsg_50_description/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+             <mesh filename="package://iai_wsg_50_description/meshes/GUIDE_WSG50_110.stl" "/>
 	     <!--box size="0.0175 0.03 0.024"/-->
           </geometry>
           <material name="black">
@@ -191,7 +191,7 @@
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
 	     <!--box size="0.0175 0.03 0.024"/-->
-             <mesh filename="package://iai_wsg_50_description/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+             <mesh filename="package://iai_wsg_50_description/meshes/GUIDE_WSG50_110.stl" "/>
          </geometry>
      </collision>
   </link>
@@ -224,7 +224,7 @@
       <visual>
           <origin xyz="0.0 0 0" rpy="0 0 0" />
           <geometry>
-             <mesh filename="package://iai_wsg_50_description/meshes/WSG-FMF.stl" scale="0.001 0.001 0.001"/>
+             <mesh filename="package://iai_wsg_50_description/meshes/WSG-FMF.stl" "/>
           </geometry>
           <material name="black">
 		<color rgba="0 0 0 0"/>
@@ -234,7 +234,7 @@
       <collision>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
-             <mesh filename="package://iai_wsg_50_description/meshes/WSG-FMF.stl" scale="0.001 0.001 0.001"/>
+             <mesh filename="package://iai_wsg_50_description/meshes/WSG-FMF.stl" "/>
          </geometry>
      </collision>
   </link>

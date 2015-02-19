@@ -16,7 +16,7 @@
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://iai_kms_40_description/meshes/adapter_plate_iso50_kms40_weiss.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://iai_kms_40_description/meshes/adapter_plate_iso50_kms40_weiss.stl" />
         </geometry>
         <material name="Grey"/>
       </visual>
@@ -50,7 +50,7 @@
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://iai_kms_40_description/meshes/kms40_simple.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://iai_kms_40_description/meshes/kms40_simple.stl" />
         </geometry>
         <material name="Grey"/>
       </visual>

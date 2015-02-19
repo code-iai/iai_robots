@@ -24,7 +24,7 @@
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
           <!-- these meshes were exported in mm, so scale back to m -->
-          <mesh filename="package://iai_kinect2_description/meshes/kinect2_origin_on_rgb_optical_frame.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://iai_kinect2_description/meshes/kinect2_origin_on_rgb_optical_frame.stl" />
         </geometry>
         <material name="Kinect2Grey"/>
       </visual>

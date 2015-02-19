@@ -22,7 +22,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://iai_boxy_torso/meshes/torso_base_link.STL" />
+          filename="package://iai_boxy_torso/meshes/torso_base_link.dae" />
       </geometry>
       <material
         name="">
@@ -62,7 +62,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://iai_boxy_torso/meshes/triangle_base_link.STL" />
+          filename="package://iai_boxy_torso/meshes/triangle_base_link.dae" />
       </geometry>
       <material
         name="">
