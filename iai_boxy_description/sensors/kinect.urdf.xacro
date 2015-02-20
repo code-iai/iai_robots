@@ -13,9 +13,11 @@
          <!-- NOTE: I (Georg Bartels) put these to be visually pleasing with our calibration
                     on February 11th, 2015. They are not set in stone! If the calibration
                     changes you might have to touch them again. Sorry! -->
+	 <!--
         <origin xyz="-0.05 -0.17 -0.02" rpy="${M_PI/2.0} 0 ${M_PI/2.0}"/>
+	 -->
         <geometry>
-          <mesh filename="package://iai_boxy_description/meshes/sensors/68-04546_Kinect_Sensor--coarse.STL"  />
+          <mesh filename="package://iai_boxy_description/meshes/sensors/68-04546_Kinect_Sensor-coarse.dae"  />
         </geometry>
         <material name="gray">
           <color rgba="0.5 0.5 0.5 1"/>
