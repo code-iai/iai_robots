@@ -76,9 +76,11 @@
       </inertial>
 
       <visual>
+	<!--
         <origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
+	-->
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.dae" />
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_seg_1.dae" />
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.stl" scale="1 1 1"/-->
         </geometry>
         <material name="UniHB-Red"/>
@@ -125,9 +127,11 @@
       </inertial>
 
       <visual>
+	<!--
         <origin xyz="0 0 0.2" rpy="${M_PI} 0 ${M_PI}"/>
+	-->
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.dae" />
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_seg_2.dae" />
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.stl" scale="1 1 1"/-->
         </geometry>
         <material name="UniHB-Red"/>
@@ -176,7 +180,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.dae" />
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_seg_3.dae" />
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.stl" scale="1 1 1"/-->
         </geometry>
         <material name="UniHB-Red"/>
@@ -223,9 +227,11 @@
       </inertial>
 
       <visual>
+	<!--
         <origin xyz="0 0 0.2" rpy="0 ${M_PI} ${M_PI}"/>
+	-->
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.dae" />
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_seg_4.dae" />
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.stl" scale="1 1 1"/-->
         </geometry>
         <material name="UniHB-Red"/>
@@ -272,9 +278,11 @@
       </inertial>
 
       <visual>
+	<!--
         <origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
+	-->
         <geometry name="${name}_arm_5_geom">
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.dae" /> 
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_seg_last.dae" /> 
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.stl" scale="1 1 1"/-->
         </geometry>
         <material name="UniHB-Red"/>
@@ -321,9 +329,11 @@
       </inertial>
 
       <visual>
+	<!--
         <origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
+	-->
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_wrist.dae" />
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_seg_wrist.dae" />
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_wrist.stl" scale="1 1 1"/-->
         </geometry>
         <material name="Grey"/>
@@ -369,9 +379,11 @@
                             mass="${arm_elem_end_link_mass}"/>
       </inertial>
       <visual>
+	<!--
         <origin xyz="0 0 0.078" rpy="0 0 0"/>
+	-->
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_flanche.dae" />
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_seg_flanche.dae" />
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_flanche.stl" scale="1 1 1"/-->
         </geometry>
         <material name="Black"/>
