@@ -1,0 +1,8 @@
+<launch>
+  <rosparam command="load" 
+    file="$(find iai_boxy_controller_configuration)/config/boxy_arm_effort_controller.yaml"/>
+
+  <node name="r_arm_joint_ctrl_spawner" pkg="controller_manager" type="spawner" args="r_arm_eff_0 r_arm_eff_1 r_arm_eff_2  r_arm_eff_3  r_arm_eff_4  r_arm_eff_5  r_arm_eff_6" output="screen"/>
+
+
+</launch>
