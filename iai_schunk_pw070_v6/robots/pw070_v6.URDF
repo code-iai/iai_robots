@@ -162,8 +162,8 @@
       xyz="1 0 0" />
     <calibration rising="0.0374135151505"/>
     <limit
-      lower="-1.3"
-      upper="1.3"
+      lower="-1.6"
+      upper="1.6"
       effort="0"
       velocity="0.8" />
   </joint>
