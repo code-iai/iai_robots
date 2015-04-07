@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="iai_boxy_controller_configuration" type="lwr_mannequin_mode.py" name="right_arm_mannequin_mode" output="screen">
+    <remap from="~beasty_state" to="/right_beasty_state_debugger/beasty_state"/>
+    <remap from="~velocity_command" to="/r_arm_vel/command"/>
+  </node>
+
+  <node pkg="iai_boxy_controller_configuration" type="lwr_mannequin_mode.py" name="left_arm_mannequin_mode" output="screen">
+    <remap from="~beasty_state" to="/left_beasty_state_debugger/beasty_state"/>
+    <remap from="~velocity_command" to="/l_arm_vel/command"/>
+  </node>
+</launch>
