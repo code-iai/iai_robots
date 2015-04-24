@@ -1,9 +1,17 @@
 <launch>
+  <arg name="stopped" default="false"/>
 
   <rosparam command="load"
     file="$(find iai_boxy_controller_configuration)/config/boxy_real_vel_controllers.yaml"/>
 
-  <node name="vel_controllers_spawner" pkg="controller_manager" type="spawner"
-    output="screen" args="l_arm_vel r_arm_vel"/>
+  <group if="$(arg stopped)">
+    <node name="vel_controllers_spawner" pkg="controller_manager" type="spawner"
+      output="screen" args="--stopped l_arm_vel r_arm_vel"/>
+  </group>
+
+  <group unless="$(arg stopped)">
+    <node name="vel_controllers_spawner" pkg="controller_manager" type="spawner"
+      output="screen" args="l_arm_vel r_arm_vel"/>
+  </group>
 
 </launch>
