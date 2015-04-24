@@ -6,13 +6,11 @@
 
   <group if="$(arg stopped)">
     <node name="r_arm_joint_traj_ctrl_spawner" pkg="controller_manager" type="spawner" 
-      args="--stopped r_arm_traj_controller" output="screen"/>
+      args="--stopped r_arm_traj_controller l_arm_traj_controller" output="screen"/>
   </group>
 
   <group unless="$(arg stopped)">
     <node name="r_arm_joint_traj_ctrl_spawner" pkg="controller_manager" type="spawner" 
-      args="r_arm_traj_controller" output="screen"/>
+      args="r_arm_traj_controller l_arm_traj_controller" output="screen"/>
   </group>
-
-
 </launch>
