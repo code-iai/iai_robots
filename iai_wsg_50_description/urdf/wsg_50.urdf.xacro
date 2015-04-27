@@ -209,9 +209,6 @@
      <origin xyz="0 0 0.023" rpy="0 0 0" />
      <parent link="${name}_gripper_right_link"/>
      <child link="${name}_finger_right_link" />
-     <dynamics friction="100" damping="100" />
-     <axis xyz="1 0 0"/>
-     <limit effort="100" velocity="100"/>
   </joint>
 
   <link name="${name}_finger_right_link">

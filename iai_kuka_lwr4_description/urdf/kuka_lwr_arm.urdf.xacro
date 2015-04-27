@@ -63,6 +63,7 @@
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="calib_${name}_arm_base_link"/>
       <child link="${name}_arm_1_link"/>
     </joint>
@@ -112,6 +113,7 @@
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_1_link"/>
       <child link="${name}_arm_2_link"/>
     </joint>
@@ -161,6 +163,7 @@
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_2_link"/>
       <child link="${name}_arm_3_link"/>
     </joint>
@@ -210,6 +213,7 @@
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_3_link"/>
       <child link="${name}_arm_4_link"/>
     </joint>
@@ -259,6 +263,7 @@
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_4_link"/>
       <child link="${name}_arm_5_link"/>
     </joint>
@@ -308,6 +313,7 @@
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_5_link"/>
       <child link="${name}_arm_6_link"/>
     </joint>
@@ -357,6 +363,7 @@
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_6_link"/>
       <child link="${name}_arm_7_link"/>
     </joint>
