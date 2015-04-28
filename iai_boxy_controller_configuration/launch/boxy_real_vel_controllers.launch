@@ -14,4 +14,13 @@
       output="screen" args="l_arm_vel r_arm_vel"/>
   </group>
 
+  <node pkg="topic_tools" type="mux" name="l_arm_vel_mux" output="screen" 
+    args="/l_arm_vel/command /l_arm_vel/dummy_command">
+    <env name="ROS_NAMESPACE" value="l_arm_vel"/>
+  </node>
+
+  <node pkg="topic_tools" type="mux" name="r_arm_vel_mux" output="screen" 
+    args="/r_arm_vel/command /r_arm_vel/dummy_command">
+    <env name="ROS_NAMESPACE" value="r_arm_vel"/>
+  </node>
 </launch>
