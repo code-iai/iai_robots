@@ -56,13 +56,14 @@
     <joint name="${name}_arm_0_joint" type="revolute">
       <origin xyz="0 0 0.11" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-170 * M_PI / 180}" upper="${170 * M_PI / 180}"
+      <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
              effort="204" velocity="${arm_velocity_scale_factor * 110 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
-                         soft_upper_limit="${168 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-148 * M_PI / 180}"
+                         soft_upper_limit="${148 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="calib_${name}_arm_base_link"/>
       <child link="${name}_arm_1_link"/>
     </joint>
@@ -107,13 +108,14 @@
     <joint name="${name}_arm_1_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 -1 0"/>
-      <limit lower="${-120 * M_PI / 180}" upper="${120 * M_PI / 180}"
+      <limit lower="${-107 * M_PI / 180}" upper="${107 * M_PI / 180}"
              effort="306" velocity="${arm_velocity_scale_factor * 110 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-118 * M_PI / 180}"
-                         soft_upper_limit="${118 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-105 * M_PI / 180}"
+                         soft_upper_limit="${105 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_1_link"/>
       <child link="${name}_arm_2_link"/>
     </joint>
@@ -158,13 +160,14 @@
     <joint name="${name}_arm_2_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-170 * M_PI / 180}" upper="${170 * M_PI / 180}"
+      <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
              effort="204" velocity="${arm_velocity_scale_factor * 130 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
-                         soft_upper_limit="${168 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-148 * M_PI / 180}"
+                         soft_upper_limit="${148 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_2_link"/>
       <child link="${name}_arm_3_link"/>
     </joint>
@@ -207,13 +210,14 @@
     <joint name="${name}_arm_3_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 1 0"/>
-      <limit lower="${-120 * M_PI / 180}" upper="${120 * M_PI / 180}"
+      <limit lower="${-107 * M_PI / 180}" upper="${107 * M_PI / 180}"
              effort="306" velocity="${arm_velocity_scale_factor * 130 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-118 * M_PI / 180}"
-                         soft_upper_limit="${118 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-105 * M_PI / 180}"
+                         soft_upper_limit="${105 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_3_link"/>
       <child link="${name}_arm_4_link"/>
     </joint>
@@ -258,13 +262,14 @@
     <joint name="${name}_arm_4_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-170 * M_PI / 180}" upper="${170 * M_PI / 180}"
+      <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
              effort="204" velocity="${arm_velocity_scale_factor * 130 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
-                         soft_upper_limit="${168 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-148 * M_PI / 180}"
+                         soft_upper_limit="${148 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_4_link"/>
       <child link="${name}_arm_5_link"/>
     </joint>
@@ -309,13 +314,14 @@
     <joint name="${name}_arm_5_joint" type="revolute">
       <origin xyz="0 0 0.19" rpy="0 0 0"/>
       <axis xyz="0 -1 0"/>
-      <limit lower="${-120 * M_PI / 180}" upper="${120 * M_PI / 180}"
+      <limit lower="${-115 * M_PI / 180}" upper="${115 * M_PI / 180}"
              effort="306" velocity="${arm_velocity_scale_factor * 180 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-118 * M_PI / 180}"
-                         soft_upper_limit="${118 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-113 * M_PI / 180}"
+                         soft_upper_limit="${113 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_5_link"/>
       <child link="${name}_arm_6_link"/>
     </joint>
@@ -360,13 +366,14 @@
     <joint name="${name}_arm_6_joint" type="revolute">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-170 * M_PI / 180}" upper="${170 * M_PI / 180}"
+      <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
              effort="204" velocity="${arm_velocity_scale_factor * 180 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
-                         soft_upper_limit="${168 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-148 * M_PI / 180}"
+                         soft_upper_limit="${148 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_6_link"/>
       <child link="${name}_arm_7_link"/>
     </joint>

@@ -102,6 +102,7 @@
       upper="0"
       effort="0"
       velocity="0.02" />
+     <calibration rising="0.0"/>
   </joint>
 
   <transmission 

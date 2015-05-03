@@ -47,3 +47,51 @@ r_arm_traj_controller:
   action_monitor_rate: 30            # Override default
   stop_trajectory_duration: 0        # Override default
 
+l_arm_traj_controller:
+  type: "effort_controllers/JointTrajectoryController"
+  joints:
+    - left_arm_0_joint
+    - left_arm_1_joint
+    - left_arm_2_joint
+    - left_arm_3_joint
+    - left_arm_4_joint
+    - left_arm_5_joint
+    - left_arm_6_joint
+
+  constraints:
+    goal_time: 0.5                   # Override default
+    stopped_velocity_tolerance: 0.02 # Override default
+    left_arm_0_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    left_arm_1_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    left_arm_2_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    left_arm_3_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    left_arm_4_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    left_arm_5_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+    left_arm_6_joint:
+      trajectory: 0.05               # Not enforced if unspecified
+      goal: 0.02                     # Not enforced if unspecified
+
+  gains: # Required because we're controlling an effort interface
+    left_arm_0_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    left_arm_1_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    left_arm_2_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    left_arm_3_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    left_arm_4_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    left_arm_5_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+    left_arm_6_joint: {p: 1.0,  d: 0.0, i: 0.0, i_clamp: 1}
+
+  state_publish_rate:  25            # Override default
+  action_monitor_rate: 30            # Override default
+  stop_trajectory_duration: 0        # Override default

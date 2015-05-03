@@ -81,13 +81,14 @@
 	<!-- /JOINT to connect the base with the torso -->
 	
 	<xacro:include filename="$(find iai_boxy_torso)/robots/torso.URDF" />
-	
+
+        <!--FIXME: triangle_left_arm_link should be rotated, and not the origin of the arm (which right now is calib_left_arm_base_link -->	
 	<kuka_lwr_arm parent="triangle_left_arm_link" name="left">
           <origin xyz="0 0 0" rpy="0 0 1.047198"/>
 	</kuka_lwr_arm>
 
 	<wsg_50_xacro name="left_gripper" parent="left_arm_cabling_adaptor_link">
-          <origin xyz="0 0 0" rpy="0 0 0.005"/>
+          <origin xyz="0 0 0" rpy="0 0 0.78539816339"/>
 	</wsg_50_xacro>
 
 	<!--This is a 60deg rotation to calib_right_arm_base_link -->
@@ -115,5 +116,32 @@
         <wsg_50_xacro name="right_gripper" parent="right_arm_adapter_fwa050_wsg50_frame_out">
           <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
 	</wsg_50_xacro>
+
+        <!-- Temporary place for the spoon frames -->
+
+	<link name="spoon_tip"/>
+	<link name="spoon_left_side"/>
+	<link name="spoon_right_side"/>
+	
+	<joint name="spoon_tip_joint" type="fixed">
+		<origin xyz="0.0096 -0.0718 0.1214" rpy="0.7 0 0" />
+		<parent link="right_gripper_tool_frame" />
+		<child link="spoon_tip" />
+	</joint>
+
+	<joint name="spoon_left_side" type="fixed">
+		<origin xyz="-0.0325 0 -0.06" rpy="0 0 0" />
+		<parent link="spoon_tip" />
+		<child link="spoon_left_side" />
+	</joint>
+
+	<joint name="spoon_left_right" type="fixed">
+		<origin xyz="0.0325 0 -0.06" rpy="0 0 0" />
+		<parent link="spoon_tip" />
+		<child link="spoon_right_side" />
+	</joint>
+
+
+
 
 </robot>
