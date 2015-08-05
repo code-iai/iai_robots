@@ -2,8 +2,14 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="boxy_description">
 	<xacro:include filename="$(find iai_kuka_lwr4_description)/defs/materials.xml"/>
 	<xacro:include filename="$(find iai_kuka_lwr4_description)/urdf/kuka_lwr_arm.urdf.xacro"/>
-	<xacro:include filename="$(find wsg_50_simulation)/urdf/wsg_50.urdf.xacro"/>	
-	
+	<xacro:include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/>	
+	<xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
+	<xacro:include filename="$(find iai_boxy_description)/sensors/kinect.urdf.xacro"/>
+	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_fwa050_wsg50.urdf.xacro"/>
+	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
+	<xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
+	<xacro:include filename="$(find iai_kinect2_description)/urdf/kinect2.urdf.xacro"/>
+
 	<!-- Property definitions e.g. constants -->
 	<xacro:property name="head_joint_x" value="0.2" />
 	<xacro:property name="head_joint_y" value="-0.21" />
@@ -37,6 +43,34 @@
 	<!-- /JOINT to connect the base with the pw070 -->
 	
 	<xacro:include filename="$(find iai_schunk_pw070_v6)/robots/pw070_v6.URDF" />
+
+	<!-- Kinect2 -->
+        <!-- Pose comes from tool_H_clink in the calibration
+             The quaternion was converted to RPY using python and KDL
+               halcon has quat: w x y z
+               kdl and tf_static_transform_publisher use: x y z w
+             So take the first number from the halcon quat and put it last for KDL.
+               import PyKDL as p; r2 = p.Rotation.Quaternion(-0.494547,0.491515,-0.506787,0.506955) ; r2.GetRPY() 
+               answer: (-1.5431199762943342, -0.0029080109443817533, -1.5676362600579434) -->
+
+        <!-- The following kinect2_xacro defines the _kinect2_rgb_optical_frame
+        And includes the fixed joint to place the kinect on the pw070  -->
+        <kinect2_xacro parent="pw070_frame_out" prefix="head_mount">
+		<origin xyz="0.0402529 -0.0959434 0.0332714" rpy="-1.5431199762943342 -0.0029080109443817533 -1.5676362600579434" />
+        </kinect2_xacro>
+
+
+
+
+        <!-- shoulder kinect -->
+        <!-- ORIGINAL DATA FROM HALCON CALIBRATION:
+             from: base_link to: shoulder_kinect_link
+             translation: -0.135394 -0.00764754 1.54755 (xyz)
+             quaternion: 0.0177781 0.202257 -0.0472198 0.978032 (xyzw) -->
+        <kinect name="shoulder_kinect" parent="base_link">
+          <origin xyz="-0.135394 -0.00764754 1.54755"
+                  rpy="0.01708077682636155 0.4085798647123734 -0.09294704527264909"/> 
+       </kinect>
 	
 	<!-- JOINT to connect the base with the torso -->
 	<joint name="torso_joint" type="fixed">
@@ -47,31 +81,67 @@
 	<!-- /JOINT to connect the base with the torso -->
 	
 	<xacro:include filename="$(find iai_boxy_torso)/robots/torso.URDF" />
-	
+
+        <!--FIXME: triangle_left_arm_link should be rotated, and not the origin of the arm (which right now is calib_left_arm_base_link -->	
 	<kuka_lwr_arm parent="triangle_left_arm_link" name="left">
           <origin xyz="0 0 0" rpy="0 0 1.047198"/>
 	</kuka_lwr_arm>
-	
-	<!-- Old gripper
-	<xacro:include filename="$(find iai_weiss_wsg50)/robots/weiss_wsg50.urdf" />
-	
-	<joint name="left_hand_joint" type="fixed">
-		<origin xyz="0 0 0.08" rpy="0 0 0" />
-		<parent link="left_arm_7_link" />
-		<child link="gripper_base_link" />
-	</joint>
-  -->
 
+	<wsg_50_xacro name="left_gripper" parent="left_arm_cabling_adaptor_link">
+          <origin xyz="0 0 0" rpy="0 0 0.78539816339"/>
+	</wsg_50_xacro>
+
+	<!--This is a 60deg rotation to calib_right_arm_base_link -->
 	<kuka_lwr_arm parent="triangle_right_arm_link" name="right">
           <origin xyz="0 0 0" rpy="0 0 -1.047198"/>
 	</kuka_lwr_arm>
 
-	<wsg_50_xacro name="left_gripper" parent="left_arm_flange_link">
-		<origin xyz="0 0 0" rpy="0 0 0"/>
+        <!-- The following URDFs have frame_in / frame_out, so they are simply placed at their parent -->
+        <kms_40_xacro parent="right_arm_cabling_adaptor_link" prefix="right_arm">
+          <origin xyz="0 0 0" rpy="0 0 3.14159265359" />  <!--places the kms40 frame 13mm from the parent -->
+        </kms_40_xacro>
+
+        <adapter_kms40_fwk050_xacro parent="right_arm_kms40_frame_out" prefix="right_arm">
+          <origin xyz="0 0 0" rpy="0 0 0" /> 
+        </adapter_kms40_fwk050_xacro>
+
+        <fwk_fwa_050_xacro parent="right_arm_adapter_kms40_fwk050_frame_out" prefix="right_arm">
+          <origin xyz="0 0 0" rpy="0 0 0" />
+        </fwk_fwa_050_xacro>
+
+        <adapter_fwa050_wsg50_xacro parent="right_arm_fwk_fwa_050_frame_out" prefix="right_arm">
+          <origin xyz="0 0 0.0" rpy="0 0 0" />
+        </adapter_fwa050_wsg50_xacro>
+
+        <wsg_50_xacro name="right_gripper" parent="right_arm_adapter_fwa050_wsg50_frame_out">
+          <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
 	</wsg_50_xacro>
 
-	<wsg_50_xacro name="right_gripper" parent="right_arm_flange_link">
-		<origin xyz="0 0 0" rpy="0 0 0"/>
-	</wsg_50_xacro>
+        <!-- Temporary place for the spoon frames -->
+
+	<link name="spoon_tip"/>
+	<link name="spoon_left_side"/>
+	<link name="spoon_right_side"/>
+	
+	<joint name="spoon_tip_joint" type="fixed">
+		<origin xyz="0.0096 -0.0718 0.1214" rpy="0.7 0 0" />
+		<parent link="right_gripper_tool_frame" />
+		<child link="spoon_tip" />
+	</joint>
+
+	<joint name="spoon_left_side" type="fixed">
+		<origin xyz="-0.0325 0 -0.06" rpy="0 0 0" />
+		<parent link="spoon_tip" />
+		<child link="spoon_left_side" />
+	</joint>
+
+	<joint name="spoon_left_right" type="fixed">
+		<origin xyz="0.0325 0 -0.06" rpy="0 0 0" />
+		<parent link="spoon_tip" />
+		<child link="spoon_right_side" />
+	</joint>
+
+
+
 
 </robot>

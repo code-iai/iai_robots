@@ -35,9 +35,11 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_base.stl"/>
+          <!-- for each mesh we have two versions, one Collada file with normals and colors, and one simpler STL. The collada file is in cm, and the STL in meters -->
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_base.dae" scale="100 100 100"/>
+	  <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_base.stl" scale="1 1 1"-->
         </geometry>
-        <material name="Orange"/>
+        <material name="UniHB-Red"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -54,13 +56,14 @@
     <joint name="${name}_arm_0_joint" type="revolute">
       <origin xyz="0 0 0.11" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-170 * M_PI / 180}" upper="${170 * M_PI / 180}"
+      <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
              effort="204" velocity="${arm_velocity_scale_factor * 110 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
-                         soft_upper_limit="${168 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-148 * M_PI / 180}"
+                         soft_upper_limit="${148 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="calib_${name}_arm_base_link"/>
       <child link="${name}_arm_1_link"/>
     </joint>
@@ -76,9 +79,10 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.stl"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.dae" scale="100 100 100"/>
+          <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.stl" scale="1 1 1"/-->
         </geometry>
-        <material name="Orange"/>
+        <material name="UniHB-Red"/>
       </visual>
 
       <collision>
@@ -102,13 +106,14 @@
     <joint name="${name}_arm_1_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 -1 0"/>
-      <limit lower="${-120 * M_PI / 180}" upper="${120 * M_PI / 180}"
+      <limit lower="${-107 * M_PI / 180}" upper="${107 * M_PI / 180}"
              effort="306" velocity="${arm_velocity_scale_factor * 110 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-118 * M_PI / 180}"
-                         soft_upper_limit="${118 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-105 * M_PI / 180}"
+                         soft_upper_limit="${105 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_1_link"/>
       <child link="${name}_arm_2_link"/>
     </joint>
@@ -124,9 +129,10 @@
       <visual>
         <origin xyz="0 0 0.2" rpy="${M_PI} 0 ${M_PI}"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.stl"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.dae" scale="100 100 100"/>
+          <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.stl" scale="1 1 1"/-->
         </geometry>
-        <material name="Orange"/>
+        <material name="UniHB-Red"/>
       </visual>
 
       <collision>
@@ -150,13 +156,14 @@
     <joint name="${name}_arm_2_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-170 * M_PI / 180}" upper="${170 * M_PI / 180}"
+      <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
              effort="204" velocity="${arm_velocity_scale_factor * 130 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
-                         soft_upper_limit="${168 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-148 * M_PI / 180}"
+                         soft_upper_limit="${148 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_2_link"/>
       <child link="${name}_arm_3_link"/>
     </joint>
@@ -172,9 +179,10 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.stl"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.dae" scale="100 100 100"/>
+          <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.stl" scale="1 1 1"/-->
         </geometry>
-        <material name="Orange"/>
+        <material name="UniHB-Red"/>
       </visual>
 
       <collision>
@@ -198,13 +206,14 @@
     <joint name="${name}_arm_3_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 1 0"/>
-      <limit lower="${-120 * M_PI / 180}" upper="${120 * M_PI / 180}"
+      <limit lower="${-107 * M_PI / 180}" upper="${107 * M_PI / 180}"
              effort="306" velocity="${arm_velocity_scale_factor * 130 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-118 * M_PI / 180}"
-                         soft_upper_limit="${118 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-105 * M_PI / 180}"
+                         soft_upper_limit="${105 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_3_link"/>
       <child link="${name}_arm_4_link"/>
     </joint>
@@ -220,9 +229,10 @@
       <visual>
         <origin xyz="0 0 0.2" rpy="0 ${M_PI} ${M_PI}"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.stl"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.dae" scale="100 100 100"/>
+          <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.stl" scale="1 1 1"/-->
         </geometry>
-        <material name="Orange"/>
+        <material name="UniHB-Red"/>
       </visual>
 
       <collision>
@@ -246,13 +256,14 @@
     <joint name="${name}_arm_4_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-170 * M_PI / 180}" upper="${170 * M_PI / 180}"
+      <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
              effort="204" velocity="${arm_velocity_scale_factor * 130 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
-                         soft_upper_limit="${168 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-148 * M_PI / 180}"
+                         soft_upper_limit="${148 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_4_link"/>
       <child link="${name}_arm_5_link"/>
     </joint>
@@ -268,9 +279,10 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
         <geometry name="${name}_arm_5_geom">
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.stl"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.dae" scale="100 100 100"/> 
+          <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.stl" scale="1 1 1"/-->
         </geometry>
-        <material name="Orange"/>
+        <material name="UniHB-Red"/>
       </visual>
 
       <collision>
@@ -294,13 +306,14 @@
     <joint name="${name}_arm_5_joint" type="revolute">
       <origin xyz="0 0 0.19" rpy="0 0 0"/>
       <axis xyz="0 -1 0"/>
-      <limit lower="${-120 * M_PI / 180}" upper="${120 * M_PI / 180}"
+      <limit lower="${-115 * M_PI / 180}" upper="${115 * M_PI / 180}"
              effort="306" velocity="${arm_velocity_scale_factor * 180 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-118 * M_PI / 180}"
-                         soft_upper_limit="${118 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-113 * M_PI / 180}"
+                         soft_upper_limit="${113 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_5_link"/>
       <child link="${name}_arm_6_link"/>
     </joint>
@@ -316,7 +329,8 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_wrist.stl"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_wrist.dae" scale="100 100 100"/>
+          <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_wrist.stl" scale="1 1 1"/-->
         </geometry>
         <material name="Grey"/>
       </visual>
@@ -342,13 +356,14 @@
     <joint name="${name}_arm_6_joint" type="revolute">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
-      <limit lower="${-170 * M_PI / 180}" upper="${170 * M_PI / 180}"
+      <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
              effort="204" velocity="${arm_velocity_scale_factor * 180 * M_PI / 180}" />
-      <safety_controller soft_lower_limit="${-168 * M_PI / 180}"
-                         soft_upper_limit="${168 * M_PI / 180}"
+      <safety_controller soft_lower_limit="${-148 * M_PI / 180}"
+                         soft_upper_limit="${148 * M_PI / 180}"
                          k_position="${safety_controller_k_pos}"
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
+      <calibration rising="0.0"/>
       <parent link="${name}_arm_6_link"/>
       <child link="${name}_arm_7_link"/>
     </joint>
@@ -363,9 +378,10 @@
       <visual>
         <origin xyz="0 0 0.078" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_flanche.stl"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_flanche.dae" scale="100 100 100"/>
+          <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_flanche.stl" scale="1 1 1"/-->
         </geometry>
-        <material name="Grey"/>
+        <material name="Black"/>
       </visual>
       <collision>
         <origin xyz="0 0 0.078" rpy="0 0 0"/>
@@ -404,7 +420,24 @@
 
     </link>
 
+
+    <!-- Many Kuka LWR4s are equipped with a little plate to let the cables go out sideways -->
+    <joint name="${name}_arm_cabling_adaptor_joint" type="fixed">
+      <origin xyz="0 0 0.01" rpy="0 0 0"/>  <!-- This places the link at the end of the plate (frame_out) -->
+      <parent link="${name}_arm_flange_link"/>
+      <child link="${name}_arm_cabling_adaptor_link"/>
+    </joint>
     
+    <link name="${name}_arm_cabling_adaptor_link">
+      <visual>
+        <origin xyz="0 0 -0.005" rpy="0 0 0" />  <!-- The cylinder is placed at the center -->
+        <geometry>
+          <cylinder length="0.01" radius="0.0315"/>
+        </geometry>
+        <material name="Black"/>
+      </visual>
+    </link>
+
     <!-- joint name="${name}_arm_hand_fixed_joint" type="fixed">
       <origin xyz="${-right * 0.075} -0.075 -0.016"
               rpy="${0.5*right*M_PI} 0 ${(1.5 + 0.25*right)*M_PI}"/>

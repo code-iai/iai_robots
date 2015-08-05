@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- This is a hand-made URDF XACRO file for the adapter from Schunk FWA-050 to Weiss Robotics WSG50 -->
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="fwk_fwa_050"> 
+
+  <xacro:macro name="fwk_fwa_050_xacro" params="prefix parent *origin">
+
+    <!-- Joint connecting the parent to our frame_in -->
+    <joint name="${prefix}_fwk_fwa_050_in_joint" type="fixed">
+      <insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}_fwk_fwa_050_frame_in"/>
+    </joint>
+
+    <link name="${prefix}_fwk_fwa_050_frame_in">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <!-- these meshes were exported in mm, so scale back to m -->
+          <mesh filename="package://iai_adapters_description/meshes/fwk_fwa_050_simple.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+    </link>
+
+    <!-- Empty link just to get the frame out -->
+    <link name="${prefix}_fwk_fwa_050_frame_out"/>
+    
+    <!-- joint positioning the frame_out -->
+    <joint name="${prefix}_fwk_fwa_050_trans_frame_out"
+           type="fixed">
+      <origin xyz="0 0 0.0141"
+              rpy="0 0 0" />
+      <parent link="${prefix}_fwk_fwa_050_frame_in" />
+      <child link="${prefix}_fwk_fwa_050_frame_out" />
+      <axis xyz="0 0 0" />
+    </joint>
+
+    <!-- The joint connecting us to the next part of the chain is in the next URDF -->
+
+  </xacro:macro>
+</robot>

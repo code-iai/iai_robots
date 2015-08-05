@@ -4,12 +4,21 @@
     <color rgba="0.3 0.3 0.3 1.0"/>
   </material>
 
+  <material name="DarkerGrey">
+    <color rgba="0.15 0.15 0.15 1.0"/>
+  </material>
+
   <material name="Black">
     <color rgba="0 0 0 1.0"/>
   </material>
 
   <material name="Orange">
     <color rgba="1.0 0.487 0 1.0"/>
+  </material>
+
+  <material name="UniHB-Red">
+    <!--UniBremen Red is Verkehrsrot / RAL 7035 ~= RGB 193 18 28 -->
+    <color rgba=".7568627 .070588 .10980392 1.0"/>
   </material>
 
   <material name="Silver">

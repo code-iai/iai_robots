@@ -1,0 +1,4 @@
+I, Georg Bartels, copied the STL file for the kinect over from the package pr2_description,
+on February 2011 2015. The copyright to it does not belong to me. At the time, pr2_description
+was published under BSD license but I could not find any license header associated with this
+mesh to copy here. Hence, this ad-hoc disclaimer.

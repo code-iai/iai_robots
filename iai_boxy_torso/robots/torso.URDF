@@ -83,11 +83,16 @@
   <joint
     name="triangle_base_joint"
     type="prismatic">
+    <!-- Values for the old xtion -->
+    <!--origin  
+      xyz="0.0674958675029617 0.10311858113734 0.915114291670046"
+      rpy="4.7298 6.267 1.5685260" /--> 
+    <!-- Output of the hand/eye calibration baserobot_H_basearm-->
     <origin
-      xyz="0.1 0.0175 0.58662489"
-      rpy="-1.5708 -5.5511E-17 1.5708" />
+      xyz="0.0786889663592487 0.0986351579738104 0.906352096493862"
+      rpy="4.70695928 6.28217403836 1.56327975371" /> 
     <parent
-      link="torso_base_link" />
+      link="base_link" />
     <child
       link="triangle_base_link" />
     <axis
@@ -97,6 +102,7 @@
       upper="0"
       effort="0"
       velocity="0.02" />
+     <calibration rising="0.0"/>
   </joint>
 
   <transmission 

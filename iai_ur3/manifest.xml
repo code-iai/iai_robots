@@ -1,0 +1,6 @@
+<package>
+  <description brief="UR3_4">UR3_4</description>
+  <depend package="gazebo" />
+  <author>me</author>
+  <license>BSD</license>
+</package>

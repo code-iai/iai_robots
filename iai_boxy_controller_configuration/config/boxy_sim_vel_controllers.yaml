@@ -59,17 +59,17 @@ torso_vel:
 r_gripper_vel:
   type: "iai_robot_mechanism_controllers/MultiJointVelocityController"
   joints:
-    - right_gripper_base_joint_gripper_left
-    - right_gripper_base_joint_gripper_right
+    - right_gripper_base_gripper_left_joint
+    - right_gripper_base_gripper_right_joint
   gains:
-    right_gripper_base_joint_gripper_left: *pid_gains
-    right_gripper_base_joint_gripper_right: *pid_gains
+    right_gripper_base_gripper_left_joint: *pid_gains
+    right_gripper_base_gripper_right_joint: *pid_gains
 
 l_gripper_vel:
   type: "iai_robot_mechanism_controllers/MultiJointVelocityController"
   joints:
-    - left_gripper_base_joint_gripper_left
-    - left_gripper_base_joint_gripper_right
+    - left_gripper_base_gripper_left_joint
+    - left_gripper_base_gripper_right_joint
   gains:
-    left_gripper_base_joint_gripper_left: *pid_gains
-    left_gripper_base_joint_gripper_right: *pid_gains
+    left_gripper_base_gripper_left_joint: *pid_gains
+    left_gripper_base_gripper_right_joint: *pid_gains

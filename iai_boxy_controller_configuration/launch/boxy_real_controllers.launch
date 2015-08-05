@@ -1,0 +1,11 @@
+<launch>
+
+  <include file="$(find iai_boxy_controller_configuration)/launch/boxy_real_vel_controllers.launch">
+    <arg name="stopped" value="false"/>
+  </include>
+
+  <include file="$(find iai_boxy_controller_configuration)/launch/boxy_arm_joint_traj_controller.launch">
+    <arg name="stopped" value="true"/>
+  </include>
+
+</launch>

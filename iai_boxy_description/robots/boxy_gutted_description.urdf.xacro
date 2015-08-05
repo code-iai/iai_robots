@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="boxy_description">
+	<xacro:include filename="$(find iai_kuka_lwr4_description)/defs/materials.xml"/>
+	<xacro:include filename="$(find iai_kuka_lwr4_description)/urdf/kuka_lwr_arm.urdf.xacro"/>
+	<xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
+
+	<!-- Property definitions e.g. constants -->
+	<xacro:property name="head_joint_x" value="0.2" />
+	<xacro:property name="head_joint_y" value="-0.21" />
+	<xacro:property name="head_joint_z" value="1.48" />
+	
+	<xacro:property name="torso_joint_x" value="0" />  <!--this is the diamiter of one of the aluminium (/2) pipes (20mm) = the diamiter of the piece that holds the slider (45mm) -->
+	<xacro:property name="torso_joint_y" value="0.065" /> <!-- distance from the axis 0 to the first alu pipe 74 + distance between the pipes 150 + diamiter of the slider 200 /2   ( = center ) -->
+	<xacro:property name="torso_joint_z" value="0.410" />
+
+	<!-- /Property definitions e.g. constants -->
+	
+	<xacro:include filename="$(find iai_boxy_base)/robots/base.URDF" />
+	
+	<link name="base_footprint">
+	</link>
+	
+	<!-- JOINT to define base_footprint -->
+	<joint name="base_footprint_joint" type="fixed">
+		<origin xyz="0.36 0.25 0.16" rpy="0 0 0" />
+		<parent link="base_footprint" />
+		<child link="base_link" />
+	</joint>
+	<!-- /JOINT for base_footprint -->
+
+	<!-- JOINT to connect the base with the pw070 -->
+	<joint name="head_joint" type="fixed">
+		<origin xyz="${head_joint_x} ${head_joint_y} ${head_joint_z}" rpy="0 0 0" />
+		<parent link="base_link" />
+		<child link="pw070_base_link" />
+	</joint>
+	<!-- /JOINT to connect the base with the pw070 -->
+	
+	<xacro:include filename="$(find iai_schunk_pw070_v6)/robots/pw070_v6.URDF" />
+
+	<!-- JOINT to place the kinect2 camera on the pw070 -->
+        <!-- Comes from tool_H_clink in the calibration
+             The quaternion was converted to RPY using python and KDL
+              halcon has quat: w x y z
+              kdl and tf_static_transform_publisher use: x y z w
+            So take the first number from the halcon quat and put it last for KDL.
+           import PyKDL as p; r2 = p.Rotation.Quaternion(-0.494547,0.491515,-0.506787,0.506955) ; r2.GetRPY() 
+  answer: (-1.5431199762943342, -0.0029080109443817533, -1.5676362600579434) -->
+	<joint name="kinect2_joint" type="fixed">
+		<origin xyz="0.0402529 -0.0959434 0.0332714" rpy="-1.5431199762943342 -0.0029080109443817533 -1.5676362600579434" />
+		<parent link="pw070_frame_out" />
+		<child link="head_mount_kinect2_rgb_optical_frame" />
+	</joint>
+	<!-- JOINT to place the kinect2 camera on the pw070 -->
+        <!-- empty link for the rgb_optical_frame -->
+        <link name="head_mount_kinect2_rgb_optical_frame">
+        </link>
+
+        
+
+	
+	<!-- JOINT to connect the base with the torso -->
+	<joint name="torso_joint" type="fixed">
+		<origin xyz="${torso_joint_x} ${torso_joint_y} ${torso_joint_z}" rpy="0 0 0" />
+		<parent link="base_link" />
+		<child link="torso_base_link" />
+	</joint>
+	<!-- /JOINT to connect the base with the torso -->
+	
+	<xacro:include filename="$(find iai_boxy_torso)/robots/torso.URDF" />
+	
+	<!--This is a 60deg rotation to calib_right_arm_base_link -->
+	<kuka_lwr_arm parent="triangle_right_arm_link" name="right">
+          <origin xyz="0 0 0" rpy="0 0 -1.047198"/>
+	</kuka_lwr_arm>
+
+        <kms_40_xacro parent="right_arm_flange_link" prefix="right"/>
+
+</robot>

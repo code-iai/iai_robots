@@ -1,0 +1,21 @@
+r_arm_eff_0:
+  type: effort_controllers/JointEffortController
+  joint: right_arm_0_joint
+r_arm_eff_1:
+  type: effort_controllers/JointEffortController
+  joint: right_arm_1_joint
+r_arm_eff_2:
+  type: effort_controllers/JointEffortController
+  joint: right_arm_2_joint
+r_arm_eff_3:
+  type: effort_controllers/JointEffortController
+  joint: right_arm_3_joint
+r_arm_eff_4:
+  type: effort_controllers/JointEffortController
+  joint: right_arm_4_joint
+r_arm_eff_5:
+  type: effort_controllers/JointEffortController
+  joint: right_arm_5_joint
+r_arm_eff_6:
+  type: effort_controllers/JointEffortController
+  joint: right_arm_6_joint
