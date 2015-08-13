@@ -1,0 +1,406 @@
+<robot
+  name="iai_ur3">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-9.1792E-05 0.0017623 0.022199"
+        rpy="0 0 0" />
+      <mass
+        value="0.61579" />
+      <inertia
+        ixx="0.00079839"
+        ixy="-2.3694E-06"
+        ixz="2.3195E-06"
+        iyy="0.00078531"
+        iyz="-2.9561E-05"
+        izz="0.0010299" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="-1.1657E-05 0.054233 0.0070956"
+        rpy="0 0 0" />
+      <mass
+        value="0.75202" />
+      <inertia
+        ixx="0.0011977"
+        ixy="-1.5751E-07"
+        ixz="-1.4034E-07"
+        iyy="0.00090395"
+        iyz="9.9516E-05"
+        izz="0.0011193" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jnt1"
+    type="revolute">
+    <origin
+      xyz="0 0.0026751 0.062026"
+      rpy="1.6139 -0.00078894 -3.1233" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="-0.00078894 -0.99907 0.043081" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="-0.00150993715612553 0.0606480611020562 0.104861352156976"
+        rpy="0 0 0" />
+      <mass
+        value="1.78480428246364" />
+      <inertia
+        ixx="0.0188981470226268"
+        ixy="-1.41115805678131E-05"
+        ixz="-0.000378397103753737"
+        iyy="0.0187332691565575"
+        iyz="0.000952815497784153"
+        izz="0.00206841452625772" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jnt2"
+    type="revolute">
+    <origin
+      xyz="0.00015682 0.065852 0.054304"
+      rpy="1.5708 -9.0206E-17 3.1409" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="-0.0675829344633688 -0.124772832848884 0.192768029289695"
+        rpy="0 0 0" />
+      <mass
+        value="0.962232874219519" />
+      <inertia
+        ixx="0.00210349303153354"
+        ixy="0.00273543928051494"
+        ixz="-4.77126835115765E-05"
+        iyy="0.00568366406491778"
+        iyz="-2.04186852365299E-05"
+        izz="0.00730111706250064" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jnt3"
+    type="revolute">
+    <origin
+      xyz="0.00015682 0.065548 0.05176"
+      rpy="-1.9475E-16 -1.0122E-15 1.1551" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="0.39246 -0.91805 0.056125" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="-0.0500882169680532 -0.0157780813611686 -0.212981766952969"
+        rpy="0 0 0" />
+      <mass
+        value="0.325200231613467" />
+      <inertia
+        ixx="0.000205544289599672"
+        ixy="1.93448815628817E-06"
+        ixz="-2.1817052126429E-06"
+        iyy="0.000267832907178191"
+        iyz="-6.41818873781377E-08"
+        izz="0.000305831664322022" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jnt4"
+    type="revolute">
+    <origin
+      xyz="0 0 0.14633"
+      rpy="1.7932 1.5708 2.1973" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0.04668 -0.99891 -0.00037377" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link5">
+    <inertial>
+      <origin
+        xyz="-0.0085242 0.21142 -0.081277"
+        rpy="0 0 0" />
+      <mass
+        value="0.32521" />
+      <inertia
+        ixx="0.00029741"
+        ixy="1.3735E-05"
+        ixz="-2.1233E-06"
+        iyy="0.00020754"
+        iyz="-1.846E-06"
+        izz="0.00026161" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jnt5"
+    type="revolute">
+    <origin
+      xyz="-0.045564 -0.021967 0"
+      rpy="-1.5788 5.8981E-16 -1.5708" />
+    <parent
+      link="link4" />
+    <child
+      link="link5" />
+    <axis
+      xyz="0.046677 -0.013726 -0.99882" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link6">
+    <inertial>
+      <origin
+        xyz="0.058894 0.095598 -0.22714"
+        rpy="0 0 0" />
+      <mass
+        value="0.11536" />
+      <inertia
+        ixx="4.3609E-05"
+        ixy="7.5667E-08"
+        ixz="-2.3455E-06"
+        iyy="4.3366E-05"
+        iyz="-1.0039E-07"
+        izz="5.8711E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://iai_ur3/meshes/link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jnt6"
+    type="revolute">
+    <origin
+      xyz="0.071244 0.046024 0"
+      rpy="-1.5708 -0.12492 3.1416" />
+    <parent
+      link="link5" />
+    <child
+      link="link6" />
+    <axis
+      xyz="0.14666 0.01164 0.98912" />
+    <limit
+      lower="-3140"
+      upper="3140"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link7" />
+  <joint
+    name="jnt7"
+    type="fixed">
+    <origin
+      xyz="0.055848 0.095451 -0.24733"
+      rpy="-3.0073 -0.014516 2.0803" />
+    <parent
+      link="link6" />
+    <child
+      link="link7" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

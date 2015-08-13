@@ -1,5 +1,5 @@
 <package>
-  <description brief="UR3_4">UR3_4</description>
+  <description brief="iai_ur3">iai_ur3</description>
   <depend package="gazebo" />
   <author>me</author>
   <license>BSD</license>
