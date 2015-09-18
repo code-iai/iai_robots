@@ -140,6 +140,7 @@
 	<link name="spoon_tip"/>
 	<link name="spoon_left_side"/>
 	<link name="spoon_right_side"/>
+        <link name="spoon_middle"/>
 	
 	<joint name="spoon_tip_joint" type="fixed">
 		<origin xyz="0.0096 -0.0718 0.1214" rpy="0.7 0 0" />
@@ -157,6 +158,12 @@
 		<origin xyz="0.0325 0 -0.06" rpy="0 0 0" />
 		<parent link="spoon_tip" />
 		<child link="spoon_right_side" />
+	</joint>
+
+	<joint name="spoon_middle" type="fixed">
+		<origin xyz="0.0325 0.025 -0.05" rpy="0 0 0" />
+		<parent link="spoon_tip" />
+		<child link="spoon_middle" />
 	</joint>
 
 
