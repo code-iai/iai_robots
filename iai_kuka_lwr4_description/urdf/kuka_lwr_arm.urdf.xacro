@@ -36,7 +36,7 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <!-- for each mesh we have two versions, one Collada file with normals and colors, and one simpler STL. The collada file is in cm, and the STL in meters -->
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_base.dae" scale="100 100 100"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_base.dae" scale="1 1 1"/>
 	  <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_base.stl" scale="1 1 1"-->
         </geometry>
         <material name="UniHB-Red"/>
@@ -79,7 +79,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.dae" scale="100 100 100"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.dae" scale="1 1 1"/>
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.stl" scale="1 1 1"/-->
         </geometry>
         <material name="UniHB-Red"/>
@@ -129,7 +129,7 @@
       <visual>
         <origin xyz="0 0 0.2" rpy="${M_PI} 0 ${M_PI}"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.dae" scale="100 100 100"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.dae" scale="1 1 1"/>
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.stl" scale="1 1 1"/-->
         </geometry>
         <material name="UniHB-Red"/>
@@ -179,7 +179,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.dae" scale="100 100 100"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.dae" scale="1 1 1"/>
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.stl" scale="1 1 1"/-->
         </geometry>
         <material name="UniHB-Red"/>
@@ -229,7 +229,7 @@
       <visual>
         <origin xyz="0 0 0.2" rpy="0 ${M_PI} ${M_PI}"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.dae" scale="100 100 100"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.dae" scale="1 1 1"/>
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.stl" scale="1 1 1"/-->
         </geometry>
         <material name="UniHB-Red"/>
@@ -279,7 +279,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
         <geometry name="${name}_arm_5_geom">
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.dae" scale="100 100 100"/> 
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.dae" scale="1 1 1"/> 
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.stl" scale="1 1 1"/-->
         </geometry>
         <material name="UniHB-Red"/>
@@ -329,7 +329,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_wrist.dae" scale="100 100 100"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_wrist.dae" scale="1 1 1"/>
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_wrist.stl" scale="1 1 1"/-->
         </geometry>
         <material name="Grey"/>
@@ -378,7 +378,7 @@
       <visual>
         <origin xyz="0 0 0.078" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_flanche.dae" scale="100 100 100"/>
+          <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_flanche.dae" scale="1 1 1"/>
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_flanche.stl" scale="1 1 1"/-->
         </geometry>
         <material name="Black"/>
