@@ -8,6 +8,7 @@
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_fwa050_wsg50.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
+	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_boxy_ur3.urdf.xacro"/>
 	<xacro:include filename="$(find iai_kinect2_description)/urdf/kinect2.urdf.xacro"/>
 
 	<!-- Property definitions e.g. constants -->
@@ -52,15 +53,23 @@
 	</joint>
 	<!-- /JOINT for base_footprint -->
 
+        <!-- NEW NECK ASSEMBLY -->
+        <!-- mounting plate of UR3 -->
+        <adapter_boxy_ur3_xacro prefix="neck" parent="base_link">
+          <origin xyz="0.214 -0.227 1.48" rpy="0 0 0" />
+        </adapter_boxy_ur3_xacro>
+        <!-- /NEW NECK ASSEMBLY -->
+
+        <!-- OLD NEW ASSEMBLY -->
 	<!-- JOINT to connect the base with the pw070 -->
-	<joint name="head_joint" type="fixed">
+	<!--joint name="head_joint" type="fixed">
 		<origin xyz="${head_joint_x} ${head_joint_y} ${head_joint_z}" rpy="0 0 0" />
 		<parent link="base_link" />
 		<child link="pw070_base_link" />
-	</joint>
+	</joint-->
 	<!-- /JOINT to connect the base with the pw070 -->
 	
-	<xacro:include filename="$(find iai_schunk_pw070_v6)/robots/pw070_v6.URDF" />
+	<!--xacro:include filename="$(find iai_schunk_pw070_v6)/robots/pw070_v6.URDF" /-->
 
 	<!-- Kinect2 -->
         <!-- Pose comes from tool_H_clink in the calibration
@@ -73,9 +82,9 @@
 
         <!-- The following kinect2_xacro defines the _kinect2_rgb_optical_frame
         And includes the fixed joint to place the kinect on the pw070  -->
-        <kinect2_xacro parent="pw070_frame_out" prefix="head_mount">
+        <!--kinect2_xacro parent="pw070_frame_out" prefix="head_mount">
 		<origin xyz="0.0402529 -0.0959434 0.0332714" rpy="-1.5431199762943342 -0.0029080109443817533 -1.5676362600579434" />
-        </kinect2_xacro>
+        </kinect2_xacro-->
 
 
 
