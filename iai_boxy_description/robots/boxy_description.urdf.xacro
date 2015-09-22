@@ -150,39 +150,4 @@
         <wsg_50_xacro name="right_gripper" parent="right_arm_adapter_fwa050_wsg50_frame_out">
           <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
 	</wsg_50_xacro>
-
-        <!-- Temporary place for the spoon frames -->
-
-	<link name="spoon_tip"/>
-	<link name="spoon_left_side"/>
-	<link name="spoon_right_side"/>
-        <link name="spoon_middle"/>
-	
-	<joint name="spoon_tip_joint" type="fixed">
-		<origin xyz="0.0096 -0.0718 0.1214" rpy="0.7 0 0" />
-		<parent link="right_gripper_tool_frame" />
-		<child link="spoon_tip" />
-	</joint>
-
-	<joint name="spoon_left_side" type="fixed">
-		<origin xyz="-0.0325 0 -0.06" rpy="0 0 0" />
-		<parent link="spoon_tip" />
-		<child link="spoon_left_side" />
-	</joint>
-
-	<joint name="spoon_left_right" type="fixed">
-		<origin xyz="0.0325 0 -0.06" rpy="0 0 0" />
-		<parent link="spoon_tip" />
-		<child link="spoon_right_side" />
-	</joint>
-
-	<joint name="spoon_middle" type="fixed">
-		<origin xyz="0.0325 0.025 -0.05" rpy="0 0 0" />
-		<parent link="spoon_tip" />
-		<child link="spoon_middle" />
-	</joint>
-
-
-
-
 </robot>
