@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>ur_description</name>
+  <name>iai_ur_description</name>
   <version>1.1.5</version>
   <description>
       URDF description for Universal UR5/10 robot arms
@@ -14,7 +14,7 @@
 
   <license>BSD</license>
 
-  <url type="website">http://ros.org/wiki/ur_description</url>
+  <url type="website">http://ros.org/wiki/iai_ur_description</url>
 
   <buildtool_depend>catkin</buildtool_depend>
   <run_depend>urdf</run_depend>

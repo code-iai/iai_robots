@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"
-       name="ur5" >
+       name="ur10" >
 
   <!-- common stuff -->
-  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+  <xacro:include filename="$(find iai_ur_description)/urdf/common.gazebo.xacro" />
 
-  <!-- ur5 -->
-  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+  <!-- ur10 -->
+  <xacro:include filename="$(find iai_ur_description)/urdf/ur10.urdf.xacro" />
 
   <!-- arm -->
-  <xacro:ur5_robot prefix="" joint_limited="false"/>
+  <xacro:ur10_robot prefix="" joint_limited="false"/>
 
   <link name="world" />
 

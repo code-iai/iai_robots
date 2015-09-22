@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(ur_description)
+project(iai_ur_description)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -49,7 +49,7 @@ find_package(catkin REQUIRED)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES ur_description
+#  LIBRARIES iai_ur_description
 #  CATKIN_DEPENDS urdf
 #  DEPENDS system_lib
 )
@@ -63,19 +63,19 @@ catkin_package(
 # include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 
 ## Declare a cpp library
-# add_library(ur_description
-#   src/${PROJECT_NAME}/ur_description.cpp
+# add_library(iai_ur_description
+#   src/${PROJECT_NAME}/iai_ur_description.cpp
 # )
 
 ## Declare a cpp executable
-# add_executable(ur_description_node src/ur_description_node.cpp)
+# add_executable(iai_ur_description_node src/iai_ur_description_node.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-# add_dependencies(ur_description_node ur_description_generate_messages_cpp)
+# add_dependencies(iai_ur_description_node iai_ur_description_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(ur_description_node
+# target_link_libraries(iai_ur_description_node
 #   ${catkin_LIBRARIES}
 # )
 
@@ -98,7 +98,7 @@ install(DIRECTORY meshes DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS ur_description ur_description_node
+# install(TARGETS iai_ur_description iai_ur_description_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -123,7 +123,7 @@ install(DIRECTORY meshes DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_ur_description.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_iai_ur_description.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
