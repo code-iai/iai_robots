@@ -26,7 +26,7 @@ In rviz,
 
 Then you should see something like this...
 
-![rviz view](https://raw.github.com/code-iai/iai_robots/master/iai_boxy_bringup/doc/boxy_sim_rviz.png)
+![rviz view](https://raw.github.com/code-iai/iai_robots/master/iai_boxy_bringup/doc/boxy_sim_rviz_new.png)
 
 
 ## Manually moving the joints through the velocity-resolved interface
@@ -42,7 +42,7 @@ NOTE: The current version of the torso joint simulation comes with a watchdog. I
 ### Moving the head joints
 The pan-tilt unit of the head also offers a velocity-resolved interface. To move both joints with 0.1rad/s send:
 
-```rostopic pub -r 20 /head_vel/command iai_control_msgs/MultiJointVelocityCommand '{velocity: [0.1, 0.1]}'```
+```rostopic pub -r 20 /head_vel/command iai_control_msgs/MultiJointVelocityCommand '{velocity: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1]}'```
 
 NOTE: Also the simulated head controller comes with a watchdog. It stops the head joints if it has not received a command for 100ms.
 
@@ -70,7 +70,7 @@ NOTE: There is a watchdog monitoring the commands. If none come in for 0.5s the 
 For convenience purposes, we are also running some naive position controllers on-top of the velocity-resolved. This section shows you how to use this interface from the console.
 
 ### Moving the head
-```rostopic pub /head_pos_controller/command std_msgs/Float32MultiArray '{data: [0.4, 0.3]}'```
+```rostopic pub /head_pos_controller/command std_msgs/Float32MultiArray '{data: [-1.57, -0.89, 2.28, -1.21, 1.57, 3.14]}'```
 
 ### Moving the arms
 ```rostopic pub /l_arm_pos_controller/command std_msgs/Float32MultiArray '{data: [0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0]}'```
