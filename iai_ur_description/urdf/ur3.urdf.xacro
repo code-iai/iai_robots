@@ -62,7 +62,13 @@
   </xacro:macro>
 
 
-  <xacro:macro name="ur3_robot" params="prefix joint_limited">
+  <xacro:macro name="ur3_robot" params="prefix parent joint_limited *origin">
+
+    <joint name="${prefix}mounting_joint" type="fixed">
+      <parent link="${parent}" />
+      <child link="${prefix}base_link" />
+      <insert_block name="origin"/>
+    </joint>
 
     <link name="${prefix}base_link" >
       <visual>
