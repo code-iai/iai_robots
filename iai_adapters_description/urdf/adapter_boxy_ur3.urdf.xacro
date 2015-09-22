@@ -7,14 +7,14 @@
   <xacro:macro name="adapter_boxy_ur3_xacro" params="prefix parent *origin">
 
     <!-- Joint connecting the parent to our frame_in -->
-    <joint name="${prefix}_adapter_ur3_in_joint" type="fixed">
+    <joint name="${prefix}adapter_ur3_in_joint" type="fixed">
       <insert_block name="origin"/>
       <parent link="${parent}"/>
-      <child link="${prefix}_adapter_ur3_frame_in"/>
+      <child link="${prefix}adapter_ur3_frame_in"/>
     </joint>
 
     <!-- FIXME: replace this with the actual mesh exported by Alexis -->
-    <link name="${prefix}_adapter_ur3_frame_in">
+    <link name="${prefix}adapter_ur3_frame_in">
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
@@ -27,15 +27,13 @@
     </link>
 
     <!-- joint positioning the frame_out -->
-    <joint name="${prefix}_adapter_ur3_trans_frame_out" type="fixed">
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <parent link="${prefix}_adapter_ur3_frame_in" />
-      <child link="${prefix}_adapter_ur3_frame_out" />
-      <axis xyz="0 0 0" />
+    <joint name="${prefix}adapter_ur3_trans_frame_out" type="fixed">
+      <origin xyz="0 0 0.003" rpy="0 0 0" />
+      <parent link="${prefix}adapter_ur3_frame_in" /> <child link="${prefix}adapter_ur3_frame_out" />
     </joint>
 
     <!-- Empty link just to get the frame out -->
-    <link name="${prefix}_adapter_ur3_frame_out"/>
+    <link name="${prefix}adapter_ur3_frame_out"/>
 
     <!-- The joint connecting us to the next part of the chain is in the next URDF -->
 
