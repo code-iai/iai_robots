@@ -40,7 +40,7 @@ The torso of the robot offers a velocity-resolved interface. To periodically tel
 NOTE: The current version of the torso joint simulation comes with a watchdog. It stops the torso if it has not received a command for 100ms.
 
 ### Moving the head joints
-The pan-tilt unit of the head also offers a velocity-resolved interface. To move both joints with 0.1rad/s send:
+The pan-tilt unit of the head also offers a velocity-resolved interface. To move all six joints with 0.1rad/s send:
 
 ```rostopic pub -r 20 /head_vel/command iai_control_msgs/MultiJointVelocityCommand '{velocity: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1]}'```
 
