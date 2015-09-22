@@ -43,11 +43,19 @@ l_arm_vel:
 head_vel:
   type: "iai_robot_mechanism_controllers/MultiJointVelocityController"
   joints:
-    - head_pan_joint
-    - head_tilt_joint
+    - neck_shoulder_pan_joint
+    - neck_shoulder_lift_joint
+    - neck_elbow_joint
+    - neck_wrist_1_joint
+    - neck_wrist_2_joint
+    - neck_wrist_3_joint
   gains:
-    head_pan_joint: *pid_gains
-    head_tilt_joint: *pid_gains
+    neck_shoulder_pan_joint: *pid_gains
+    neck_shoulder_lift_joint: *pid_gains
+    neck_elbow_joint: *pid_gains
+    neck_wrist_1_joint: *pid_gains
+    neck_wrist_2_joint: *pid_gains
+    neck_wrist_3_joint: *pid_gains
 
 torso_vel:
   type: "iai_robot_mechanism_controllers/MultiJointVelocityController"
