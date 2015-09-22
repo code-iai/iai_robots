@@ -1,8 +1,12 @@
 head_state_separator:
   joint_names:
-    - head_pan_joint
-    - head_tilt_joint
+    - neck_shoulder_pan_joint
+    - neck_shoulder_lift_joint
+    - neck_elbow_joint
+    - neck_wrist_1_joint
+    - neck_wrist_2_joint
+    - neck_wrist_3_joint
 head_pos_controller:
   vel_command_type: MultiJointVelocityCommand
-  max_speed: 1.2
+  max_speed: 0.7
   p_gain: 3.5
