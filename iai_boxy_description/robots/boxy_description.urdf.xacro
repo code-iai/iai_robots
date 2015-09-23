@@ -99,7 +99,7 @@
         <!-- The following kinect2_xacro defines the _kinect2_rgb_optical_frame
         And includes the fixed joint to place the kinect on the pw070  -->
         <kinect2_xacro parent="neck_adapter_iso50_kinect2_frame_out" prefix="head_mount">
-		<origin xyz="0.0402529 -0.0959434 0.0332714" rpy="-1.5431199762943342 -0.0029080109443817533 -1.5676362600579434" />
+		<origin xyz="-0.02 0.10 0.02" rpy="-1.570795 0 1.570795" />
         </kinect2_xacro>
 
 
