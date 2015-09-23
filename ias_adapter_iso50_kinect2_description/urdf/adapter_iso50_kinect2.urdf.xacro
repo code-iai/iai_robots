@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+       name="adapter_iso50_kinect2"> 
+
+  <xacro:macro name="adapter_iso50_kinect2_xacro" params="prefix parent *origin">
+
+    <!-- Joint connecting the parent to our frame_in -->
+    <joint name="${prefix}_adapter_iso50_kinect2_joint" type="fixed">
+      <insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}_adapter_iso50_kinect2_frame_in"/>
+    </joint>
+
+    <!-- link for the adapter plate -->
+    <link name="${prefix}_adapter_iso50_kinect2_frame_in">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://iai_adapter_iso50_kinect2_description/meshes/adapter_iso50_kinect2.stl" scale="1 1 1"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+    </link>
+
+
+    <!-- Empty link just to get the frame out -->
+    <link name="${prefix}_adapter_iso50_kinect2_frame_out"/>
+
+
+    <!-- joint positioning the frame_out -->
+    <joint name="${prefix}_adapter_iso50_kinect2_trans_frame_out" type="fixed">
+      <origin xyz="0 0 0.020" rpy="0 0 0" />
+      <parent link="${prefix}_adapter_iso50_kinect2_frame_in" />
+      <child link="${prefix}_adapter_iso50_kinect2_frame_out" />
+      <axis xyz="0 0 0" />
+    </joint>
+
+
+  </xacro:macro>
+</robot>
