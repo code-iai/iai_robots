@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>ias_adapter_iso50_kinect2_description</name>
+  <name>iai_adapter_iso50_kinect2_description</name>
   <version>0.0.0</version>
-  <description>The ias_adapter_iso50_kinect2_description package</description>
+  <description>The iai_adapter_iso50_kinect2_description package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
