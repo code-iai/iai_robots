@@ -63,7 +63,7 @@
         </adapter_boxy_ur3_xacro>
 
         <xacro:ur3_robot prefix="neck_" parent="neck_adapter_ur3_frame_out" 
-                         joint_limited="true">
+                         joint_limited="false">
           <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 -${M_PI/2.0}" />
         </xacro:ur3_robot>
 
