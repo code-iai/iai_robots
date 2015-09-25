@@ -59,7 +59,7 @@
         <!-- NEW NECK ASSEMBLY -->
         <!-- mounting plate of UR3 -->
         <adapter_boxy_ur3_xacro prefix="neck_" parent="base_link">
-          <origin xyz="0.214 -0.227 1.48" rpy="0 0 0" />
+          <origin xyz="0.175 -0.227 1.48" rpy="0 0 0" />
         </adapter_boxy_ur3_xacro>
 
         <xacro:ur3_robot prefix="neck_" parent="neck_adapter_ur3_frame_out" 
@@ -131,7 +131,7 @@
 	</kuka_lwr_arm>
 
 	<wsg_50_xacro name="left_gripper" parent="left_arm_cabling_adaptor_link">
-          <origin xyz="0 0 0" rpy="0 0 0.78539816339"/>
+          <origin xyz="0 0 0" rpy="0 0 2.35619183661"/>
 	</wsg_50_xacro>
 
 	<!--This is a 60deg rotation to calib_right_arm_base_link -->
