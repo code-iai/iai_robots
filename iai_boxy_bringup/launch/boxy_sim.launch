@@ -1,5 +1,9 @@
 <launch>
-  <include file="$(find iai_boxy_bringup)/launch/boxy_loopback_sim_no_controllers.launch"/>
+  <arg name="upload-default-start-config" default="true"/>
+
+  <include file="$(find iai_boxy_bringup)/launch/boxy_loopback_sim_no_controllers.launch">
+    <arg name="upload-default-start-config" value="$(arg upload-default-start-config)"/>
+  </include>
 
   <include file="$(find iai_boxy_bringup)/launch/boxy_odometry_sim.launch" />
 
