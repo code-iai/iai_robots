@@ -126,7 +126,7 @@
 	<xacro:include filename="$(find iai_boxy_torso)/robots/torso.URDF" />
 
         <!--FIXME: triangle_left_arm_link should be rotated, and not the origin of the arm (which right now is calib_left_arm_base_link -->	
-	<kuka_lwr_arm parent="triangle_left_arm_link" name="left">
+	<kuka_lwr_arm parent="triangle_left_arm_link" prefix="left_">
           <origin xyz="0 0 0" rpy="0 0 1.047198"/>
 	</kuka_lwr_arm>
 
@@ -135,7 +135,7 @@
 	</wsg_50_xacro>
 
 	<!--This is a 60deg rotation to calib_right_arm_base_link -->
-	<kuka_lwr_arm parent="triangle_right_arm_link" name="right">
+	<kuka_lwr_arm parent="triangle_right_arm_link" prefix="right_">
           <origin xyz="0 0 0" rpy="0 0 -1.047198"/>
 	</kuka_lwr_arm>
 

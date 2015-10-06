@@ -16,15 +16,15 @@
 
   <property name="arm_velocity_scale_factor" value="1"/>
 
-  <macro name="kuka_lwr_arm" params="parent name *origin">
+  <macro name="kuka_lwr_arm" params="parent prefix *origin">
 
-    <joint name="${parent}_${name}_arm_base_joint" type="fixed">
+    <joint name="${parent}_${prefix}arm_base_joint" type="fixed">
       <insert_block name="origin"/>
       <parent link="${parent}"/>
-      <child link="calib_${name}_arm_base_link"/>
+      <child link="calib_${prefix}arm_base_link"/>
     </joint>
 
-    <link name="calib_${name}_arm_base_link">
+    <link name="calib_${prefix}arm_base_link">
       <inertial>
         <mass value="${arm_elem_base_mass}"/>
         <origin xyz="0 0 0.055" rpy="0 0 0"/>
@@ -49,11 +49,11 @@
       </collision>
     </link>
 
-    <gazebo reference="calib_${name}_arm_base_link">
+    <gazebo reference="calib_${prefix}arm_base_link">
       <material value="kuka-lwr.material"/>
     </gazebo>
 
-    <joint name="${name}_arm_0_joint" type="revolute">
+    <joint name="${prefix}arm_0_joint" type="revolute">
       <origin xyz="0 0 0.11" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
       <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
@@ -64,11 +64,11 @@
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
       <calibration rising="0.0"/>
-      <parent link="calib_${name}_arm_base_link"/>
-      <child link="${name}_arm_1_link"/>
+      <parent link="calib_${prefix}arm_base_link"/>
+      <child link="${prefix}arm_1_link"/>
     </joint>
 
-    <link name="${name}_arm_1_link">
+    <link name="${prefix}arm_1_link">
       <inertial>
         <mass value="${arm_elem_link_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0.130"/>
@@ -93,17 +93,17 @@
       </collision>
     </link>
 
-    <gazebo reference="${name}_arm_1_link">
+    <gazebo reference="${prefix}arm_1_link">
       <material value="kuka-lwr.material"/>
     </gazebo>
 
-    <transmission name="${name}_arm_0_trans" type="pr2_mechanism_model/SimpleTransmission">
-      <actuator name="${name}_arm_0_motor"/>
-      <joint name="${name}_arm_0_joint"/>
+    <transmission name="${prefix}arm_0_trans" type="pr2_mechanism_model/SimpleTransmission">
+      <actuator name="${prefix}arm_0_motor"/>
+      <joint name="${prefix}arm_0_joint"/>
       <mechanicalReduction>1.0</mechanicalReduction>
     </transmission>
 
-    <joint name="${name}_arm_1_joint" type="revolute">
+    <joint name="${prefix}arm_1_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 -1 0"/>
       <limit lower="${-107 * M_PI / 180}" upper="${107 * M_PI / 180}"
@@ -114,11 +114,11 @@
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
       <calibration rising="0.0"/>
-      <parent link="${name}_arm_1_link"/>
-      <child link="${name}_arm_2_link"/>
+      <parent link="${prefix}arm_1_link"/>
+      <child link="${prefix}arm_2_link"/>
     </joint>
 
-    <link name="${name}_arm_2_link">
+    <link name="${prefix}arm_2_link">
       <inertial>
         <mass value="${arm_elem_link_mass}"/>
         <origin rpy="0 0 0" xyz="0 0.06 ${0.130 - 0.06}"/>
@@ -143,17 +143,17 @@
       </collision>
     </link>
 
-    <gazebo reference="${name}_arm_2_link">
+    <gazebo reference="${prefix}arm_2_link">
       <material value="kuka-lwr.material"/>
     </gazebo>
 
-    <transmission name="${name}_arm_1_trans" type="pr2_mechanism_model/SimpleTransmission">
-      <actuator name="${name}_arm_1_motor"/>
-      <joint name="${name}_arm_1_joint"/>
+    <transmission name="${prefix}arm_1_trans" type="pr2_mechanism_model/SimpleTransmission">
+      <actuator name="${prefix}arm_1_motor"/>
+      <joint name="${prefix}arm_1_joint"/>
       <mechanicalReduction>1.0</mechanicalReduction>
     </transmission>
 
-    <joint name="${name}_arm_2_joint" type="revolute">
+    <joint name="${prefix}arm_2_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
       <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
@@ -164,11 +164,11 @@
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
       <calibration rising="0.0"/>
-      <parent link="${name}_arm_2_link"/>
-      <child link="${name}_arm_3_link"/>
+      <parent link="${prefix}arm_2_link"/>
+      <child link="${prefix}arm_3_link"/>
     </joint>
 
-    <link name="${name}_arm_3_link">
+    <link name="${prefix}arm_3_link">
       <inertial>
         <mass value="${arm_elem_link_mass}"/>
         <origin rpy="0 0 0" xyz="0 0.06 0.130"/>
@@ -193,17 +193,17 @@
       </collision>
     </link>
 
-    <gazebo reference="${name}_arm_3_link">
+    <gazebo reference="${prefix}arm_3_link">
       <material value="kuka-lwr.material"/>
     </gazebo>
 
-    <transmission name="${name}_arm_2_trans" type="pr2_mechanism_model/SimpleTransmission">
-      <actuator name="${name}_arm_2_motor"/>
-      <joint name="${name}_arm_2_joint"/>
+    <transmission name="${prefix}arm_2_trans" type="pr2_mechanism_model/SimpleTransmission">
+      <actuator name="${prefix}arm_2_motor"/>
+      <joint name="${prefix}arm_2_joint"/>
       <mechanicalReduction>1.0</mechanicalReduction>
     </transmission>
 
-    <joint name="${name}_arm_3_joint" type="revolute">
+    <joint name="${prefix}arm_3_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 1 0"/>
       <limit lower="${-107 * M_PI / 180}" upper="${107 * M_PI / 180}"
@@ -214,11 +214,11 @@
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
       <calibration rising="0.0"/>
-      <parent link="${name}_arm_3_link"/>
-      <child link="${name}_arm_4_link"/>
+      <parent link="${prefix}arm_3_link"/>
+      <child link="${prefix}arm_4_link"/>
     </joint>
 
-    <link name="${name}_arm_4_link">
+    <link name="${prefix}arm_4_link">
       <inertial>
         <mass value="${arm_elem_link_mass}"/>
         <origin rpy="0 0 0" xyz="0 -0.06 ${0.130 - 0.06}"/>
@@ -243,17 +243,17 @@
       </collision>
     </link>
 
-    <gazebo reference="${name}_arm_4_link">
+    <gazebo reference="${prefix}arm_4_link">
       <material value="kuka-lwr.material"/>
     </gazebo>
 
-    <transmission name="${name}_arm_3_trans" type="pr2_mechanism_model/SimpleTransmission">
-      <actuator name="${name}_arm_3_motor"/>
-      <joint name="${name}_arm_3_joint"/>
+    <transmission name="${prefix}arm_3_trans" type="pr2_mechanism_model/SimpleTransmission">
+      <actuator name="${prefix}arm_3_motor"/>
+      <joint name="${prefix}arm_3_joint"/>
       <mechanicalReduction>1.0</mechanicalReduction>
     </transmission>
 
-    <joint name="${name}_arm_4_joint" type="revolute">
+    <joint name="${prefix}arm_4_joint" type="revolute">
       <origin xyz="0 0 0.20" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
       <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
@@ -264,11 +264,11 @@
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
       <calibration rising="0.0"/>
-      <parent link="${name}_arm_4_link"/>
-      <child link="${name}_arm_5_link"/>
+      <parent link="${prefix}arm_4_link"/>
+      <child link="${prefix}arm_5_link"/>
     </joint>
 
-    <link name="${name}_arm_5_link">
+    <link name="${prefix}arm_5_link">
       <inertial>
         <mass value="${arm_elem_link_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0.124"/>
@@ -278,7 +278,7 @@
 
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
-        <geometry name="${name}_arm_5_geom">
+        <geometry name="${prefix}arm_5_geom">
           <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.dae" scale="1 1 1"/> 
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.stl" scale="1 1 1"/-->
         </geometry>
@@ -293,17 +293,17 @@
       </collision>
     </link>
 
-    <gazebo reference="${name}_arm_5_link">
+    <gazebo reference="${prefix}arm_5_link">
       <material value="kuka-lwr.material"/>
     </gazebo>
 
-    <transmission name="${name}_arm_4_trans" type="pr2_mechanism_model/SimpleTransmission">
-      <actuator name="${name}_arm_4_motor"/>
-      <joint name="${name}_arm_4_joint"/>
+    <transmission name="${prefix}arm_4_trans" type="pr2_mechanism_model/SimpleTransmission">
+      <actuator name="${prefix}arm_4_motor"/>
+      <joint name="${prefix}arm_4_joint"/>
       <mechanicalReduction>1.0</mechanicalReduction>
     </transmission>
 
-    <joint name="${name}_arm_5_joint" type="revolute">
+    <joint name="${prefix}arm_5_joint" type="revolute">
       <origin xyz="0 0 0.19" rpy="0 0 0"/>
       <axis xyz="0 -1 0"/>
       <limit lower="${-115 * M_PI / 180}" upper="${115 * M_PI / 180}"
@@ -314,11 +314,11 @@
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
       <calibration rising="0.0"/>
-      <parent link="${name}_arm_5_link"/>
-      <child link="${name}_arm_6_link"/>
+      <parent link="${prefix}arm_5_link"/>
+      <child link="${prefix}arm_6_link"/>
     </joint>
 
-    <link name="${name}_arm_6_link">
+    <link name="${prefix}arm_6_link">
       <inertial>
         <mass value="${arm_elem_ball_link_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0.0625"/>
@@ -343,17 +343,17 @@
       </collision>
     </link>
 
-    <gazebo reference="${name}_arm_6_link">
+    <gazebo reference="${prefix}arm_6_link">
       <material value="kuka-lwr.material"/>
     </gazebo>
 
-    <transmission name="${name}_arm_5_trans" type="pr2_mechanism_model/SimpleTransmission">
-      <actuator name="${name}_arm_5_motor"/>
-      <joint name="${name}_arm_5_joint"/>
+    <transmission name="${prefix}arm_5_trans" type="pr2_mechanism_model/SimpleTransmission">
+      <actuator name="${prefix}arm_5_motor"/>
+      <joint name="${prefix}arm_5_joint"/>
       <mechanicalReduction>1.0</mechanicalReduction>
     </transmission>
 
-    <joint name="${name}_arm_6_joint" type="revolute">
+    <joint name="${prefix}arm_6_joint" type="revolute">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <axis xyz="0 0 1"/>
       <limit lower="${-150 * M_PI / 180}" upper="${150 * M_PI / 180}"
@@ -364,11 +364,11 @@
                          k_velocity="${safety_controller_k_vel}"/>
       <dynamics damping="${joint_damping}"/>
       <calibration rising="0.0"/>
-      <parent link="${name}_arm_6_link"/>
-      <child link="${name}_arm_7_link"/>
+      <parent link="${prefix}arm_6_link"/>
+      <child link="${prefix}arm_7_link"/>
     </joint>
 
-    <link name="${name}_arm_7_link">
+    <link name="${prefix}arm_7_link">
       <inertial>
         <mass value="${arm_elem_end_link_mass}"/>
         <origin xyz="0 0 0"/>
@@ -391,26 +391,26 @@
       </collision>
     </link>
 
-    <gazebo reference="${name}_arm_7_link">
+    <gazebo reference="${prefix}arm_7_link">
       <material value="kuka-lwr.material"/>
     </gazebo>
 
-    <transmission name="${name}_arm_6_trans" type="pr2_mechanism_model/SimpleTransmission">
-      <actuator name="${name}_arm_6_motor"/>
-      <joint name="${name}_arm_6_joint"/>
+    <transmission name="${prefix}arm_6_trans" type="pr2_mechanism_model/SimpleTransmission">
+      <actuator name="${prefix}arm_6_motor"/>
+      <joint name="${prefix}arm_6_joint"/>
       <mechanicalReduction>1.0</mechanicalReduction>
     </transmission>
 
     <!--arm_7_link has the same pose as the TCP defined in the DLR Beasty controller:
        Center of the potato, with z-coming out towards the flange, and y going towards joint #6 -->
 
-    <joint name="${name}_arm_flange_joint" type="fixed">
+    <joint name="${prefix}arm_flange_joint" type="fixed">
       <origin xyz="0 0 0.078" rpy="0 0 0"/>
-      <parent link="${name}_arm_7_link"/>
-      <child link="${name}_arm_flange_link"/>
+      <parent link="${prefix}arm_7_link"/>
+      <child link="${prefix}arm_flange_link"/>
     </joint>
 
-    <link name="${name}_arm_flange_link">
+    <link name="${prefix}arm_flange_link">
       <inertial>
         <mass value="${arm_elem_flange_link_mass}"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -422,13 +422,13 @@
 
 
     <!-- Many Kuka LWR4s are equipped with a little plate to let the cables go out sideways -->
-    <joint name="${name}_arm_cabling_adaptor_joint" type="fixed">
+    <joint name="${prefix}arm_cabling_adaptor_joint" type="fixed">
       <origin xyz="0 0 0.01" rpy="0 0 0"/>  <!-- This places the link at the end of the plate (frame_out) -->
-      <parent link="${name}_arm_flange_link"/>
-      <child link="${name}_arm_cabling_adaptor_link"/>
+      <parent link="${prefix}arm_flange_link"/>
+      <child link="${prefix}arm_cabling_adaptor_link"/>
     </joint>
     
-    <link name="${name}_arm_cabling_adaptor_link">
+    <link name="${prefix}arm_cabling_adaptor_link">
       <visual>
         <origin xyz="0 0 -0.005" rpy="0 0 0" />  <!-- The cylinder is placed at the center -->
         <geometry>
@@ -438,14 +438,14 @@
       </visual>
     </link>
 
-    <!-- joint name="${name}_arm_hand_fixed_joint" type="fixed">
+    <!-- joint name="${prefix}arm_hand_fixed_joint" type="fixed">
       <origin xyz="${-right * 0.075} -0.075 -0.016"
               rpy="${0.5*right*M_PI} 0 ${(1.5 + 0.25*right)*M_PI}"/>
-      <parent link="${name}_arm_7_link"/>
-      <child link="${name}_arm_hand_link"/>
+      <parent link="${prefix}arm_7_link"/>
+      <child link="${prefix}arm_hand_link"/>
     </joint>
 
-    <link name="${name}_arm_hand_link" / -->
+    <link name="${prefix}arm_hand_link" / -->
 
   </macro>
 
