@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot name="iai_wsg_50">
+
+  <include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/>
+
+  <link name="base_link"/>
+
+  <wsg_50_xacro name="gripper" parent="base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </wsg_50_xacro>
+  
+</robot>
