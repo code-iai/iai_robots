@@ -4,6 +4,7 @@
 	<xacro:include filename="$(find iai_kuka_lwr4_description)/urdf/kuka_lwr_arm.urdf.xacro"/>
 	<xacro:include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/>	
 	<xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
+        <include filename="$(find iai_adapters_description)/urdf/lwr4_cabling_adaptor.urdf.xacro" />
 	<!--xacro:include filename="$(find iai_boxy_description)/sensors/kinect.urdf.xacro"/-->
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_fwa050_wsg50.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
@@ -130,6 +131,10 @@
           <origin xyz="0 0 0" rpy="0 0 1.047198"/>
 	</kuka_lwr_arm>
 
+        <lwr4_cabling_adaptor parent="left_arm_flange_link" prefix="left_arm_">
+          <origin xyz="0 0 0.01" rpy="0 0 0"/>
+        </lwr4_cabling_adaptor>
+
 	<wsg_50_xacro name="left_gripper" parent="left_arm_cabling_adaptor_link">
           <origin xyz="0 0 0" rpy="0 0 2.35619183661"/>
 	</wsg_50_xacro>
@@ -138,6 +143,10 @@
 	<kuka_lwr_arm parent="triangle_right_arm_link" prefix="right_">
           <origin xyz="0 0 0" rpy="0 0 -1.047198"/>
 	</kuka_lwr_arm>
+
+        <lwr4_cabling_adaptor parent="right_arm_flange_link" prefix="right_arm_">
+          <origin xyz="0 0 0.01" rpy="0 0 0"/>
+        </lwr4_cabling_adaptor>
 
         <!-- The following URDFs have frame_in / frame_out, so they are simply placed at their parent -->
         <kms_40_xacro parent="right_arm_cabling_adaptor_link" prefix="right_arm">
