@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot name="lwr4_cabling_adaptor">
+
+  <include filename="$(find iai_adapters_description)/urdf/lwr4_cabling_adaptor.urdf.xacro" />
+
+  <link name="base_link"/>
+
+  <lwr4_cabling_adaptor parent="base_link" prefix="">
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+  </lwr4_cabling_adaptor>
+  
+</robot>
