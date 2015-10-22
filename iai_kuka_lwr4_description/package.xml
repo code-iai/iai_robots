@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package>
+  <name>iai_kuka_lwr4_description</name>
+  <version>0.0.0</version>
+  <description>Description of the KUKA LWR4, maintained by the IAI group.</description>
+  <maintainer email="amaldo@cs.uni-bremen.de">Alexis Maldonado</maintainer>
+  <license>GPLv3+</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+  </export>
+</package>
