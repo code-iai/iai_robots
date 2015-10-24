@@ -1,0 +1,22 @@
+<package>
+  <name>iai_kinect_description</name>
+  <version>0.0.0</version>
+  <description>
+    Has the URDF description of the Microsoft kinect. Maintained by the
+    Institute of Artificial Intelligence, Universitaet Bremen, Germany.
+  </description>
+
+  <maintainer email="amaldo@cs.uni-bremen.de">Alexis Maldonado</maintainer>
+
+  <author email="amaldo@cs.uni-bremen.de">Alexis Maldonado</author>
+  <author email="georg.bartels@cs.uni-bremen.de">Georg Bartels</author>
+
+  <license>GPLv3+</license>
+
+  <url type="bugtracker">https://github.com/code-iai/iai_robots/issues</url>
+  <url type="repository">https://github.com/code-iai/iai_robots</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>xacro</run_depend>
+
+</package>
