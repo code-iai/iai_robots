@@ -135,9 +135,98 @@
           <origin xyz="0 0 0.01" rpy="0 0 0"/>
         </lwr4_cabling_adaptor>
 
-	<wsg_50_xacro name="left_gripper" parent="left_arm_cabling_adaptor_link">
-          <origin xyz="0 0 0" rpy="0 0 2.35619183661"/>
+
+        <!-- The following URDFs have frame_in / frame_out, so they are simply placed at their parent -->
+        <kms_40_xacro parent="left_arm_cabling_adaptor_link" prefix="left_arm">
+          <origin xyz="0 0 0" rpy="0 0 3.14159265359" />  <!--places the kms40 frame 13mm from the parent -->
+        </kms_40_xacro>
+
+        <adapter_kms40_fwk050_xacro parent="left_arm_kms40_frame_out" prefix="left_arm">
+          <origin xyz="0 0 0" rpy="0 0 0" /> 
+        </adapter_kms40_fwk050_xacro>
+
+        <fwk_fwa_050_xacro parent="left_arm_adapter_kms40_fwk050_frame_out" prefix="left_arm">
+          <origin xyz="0 0 0" rpy="0 0 0" />
+        </fwk_fwa_050_xacro>
+
+        <adapter_fwa050_wsg50_xacro parent="left_arm_fwk_fwa_050_frame_out" prefix="left_arm">
+          <origin xyz="0 0 0.0" rpy="0 0 0" />
+        </adapter_fwa050_wsg50_xacro>
+
+        <wsg_50_xacro name="left_gripper" parent="left_arm_adapter_fwa050_wsg50_frame_out">
+          <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
 	</wsg_50_xacro>
+
+
+  <link name="left_wrist_optical_frame_x">
+    <inertial>
+      <mass value="1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="White"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+        <!-- JOINT to define base_footprint -->
+        <joint name="left_wrist_optical_joint_x" type="fixed">
+                <origin xyz="0.000836 -0.053028 0.073603" rpy="0.007552 6.274592 3.141201"/>
+                <parent link="left_gripper_base_link" />
+                <child link="left_wrist_optical_frame_x" />
+        </joint>
+        <!-- /JOINT for base_footprint -->
+
+
+
+  <link name="left_wrist_optical_frame">
+    <inertial>
+      <mass value="1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="White"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+        <!-- JOINT to define base_footprint -->
+        <joint name="left_wrist_optical_joint" type="fixed">
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 3.141519"/>
+                <parent link="left_wrist_optical_frame_x" />
+                <child link="left_wrist_optical_frame" />
+        </joint>
+        <!-- /JOINT for base_footprint -->
+
+
+
+
+
+	<!--wsg_50_xacro name="left_gripper" parent="left_arm_cabling_adaptor_link">
+          <origin xyz="0 0 0" rpy="0 0 2.35619183661"/>
+	</wsg_50_xacro-->
 
 	<!--This is a 60deg rotation to calib_right_arm_base_link -->
 	<kuka_lwr_arm parent="triangle_right_arm_link" prefix="right_">
