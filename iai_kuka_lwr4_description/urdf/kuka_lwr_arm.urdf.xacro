@@ -39,7 +39,7 @@
           <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_base.dae" scale="1 1 1"/>
 	  <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_base.stl" scale="1 1 1"-->
         </geometry>
-        <material name="UniHB-Red"/>
+        <!--material name="UniHB-Red"/-->
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -82,7 +82,7 @@
           <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.dae" scale="1 1 1"/>
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.stl" scale="1 1 1"/-->
         </geometry>
-        <material name="UniHB-Red"/>
+        <!--material name="UniHB-Red"/-->
       </visual>
 
       <collision>
@@ -132,7 +132,7 @@
           <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.dae" scale="1 1 1"/>
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.stl" scale="1 1 1"/-->
         </geometry>
-        <material name="UniHB-Red"/>
+        <!--material name="UniHB-Red"/-->
       </visual>
 
       <collision>
@@ -182,7 +182,7 @@
           <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.dae" scale="1 1 1"/>
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_a.stl" scale="1 1 1"/-->
         </geometry>
-        <material name="UniHB-Red"/>
+        <!--material name="UniHB-Red"/-->
       </visual>
 
       <collision>
@@ -232,7 +232,7 @@
           <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.dae" scale="1 1 1"/>
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_b.stl" scale="1 1 1"/-->
         </geometry>
-        <material name="UniHB-Red"/>
+        <!--material name="UniHB-Red"/-->
       </visual>
 
       <collision>
@@ -282,7 +282,7 @@
           <mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.dae" scale="1 1 1"/> 
           <!--mesh filename="package://iai_kuka_lwr4_description/meshes/arm_segment_last.stl" scale="1 1 1"/-->
         </geometry>
-        <material name="UniHB-Red"/>
+        <!--material name="UniHB-Red"/-->
       </visual>
 
       <collision>
