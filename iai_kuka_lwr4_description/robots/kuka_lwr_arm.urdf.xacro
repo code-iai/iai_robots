@@ -7,7 +7,7 @@
 
   <link name="base"/>
 
-  <kuka_lwr_arm parent="base" prefix="">
+  <kuka_lwr_arm parent="base" prefix="" color_postfix="_blue">
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </kuka_lwr_arm>
   
