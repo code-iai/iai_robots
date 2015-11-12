@@ -33,8 +33,8 @@ status_pub = None
 
 def velocity_callback(msg):
   ''' Gets the velocity in mm/s and ignores the force '''
-  rospy.loginfo('Received message:')
-  rospy.loginfo(msg)
+  rospy.logdebug('Received message:')
+  rospy.logdebug(msg)
 
   # Set velocity
   velocity = max(min(msg.speed / 1000.0, 0.42), -0.42)
@@ -55,14 +55,14 @@ def velocity_callback(msg):
 def joint_state_callback(msg):
   ''' Gets the current joint state and publishes a wsg-like status message. '''
   status = Status()
-  status.width = msg.position[1] - msg.position[0]
-  status.speed = msg.velocity[1] - msg.velocity[0]
+  status.width = (msg.position[1] - msg.position[0])*1000
+  status.speed = (msg.velocity[1] - msg.velocity[0])*1000
   status_pub.publish(status)
 
 def position_callback(msg):
   ''' Get the position in mm with 110 meaning the fingers are at position -0.055 and 0.055 and the velocity in mm/s. The force is ignored. '''
-  rospy.loginfo('Received message:')
-  rospy.loginfo(msg)
+  rospy.logdebug('Received message:')
+  rospy.logdebug(msg)
 
   # Set velocity
   velocity = max(min(msg.speed / 1000.0, 0.42), -0.42)
@@ -73,7 +73,7 @@ def position_callback(msg):
   cmd = Float32MultiArray()
   cmd.data = [-position, position]
 
-  rospy.loginfo(str(cmd.data))
+  rospy.logdebug(str(cmd.data))
 
   con.des_pos_cb(cmd)
 
