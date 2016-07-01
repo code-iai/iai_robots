@@ -1,6 +1,0 @@
-<package>
-  <description brief="iai_schunk_pw070_v6">iai_schunk_pw070_v6</description>
-  <depend package="gazebo" />
-  <author>Alexis Maldonado</author>
-  <license>GPLv3+</license>
-</package>
