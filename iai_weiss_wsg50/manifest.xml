@@ -1,6 +1,0 @@
-<package>
-  <description brief="Weiss Robotics WSG50">Weiss Robotics gripper WSG50. Or Schunk WSG-050</description>
-  <depend package="gazebo" />
-  <author>Alexis Maldonado</author>
-  <license>GPLv3+</license>
-</package>
