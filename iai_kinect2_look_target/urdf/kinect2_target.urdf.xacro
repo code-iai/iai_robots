@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- This is a hand-made URDF XACRO file for pointing at the target of the Microsoft Kinect-2 sensor (Xbox ONE) -->
+<!-- Copyright Universitaet Bremen - Instititute for Artificial Intelligence. Author: Minerva Vargas -->
+<!-- License: GPLv3+ -->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="joint_target">
+
+<!-- This is an imaginary joint at the end of the Kinect2 that points at the target, with any orientation -->
+ <xacro:macro name="kinect2_xacro">
+  <link name="target_base" />
+  <link name="target_3" />
+  <link name="target_2">
+	<visual>
+    	  <geometry>
+    	    <cylinder length="0.4" radius="0.1"/>
+    	  </geometry>
+    	  <material name="blue">
+    	    <color rgba="0 0 .8 1"/>
+    	  </material>
+    </visual>
+  </link>
+
+  <joint name="joint1" type="revolute">
+    <parent link="target_base"/>
+    <child link="target_2"/>
+	<limit effort="1000.0" lower="0" upper="3" velocity="0.5"/>
+	<origin xyz="0 0 0" rpy="0 0 1.57" />
+	<axis xyz="0 0 1" />
+  </joint>
+
+<!-- Joints at the end of the target, to allow any orientation -->
+
+  <joint name="head1" type="continuous">
+    <parent link="target_2"/>
+    <child link="target_3"/>
+	<origin xyz="0 0 0" rpy="0 0 0" />
+	<axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="head2" type="continuous">
+    <parent link="target_2"/>
+    <child link="target_3"/>
+	<origin xyz="0 0 0" rpy="0 0 0" />
+	<axis xyz="0 1 0" />
+  </joint>
+
+  <joint name="head3" type="continuous">
+    <parent link="target_2"/>
+    <child link="target_3"/>
+	<origin xyz="0 0 0" rpy="0 0 0" />
+	<axis xyz="1 0 0" />
+  </joint>
+
+ </xacro:macro>
+</robot>
