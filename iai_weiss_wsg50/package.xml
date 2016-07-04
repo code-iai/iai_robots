@@ -1,0 +1,20 @@
+<package>
+  <name>iai_weiss_wsg50</name>
+  <version>0.0.0</version>
+  <description>
+    Weiss Robotics gripper WSG50. Or Schunk WSG-050.
+  </description>
+
+  <maintainer email="amaldo@cs.uni-bremen.de">Alexis Maldonado</maintainer>
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+
+  <author email="amaldo@cs.uni-bremen.de">Alexis Maldonado</author>
+
+  <license>GPLv3+</license>
+
+  <url type="bugtracker">https://github.com/code-iai/iai_robots/issues</url>
+  <url type="repository">https://github.com/code-iai/iai_robots</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>

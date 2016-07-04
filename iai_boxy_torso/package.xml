@@ -1,0 +1,20 @@
+<package>
+  <name>iai_boxy_torso</name>
+  <version>0.0.0</version>
+  <description>
+    URDF description of the torso of the IAI robot named Boxy.
+  </description>
+
+  <maintainer email="amaldo@cs.uni-bremen.de">Alexis Maldonado</maintainer>
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+
+  <author email="amaldo@cs.uni-bremen.de">Alexis Maldonado</author>
+
+  <license>GPLv3+</license>
+
+  <url type="bugtracker">https://github.com/code-iai/iai_robots/issues</url>
+  <url type="repository">https://github.com/code-iai/iai_robots</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>

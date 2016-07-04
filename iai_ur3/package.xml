@@ -1,0 +1,20 @@
+<package>
+  <name>iai_ur3</name>
+  <version>0.0.0</version>
+  <description>
+    URDF description of the UR3 manipulator from Universal Robotics.
+  </description>
+
+  <maintainer email="amaldo@cs.uni-bremen.de">Alexis Maldonado</maintainer>
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+
+  <author email="un@known.com">unknown</author>
+
+  <license>BSD</license>
+
+  <url type="bugtracker">https://github.com/code-iai/iai_robots/issues</url>
+  <url type="repository">https://github.com/code-iai/iai_robots</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
