@@ -4,16 +4,16 @@
 	<xacro:include filename="$(find iai_kuka_lwr4_description)/urdf/kuka_lwr_arm.urdf.xacro"/>
 	<xacro:include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/>	
 	<xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
-        <include filename="$(find iai_adapters_description)/urdf/lwr4_cabling_adaptor.urdf.xacro" />
+    <xacro:include filename="$(find iai_adapters_description)/urdf/lwr4_cabling_adaptor.urdf.xacro" />
 	<!--xacro:include filename="$(find iai_boxy_description)/sensors/kinect.urdf.xacro"/-->
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_fwa050_wsg50.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
-        <xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
+    <xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_boxy_ur3.urdf.xacro"/>
-        <xacro:include filename="$(find iai_ur_description)/urdf/ur3.urdf.xacro" />
+    <xacro:include filename="$(find iai_ur_description)/urdf/ur3.urdf.xacro" />
 	<xacro:include filename="$(find iai_kinect2_description)/urdf/kinect2.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapter_iso50_kinect2_description)/urdf/adapter_iso50_kinect2.urdf.xacro"/>
-
+	<xacro:include filename="$(find boxy_description_urdf)/kinect2_target.urdf.xacro"/>
 
 	<!-- Property definitions e.g. constants -->
 	<xacro:property name="head_joint_x" value="0.2" />
@@ -29,11 +29,6 @@
 	<xacro:include filename="$(find iai_boxy_base)/robots/base.URDF" />
 	
 	<link name="base_footprint">
-    <inertial>
-      <mass value="1"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
-    </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -64,7 +59,7 @@
         </adapter_boxy_ur3_xacro>
 
         <xacro:ur3_robot prefix="neck_" parent="neck_adapter_ur3_frame_out" 
-                         joint_limited="false">
+                         joint_limited="true">
           <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 -${M_PI/2.0}" />
         </xacro:ur3_robot>
 
@@ -74,13 +69,17 @@
           <origin xyz="0 0 0" rpy="0 0 -1.570795" />
         </adapter_iso50_kinect2_xacro>
 
+		 <!-- Imaginary joint to determine where Kineckt2 is looking -->
+		<xacro:kinect2_target_xacro parent="neck_tool0" prefix="neck">
+			<pose xyz="0 0 0" rpy="0 0 0" />
+		</xacro:kinect2_target_xacro>
+
 
         <!-- /NEW NECK ASSEMBLY -->
 
         <!-- OLD NEW ASSEMBLY -->
 	<!-- JOINT to connect the base with the pw070 -->
 	<!--joint name="head_joint" type="fixed">
-		<origin xyz="${head_joint_x} ${head_joint_y} ${head_joint_z}" rpy="0 0 0" />
 		<parent link="base_link" />
 		<child link="pw070_base_link" />
 	</joint-->

@@ -1,22 +1,21 @@
 <launch>
 
   <param name="/use_sim_time" value="false"/>
-  <include file="$(find boxy_bringup)/machines/boxy.machine" />
 
   <!-- Load the robot description -->
   <include file="$(find iai_boxy_description)/launch/upload_boxy.launch" />
 
   <!-- Do forward kinematics: /joint_states + robot model => /tf -->
-  <node
-    name="robot_state_publisher"
-    pkg="robot_state_publisher"
-    type="robot_state_publisher" />
+  <!-- <node
+	    name="robot_state_publisher" 
+      pkg="robot_state_publisher"	
+      type="robot_state_publisher" />  already in move_group_mine.launch -->
 
   <!-- TF2 BUFFER SERVER -->
   <node pkg="tf2_ros" type="buffer_server" name="buffer_server"/>
 
   <!-- Start the EtherCAT controllers for the omnidirectional base -->
-  <!--include file="$(find boxy_bringup)/launch/omnidrive.launch" /-->
+  <!--include file="$(find iai_boxy_bringup)/launch/omnidrive.launch" /-->
 
 
     <!-- Bring together the different joint state messages -->
