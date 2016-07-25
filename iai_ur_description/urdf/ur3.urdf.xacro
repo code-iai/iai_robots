@@ -98,7 +98,8 @@
         <limit lower="${-2.0 * pi}" upper="${2.0 * pi}" effort="330.0" velocity="2.16"/>
       </xacro:unless>
       <xacro:if value="${joint_limited}">
-        <limit lower="${-pi}" upper="${pi}" effort="330.0" velocity="2.16"/>
+        <!--limit lower="${-pi}" upper="${pi}" effort="330.0" velocity="2.16"/-->
+				<limit lower="${-1.5*pi}" upper="${1.5*pi}" effort="330.0" velocity="2.16"/>
       </xacro:if>
       <dynamics damping="0.0" friction="0.0"/>
     </joint>

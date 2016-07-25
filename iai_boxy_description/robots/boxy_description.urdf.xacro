@@ -4,13 +4,13 @@
 	<xacro:include filename="$(find iai_kuka_lwr4_description)/urdf/kuka_lwr_arm.urdf.xacro"/>
 	<xacro:include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/>	
 	<xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
-    <xacro:include filename="$(find iai_adapters_description)/urdf/lwr4_cabling_adaptor.urdf.xacro" />
-	<!--xacro:include filename="$(find iai_boxy_description)/sensors/kinect.urdf.xacro"/-->
+  <xacro:include filename="$(find iai_adapters_description)/urdf/lwr4_cabling_adaptor.urdf.xacro" />
+	<xacro:include filename="$(find iai_kinect_description)/urdf/kinect.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_fwa050_wsg50.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
-    <xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
+  <xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapters_description)/urdf/adapter_boxy_ur3.urdf.xacro"/>
-    <xacro:include filename="$(find iai_ur_description)/urdf/ur3.urdf.xacro" />
+  <xacro:include filename="$(find iai_ur_description)/urdf/ur3.urdf.xacro" />
 	<xacro:include filename="$(find iai_kinect2_description)/urdf/kinect2.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapter_iso50_kinect2_description)/urdf/adapter_iso50_kinect2.urdf.xacro"/>
 	<xacro:include filename="$(find boxy_description_urdf)/kinect2_target.urdf.xacro"/>
@@ -110,10 +110,12 @@
              from: base_link to: shoulder_kinect_link
              translation: -0.135394 -0.00764754 1.54755 (xyz)
              quaternion: 0.0177781 0.202257 -0.0472198 0.978032 (xyzw) -->
-        <!--kinect name="shoulder_kinect" parent="base_link">
-          <origin xyz="-0.135394 -0.00764754 1.54755"
-                  rpy="0.01708077682636155 0.4085798647123734 -0.09294704527264909"/> 
-       </kinect-->
+        <kinect name="shoulder_kinect" parent="base_link">
+          <!--<origin xyz="-0.135394 -0.00764754 1.54755"
+                  rpy="0.01708077682636155 0.4085798647123734 -0.09294704527264909"/> -->
+					<origin xyz="0.0405394 -0.52064754 1.47001"
+                  rpy="0.01708077682636155 0.0085798647123734 -0.00929470452726490"/>
+       </kinect>
 	
 	<!-- JOINT to connect the base with the torso -->
 	<joint name="torso_joint" type="fixed">
