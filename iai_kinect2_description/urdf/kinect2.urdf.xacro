@@ -28,6 +28,14 @@
         </geometry>
         <material name="Kinect2Grey"/>
       </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://iai_kinect2_description/meshes/kinect2_origin_on_rgb_optical_frame.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
     </link>
 
   </xacro:macro>
