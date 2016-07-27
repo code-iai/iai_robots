@@ -13,7 +13,7 @@
   <xacro:include filename="$(find iai_ur_description)/urdf/ur3.urdf.xacro" />
 	<xacro:include filename="$(find iai_kinect2_description)/urdf/kinect2.urdf.xacro"/>
 	<xacro:include filename="$(find iai_adapter_iso50_kinect2_description)/urdf/adapter_iso50_kinect2.urdf.xacro"/>
-	<xacro:include filename="$(find boxy_description_urdf)/kinect2_target.urdf.xacro"/>
+	<xacro:include filename="$(find iai_kinect2_look_target)/kinect2_target.urdf.xacro"/>
 
 	<!-- Property definitions e.g. constants -->
 	<xacro:property name="head_joint_x" value="0.2" />
