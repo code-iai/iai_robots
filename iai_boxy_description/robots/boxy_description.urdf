@@ -178,7 +178,8 @@
     <child link="neck_shoulder_link"/>
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.1519"/>
     <axis xyz="0 0 1"/>
-    <limit effort="330.0" lower="-3.14159265" upper="3.14159265" velocity="2.16"/>
+    <!--limit lower="${-pi}" upper="${pi}" effort="330.0" velocity="2.16"/-->
+    <limit effort="330.0" lower="-4.712388975" upper="4.712388975" velocity="2.16"/>
     <dynamics damping="0.0" friction="0.0"/>
   </joint>
   <link name="neck_shoulder_link">
@@ -319,6 +320,7 @@
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.08535"/>
     <axis xyz="0 1 0"/>
     <limit effort="54.0" lower="-3.14159265" upper="3.14159265" velocity="3.2"/>
+    <limit effort="54.0" lower="-4.712388975" upper="4.712388975" velocity="3.2"/>
     <dynamics damping="0.0" friction="0.0"/>
   </joint>
   <link name="neck_wrist_3_link">
@@ -419,6 +421,12 @@
       </geometry>
       <material name="Grey"/>
     </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_adapter_iso50_kinect2_description/meshes/adapter_iso50_kinect2.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
   </link>
   <!-- Empty link just to get the frame out -->
   <link name="neck_adapter_iso50_kinect2_frame_out"/>
@@ -442,7 +450,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0.205"/>
       <geometry>
-        <cylinder length="0.35" radius="0.035"/>
+        <cylinder length="0.35" radius="0.03"/>
       </geometry>
       <material name="blue">
         <color rgba="0.2 0.2 0.7 1"/>
@@ -508,6 +516,12 @@
       </geometry>
       <material name="Kinect2Grey"/>
     </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_kinect2_description/meshes/kinect2_origin_on_rgb_optical_frame.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
   <!-- shoulder kinect -->
   <!-- ORIGINAL DATA FROM HALCON CALIBRATION:
@@ -515,7 +529,7 @@
              translation: -0.135394 -0.00764754 1.54755 (xyz)
              quaternion: 0.0177781 0.202257 -0.0472198 0.978032 (xyzw) -->
   <joint name="shoulder_kinect_joint" type="fixed">
-    <origin rpy="0.01708077682636155 0.0085798647123734 -0.00929470452726490" xyz="-0.00585394 -0.52064754 1.46001"/>
+    <origin rpy="0.01708077682636155 0.0085798647123734 -0.00929470452726490" xyz="0.0405394 -0.52064754 1.47001"/>
     <parent link="base_link"/>
     <child link="shoulder_kinect_link"/>
   </joint>
@@ -533,9 +547,9 @@
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0 0.0 0"/>
+      <origin rpy="1.57079632679 0 1.57079632679" xyz="-0.05 -0.17 -0.02"/>
       <geometry>
-        <sphere radius="0.0005"/>
+        <mesh filename="package://iai_kinect_description/meshes/68-04546_Kinect_Sensor--coarse.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>

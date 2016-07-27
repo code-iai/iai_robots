@@ -6,10 +6,10 @@
   <include file="$(find iai_boxy_description)/launch/upload_boxy.launch" />
 
   <!-- Do forward kinematics: /joint_states + robot model => /tf -->
-  <node
+  <!--<node
 	    name="robot_state_publisher" 
       pkg="robot_state_publisher"	
-      type="robot_state_publisher" /> <!-- already in move_group_mine.launch -->
+      type="robot_state_publisher" />  already in move_group_mine.launch -->
 
   <!-- TF2 BUFFER SERVER -->
   <node pkg="tf2_ros" type="buffer_server" name="buffer_server"/>
