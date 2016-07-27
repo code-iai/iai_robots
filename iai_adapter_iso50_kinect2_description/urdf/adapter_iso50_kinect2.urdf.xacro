@@ -20,6 +20,15 @@
         </geometry>
         <material name="Grey"/>
       </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iai_adapter_iso50_kinect2_description/meshes/adapter_iso50_kinect2.stl" scale="1 1 1" />
+        </geometry>
+      </collision>
+
+
+
     </link>
 
 
