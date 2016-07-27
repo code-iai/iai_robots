@@ -22,7 +22,7 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0.0 0.0 0" rpy="0 0 0"/>
+        <origin xyz="-0.05 -0.17 -0.02" rpy="${M_PI/2.0} 0 ${M_PI/2.0}"/>
         <geometry>
           <mesh filename="package://iai_kinect_description/meshes/68-04546_Kinect_Sensor--coarse.STL" scale="0.001 0.001 0.001" />
         </geometry>
