@@ -24,7 +24,7 @@
       <collision>
         <origin xyz="0.0 0.0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package:///iai_kinect_description/meshes/68-04546_Kinect_Sensor--coarse.STL" scale="0.001 0.001 0.001" />
+          <mesh filename="package://iai_kinect_description/meshes/68-04546_Kinect_Sensor--coarse.STL" scale="0.001 0.001 0.001" />
         </geometry>
       </collision>
     </link>
