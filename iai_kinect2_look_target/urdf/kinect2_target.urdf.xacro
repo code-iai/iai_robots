@@ -26,6 +26,12 @@
 					<color rgba="0.2 0.2 0.7 1"/>
 				</material>
 			</visual>
+			<collision>
+        <origin rpy="0 0 0" xyz="0 0 ${Length/2+.03}"/>
+        <geometry>
+          <cylinder length="${Length}" radius="${R}"/>
+        </geometry>
+      </collision>
 		</link>
 
 <!-- Joints at the end of the target, to allow any orientation -->

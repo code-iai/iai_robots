@@ -74,7 +74,6 @@
 			<pose xyz="0 0 0" rpy="0 0 0" />
 		</xacro:kinect2_target_xacro>
 
-
         <!-- /NEW NECK ASSEMBLY -->
 
         <!-- OLD NEW ASSEMBLY -->
@@ -179,6 +178,53 @@
       </geometry>
     </collision>
   </link>
+
+    <!-- Box that limits the position of the head while planning -->
+			<link name="limit_box" >
+			  <visual>
+				  <origin rpy="0 0 0" xyz="0.25 -0.2 1.35"/>
+					<geometry>
+						<box size="0.01 0.01 0.01"/>
+					</geometry>
+					<material name="box_color">
+						<color rgba="0.2 0.2 0.2 1"/>
+					</material>
+			 	</visual>
+			 	<collision>
+        	<origin rpy="0 0 0" xyz="0.25 -0.2 1.35"/>
+        	<geometry>
+         		<box size="0.4 0.35 0.1"/>
+        	</geometry>
+      	</collision>
+		  </link>
+			<joint name="fixed_box" type="fixed">
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <parent link="base_link" />
+                <child link="limit_box" />
+      </joint>
+
+			<link name="limit_box2" >
+			  <visual>
+				  <origin rpy="0 0 0" xyz="-0.2 -0.2 1.55"/>
+					<geometry>
+						<box size="0.01 0.01 0.01"/>
+					</geometry>
+					<material name="box_color">
+						<color rgba="0.2 0.2 0.2 1"/>
+					</material>
+			 	</visual>
+			 	<collision>
+        	<origin rpy="0 0 0" xyz="-0.2 -0.2 1.55"/>
+        	<geometry>
+         		<box size="0.25 0.40 0.15"/>
+        	</geometry>
+      	</collision>
+		  </link>
+			<joint name="fixed_box2" type="fixed">
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <parent link="base_link" />
+                <child link="limit_box2" />
+      </joint>
 
 
         <!-- JOINT to define base_footprint -->
