@@ -34,12 +34,37 @@
       </collision>
 		</link>
 
+		<link name="${prefix}_obstacle">
+			<visual>
+				<origin rpy="0 1.5708 0" xyz="0 0 0.1"/>
+				<geometry>
+					<mesh filename="package://iai_kinect2_look_target/meshes/Cilinder.stl" scale="0.01 0.01 0.01" />
+				</geometry>
+				<material name="blue">
+					<color rgba="0.2 0.2 0.7 1"/>
+				</material>
+			</visual>
+			<collision>
+        <origin rpy="0 1.5707 0" xyz="0 0 0.1"/>
+        <geometry>
+          <mesh filename="package://iai_kinect2_look_target/meshes/Cilinder.stl" scale="0.01 0.01 0.01" />
+        </geometry>
+      </collision>
+		</link>
+
 <!-- Joints at the end of the target, to allow any orientation -->
 
 		<joint name="head1" type="continuous">
 			<parent link="${prefix}_look_target"/>
 			<child link="${prefix}_look_target_2"/>
 			<origin xyz="0 0 0" rpy="0 0 0" />
+			<axis xyz="0 0 1" />
+		</joint>
+
+		<joint name="head" type="fixed">
+			<parent link="${parent}"/>
+			<child link="${prefix}_obstacle"/>
+			<origin xyz="0 0.01 0" rpy="-1.5708 0 0" />
 			<axis xyz="0 0 1" />
 		</joint>
 
@@ -63,7 +88,7 @@
 
 	</xacro:macro>
 
-	<xacro:property name="R" value="0.03" />
+	<xacro:property name="R" value="0.028" />
 	<xacro:property name="Length" value="0.35" />
 
 
