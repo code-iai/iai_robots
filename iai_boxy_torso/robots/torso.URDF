@@ -83,20 +83,14 @@
   <joint
     name="triangle_base_joint"
     type="prismatic">
-    <!-- Values for the old xtion -->
-    <!--origin  
-      xyz="0.0674958675029617 0.10311858113734 0.915114291670046"
-      rpy="4.7298 6.267 1.5685260" /--> 
     <!-- Output of the hand/eye calibration baserobot_H_basearm-->
-    <origin
-			xyz="0.0786889663592487 0.0986351579738104 0.996332096493862"
-      rpy="4.70695928 6.28217403836 1.56327975371" /> 
+    <origin rpy="0 0 0" xyz="0.0786889663592487 0.0986351579738104 0.996332096493862"/>
     <parent
       link="base_link" />
     <child
       link="triangle_base_link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 0 1" />
     <limit
       lower="-0.586"
       upper="0"
@@ -118,9 +112,7 @@
   <joint
     name="triangle_left_arm_joint"
     type="fixed">
-    <origin
-      xyz="-0.239507442352261 -0.181209704131733 -0.137000000000002"
-      rpy="2.61799387796333 -1.5707963267949 0" />
+    <origin rpy="1.046186267441739 0.005429697608281147 3.1340705895651766" xyz="0.134209 -0.240707 0.181709"/>
     <parent
       link="triangle_base_link" />
     <child
@@ -133,9 +125,7 @@
   <joint
     name="triangle_right_arm_joint"
     type="fixed">
-    <origin
-      xyz="-0.365488160465715 -0.181209539931436 -0.137"
-      rpy="2.61799387801966 1.5707963267949 0" />
+    <origin rpy="1.0482088349514576 -0.00542969760828114 -0.0075220640246236" xyz="0.133262 -0.366684 0.181581"/>
     <parent
       link="triangle_base_link" />
     <child
