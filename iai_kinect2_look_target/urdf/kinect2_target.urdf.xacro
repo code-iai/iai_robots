@@ -31,6 +31,9 @@
         <geometry>
           <cylinder length="${Length}" radius="${R}"/>
         </geometry>
+				<material name="blue">
+					<color rgba="0.2 0.2 0.7 1"/>
+				</material>
       </collision>
 		</link>
 
@@ -49,6 +52,9 @@
         <geometry>
           <mesh filename="package://iai_kinect2_look_target/meshes/Cilinder.stl" scale="0.01 0.01 0.01" />
         </geometry>
+				<material name="blue">
+					<color rgba="0.2 0.2 0.5 1"/>
+				</material>
       </collision>
 		</link>
 
