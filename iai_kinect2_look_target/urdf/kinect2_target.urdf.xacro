@@ -17,7 +17,7 @@
 		</joint>
 
 		<link name="${prefix}_look_target">
-			<visual>
+			<!--<visual>
 				<origin rpy="0 0 0" xyz="0 0 ${Length/2+.03}"/>
 				<geometry>
 					<cylinder length="${Length}" radius="${R}"/>
@@ -25,7 +25,7 @@
 				<material name="blue">
 					<color rgba="0.2 0.2 0.7 1"/>
 				</material>
-			</visual>
+			</visual>-->
 			<collision>
         <origin rpy="0 0 0" xyz="0 0 ${Length/2+.03}"/>
         <geometry>
@@ -35,7 +35,7 @@
 		</link>
 
 		<link name="${prefix}_obstacle">
-			<visual>
+			<!--<visual>
 				<origin rpy="0 1.5708 0" xyz="0 0 0.1"/>
 				<geometry>
 					<mesh filename="package://iai_kinect2_look_target/meshes/Cilinder.stl" scale="0.01 0.01 0.01" />
@@ -43,7 +43,7 @@
 				<material name="blue">
 					<color rgba="0.2 0.2 0.7 1"/>
 				</material>
-			</visual>
+			</visual>-->
 			<collision>
         <origin rpy="0 1.5707 0" xyz="0 0 0.1"/>
         <geometry>
