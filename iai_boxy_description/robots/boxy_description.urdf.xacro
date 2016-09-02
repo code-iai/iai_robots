@@ -98,7 +98,10 @@
         <!-- The following kinect2_xacro defines the _kinect2_rgb_optical_frame
         And includes the fixed joint to place the kinect on the pw070  -->
         <kinect2_xacro parent="neck_adapter_iso50_kinect2_frame_out" prefix="head_mount">
-		<origin xyz="-0.02 0.10 0.02" rpy="-1.570795 0 1.570795" />
+                <!-- From CAD -->
+		<!--origin xyz="-0.02 0.10 0.02" rpy="-1.570795 0 1.570795" /-->
+                <!-- From Halcon calibration on 20160902 -->
+		<origin xyz="-0.031284 0.098627 0.023544" rpy="4.728550 6.279385 1.578295"/>
         </kinect2_xacro>
 
 
@@ -128,7 +131,10 @@
 
         <!--FIXME: triangle_left_arm_link should be rotated, and not the origin of the arm (which right now is calib_left_arm_base_link -->	
 	<kuka_lwr_arm parent="triangle_left_arm_link" prefix="left_" color_postfix="">
-          <origin xyz="0 0 0" rpy="0 0 1.047198"/>
+          <!-- From CAD -->
+          <!--origin xyz="0 0 0" rpy="0 0 1.047198"/-->
+          <!-- from calibration on 20160903 -->
+          <origin xyz="-0.006185 0.004080 -0.010726" rpy="6.276354 6.281653 1.074679"/>
 	</kuka_lwr_arm>
 
         <lwr4_cabling_adaptor parent="left_arm_flange_link" prefix="left_arm_">
