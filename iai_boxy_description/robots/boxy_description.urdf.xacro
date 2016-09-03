@@ -70,7 +70,7 @@
         </adapter_iso50_kinect2_xacro>
 
 		 <!-- Imaginary joint to determine where Kineckt2 is looking -->
-		<xacro:kinect2_target_xacro parent="neck_tool0" prefix="neck">
+		<xacro:kinect2_target_xacro parent="head_mount_kinect2_rgb_optical_frame" prefix="neck">
 			<pose xyz="0 0 0" rpy="0 0 0" />
 		</xacro:kinect2_target_xacro>
 
