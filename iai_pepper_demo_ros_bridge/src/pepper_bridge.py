@@ -52,7 +52,7 @@ class PepperROSBridge(object):
 
         try:
            
-            self.sock.connect((self.pepper_ip, self.pepper_port))
+            self.sock.connect((self.pepper_ip, int(self.pepper_port)))
             
             #Only register the rosservice after the connection to pepper worked
             self.ros_s = rospy.Service('/pepper/comm', PepperComm, self.service_handler)
@@ -83,7 +83,7 @@ class PepperROSBridge(object):
         pepper_cmd['get_heard'] = req.get_heard
         
         #Encode into json
-        pepper_net_string = enc.encode(pepper_cmd)
+        pepper_net_string = self.enc.encode(pepper_cmd)
         
         #Send over the socket
         self.sock.sendall(pepper_net_string)
@@ -93,10 +93,10 @@ class PepperROSBridge(object):
         start_time = time.time()
         
         while ((time.time() - start_time) < timeout):
-            received = sock.recv(1024)
+            received = self.sock.recv(1024)
             
             if received != "":
-                data = dec.decode(received)
+                data = self.dec.decode(received)
                 break
             
             else:
@@ -107,7 +107,7 @@ class PepperROSBridge(object):
         rospy.loginfo(data)
         
         #data['pose'] should be 3 floats:  pos_x, pos_y, rot_z (in m and rad) in /map frame
-        pepper_pose = data['pose']
+        pepper_pose = data['robot_pos']
         
         pepper_ts = TransformStamped()
         pepper_ts.header.frame_id = self.map_frame
@@ -123,10 +123,10 @@ class PepperROSBridge(object):
         pepper_ts.transform.rotation.z = quat[2]
         pepper_ts.transform.rotation.w = quat[3]
         
-        ans.heard = data['heard']
+        ans = PepperCommResponse()
+        ans.heard = data['robot_heard']
         ans.pepper_pose = pepper_ts
         
-        ans = PepperCommResponse()
         
         return ans
   
