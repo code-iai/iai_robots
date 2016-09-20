@@ -27,7 +27,7 @@
 				</material>
 			</visual>
 			<collision>
-        <origin rpy="0 0 0" xyz="0 0 ${Length/2+.03}"/>
+        <origin rpy="0 0 0" xyz="0 0 0.02"/>
         <geometry>
           <cylinder length="${Length}" radius="${R}"/>
         </geometry>
@@ -45,7 +45,7 @@
 				</material>
 			</visual>
 			<collision>
-        <origin rpy="0 0.0 0" xyz="0 0 0.1"/>
+        <origin rpy="0 1.5708 0" xyz="0 0 0.1"/>
         <geometry>
           <mesh filename="package://iai_kinect2_look_target/meshes/Cilinder.stl" scale="0.01 0.01 0.01" />
         </geometry>
@@ -91,7 +91,7 @@
 
 	</xacro:macro>
 
-	<xacro:property name="R" value="0.028" />
+	<xacro:property name="R" value="0.022" />
 	<xacro:property name="Length" value="0.35" />
 
 
