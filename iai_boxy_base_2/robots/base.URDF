@@ -1,0 +1,105 @@
+<robot
+  name="base">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.257082749974343 -0.227847593519202 0.0535404411050965"
+        rpy="0 0 0" />
+      <mass
+        value="70.0210745907357" />
+      <inertia
+        ixx="9.06122735721955"
+        ixy="0.0933988942518672"
+        ixz="0.665662584048376"
+        iyy="12.5350462868938"
+        iyz="0.00262520723302998"
+        izz="7.44839974564544" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh -->
+        <mesh
+          filename="package://iai_boxy_base_2/meshes/base.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://iai_boxy_base/meshes/base.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="laser_reference_front" />
+  <joint
+    name="laser_reference_front_joint"
+    type="fixed">
+    <origin
+      xyz="0.1772 0.060745 0.150"
+      rpy="0.0 0.0 0.7853975" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser_reference_front" />
+    <axis
+      xyz="0.0 0.0 0.0" />
+  </joint>
+  <link
+    name="laser_reference_back" />
+  <joint
+    name="laser_reference_back_joint"
+    type="fixed">
+    <origin
+      xyz="-0.69357 -0.506 0.1575"
+      rpy="4.9333E-15 4.5082E-15 -2.3562" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser_reference_back" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+
+
+    <!-- Definition of base_footprint -> base_link -->
+
+    <link name="base_footprint">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="White"/>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0.071"/>
+        <geometry>
+          <box size="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- JOINT to define base_footprint -->
+    <joint name="base_footprint_joint" type="fixed">
+      <origin xyz="0.36 0.25 0.16" rpy="0 0 0" />
+      <parent link="base_footprint" />
+      <child link="base_link" />
+    </joint>
+
+
+
+
+</robot>
+
+

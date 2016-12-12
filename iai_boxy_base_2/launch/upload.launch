@@ -1,0 +1,7 @@
+<launch>
+  <arg name="urdf-name" default="base.URDF.xacro"/>
+  <arg name="urdf-path" default="$(find iai_boxy_base_2)/robots/$(arg urdf-name)"/>
+  <arg name="param-name" default="robot_description"/>
+
+  <param name="$(arg param-name)" command="$(find xacro)/xacro.py '$(arg urdf-path)'" />
+</launch>
