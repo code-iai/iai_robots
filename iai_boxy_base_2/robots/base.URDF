@@ -36,7 +36,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://iai_boxy_base/meshes/base.stl" />
+        <mesh filename="package://iai_boxy_base_2/meshes/base.stl" />
       </geometry>
     </collision>
   </link>
@@ -46,7 +46,7 @@
     name="laser_reference_front_joint"
     type="fixed">
     <origin
-      xyz="0.1772 0.060745 0.150"
+      xyz="0.1772 0.060215 0.149929"
       rpy="0.0 0.0 0.7853975" />
     <parent
       link="base_link" />
