@@ -13,13 +13,10 @@
 
   <license>BSD</license>
 
-  <url type="bugtracker">https://github.com/code-iai/iai_control_pkgs/issues</url>
-  <url type="repository">https://github.com/code-iai/iai_control_pkgs</url>
+  <url type="bugtracker">https://github.com/code-iai/iai_robots/issues</url>
+  <url type="repository">https://github.com/code-iai/iai_robots</url>
 
   <buildtool_depend>catkin</buildtool_depend>
-
-  <run_depend>iai_pr2_description</run_depend>
-  <run_depend>iai_pr2_bringup</run_depend>
 
   <export>
     <metapackage/>

@@ -1,7 +1,0 @@
-<launch>
-
-  <param 
-    name="robot_description" 
-    textfile="$(find iai_pr2_description)/robots/pr2_calibrated_with_ft.xml"/>
-
-</launch>
