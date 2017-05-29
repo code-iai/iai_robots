@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="boxy_description">
+
   <xacro:include filename="$(find iai_boxy_description)/urdf/boxy_description.urdf.xacro"/>
   <boxy/>
+
 </robot>
