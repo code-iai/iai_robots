@@ -52,6 +52,7 @@
   <!-- GRIPPER LEFT -->
 
   <joint name="${name}_base_gripper_left_joint" type="prismatic">
+     <mimic joint ="${name}_gripper_joint" multiplier="-0.5"/>
      <limit lower="-0.055" upper="-0.0027" effort="1.0" velocity="0.42"/>
      <origin xyz="0 0 0" rpy="0 0 0" />      <!--origin xyz="-0.0067 0 0.049" rpy="0 0 0" /-->
      <parent link="${name}_base_link"/>
@@ -151,10 +152,10 @@
 
   <!-- GRIPPER RIGHT -->
 
-  <joint name="${name}_base_gripper_right_joint" type="prismatic">
-     <limit lower="0.0027" upper="0.055" effort="1.0" velocity="0.42"/>
+  <joint name="${name}_gripper_joint" type="prismatic">
+     <limit lower="0.0065" upper="0.109" effort="1.0" velocity="0.42"/>
      <origin xyz="0 0 0" rpy="0 0 3.14159" />
-     <parent link="${name}_base_link"/>
+     <parent link="${name}_gripper_left_link"/>
      <child link="${name}_gripper_right_link" />
      <axis xyz="-1 0 0"/>
      <dynamics friction="100" damping="100" />
