@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="boxy_description">
+  <!-- import macros -->
+  <xacro:include filename="$(find iai_boxy_description)/urdf/boxy_description.urdf.xacro"/>
+  <xacro:include filename="$(find iai_kinect2_look_target)/urdf/kinect2_target.urdf.xacro"/>
+
+  <!-- actual robot -->
+  <boxy/>
+  <!-- Imaginary joint to determine where Kineckt2 is looking -->
+  <xacro:kinect2_target_xacro parent="head_mount_kinect2_rgb_optical_frame" prefix="neck">
+    <pose xyz="0 0 0" rpy="0 0 0" />
+  </xacro:kinect2_target_xacro>
+</robot>
