@@ -3,5 +3,5 @@
   <arg name="urdf-path" default="$(find iai_boxy_description)/robots/$(arg urdf-name)"/>
   <arg name="param-name" default="robot_description"/>
 
-  <param name="$(arg param-name)" command="$(find xacro)/xacro.py '$(arg urdf-path)'" />
+  <param name="$(arg param-name)" command="xacro '$(arg urdf-path)'" />
 </launch>
