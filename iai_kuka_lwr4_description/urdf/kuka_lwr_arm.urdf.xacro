@@ -1,25 +1,26 @@
 <?xml version="1.0"?>
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find iai_kuka_lwr4_description)/defs/util_defs.xml"/>
+  <xacro:include filename="$(find iai_kuka_lwr4_description)/defs/util_defs.xml"/>
 
-  <property name="arm_elem_base_mass" value="2.0"/>
-  <property name="arm_elem_link_mass" value="2.0"/>
-  <property name="arm_elem_ball_link_mass" value="2.0"/>
-  <property name="arm_elem_end_link_mass" value="2.0"/>
-  <property name="arm_elem_flange_link_mass" value="0.5"/>
-  <property name="safety_controller_k_pos" value="100" />
-  <property name="safety_controller_k_vel" value="2" />
-  <property name="joint_damping" value="0.1" />
+  <xacro:property name="arm_elem_base_mass" value="2.0"/>
+  <xacro:property name="arm_elem_link_mass" value="2.0"/>
+  <xacro:property name="arm_elem_ball_link_mass" value="2.0"/>
+  <xacro:property name="arm_elem_end_link_mass" value="2.0"/>
+  <xacro:property name="arm_elem_flange_link_mass" value="0.5"/>
+  <xacro:property name="safety_controller_k_pos" value="100" />
+  <xacro:property name="safety_controller_k_vel" value="2" />
+  <xacro:property name="joint_damping" value="0.1" />
 
-  <property name="arm_velocity_scale_factor" value="1"/>
+  <xacro:property name="arm_velocity_scale_factor" value="1"/>
 
-  <macro name="kuka_lwr_arm" params="parent prefix *origin color_postfix">
+  <xacro:macro name="kuka_lwr_arm" params="parent prefix *origin color_postfix">
 
     <joint name="${parent}_${prefix}arm_base_joint" type="fixed">
-      <insert_block name="origin"/>
+      <xacro:insert_block name="origin"/>
       <parent link="${parent}"/>
       <child link="calib_${prefix}arm_base_link"/>
     </joint>
@@ -420,6 +421,6 @@
 
     </link>
 
-  </macro>
+  </xacro:macro>
 
 </robot>

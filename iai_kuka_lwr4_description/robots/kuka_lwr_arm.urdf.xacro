@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
-<robot name="iai_kuka_lwr4">
 
-  <include filename="$(find iai_kuka_lwr4_description)/urdf/kuka_lwr_arm.urdf.xacro"/>
-  <include filename="$(find iai_kuka_lwr4_description)/urdf/gazebo.urdf.xacro"/>
-  <include filename="$(find iai_kuka_lwr4_description)/defs/materials.xml"/>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iai_kuka_lwr4">
+
+  <xacro:include filename="$(find iai_kuka_lwr4_description)/urdf/kuka_lwr_arm.urdf.xacro" />
+  <xacro:include filename="$(find iai_kuka_lwr4_description)/urdf/gazebo.urdf.xacro" />
+  <xacro:include filename="$(find iai_kuka_lwr4_description)/defs/materials.xml" />
 
   <link name="base"/>
 
