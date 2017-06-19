@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- This is a hand-made URDF XACRO file for the adapter from Schunk FWA-050 to Weiss Robotics WSG50 -->
 
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="fwk_fwa_050"> 
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="fwk_fwa_050"> 
 
   <xacro:macro name="fwk_fwa_050_xacro" params="prefix parent *origin">
 

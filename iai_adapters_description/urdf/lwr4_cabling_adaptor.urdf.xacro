@@ -3,7 +3,7 @@
 <!-- Many Kuka LWR4s are equipped with a little plate to let the cables go out 
      sideways. This is a description of such an adaptor. -->
 
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="lwr4_cabling_adaptor"> 
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="lwr4_cabling_adaptor"> 
 
   <xacro:macro name="lwr4_cabling_adaptor" params="prefix parent *origin">
 

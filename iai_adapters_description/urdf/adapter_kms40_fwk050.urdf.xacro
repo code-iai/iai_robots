@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- This is a hand-made URDF XACRO file for the adapter from Weiss Robotics KMS-40 to the Schunk FWK050 -->
 
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="adapter_kms40_fwk050"> 
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="adapter_kms40_fwk050"> 
 
   <xacro:macro name="adapter_kms40_fwk050_xacro" params="prefix parent *origin">
 

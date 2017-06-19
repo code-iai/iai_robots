@@ -2,7 +2,7 @@
 <!-- This is a hand-made URDF XACRO file for the adapter from the Boxy torso 
      to the Universal Roboters UR3 -->
 
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="adapter_boxy_ur3"> 
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="adapter_boxy_ur3"> 
 
   <xacro:macro name="adapter_boxy_ur3_xacro" params="prefix parent *origin">
 
