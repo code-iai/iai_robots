@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="lwr4_cabling_adaptor">
 
-  <include filename="$(find iai_adapters_description)/urdf/lwr4_cabling_adaptor.urdf.xacro" />
+  <xacro:include filename="$(find iai_adapters_description)/urdf/lwr4_cabling_adaptor.urdf.xacro" />
 
   <link name="base_link"/>
 

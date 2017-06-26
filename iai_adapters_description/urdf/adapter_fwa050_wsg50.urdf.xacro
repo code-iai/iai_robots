@@ -7,7 +7,7 @@
 
     <!-- Joint connecting the parent to our frame_in -->
     <joint name="${prefix}_adapter_fwa050_wsg50_in_joint" type="fixed">
-      <insert_block name="origin"/>
+      <xacro:insert_block name="origin"/>
       <parent link="${parent}"/>
       <child link="${prefix}_adapter_fwa050_wsg50_frame_in"/>
     </joint>

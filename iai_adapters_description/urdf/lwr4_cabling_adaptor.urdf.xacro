@@ -8,7 +8,7 @@
   <xacro:macro name="lwr4_cabling_adaptor" params="prefix parent *origin">
 
     <joint name="${prefix}arm_cabling_adaptor_joint" type="fixed">
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <!--origin xyz="0 0 0.01" rpy="0 0 0"/-->  <!-- This places the link at the end of the plate (frame_out) -->
       <parent link="${parent}"/>
       <child link="${prefix}cabling_adaptor_link"/>
