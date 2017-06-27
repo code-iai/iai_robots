@@ -1,0 +1,12 @@
+- git: 
+    local-name: iai_table_robot_description
+    uri: https://github.com/code-iai/iai_table_robot_description.git
+    version: master
+- git: 
+    local-name: iai_robots
+    uri: https://github.com/code-iai/iai_robots.git
+    version: master
+- git: 
+    local-name: universal_robot
+    uri: https://github.com/ros-industrial/universal_robot.git
+    version: kinetic-devel
