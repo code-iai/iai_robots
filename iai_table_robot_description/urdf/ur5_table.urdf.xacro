@@ -2,6 +2,11 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
   <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+  <xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
+  <xacro:include filename="$(find iai_adapters_description)/urdf/adapter_fwa050_wsg50.urdf.xacro"/>
+  <xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
+  <xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
+  <xacro:include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/> 
 
   <material name="gray">
     <color rgba="0.56 0.67 0.67 1"/>
@@ -63,6 +68,26 @@
       <child link="kms_mounting_plate" />
       <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
     </joint>
+
+    <kms_40_xacro parent="kms_mounting_plate" prefix="">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </kms_40_xacro>
+
+    <adapter_kms40_fwk050_xacro parent="kms40_frame_out" prefix="">
+      <origin xyz="0 0 0" rpy="0 0 0" /> 
+    </adapter_kms40_fwk050_xacro>
+
+    <fwk_fwa_050_xacro parent="adapter_kms40_fwk050_frame_out" prefix="">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </fwk_fwa_050_xacro>
+
+    <adapter_fwa050_wsg50_xacro parent="fwk_fwa_050_frame_out" prefix="">
+      <origin xyz="0 0 0.0" rpy="0 0 0" />
+    </adapter_fwa050_wsg50_xacro>
+
+    <wsg_50_xacro name="gripper" parent="adapter_fwa050_wsg50_frame_out">
+      <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
+    </wsg_50_xacro>
 
   </xacro:macro>
 </robot>
