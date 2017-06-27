@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>iai_table_robot_description</name>
+  <version>0.0.0</version>
+  <description>
+    URDF description of the table-mounted UR5 robots in the lab of the IAI. 
+  </description>
+
+  <maintainer email="georg.bartels@cs.uni-bremen.de">Georg Bartels</maintainer>
+  <author email="georg.bartels@cs.uni-bremen.de">Georg Bartels</author>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
