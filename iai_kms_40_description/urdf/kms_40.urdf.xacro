@@ -5,14 +5,14 @@
   <xacro:macro name="kms_40_xacro" params="prefix parent *origin">
 
     <!-- Joint connecting the parent to our frame_in -->
-    <joint name="${prefix}_adapter_iso50_kms40_joint" type="fixed">
+    <joint name="${prefix}adapter_iso50_kms40_joint" type="fixed">
       <xacro:insert_block name="origin"/>
       <parent link="${parent}"/>
-      <child link="${prefix}_adapter_iso50_kms40_frame_in"/>
+      <child link="${prefix}adapter_iso50_kms40_frame_in"/>
     </joint>
 
     <!-- link for the adapter plate -->
-    <link name="${prefix}_adapter_iso50_kms40_frame_in">
+    <link name="${prefix}adapter_iso50_kms40_frame_in">
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
@@ -24,14 +24,14 @@
 
 
     <!-- Empty link just to get the frame out -->
-    <link name="${prefix}_adapter_iso50_kms40_frame_out"/>
+    <link name="${prefix}adapter_iso50_kms40_frame_out"/>
 
 
     <!-- joint positioning the frame_out -->
-    <joint name="${prefix}_adapter_iso50_kms40_trans_frame_out" type="fixed">
+    <joint name="${prefix}adapter_iso50_kms40_trans_frame_out" type="fixed">
       <origin xyz="0 0 0.016" rpy="0 0 0" />
-      <parent link="${prefix}_adapter_iso50_kms40_frame_in" />
-      <child link="${prefix}_adapter_iso50_kms40_frame_out" />
+      <parent link="${prefix}adapter_iso50_kms40_frame_in" />
+      <child link="${prefix}adapter_iso50_kms40_frame_out" />
       <axis xyz="0 0 0" />
     </joint>
 
@@ -39,14 +39,14 @@
     <!-- Now joint connecting the actual kms40 sensor -->
 
 
-    <joint name="${prefix}_kms40_joint" type="fixed">
+    <joint name="${prefix}kms40_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />
-      <parent link="${prefix}_adapter_iso50_kms40_frame_out"/>
-      <child link="${prefix}_kms40_frame_in"/>
+      <parent link="${prefix}adapter_iso50_kms40_frame_out"/>
+      <child link="${prefix}kms40_frame_in"/>
     </joint>
 
     <!-- Link for the kms40 sensor-->
-    <link name="${prefix}_kms40_frame_in">
+    <link name="${prefix}kms40_frame_in">
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
@@ -58,14 +58,14 @@
 
     <!-- Empty link just to get the frame out -->
     <!-- This is also the reference frame for the force/torque data -->
-    <link name="${prefix}_kms40_frame_out"/>
+    <link name="${prefix}kms40_frame_out"/>
 
 
     <!-- joint positioning the frame_out -->
-    <joint name="${prefix}_kms40_trans_frame_out" type="fixed">
+    <joint name="${prefix}kms40_trans_frame_out" type="fixed">
       <origin xyz="0 0 0.027" rpy="0 0 0" />
-      <parent link="${prefix}_kms40_frame_in" />
-      <child link="${prefix}_kms40_frame_out" />
+      <parent link="${prefix}kms40_frame_in" />
+      <child link="${prefix}kms40_frame_out" />
       <axis xyz="0 0 0" />
     </joint>
 
