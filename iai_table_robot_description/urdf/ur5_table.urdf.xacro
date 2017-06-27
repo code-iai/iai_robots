@@ -61,7 +61,7 @@
     <joint name="kms_mounting_plate_joint" type="fixed">
       <parent link="ee_link" />
       <child link="kms_mounting_plate" />
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
     </joint>
 
   </xacro:macro>
