@@ -14,6 +14,7 @@
   <xacro:property name="arm_mounting_plate_height" value="0.006" />
   <xacro:property name="arm_mounting_plate_x_offset" value="0.37" />
   <xacro:property name="arm_mounting_plate_y_offset" value="0.22" />
+  <xacro:property name="kms_mounting_plate_height" value="0.016" />
 
   <xacro:macro name="ur5_table">
     <link name="table_link">
@@ -44,8 +45,23 @@
 
     <joint name="arm_base_mounting_joint" type="fixed">
       <parent link="arm_mounting_plate" />
-      <child link = "base_link" />
+      <child link="base_link" />
       <origin xyz="0.0 0.0 ${arm_mounting_plate_height}" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <link name="kms_mounting_plate">
+      <visual>
+        <geometry>
+          <mesh filename="package://iai_table_robot_description/meshes/adapter_plate_iso50_kms40_weiss.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+    </link>
+
+    <joint name="kms_mounting_plate_joint" type="fixed">
+      <parent link="ee_link" />
+      <child link="kms_mounting_plate" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
     </joint>
 
   </xacro:macro>
