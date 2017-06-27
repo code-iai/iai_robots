@@ -12,6 +12,14 @@
     <color rgba="0.56 0.67 0.67 1"/>
   </material>
 
+  <material name="Silver">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+
+  <material name="Grey">
+    <color rgba="0.7 0.7 0.7 1.0"/>
+  </material>
+
   <xacro:property name="table_height" value="0.6077" />
   <xacro:property name="table_length" value="1.19" />
   <xacro:property name="arm_mounting_plate_width" value="0.18" />
@@ -42,7 +50,7 @@
         <geometry>
           <mesh filename="package://iai_table_robot_description/meshes/base_to_optical_table.stl"/>
         </geometry>
-        <material name="gray"/>
+        <material name="Silver"/>
       </visual>
     </link>
 

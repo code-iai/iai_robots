@@ -6,8 +6,6 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /RobotModel1
-        - /TF1
         - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 1250
@@ -51,7 +49,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 0.5
+    - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
@@ -61,6 +59,15 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        adapter_fwa050_wsg50_frame_in:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        adapter_fwa050_wsg50_frame_out:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         adapter_iso50_kms40_frame_in:
           Alpha: 1
           Show Axes: false
@@ -112,6 +119,35 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        gripper_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_finger_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_finger_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_gripper_left_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_gripper_right_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_tool_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         kms40_frame_in:
           Alpha: 1
           Show Axes: false
@@ -126,6 +162,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        map:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         shoulder_link:
           Alpha: 1
           Show Axes: false
@@ -204,24 +244,24 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.637746453
+      Distance: 1.66883349
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.257944286
-        Y: -0.296204954
-        Z: 0.791870058
+        X: -0.19420734
+        Y: -0.358904481
+        Z: 0.555531621
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.189797506
+      Pitch: 0.39979893
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.710395634
+      Yaw: 5.28858376
     Saved: ~
 Window Geometry:
   Displays:
