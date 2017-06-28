@@ -16,5 +16,8 @@
   <run_depend>joint_state_publisher</run_depend>
   <run_depend>xacro</run_depend>
   <run_depend>ur_description</run_depend>
+  <run_depend>iai_kms_40_description</run_depend>
+  <run_depend>iai_wsg_50_description</run_depend>
+  <run_depend>iai_adapters_description</run_depend>
   <run_depend>rviz</run_depend>
 </package>
