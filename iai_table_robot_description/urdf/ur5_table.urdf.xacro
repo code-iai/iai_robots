@@ -33,7 +33,7 @@
     <link name="table_link">
       <visual>
         <geometry>
-          <mesh filename="package://iai_table_robot_description/meshes/complete_table.stl"/>
+          <mesh filename="package://iai_table_robot_description/meshes/complete_table.dae"/>
         </geometry>
         <material name="gray"/>
       </visual>
