@@ -40,7 +40,7 @@
 
 
     <joint name="${prefix}kms40_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="0 0 3.14159265359" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <parent link="${prefix}adapter_iso50_kms40_frame_out"/>
       <child link="${prefix}kms40_frame_in"/>
     </joint>
