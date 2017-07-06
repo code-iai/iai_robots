@@ -179,7 +179,7 @@
 
         <!-- The following URDFs have frame_in / frame_out, so they are simply placed at their parent -->
         <kms_40_xacro parent="left_arm_cabling_adaptor_link" prefix="left_arm_">
-          <origin xyz="0 0 0" rpy="0 0 3.14159265359" />  <!--places the kms40 frame 13mm from the parent -->
+          <origin xyz="0 0 0" rpy="0 0 0" />  <!--places the kms40 frame 13mm from the parent -->
         </kms_40_xacro>
 
         <adapter_kms40_fwk050_xacro parent="left_arm_kms40_frame_out" prefix="left_arm_">
@@ -195,7 +195,7 @@
         </adapter_fwa050_wsg50_xacro>
 
         <wsg_50_xacro name="left_gripper" parent="left_arm_adapter_fwa050_wsg50_frame_out">
-          <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
 	</wsg_50_xacro>
 
 
