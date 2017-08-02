@@ -1,5 +1,5 @@
 <launch>
-  <arg name="urdf-name" default="boxy_description.urdf.xacro"/>
+  <arg name="urdf-name" default="boxy_description_vision_target.urdf.xacro"/>
   <arg name="urdf-path" default="$(find iai_boxy_description)/robots/$(arg urdf-name)"/>
   <arg name="param-name" default="robot_description"/>
 
