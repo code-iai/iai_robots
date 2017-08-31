@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!-- Copyright Universitaet Bremen - Instititute for Artificial Intelligence. Author: Minerva Vargas -->
+<!-- License: GPLv3+ -->
+<!-- This is a hand-made URDF XACRO file for simulating obsctacles to limit the movements of the UR3 with the Microsoft Kinect-2 sensor -->
+    
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="limit_boxes"> 
+
+	<xacro:macro name="limit_boxes_xacro" params ="prefix parent *origin">
+
+	<!-- Box that limits the position of the head while planning -->
+			<link name="${prefix}_limit_box" >
+			  <visual>
+				  <origin rpy="0 0 0" xyz="0.25 -0.2 1.35"/>
+					<geometry>
+						<box size="0.001 0.001 0.001"/>
+					</geometry>
+					<material name="box_color">
+						<color rgba="0.2 0.2 0.2 1"/>
+					</material>
+			 	</visual>
+			 	<collision>
+        	<origin rpy="0 0 0" xyz="0.25 -0.2 1.35"/>
+        	<geometry>
+         		<box size="0.4 0.35 0.1"/>
+        	</geometry>
+      	</collision>
+		  </link>
+			<joint name="${prefix}_fixed_box" type="fixed">
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <parent link="${parent}" />
+                <child link="${prefix}_limit_box" />
+      </joint>
+
+			<link name="${prefix}_limit_box2" >
+			  <visual>
+				  <origin rpy="0 0 0" xyz="-0.2 -0.2 1.55"/>
+					<geometry>
+						<box size="0.001 0.001 0.001"/>
+					</geometry>
+					<material name="box_color">
+						<color rgba="0.2 0.2 0.2 1"/>
+					</material>
+			 	</visual>
+			 	<collision>
+        	<origin rpy="0 0 0" xyz="-0.2 -0.2 1.55"/>
+        	<geometry>
+         		<box size="0.25 0.40 0.15"/>
+        	</geometry>
+      	</collision>
+		  </link>
+			<joint name="${prefix}_fixed_box2" type="fixed">
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <parent link="${parent}" />
+                <child link="${prefix}_limit_box2" />
+      </joint>
+
+	</xacro:macro>
+</robot> 
