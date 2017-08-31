@@ -97,7 +97,28 @@
       <child link="base_link" />
     </joint>
 
+    <link name="plate">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="0.6 0.553 0.02"/>
+        </geometry>
+        <material name="White"/>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <box size="0.6 0.553 0.02"/>
+        </geometry>
+      </collision>
+    </link>
 
+    <!-- JOINT to define base_footprint -->
+    <joint name="plate_joint" type="fixed">
+      <origin xyz="0.06 0.02 0.62" rpy="0 0 0" />
+      <parent link="base_footprint" />
+      <child link="plate" />
+    </joint>
 
 
 </robot>
