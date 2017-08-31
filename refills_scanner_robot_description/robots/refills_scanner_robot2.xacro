@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="refills_scanner_robot">
+
+  <xacro:include filename="$(find refills_scanner_robot_description)/robots/refills_scanner_robot.xacro"/>
+
+  <!-- <link name="map"/> -->
+
+  <refills_scanner_robot/>
+
+  <!-- <joint name="table_localization" type="fixed">
+    <parent link="map"/>
+    <child link="plate"/>
+  </joint> -->
+
+</robot>

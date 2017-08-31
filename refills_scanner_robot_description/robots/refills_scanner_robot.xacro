@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+  <xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
+  <xacro:include filename="$(find iai_adapters_description)/urdf/adapter_fwa050_wsg50.urdf.xacro"/>
+  <xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
+  <xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
+  <xacro:include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/> 
+  <xacro:include filename="$(find iai_boxy_base_2)/robots/base.URDF.xacro"/> 
+
+  <material name="gray">
+    <color rgba="0.56 0.67 0.67 1"/>
+  </material>
+
+  <material name="Silver">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+
+  <material name="Grey">
+    <color rgba="0.7 0.7 0.7 1.0"/>
+  </material>
+
+  <xacro:property name="table_height" value="0.63" />
+  <xacro:property name="table_length" value="0.6" />
+  <xacro:property name="table_width" value="0.553" />
+  <xacro:property name="ur5_prefix" value="ur5_" />
+  <xacro:property name="arm_mounting_plate_width" value="0.18" />
+  <xacro:property name="arm_mounting_plate_length" value="0.15" />
+  <xacro:property name="arm_mounting_plate_height" value="0.006" />
+  <xacro:property name="arm_mounting_plate_x_offset" value="0.06" />
+  <xacro:property name="arm_mounting_plate_y_offset" value="0.02" />
+  <xacro:property name="kms_mounting_plate_height" value="0.016" />
+
+  <xacro:macro name="refills_scanner_robot">
+    <base/>
+
+<!--     <joint name="arm_mounting_plate_joint" type="fixed">
+      <parent link="base_footprint"/>
+      <child link="arm_mounting_plate"/>
+      <origin xyz="${-table_length+arm_mounting_plate_x_offset+arm_mounting_plate_length/2} ${-table_width+arm_mounting_plate_y_offset+arm_mounting_plate_width/2} ${table_height}"/>
+    </joint>
+
+    <link name="arm_mounting_plate">
+      <visual>
+        <geometry>
+          <mesh filename="package://iai_table_robot_description/meshes/base_to_optical_table.stl"/>
+        </geometry>
+        <material name="Silver"/>
+      </visual>
+    </link> -->
+
+    <xacro:ur5_robot prefix="${ur5_prefix}" joint_limited="false"/>
+
+    <joint name="arm_base_mounting_joint" type="fixed">
+      <parent link="base_footprint" />
+      <child link="${ur5_prefix}base_link" />
+      <origin xyz="${-(table_length-arm_mounting_plate_length)/2+arm_mounting_plate_x_offset} ${-(table_width-arm_mounting_plate_length)/2+arm_mounting_plate_y_offset} ${table_height}" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <link name="kms_mounting_plate">
+      <visual>
+        <geometry>
+          <mesh filename="package://iai_table_robot_description/meshes/adapter_plate_iso50_kms40_weiss.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+    </link>
+
+    <joint name="kms_mounting_plate_joint" type="fixed">
+      <parent link="${ur5_prefix}ee_link" />
+      <child link="kms_mounting_plate" />
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+    </joint>
+
+    <kms_40_xacro parent="kms_mounting_plate" prefix="">
+      <origin xyz="0 0 0" rpy="0 0 ${pi}" />
+    </kms_40_xacro>
+
+    <adapter_kms40_fwk050_xacro parent="kms40_frame_out" prefix="">
+      <origin xyz="0 0 0" rpy="0 0 0" /> 
+    </adapter_kms40_fwk050_xacro>
+
+    <fwk_fwa_050_xacro parent="adapter_kms40_fwk050_frame_out" prefix="">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </fwk_fwa_050_xacro>
+
+    <adapter_fwa050_wsg50_xacro parent="fwk_fwa_050_frame_out" prefix="">
+      <origin xyz="0 0 0.0" rpy="0 0 0" />
+    </adapter_fwa050_wsg50_xacro>
+
+    <wsg_50_xacro name="gripper" parent="adapter_fwa050_wsg50_frame_out">
+      <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
+    </wsg_50_xacro>
+
+    <link name="camera_holder_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://refills_scanner_robot_description/meshes/refills_camera_holder_and_camera.stl" scale="1 1 1"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+    </link>
+
+    <joint name="gripper_to_camera_holder_joint" type="fixed">
+      <parent link="gripper_base_link" />
+      <child link="camera_holder_link" />
+      <origin xyz="0 0 0" rpy="0 0 ${pi}" />
+    </joint>
+
+    <link name="camera_link"/>
+
+    <joint name="gripper_to_camera_joint" type="fixed">
+      <parent link="gripper_base_link" />
+      <child link="camera_link" />
+      <origin xyz="0 -0.075 0.035" rpy="0.261799 0 ${pi}" />
+    </joint>
+
+  </xacro:macro>
+</robot>

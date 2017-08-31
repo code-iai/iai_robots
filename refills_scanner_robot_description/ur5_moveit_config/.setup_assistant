@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: refills_scanner_robot_description
+    relative_path: robots/refills_scanner_robot2.xacro
+  SRDF:
+    relative_path: config/ur5.srdf
+  CONFIG:
+    author_name: adf
+    author_email: asdf@asdf.asdf
+    generated_timestamp: 1504189752

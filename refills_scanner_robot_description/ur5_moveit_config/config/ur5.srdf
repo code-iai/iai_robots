@@ -1,0 +1,303 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="refills_scanner_robot">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="manipulator">
+        <chain base_link="ur5_base_link" tip_link="ur5_ee_link" />
+    </group>
+    <group name="endeffector">
+        <link name="ur5_ee_link" />
+    </group>
+    <group name="camera">
+        <chain base_link="ur5_base_link" tip_link="camera_link" />
+    </group>
+    <group name="camera_endeffector">
+        <link name="camera_link" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="home" group="manipulator">
+        <joint name="ur5_elbow_joint" value="0" />
+        <joint name="ur5_shoulder_lift_joint" value="0" />
+        <joint name="ur5_shoulder_pan_joint" value="0" />
+        <joint name="ur5_wrist_1_joint" value="0" />
+        <joint name="ur5_wrist_2_joint" value="0" />
+        <joint name="ur5_wrist_3_joint" value="0" />
+    </group_state>
+    <group_state name="up" group="manipulator">
+        <joint name="ur5_elbow_joint" value="0" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.5707" />
+        <joint name="ur5_shoulder_pan_joint" value="0" />
+        <joint name="ur5_wrist_1_joint" value="-1.5707" />
+        <joint name="ur5_wrist_2_joint" value="0" />
+        <joint name="ur5_wrist_3_joint" value="0" />
+    </group_state>
+    <group_state name="code_0" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="0.290678888559" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.08018809954" />
+        <joint name="ur5_elbow_joint" value="1.4067568779" />
+        <joint name="ur5_wrist_1_joint" value="-2.75453311602" />
+        <joint name="ur5_wrist_2_joint" value="5.85252809525" />
+        <joint name="ur5_wrist_3_joint" value="0.909723639488" />
+    </group_state>
+
+    <group_state name="code_1" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="0.346195042133" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.24426013628" />
+        <joint name="ur5_elbow_joint" value="1.65347576141" />
+        <joint name="ur5_wrist_1_joint" value="-2.9092391173" />
+        <joint name="ur5_wrist_2_joint" value="5.80925512314" />
+        <joint name="ur5_wrist_3_joint" value="0.989604890347" />
+    </group_state>
+
+    <group_state name="code_2" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="0.517072141171" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.52052241961" />
+        <joint name="ur5_elbow_joint" value="2.01110076904" />
+        <joint name="ur5_wrist_1_joint" value="-3.14177972475" />
+        <joint name="ur5_wrist_2_joint" value="5.66435003281" />
+        <joint name="ur5_wrist_3_joint" value="1.16623139381" />
+    </group_state>
+
+    <group_state name="code_3" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="0.836504518986" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.72582704226" />
+        <joint name="ur5_elbow_joint" value="2.21639204025" />
+        <joint name="ur5_wrist_1_joint" value="-3.28114921251" />
+        <joint name="ur5_wrist_2_joint" value="5.37213516235" />
+        <joint name="ur5_wrist_3_joint" value="1.35601246357" />
+    </group_state>
+
+    <group_state name="code_4" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="1.43411099911" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.73341972033" />
+        <joint name="ur5_elbow_joint" value="2.22515869141" />
+        <joint name="ur5_wrist_1_joint" value="-3.35638696352" />
+        <joint name="ur5_wrist_2_joint" value="4.80181407928" />
+        <joint name="ur5_wrist_3_joint" value="1.55120968819" />
+    </group_state>
+
+    <group_state name="code_5" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="1.89483714104" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.55724126497" />
+        <joint name="ur5_elbow_joint" value="2.0611000061" />
+        <joint name="ur5_wrist_1_joint" value="-3.35084134737" />
+        <joint name="ur5_wrist_2_joint" value="4.35898303986" />
+        <joint name="ur5_wrist_3_joint" value="1.68153774738" />
+    </group_state>
+
+    <group_state name="code_6" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="1.88668739796" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.65013581911" />
+        <joint name="ur5_elbow_joint" value="1.45681333542" />
+        <joint name="ur5_wrist_1_joint" value="-2.65432626406" />
+        <joint name="ur5_wrist_2_joint" value="4.36686038971" />
+        <joint name="ur5_wrist_3_joint" value="1.67859864235" />
+    </group_state>
+
+    <group_state name="code_7" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="1.5072170496" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.79974109331" />
+        <joint name="ur5_elbow_joint" value="1.58899068832" />
+        <joint name="ur5_wrist_1_joint" value="-2.65561992327" />
+        <joint name="ur5_wrist_2_joint" value="4.73141288757" />
+        <joint name="ur5_wrist_3_joint" value="1.5708937645" />
+    </group_state>
+
+    <group_state name="code_8" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="1.17798495293" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.84190351168" />
+        <joint name="ur5_elbow_joint" value="1.61946487427" />
+        <joint name="ur5_wrist_1_joint" value="-2.62651425997" />
+        <joint name="ur5_wrist_2_joint" value="5.04766607285" />
+        <joint name="ur5_wrist_3_joint" value="1.4775980711" />
+    </group_state>
+
+    <group_state name="code_9" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="0.693164587021" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.74216443697" />
+        <joint name="ur5_elbow_joint" value="1.53771543503" />
+        <joint name="ur5_wrist_1_joint" value="-2.5390270392" />
+        <joint name="ur5_wrist_2_joint" value="5.50534200668" />
+        <joint name="ur5_wrist_3_joint" value="1.28540587425" />
+    </group_state>
+
+    <group_state name="code_10" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="0.447038203478" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.5011733214" />
+        <joint name="ur5_elbow_joint" value="1.29789686203" />
+        <joint name="ur5_wrist_1_joint" value="-2.3989666144" />
+        <joint name="ur5_wrist_2_joint" value="5.72603368759" />
+        <joint name="ur5_wrist_3_joint" value="1.10646235943" />
+    </group_state>
+
+    <group_state name="code_11" group="camera">
+        <joint name="ur5_shoulder_pan_joint" value="0.322255074978" />
+        <joint name="ur5_shoulder_lift_joint" value="-1.18117553393" />
+        <joint name="ur5_elbow_joint" value="0.879908561707" />
+        <joint name="ur5_wrist_1_joint" value="-2.17121726671" />
+        <joint name="ur5_wrist_2_joint" value="5.8284406662" />
+        <joint name="ur5_wrist_3_joint" value="0.958632409573" />
+    </group_state>    
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="ur5_camera_ee" parent_link="camera_link" group="camera_endeffector" parent_group="camera" />
+    <end_effector name="moveit_ee" parent_link="ur5_ee_link" group="endeffector" parent_group="manipulator" />
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="fixed_base" type="fixed" parent_frame="world" child_link="base_footprint" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="adapter_iso50_kms40_frame_in" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="adapter_kms40_fwk050_frame_in" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="base_footprint" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="camera_holder_link" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="fwk_fwa_050_frame_in" reason="Adjacent" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="gripper_base_link" reason="Adjacent" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="gripper_finger_left_link" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="gripper_finger_right_link" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="gripper_gripper_left_link" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="gripper_gripper_right_link" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="kms40_frame_in" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="kms_mounting_plate" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="adapter_fwa050_wsg50_frame_in" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="adapter_kms40_fwk050_frame_in" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="base_footprint" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="camera_holder_link" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="fwk_fwa_050_frame_in" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="gripper_base_link" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="gripper_finger_left_link" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="gripper_finger_right_link" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="gripper_gripper_left_link" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="gripper_gripper_right_link" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="kms40_frame_in" reason="Adjacent" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="kms_mounting_plate" reason="Adjacent" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="adapter_iso50_kms40_frame_in" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="base_footprint" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="camera_holder_link" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="fwk_fwa_050_frame_in" reason="Adjacent" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="gripper_base_link" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="gripper_finger_left_link" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="gripper_finger_right_link" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="gripper_gripper_left_link" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="gripper_gripper_right_link" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="kms40_frame_in" reason="Adjacent" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="kms_mounting_plate" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="adapter_kms40_fwk050_frame_in" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="base_link" reason="Adjacent" />
+    <disable_collisions link1="base_footprint" link2="camera_holder_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="fwk_fwa_050_frame_in" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="gripper_base_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="gripper_finger_left_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="gripper_finger_right_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="gripper_gripper_left_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="gripper_gripper_right_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="kms40_frame_in" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="kms_mounting_plate" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="plate" reason="Adjacent" />
+    <disable_collisions link1="base_footprint" link2="ur5_base_link" reason="Adjacent" />
+    <disable_collisions link1="base_footprint" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="ur5_forearm_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="ur5_shoulder_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="ur5_upper_arm_link" reason="Never" />
+    <disable_collisions link1="base_footprint" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="plate" reason="Never" />
+    <disable_collisions link1="base_link" link2="ur5_base_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="ur5_shoulder_link" reason="Never" />
+    <disable_collisions link1="camera_holder_link" link2="fwk_fwa_050_frame_in" reason="Never" />
+    <disable_collisions link1="camera_holder_link" link2="gripper_base_link" reason="Adjacent" />
+    <disable_collisions link1="camera_holder_link" link2="gripper_finger_left_link" reason="Never" />
+    <disable_collisions link1="camera_holder_link" link2="gripper_finger_right_link" reason="Never" />
+    <disable_collisions link1="camera_holder_link" link2="gripper_gripper_left_link" reason="Never" />
+    <disable_collisions link1="camera_holder_link" link2="gripper_gripper_right_link" reason="Never" />
+    <disable_collisions link1="camera_holder_link" link2="kms40_frame_in" reason="Never" />
+    <disable_collisions link1="camera_holder_link" link2="kms_mounting_plate" reason="Never" />
+    <disable_collisions link1="camera_holder_link" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="camera_holder_link" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="camera_holder_link" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="camera_holder_link" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="fwk_fwa_050_frame_in" link2="gripper_base_link" reason="Never" />
+    <disable_collisions link1="fwk_fwa_050_frame_in" link2="gripper_finger_left_link" reason="Never" />
+    <disable_collisions link1="fwk_fwa_050_frame_in" link2="gripper_finger_right_link" reason="Never" />
+    <disable_collisions link1="fwk_fwa_050_frame_in" link2="gripper_gripper_left_link" reason="Never" />
+    <disable_collisions link1="fwk_fwa_050_frame_in" link2="gripper_gripper_right_link" reason="Never" />
+    <disable_collisions link1="fwk_fwa_050_frame_in" link2="kms40_frame_in" reason="Never" />
+    <disable_collisions link1="fwk_fwa_050_frame_in" link2="kms_mounting_plate" reason="Never" />
+    <disable_collisions link1="fwk_fwa_050_frame_in" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="fwk_fwa_050_frame_in" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="fwk_fwa_050_frame_in" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="fwk_fwa_050_frame_in" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="gripper_base_link" link2="gripper_finger_left_link" reason="Never" />
+    <disable_collisions link1="gripper_base_link" link2="gripper_finger_right_link" reason="Never" />
+    <disable_collisions link1="gripper_base_link" link2="gripper_gripper_left_link" reason="Adjacent" />
+    <disable_collisions link1="gripper_base_link" link2="gripper_gripper_right_link" reason="Never" />
+    <disable_collisions link1="gripper_base_link" link2="kms40_frame_in" reason="Never" />
+    <disable_collisions link1="gripper_base_link" link2="kms_mounting_plate" reason="Never" />
+    <disable_collisions link1="gripper_base_link" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="gripper_base_link" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="gripper_base_link" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="gripper_base_link" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="gripper_finger_left_link" link2="gripper_finger_right_link" reason="Never" />
+    <disable_collisions link1="gripper_finger_left_link" link2="gripper_gripper_left_link" reason="Adjacent" />
+    <disable_collisions link1="gripper_finger_left_link" link2="gripper_gripper_right_link" reason="Never" />
+    <disable_collisions link1="gripper_finger_left_link" link2="kms40_frame_in" reason="Never" />
+    <disable_collisions link1="gripper_finger_left_link" link2="kms_mounting_plate" reason="Never" />
+    <disable_collisions link1="gripper_finger_left_link" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="gripper_finger_left_link" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="gripper_finger_left_link" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="gripper_finger_left_link" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="gripper_finger_right_link" link2="gripper_gripper_left_link" reason="Never" />
+    <disable_collisions link1="gripper_finger_right_link" link2="gripper_gripper_right_link" reason="Adjacent" />
+    <disable_collisions link1="gripper_finger_right_link" link2="kms40_frame_in" reason="Never" />
+    <disable_collisions link1="gripper_finger_right_link" link2="kms_mounting_plate" reason="Never" />
+    <disable_collisions link1="gripper_finger_right_link" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="gripper_finger_right_link" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="gripper_finger_right_link" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="gripper_finger_right_link" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="gripper_gripper_left_link" link2="gripper_gripper_right_link" reason="Adjacent" />
+    <disable_collisions link1="gripper_gripper_left_link" link2="kms40_frame_in" reason="Never" />
+    <disable_collisions link1="gripper_gripper_left_link" link2="kms_mounting_plate" reason="Never" />
+    <disable_collisions link1="gripper_gripper_left_link" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="gripper_gripper_left_link" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="gripper_gripper_left_link" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="gripper_gripper_left_link" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="gripper_gripper_right_link" link2="kms40_frame_in" reason="Never" />
+    <disable_collisions link1="gripper_gripper_right_link" link2="kms_mounting_plate" reason="Never" />
+    <disable_collisions link1="gripper_gripper_right_link" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="gripper_gripper_right_link" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="gripper_gripper_right_link" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="gripper_gripper_right_link" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="kms40_frame_in" link2="kms_mounting_plate" reason="Default" />
+    <disable_collisions link1="kms40_frame_in" link2="ur5_ee_link" reason="Never" />
+    <disable_collisions link1="kms40_frame_in" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="kms40_frame_in" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="kms40_frame_in" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="kms_mounting_plate" link2="ur5_ee_link" reason="Adjacent" />
+    <disable_collisions link1="kms_mounting_plate" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="kms_mounting_plate" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="kms_mounting_plate" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="plate" link2="ur5_base_link" reason="Default" />
+    <disable_collisions link1="plate" link2="ur5_shoulder_link" reason="Never" />
+    <disable_collisions link1="ur5_base_link" link2="ur5_shoulder_link" reason="Adjacent" />
+    <disable_collisions link1="ur5_ee_link" link2="ur5_wrist_1_link" reason="Never" />
+    <disable_collisions link1="ur5_ee_link" link2="ur5_wrist_2_link" reason="Never" />
+    <disable_collisions link1="ur5_ee_link" link2="ur5_wrist_3_link" reason="Adjacent" />
+    <disable_collisions link1="ur5_forearm_link" link2="ur5_upper_arm_link" reason="Adjacent" />
+    <disable_collisions link1="ur5_forearm_link" link2="ur5_wrist_1_link" reason="Adjacent" />
+    <disable_collisions link1="ur5_shoulder_link" link2="ur5_upper_arm_link" reason="Adjacent" />
+    <disable_collisions link1="ur5_wrist_1_link" link2="ur5_wrist_2_link" reason="Adjacent" />
+    <disable_collisions link1="ur5_wrist_1_link" link2="ur5_wrist_3_link" reason="Never" />
+    <disable_collisions link1="ur5_wrist_2_link" link2="ur5_wrist_3_link" reason="Adjacent" />
+</robot>
