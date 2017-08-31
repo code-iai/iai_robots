@@ -3,7 +3,7 @@
 <!-- License: GPLv3+ -->
 <!-- This is a hand-made URDF XACRO file for simulating obsctacles to limit the movements of the UR3 with the Microsoft Kinect-2 sensor -->
     
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="limit_boxes"> 
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="limit_boxes"> 
 
 	<xacro:macro name="limit_boxes_xacro" params ="prefix parent *origin">
 
