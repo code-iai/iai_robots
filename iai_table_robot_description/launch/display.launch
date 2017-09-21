@@ -4,6 +4,7 @@
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
     <param name="use_gui" value="true"/>
     <rosparam ns="zeros">
+      shoulder_pan_joint: 0.7854
       shoulder_lift_joint: -0.78
       elbow_joint: 0.78
       wrist_1_joint: -1.57

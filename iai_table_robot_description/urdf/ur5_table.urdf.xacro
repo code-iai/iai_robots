@@ -37,6 +37,12 @@
         </geometry>
         <material name="gray"/>
       </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iai_table_robot_description/meshes/complete_table.stl"/>
+        </geometry>
+        <material name="gray"/>
+      </collision>
     </link>
 
     <joint name="arm_mounting_plate_joint" type="fixed">
@@ -59,7 +65,7 @@
     <joint name="arm_base_mounting_joint" type="fixed">
       <parent link="arm_mounting_plate" />
       <child link="base_link" />
-      <origin xyz="0.0 0.0 ${arm_mounting_plate_height}" rpy="0.0 0.0 0.0" />
+      <origin xyz="0.0 0.0 ${arm_mounting_plate_height}" rpy="0 0 -${pi/4}" />
     </joint>
 
     <link name="kms_mounting_plate">
