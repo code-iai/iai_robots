@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find refills_scanner_robot_bringup)/launch/bringup_base.launch"/>
+  <include file="$(find refills_scanner_robot_bringup)/launch/bringup_ur5.launch"/>
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find refills_scanner_robot_description)/launch/upload.launch"/>
+  <include file="$(find iai_shelfs)/launch/map.launch"/>
+  <include file="$(find refills_scanner_robot_bringup)/launch/amcl_omni.launch"/>
+</launch>
