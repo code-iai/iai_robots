@@ -1,5 +1,9 @@
 <launch>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
   <include file="$(find refills_scanner_robot_description)/launch/upload.launch"/>
   <include file="$(find iai_shelfs)/launch/map.launch"/>
   <include file="$(find refills_scanner_robot_bringup)/launch/amcl_omni.launch"/>
+  <!-- <include file="$(find refills_scanner_robot_bringup)/launch/omnidrive.launch"/> -->
+  <!-- <include file="$(find refills_scanner_robot_bringup)/launch/hokuyo_refills.launch"/> -->
+  <include file="$(find refills_scanner_robot_bringup)/launch/ps3_refills.launch"/>
 </launch>

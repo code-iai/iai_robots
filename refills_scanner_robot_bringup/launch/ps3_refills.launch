@@ -1,0 +1,29 @@
+<launch>
+
+  <!-- we used to use ps3joy_node from ps3joy, but it broke for recent
+       kernels. Now we use QtSixA, that starts a daemon,
+       and offers /dev/input/js0, so now we only need the joy_node -->
+
+  <node pkg="joy" type="joy_node" name="ps3_joy" output="screen" >
+    <param name="dev" type="string" value="/dev/input/js0" />
+    <param name="deadzone" value="0.12" />
+    <param name="autorepeat_rate" value="20" />
+    <param name="coalesce_interval" value="0.01" />
+  </node>
+
+  <include file="$(find turtlebot_teleop)/launch/ps3_teleop.launch"/>
+
+  <!--Looks at the /joy to decide if the runstop is active or not-->
+  <node name="soft_runstop" pkg="soft_runstop" type="soft_runstop">
+    <param name="stop_button" type="int" value="0"/>
+    <param name="start_button" type="int" value="3"/>
+  </node>
+
+
+  <node pkg="diagnostic_aggregator" type="aggregator_node" name="diagnostic_aggregator" >
+    <!-- Load the file you made above -->
+    <rosparam command="load" file="$(find ps3joy)/diagnostics.yaml" />
+  </node>
+
+
+</launch>

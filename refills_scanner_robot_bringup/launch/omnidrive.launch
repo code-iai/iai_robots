@@ -1,0 +1,17 @@
+<launch>
+    <!-- Start the EtherCAT controllers for the omnidirectional base -->
+    <node name="omnidrive" launch-prefix="with_realtime" pkg="omni_ethercat" type="omni_ethercat" output="log"> 
+    <!--node name="omnidrive" pkg="omni_ethercat" type="omni_ethercat"-->
+      <param name="speed" type="double" value="1.0" />
+      <param name="acceleration" type="double" value="5.0" />
+      <param name="frame_id" value="odom" />
+      <param name="child_frame_id" value="base_footprint" />
+      <param name="tf_frequency" value="20"/>
+      <remap from="~giskard_command" to="/whole_body_controller/velocity_cmd"/>
+    </node>
+
+    <!--node name="joy_torso_remote" pkg="joy_torso_remote" type="joy_torso_remote.py"/-->
+
+   
+</launch>
+
