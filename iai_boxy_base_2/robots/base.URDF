@@ -72,6 +72,44 @@
   </joint>
 
 
+  <link name="odom" />
+
+    <joint name="odom_x_joint" type="prismatic">
+      <parent link="odom"/>
+      <child link="odom_x_frame"/>
+      <axis xyz="1 0 0"/>
+     <!-- limits chosen heuristically
+          lower/upper: +-1km to create a quasi limitless prismatic joint
+          velocity: slow walking speed is 3-4km/hour ~= 1m/s
+          effort: reach max speed within 1s, Boxy has a mass of 200kg, so Fmax=200kg*1m/s2 --> 
+      <limit lower="-1000" upper="1000" velocity="1" effort="200"/>
+    </joint>
+
+    <link name="odom_x_frame" />
+
+    <joint name="odom_y_joint" type="prismatic">
+      <parent link="odom_x_frame"/>
+      <child link="odom_y_frame"/>
+      <axis xyz="0 1 0"/>
+      <!-- limits chosen heuristically
+           lower/upper: +-1km to create a quasi limitless prismatic joint
+           velocity: slow walking speed is 3-4km/hour ~= 1m/s
+           effort: reach max speed within 1s, Boxy has a mass of 200kg, so Fmax=200kg*1m/s2 --> 
+      <limit lower="-1000" upper="1000" velocity="1" effort="200"/>
+    </joint>
+
+    <link name="odom_y_frame" />
+
+    <joint name="odom_z_joint" type="continuous">
+      <parent link="odom_y_frame"/>
+      <child link="base_footprint"/>
+      <axis xyz="0 0 1"/>
+      <!-- limits chosen heuristically
+           velocity: one slow complete turn around in 5-6s, so 6.2rad/6s ~= 1rad/s
+           effort: reach max speed within 1s, Boxy has a mass of 200kg and a diagonale of 1m, so Fmax=200kg*1m*1m/s2 --> 
+      <limit velocity="1" effort="200"/>
+    </joint>
+
     <!-- Definition of base_footprint -> base_link -->
 
     <link name="base_footprint">
