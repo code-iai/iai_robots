@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iai_donbot">
 
-  <xacro:include filename="$(find donbot_description)/robots/iai_donbot.xacro"/>
+  <xacro:include filename="$(find iai_donbot_description)/robots/iai_donbot.xacro"/>
 
   <!-- <link name="map"/> -->
 

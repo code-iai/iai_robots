@@ -96,7 +96,7 @@
     <link name="camera_holder_link">
       <visual>
         <geometry>
-          <mesh filename="package://donbot_description/meshes/refills_camera_holder_and_camera.stl" scale="1 1 1"/>
+          <mesh filename="package://iai_donbot_description/meshes/refills_camera_holder_and_camera.stl" scale="1 1 1"/>
         </geometry>
         <material name="gray"/>
       </visual>
