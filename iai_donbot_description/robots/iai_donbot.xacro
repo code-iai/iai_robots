@@ -32,7 +32,7 @@
   <xacro:property name="arm_mounting_plate_y_offset" value="0.02" />
   <xacro:property name="kms_mounting_plate_height" value="0.016" />
 
-  <xacro:macro name="refills_scanner_robot">
+  <xacro:macro name="iai_donbot">
     <base/>
 
 <!--     <joint name="arm_mounting_plate_joint" type="fixed">
@@ -96,7 +96,7 @@
     <link name="camera_holder_link">
       <visual>
         <geometry>
-          <mesh filename="package://refills_scanner_robot_description/meshes/refills_camera_holder_and_camera.stl" scale="1 1 1"/>
+          <mesh filename="package://donbot_description/meshes/refills_camera_holder_and_camera.stl" scale="1 1 1"/>
         </geometry>
         <material name="gray"/>
       </visual>

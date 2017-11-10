@@ -1,7 +1,7 @@
 <launch>
   <arg name="model" />
   <arg name="gui" default="False" />
-  <include file="$(find refills_scanner_robot_description)/launch/upload.launch" />
+  <include file="$(find donbot_description)/launch/upload.launch" />
   <param
     name="use_gui"
     value="$(arg gui)" />
