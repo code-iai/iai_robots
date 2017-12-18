@@ -116,5 +116,13 @@
       <origin xyz="0 -0.075 0.035" rpy="0.261799 0 ${pi}" />
     </joint>
 
+    <link name="realsense_link"/>
+
+    <joint name="gripper_to_realsense_joint" type="fixed">
+      <parent link="gripper_base_link" />
+      <child link="camera_link" />
+      <origin xyz="0.022 -0.0405 0.045" rpy="0 0 0" />
+    </joint>
+
   </xacro:macro>
 </robot>
