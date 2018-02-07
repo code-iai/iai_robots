@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>iai_pepper_description</name>
+  <version>0.1.0</version>
+  <description>The iai_pepper package</description>
+
+  <maintainer email="sasjonge@uni-bremen.de">Sascha Jongebloed</maintainer>
+
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+
+  </export>
+</package>
