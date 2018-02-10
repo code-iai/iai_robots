@@ -5,7 +5,7 @@
     For more information about urdf, see http://www.ros.org/wiki/urdf/
  -->
 <robot name="Juliette">
-  <material name="LightGrey">
+  <material name="White">
     <color rgba="0.9 0.9 0.9 1.0"/>
   </material>
   <link name="TorsoLink">
@@ -14,7 +14,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Torso.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.00322 0 -0.01029" rpy="0 0 0"/>
@@ -26,7 +26,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Torso.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="HeadYawLink">
@@ -35,7 +35,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/HeadYaw.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="-0.00207 0 -0.02636" rpy="0 0 0"/>
@@ -47,7 +47,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/HeadYaw.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="HeadPitchLink">
@@ -56,7 +56,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/HeadPitch.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.00312 0 0.11152" rpy="0 0 0"/>
@@ -68,7 +68,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/HeadPitch.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LShoulderPitchLink">
@@ -77,7 +77,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/LShoulderPitch.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.00018 -0.01856 0.00099" rpy="0 0 0"/>
@@ -89,7 +89,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/LShoulderPitch.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LShoulderRollLink">
@@ -98,7 +98,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/LShoulderRoll.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.08151 0.01284 -0.01017" rpy="0 0 0"/>
@@ -110,7 +110,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/LShoulderRoll.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LElbowYawLink">
@@ -119,7 +119,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/LElbowYaw.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="-0.02297 -0.00019 0.00119" rpy="0 0 0"/>
@@ -131,7 +131,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/LElbowYaw.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LElbowRollLink">
@@ -140,7 +140,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/LElbowRoll.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.0593 0.00271 -0.01014" rpy="0 0 0"/>
@@ -152,7 +152,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/LElbowRoll.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LWristYawLink">
@@ -161,7 +161,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/LWristYaw.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.03536 -0.00072 -0.00207" rpy="0 0 0"/>
@@ -173,7 +173,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/LWristYaw.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger11Link">
@@ -182,7 +182,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -194,7 +194,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger12Link">
@@ -203,7 +203,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -215,7 +215,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger13Link">
@@ -224,7 +224,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -236,7 +236,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger21Link">
@@ -245,7 +245,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -257,7 +257,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger22Link">
@@ -266,7 +266,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -278,7 +278,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger23Link">
@@ -287,7 +287,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -299,7 +299,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger31Link">
@@ -308,7 +308,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -320,7 +320,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger32Link">
@@ -329,7 +329,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -341,7 +341,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger33Link">
@@ -350,7 +350,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -362,7 +362,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger41Link">
@@ -371,7 +371,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -383,7 +383,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger42Link">
@@ -392,7 +392,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -404,7 +404,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LFinger43Link">
@@ -413,7 +413,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -425,7 +425,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LThumb1Link">
@@ -434,7 +434,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -446,7 +446,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="LThumb2Link">
@@ -455,7 +455,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -467,7 +467,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="HipRollLink">
@@ -476,7 +476,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/HipRoll.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.00032 0 -0.06039" rpy="0 0 0"/>
@@ -488,7 +488,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/HipRoll.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="HipPitchLink">
@@ -497,7 +497,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/HipPitch.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.00237 0 -0.09654" rpy="0 0 0"/>
@@ -509,7 +509,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/HipPitch.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="KneePitchLink">
@@ -518,7 +518,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/KneePitch.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.00249 0 -0.20536" rpy="0 0 0"/>
@@ -530,7 +530,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/KneePitch.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RShoulderPitchLink">
@@ -539,7 +539,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/RShoulderPitch.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.00018 0.01856 0.00099" rpy="0 0 0"/>
@@ -551,7 +551,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/RShoulderPitch.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RShoulderRollLink">
@@ -560,7 +560,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/RShoulderRoll.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.08151 -0.01284 -0.01017" rpy="0 0 0"/>
@@ -572,7 +572,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/RShoulderRoll.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RElbowYawLink">
@@ -581,7 +581,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/RElbowYaw.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="-0.02297 0.00019 0.00119" rpy="0 0 0"/>
@@ -593,7 +593,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/RElbowYaw.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RElbowRollLink">
@@ -602,7 +602,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/RElbowRoll.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.0593 -0.00271 -0.01014" rpy="0 0 0"/>
@@ -614,7 +614,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/RElbowRoll.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RWristYawLink">
@@ -623,7 +623,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/RWristYaw.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0.03536 0.00072 -0.00207" rpy="0 0 0"/>
@@ -635,7 +635,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/RWristYaw.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger11Link">
@@ -644,7 +644,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -656,7 +656,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger12Link">
@@ -665,7 +665,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -677,7 +677,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger13Link">
@@ -686,7 +686,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -698,7 +698,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger21Link">
@@ -707,7 +707,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -719,7 +719,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger22Link">
@@ -728,7 +728,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -740,7 +740,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger23Link">
@@ -749,7 +749,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -761,7 +761,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger31Link">
@@ -770,7 +770,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -782,7 +782,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger32Link">
@@ -791,7 +791,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -803,7 +803,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger33Link">
@@ -812,7 +812,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -824,7 +824,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger41Link">
@@ -833,7 +833,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -845,7 +845,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger42Link">
@@ -854,7 +854,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -866,7 +866,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RFinger43Link">
@@ -875,7 +875,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -887,7 +887,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RThumb1Link">
@@ -896,7 +896,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -908,7 +908,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/Phalax.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="RThumb2Link">
@@ -917,7 +917,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -929,7 +929,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/PhalaxEnd.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="WheelBLink">
@@ -938,7 +938,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/WheelB.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="-0.00058 -0.00063 0.0001" rpy="0 0 0"/>
@@ -950,7 +950,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/WheelB.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="WheelFLLink">
@@ -959,7 +959,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/WheelFL.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="-0.00058 -0.00063 0.0001" rpy="0 0 0"/>
@@ -971,7 +971,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/WheelFL.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
   <link name="WheelFRLink">
@@ -980,7 +980,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/WheelFR.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </visual>
     <inertial>
       <origin xyz="-0.00058 -0.00063 0.0001" rpy="0 0 0"/>
@@ -992,7 +992,7 @@
       <geometry>
         <mesh filename="package://iai_pepper_description/meshes/WheelFR.dae" scale="1 1 1"/>
       </geometry>
-      <material name="LightGrey"/>
+      <material name="White"/>
     </collision>
   </link>
 
