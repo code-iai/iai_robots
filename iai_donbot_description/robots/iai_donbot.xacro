@@ -121,7 +121,7 @@
     <joint name="gripper_to_realsense_joint" type="fixed">
       <parent link="gripper_base_link" />
       <child link="rs_camera_link" />
-      <origin xyz="0.022 0.0405 0.045" rpy="-${pi/2} -${pi/2} 0" />
+      <origin xyz="0.032 0.0405 0.045" rpy="-${pi/2} -${pi/2} 0" />
     </joint>
 
   </xacro:macro>
