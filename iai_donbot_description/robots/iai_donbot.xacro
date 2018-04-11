@@ -113,7 +113,7 @@
     <joint name="gripper_to_camera_joint" type="fixed">
       <parent link="gripper_base_link" />
       <child link="camera_link" />
-      <origin xyz="0 -0.075 0.035" rpy="0.226892 0 ${pi}" />
+      <origin xyz="-0.001932 -0.059745 0.084023" rpy="0.217986 0.008285 3.153345" />
     </joint>
 
     <link name="rs_camera_link_calib"/>
