@@ -113,15 +113,23 @@
     <joint name="gripper_to_camera_joint" type="fixed">
       <parent link="gripper_base_link" />
       <child link="camera_link" />
-      <origin xyz="0 -0.075 0.035" rpy="0.261799 0 ${pi}" />
+      <origin xyz="0 -0.075 0.035" rpy="0.226892 0 ${pi}" />
+    </joint>
+
+    <link name="rs_camera_link_calib"/>
+
+    <joint name="wristcam_to_realsense_joint" type="fixed">
+      <parent link="camera_link" />
+      <child link="rs_camera_link_calib" />
+      <origin xyz="-0.017490 -0.106718 0.015236" rpy="6.057290 0.002513 0.003934" />
     </joint>
 
     <link name="rs_camera_link"/>
 
-    <joint name="gripper_to_realsense_joint" type="fixed">
-      <parent link="gripper_base_link" />
+    <joint name="orient_fix_realsense_joint" type="fixed">
+      <parent link="rs_camera_link_calib" />
       <child link="rs_camera_link" />
-      <origin xyz="0.032 0.0405 0.045" rpy="-${pi/2} -${pi/2} 0" />
+      <origin xyz="0.0 0.0 0.0" rpy="${pi/2.0} -${pi/2.0} 0.0" />
     </joint>
 
   </xacro:macro>
