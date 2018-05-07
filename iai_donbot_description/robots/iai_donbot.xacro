@@ -29,7 +29,7 @@
   <xacro:property name="arm_mounting_plate_length" value="0.15" />
   <xacro:property name="arm_mounting_plate_height" value="0.006" />
   <xacro:property name="arm_mounting_plate_x_offset" value="0.06" />
-  <xacro:property name="arm_mounting_plate_y_offset" value="0.02" />
+  <xacro:property name="arm_mounting_plate_y_offset" value="0.027" />
   <xacro:property name="kms_mounting_plate_height" value="0.016" />
 
   <xacro:macro name="iai_donbot">
