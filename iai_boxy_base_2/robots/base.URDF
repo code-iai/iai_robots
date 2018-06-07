@@ -130,7 +130,30 @@
 
     <!-- JOINT to define base_footprint -->
     <joint name="base_footprint_joint" type="fixed">
-      <origin xyz="0.25525 0.225 0.16" rpy="0 0 0" />
+      <!-- Explanation of the calculations to find base_link relative
+       to /base_footprint.
+
+       /base_footprint is on the floor, exactly in the center of the four wheels to
+       simplify the odometry and FK/IK calculations of the base.
+       Orientation: X pointing forward, and Z up.
+
+       /base_link is on the front left upper corner of the main alu enclosure.
+        with the same orientation as /base_footprint
+
+       X:  wheel-axis to wheel-axis distance = 789.5mm.
+         Distance front wheel axis to plane where base_link is: 139.5mm
+          X = 789.5/2 - 139.5 = 255.25mm
+  
+       Y:  main alu enclosure is 450mm wide, and the
+         center of the wheels is also the center of the alu enclosure, 
+          so half is Y = 225mm.
+
+       Z:   base_link is at the top of a 120mm plate.
+          The wheels are aligned with the center of the plate.
+           The wheels are 8", so base_link is 
+           Z = 60+4*25.4mm = 161.6mm (above the floor).
+       -->
+      <origin xyz="0.25525 0.225 0.1616" rpy="0 0 0" />
       <parent link="base_footprint" />
       <child link="base_link" />
     </joint>
