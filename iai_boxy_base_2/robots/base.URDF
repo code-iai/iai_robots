@@ -176,8 +176,8 @@
 
     <!-- JOINT to define base_footprint -->
     <joint name="plate_joint" type="fixed">
-      <origin xyz="0.06 0.02 0.62" rpy="0 0 0" />
-      <parent link="base_footprint" />
+      <origin xyz="-0.300 -0.230 0.460" rpy="0 0 0" />
+      <parent link="base_link" />
       <child link="plate" />
     </joint>
 
