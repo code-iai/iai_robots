@@ -1,7 +1,8 @@
 <launch>
   <arg name="model" />
-  <arg name="gui" default="False" />
-  <include file="$(find donbot_description)/launch/upload.launch" />
+  <arg name="gui" default="True" />
+  <include file="$(find iai_donbot_description)/launch/upload.launch" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="fake_localization" output="screen" args="0 0 0 0 0 0 map odom" />
   <param
     name="use_gui"
     value="$(arg gui)" />
