@@ -113,23 +113,20 @@
     <joint name="gripper_to_camera_joint" type="fixed">
       <parent link="gripper_base_link" />
       <child link="camera_link" />
-      <origin xyz="-0.001932 -0.059745 0.084023" rpy="0.217986 0.008285 3.153345" />
-    </joint>
-
-    <link name="rs_camera_link_calib"/>
-
-    <joint name="wristcam_to_realsense_joint" type="fixed">
-      <parent link="camera_link" />
-      <child link="rs_camera_link_calib" />
-      <origin xyz="-0.017490 -0.106718 0.015236" rpy="6.057290 0.002513 0.003934" />
+      <!--Calib_errors = [0.003425, 0.2069, 0.00611, 0.42678]
+          Calib_errors = median_pos_error(m), median_orient_error(deg), max_pos_error(m), max_orient_error(deg) -->
+      <!-- from base_link origin xyz="0.004174 -0.067273 0.062438" rpy="0.209203 0.001106 3.120208"/-->
+      <!-- from ur5_base_link origin xyz="0.002956 -0.066498 0.060947" rpy="0.204429 6.281375 3.127197"/-->
+      <!-- calib errors: 0.00311, 0.24373, 0.00688, 0.4558 -->
+      <origin xyz="0.002956 -0.066498 0.060947" rpy="0.204429 6.281375 3.127197" />
     </joint>
 
     <link name="rs_camera_link"/>
 
-    <joint name="orient_fix_realsense_joint" type="fixed">
-      <parent link="rs_camera_link_calib" />
+    <joint name="wristcam_to_realsense_joint" type="fixed">
+      <parent link="camera_link" />
       <child link="rs_camera_link" />
-      <origin xyz="0.0 0.0 0.0" rpy="${pi/2.0} -${pi/2.0} 0.0" />
+      <origin xyz="-0.017993 -0.107556 0.017699" rpy="6.270618 4.930698 1.578454"/>
     </joint>
 
   </xacro:macro>
