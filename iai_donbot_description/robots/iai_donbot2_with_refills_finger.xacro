@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iai_donbot">
+
+  <xacro:include filename="$(find iai_donbot_description)/robots/iai_donbot.xacro"/>
+
+  <!-- <link name="map"/> -->
+
+  <iai_donbot/>
+
+  <joint name="refills_finger" type="continuous">
+    <parent link="gripper_tool_frame"/>
+    <child link="refills_finger"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <link name="refills_finger"/>
+
+</robot>
