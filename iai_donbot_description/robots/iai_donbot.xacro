@@ -100,6 +100,12 @@
         </geometry>
         <material name="gray"/>
       </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iai_donbot_description/meshes/refills_camera_holder_and_camera.stl" scale="1 1 1"/>
+        </geometry>
+        <material name="gray"/>
+      </collision>
     </link>
 
     <joint name="gripper_to_camera_holder_joint" type="fixed">
