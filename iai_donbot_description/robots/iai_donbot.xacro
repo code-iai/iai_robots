@@ -21,6 +21,10 @@
     <color rgba="0.7 0.7 0.7 1.0"/>
   </material>
 
+  <material name="yellow">
+    <color rgba="1.0 1.0 0.0 1.0"/>
+  </material>
+
   <xacro:property name="base_link_to_table_top" value="0.47" />
   <xacro:property name="table_length" value="0.6" />
   <xacro:property name="table_width" value="0.553" />
@@ -134,6 +138,114 @@
       <child link="rs_camera_link" />
       <origin xyz="-0.017993 -0.107556 0.017699" rpy="6.270618 4.930698 1.578454"/>
     </joint>
+
+
+    <!-- boxes to cover up switches and stuff -->
+    <joint name="switches_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="switches" />
+      <origin xyz="-0.66 -0.225 0.225" rpy="0 0 0" />
+    </joint>
+
+    <link name="switches">
+      <visual>
+        <geometry>
+          <box size="0.12 0.4 0.45"/>
+        </geometry>
+        <material name="Silver"/>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.12 0.4 0.45"/>
+        </geometry>
+        <material name="Silver"/>
+      </collision>
+    </link>
+
+    <joint name="charger_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="charger" />
+      <origin xyz="0.075 -0.225 0.19" rpy="0 0 0" />
+    </joint>
+
+    <link name="charger">
+      <visual>
+        <geometry>
+          <box size="0.15 0.3 0.38"/>
+        </geometry>
+        <material name="Silver"/>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.15 0.3 0.38"/>
+        </geometry>
+        <material name="Silver"/>
+      </collision>
+    </link>
+
+    <joint name="e_stop_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="e_stop" />
+      <origin xyz="-0.035 -0.0015 0.52" rpy="0 0 0" />
+    </joint>
+
+    <link name="e_stop">
+      <visual>
+        <geometry>
+          <box size="0.07 0.07 0.1"/>
+        </geometry>
+        <material name="yellow"/>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.07 0.07 0.1"/>
+        </geometry>
+        <material name="yellow"/>
+      </collision>
+    </link>
+
+    <joint name="wlan_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="wlan" />
+      <origin xyz="0.05 -0.225 0.405" rpy="0 -0.314 0" />
+    </joint>
+
+    <link name="wlan">
+      <visual>
+        <geometry>
+          <box size="0.25 0.14 0.05"/>
+        </geometry>
+        <material name="Silver"/>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.25 0.14 0.05"/>
+        </geometry>
+        <material name="Silver"/>
+      </collision>
+    </link>
+
+    <joint name="ur5_touchpad_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="ur5_touchpad" />
+      <origin xyz="-0.16 -0.5355 0.38" rpy="0 0 0" />
+    </joint>
+
+    <link name="ur5_touchpad">
+      <visual>
+        <geometry>
+          <box size="0.32 0.06 0.24"/>
+        </geometry>
+        <material name="Silver"/>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.32 0.06 0.24"/>
+        </geometry>
+        <material name="Silver"/>
+      </collision>
+    </link>
+
 
   </xacro:macro>
 </robot>
