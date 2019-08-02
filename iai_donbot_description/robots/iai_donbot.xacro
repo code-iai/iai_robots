@@ -246,6 +246,20 @@
       </collision>
     </link>
 
+    <joint name="wrist_collision_joint" type="fixed">
+      <parent link="adapter_kms40_fwk050_frame_in" />
+      <child link="wrist_collision" />
+      <origin xyz="0 0 -0.005" rpy="0 0 0" />
+    </joint>
+
+    <link name="wrist_collision">
+      <collision>
+        <geometry>
+          <cylinder radius="0.04" length="0.08"/>
+        </geometry>
+        <material name="Silver"/>
+      </collision>
+    </link>
 
   </xacro:macro>
 </robot>
