@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
-  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+  <!-- <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" /> -->
   <xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
   <xacro:include filename="$(find iai_adapters_description)/urdf/adapter_fwa050_wsg50.urdf.xacro"/>
   <xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
@@ -36,6 +36,18 @@
   <xacro:property name="arm_mounting_plate_y_offset" value="0.027" />
   <xacro:property name="kms_mounting_plate_height" value="0.016" />
 
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+
+  <!-- ur5 -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+
+  <!-- arm -->
+  <xacro:arg name="kinematics_config" default="$(find ur_description)/config/ur5_default.yaml"/>
+  
+
   <xacro:macro name="iai_donbot">
     <base/>
 
@@ -54,7 +66,9 @@
       </visual>
     </link> -->
 
-    <xacro:ur5_robot prefix="${ur5_prefix}" joint_limited="false"/>
+    <!-- <xacro:ur5_robot prefix="${ur5_prefix}" joint_limited="false"/> -->
+    <xacro:ur5_robot prefix="${ur5_prefix}" joint_limited="false" transmission_hw_interface="$(arg transmission_hw_interface)"
+    kinematics_file="${load_yaml('$(arg kinematics_config)')}" />
 
     <joint name="arm_base_mounting_joint" type="fixed">
       <parent link="base_link" />
