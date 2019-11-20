@@ -1,7 +1,8 @@
 <launch>
-  <arg name="urdf-name" default="iai_donbot2.xacro"/>
-  <arg name="urdf-path" default="$(find iai_donbot_description)/robots/$(arg urdf-name)"/>
-  <arg name="param-name" default="robot_description"/>
+  <arg name="urdf" default="$(find iai_donbot_description)/robots/iai_donbot2.xacro"/>
+  <arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
+  <arg name="kinematics_config" default="$(find iai_donbot_description)/config/ur5_calibration.yaml"/>
 
-  <param name="$(arg param-name)" command="$(find xacro)/xacro.py '$(arg urdf-path)'" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(arg urdf)' transmission_hw_interface:=$(arg transmission_hw_interface)
+    kinematics_config:=$(arg kinematics_config)" />
 </launch>
