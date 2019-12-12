@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur5_table_description">
+
+  <xacro:include filename="$(find iai_table_robot_description)/urdf/ur5_table.urdf.xacro"/>
+
+  <link name="map"/>
+
+  <ur5_table/>
+
+  <joint name="table_localization" type="fixed">
+    <parent link="map"/>
+    <child link="table_link"/>
+  </joint>
+
+</robot>

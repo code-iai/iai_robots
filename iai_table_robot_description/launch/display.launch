@@ -1,0 +1,19 @@
+<launch>
+  <include file="$(find iai_table_robot_description)/launch/upload.launch" />
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+    <param name="use_gui" value="true"/>
+    <rosparam ns="zeros">
+      shoulder_pan_joint: 0.7854
+      shoulder_lift_joint: -0.78
+      elbow_joint: 0.78
+      wrist_1_joint: -1.57
+      wrist_2_joint: -1.57
+    </rosparam>
+  </node>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+  <node pkg="rviz" type="rviz" name="rviz" required="true"
+        args="-d $(find iai_table_robot_description)/config/display.rviz" />
+</launch>
