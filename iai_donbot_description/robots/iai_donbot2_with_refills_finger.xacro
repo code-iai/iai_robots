@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iai_donbot">
 
   <xacro:include filename="$(find iai_donbot_description)/robots/iai_donbot.xacro"/>
-  <xacro:include filename="$(find fingertip_description)/urdf/mod2_fingertip.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find fingertip_description)/urdf/mod2_fingertip.urdf.xacro"/> -->
 
   <!-- <link name="map"/> -->
 
@@ -30,7 +30,7 @@
    define joints that connect /gripper_finger_left_link to left_fingertip_base
     and connect /gripper_finger_right_link to  right_fingertip_base /-->
 
-  <xacro:fingertip_board_xacro prefix="left" parent="gripper_finger_left_link"   base_xyz = "-0.009 -0.023 0.12" base_rpy = "${pi/2.0} 0 ${pi/2}"/>
-  <xacro:fingertip_board_xacro prefix="right" parent="gripper_finger_right_link"  base_xyz = "-0.009 -0.023 0.12" base_rpy = "${pi/2.0} 0 ${pi/2}"/>
+  <!-- <xacro:fingertip_board_xacro prefix="left" parent="gripper_finger_left_link"   base_xyz = "-0.009 -0.023 0.12" base_rpy = "${pi/2.0} 0 ${pi/2}"/> -->
+  <!-- <xacro:fingertip_board_xacro prefix="right" parent="gripper_finger_right_link"  base_xyz = "-0.009 -0.023 0.12" base_rpy = "${pi/2.0} 0 ${pi/2}"/> -->
 
 </robot>
