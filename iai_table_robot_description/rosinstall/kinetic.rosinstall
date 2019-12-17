@@ -1,0 +1,8 @@
+- git:
+    local-name: iai_robots
+    uri: https://github.com/code-iai/iai_robots.git
+    version: master
+- git:
+    local-name: universal_robot
+    uri: https://github.com/ros-industrial/universal_robot.git
+    version: calibration_devel
