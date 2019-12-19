@@ -64,7 +64,7 @@
       </geometry>
       <material name="gray"/>
     </collision>
-  l</link>
+  </link>
   <!-- include the xacro file with the fingertip sensor description //
    instantiate one left fingertip pcb and one for the right
    define joints that connect /gripper_finger_left_link to left_fingertip_base
