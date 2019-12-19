@@ -24,7 +24,47 @@
 
   <link name="refills_finger"/>
 
+  <joint name="marco_left_finger_joint" type="fixed">
+    <parent link="gripper_finger_left_link"/>
+    <child link="marco_left_finger_link"/>
+    <origin xyz="-0.004 0.0 0.115" rpy="0 0 0" />
+  </joint>
 
+  <link name="marco_left_finger_link">
+    <visual>
+      <geometry>
+        <box size="0.008 0.03 0.13"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.008 0.03 0.13"/>
+      </geometry>
+      <material name="gray"/>
+    </collision>
+  </link>
+
+  <joint name="marco_right_finger_joint" type="fixed">
+    <parent link="gripper_finger_right_link"/>
+    <child link="marco_right_finger_link"/>
+    <origin xyz="-0.004 0.0 0.115" rpy="0 0 0" />
+  </joint>
+
+  <link name="marco_right_finger_link">
+    <visual>
+      <geometry>
+        <box size="0.008 0.03 0.13"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.008 0.03 0.13"/>
+      </geometry>
+      <material name="gray"/>
+    </collision>
+  l</link>
   <!-- include the xacro file with the fingertip sensor description //
    instantiate one left fingertip pcb and one for the right
    define joints that connect /gripper_finger_left_link to left_fingertip_base
