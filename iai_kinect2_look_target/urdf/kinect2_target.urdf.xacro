@@ -3,7 +3,7 @@
 <!-- Copyright Universitaet Bremen - Instititute for Artificial Intelligence. Author: Minerva Vargas -->
 <!-- License: GPLv3+ -->
 
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="kinect2_target"> 
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="kinect2_target"> 
 
 	<xacro:macro name="kinect2_target_xacro" params ="prefix parent *origin">
 

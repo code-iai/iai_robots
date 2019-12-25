@@ -3,6 +3,7 @@
   <!-- import macros -->
   <xacro:include filename="$(find iai_boxy_description)/urdf/boxy_description.urdf.xacro"/>
   <xacro:include filename="$(find iai_kinect2_look_target)/urdf/kinect2_target.urdf.xacro"/>
+  <xacro:include filename="$(find iai_kinect2_look_target)/urdf/limit_boxes.urdf.xacro"/>
 
   <!-- actual robot -->
   <boxy/>
@@ -10,4 +11,10 @@
   <xacro:kinect2_target_xacro parent="head_mount_kinect2_rgb_optical_frame" prefix="neck">
     <pose xyz="0 0 0" rpy="0 0 0" />
   </xacro:kinect2_target_xacro>
+
+  <!-- Limit collision boxes to limit the Kineckt2 position -->
+  <xacro:limit_boxes_xacro parent="base_link" prefix="neck_collision">
+    <pose xyz="0 0 0" rpy="0 0 0" />
+  </xacro:limit_boxes_xacro>
+
 </robot>
