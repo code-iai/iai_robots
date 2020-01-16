@@ -2,6 +2,9 @@
   <arg name="urdf-name" default="boxy_description.urdf.xacro"/>
   <arg name="urdf-path" default="$(find iai_boxy_description)/robots/$(arg urdf-name)"/>
   <arg name="param-name" default="robot_description"/>
+  <arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
+  <arg name="kinematics_config" default="$(find iai_ur_description)/config/ur3_calibration.yaml"/>
 
-  <param name="$(arg param-name)" command="xacro --inorder '$(arg urdf-path)'" />
+  <param name="$(arg param-name)" command="xacro --inorder '$(arg urdf-path)' transmission_hw_interface:=$(arg transmission_hw_interface)
+    kinematics_config:=$(arg kinematics_config)" />
 </launch>

@@ -10,7 +10,7 @@
   <xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
   <xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
   <xacro:include filename="$(find iai_adapters_description)/urdf/adapter_boxy_ur3.urdf.xacro"/>
-  <xacro:include filename="$(find iai_ur_description)/urdf/ur3.urdf.xacro"/>
+  <xacro:include filename="$(find ur_description)/urdf/ur3.urdf.xacro"/>
   <xacro:include filename="$(find iai_kinect2_description)/urdf/kinect2.urdf.xacro"/>
   <xacro:include filename="$(find iai_adapter_iso50_kinect2_description)/urdf/adapter_iso50_kinect2.urdf.xacro"/>
   <!-- Property definitions e.g. constants -->
@@ -88,52 +88,27 @@
     <!-- /JOINT for base_footprint -->
     <!-- NEW NECK ASSEMBLY -->
     <!-- mounting plate of UR3 -->
-    <adapter_boxy_ur3_xacro prefix="neck_" parent="base_link">
+    <xacro:property name="ur3_prefix" value="neck_"/>
+    <adapter_boxy_ur3_xacro prefix="${ur3_prefix}" parent="base_link">
       <origin xyz="0.175 -0.227 1.48" rpy="0 0 0"/>
     </adapter_boxy_ur3_xacro>
-    <xacro:ur3_robot prefix="neck_" parent="neck_adapter_ur3_frame_out" joint_limited="true">
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 -${M_PI/2.0}"/>
-    </xacro:ur3_robot>
+    <xacro:ur3_robot prefix="${ur3_prefix}" joint_limited="true" transmission_hw_interface="$(arg transmission_hw_interface)" kinematics_file="${load_yaml('$(arg kinematics_config)')}"/>
+
+    <joint name="${ur3_prefix}base_mounting_joint" type="fixed">
+      <parent link="${ur3_prefix}adapter_ur3_frame_out" />
+      <child link="${ur3_prefix}base_link" />
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 -${M_PI/1.0}"/>
+    </joint>
 
     <!-- The following URDF has frame_in / frame_out, so it is placed at the parent -->
     <adapter_iso50_kinect2_xacro parent="neck_tool0" prefix="neck">
       <origin xyz="0 0 0" rpy="0 0 -1.570795"/>
     </adapter_iso50_kinect2_xacro>
-
-    <!-- /NEW NECK ASSEMBLY -->
-    <!-- OLD NEW ASSEMBLY -->
-    <!-- JOINT to connect the base with the pw070 -->
-    <!--joint name="head_joint" type="fixed">
-		<parent link="base_link" />
-		<child link="pw070_base_link" />
-	</joint-->
-    <!-- /JOINT to connect the base with the pw070 -->
-    <!--xacro:include filename="$(find iai_schunk_pw070_v6)/robots/pw070_v6.URDF" /-->
-    <!-- Kinect2 -->
-    <!-- Pose comes from tool_H_clink in the calibration
-             The quaternion was converted to RPY using python and KDL
-               halcon has quat: w x y z
-               kdl and tf_static_transform_publisher use: x y z w
-             So take the first number from the halcon quat and put it last for KDL.
-               import PyKDL as p; r2 = p.Rotation.Quaternion(-0.494547,0.491515,-0.506787,0.506955) ; r2.GetRPY() 
-               answer: (-1.5431199762943342, -0.0029080109443817533, -1.5676362600579434) -->
-    <!-- The following kinect2_xacro defines the _kinect2_rgb_optical_frame
-        And includes the fixed joint to place the kinect on the pw070  -->
+ 
     <kinect2_xacro parent="neck_adapter_iso50_kinect2_frame_out" prefix="head_mount">
-      <!-- From CAD -->
-      <!--origin xyz="-0.02 0.10 0.02" rpy="-1.570795 0 1.570795" /-->
-      <!-- From Halcon calibration on 20160902 -->
       <origin xyz="-0.031284 0.098627 0.023544" rpy="4.728550 6.279385 1.578295"/>
     </kinect2_xacro>
-    <!-- shoulder kinect -->
-    <!-- ORIGINAL DATA FROM HALCON CALIBRATION:
-             from: base_link to: shoulder_kinect_link
-             translation: -0.135394 -0.00764754 1.54755 (xyz)
-             quaternion: 0.0177781 0.202257 -0.0472198 0.978032 (xyzw) -->
-    <!--kinect name="shoulder_kinect" parent="base_link">
-		<origin xyz="0.0405394 -0.52064754 1.47001"
-                  rpy="0.01708077682636155 0.0085798647123734 -0.00929470452726490"/>
-       </kinect-->
+
 
     <!-- JOINT to connect the base with the torso -->
     <joint name="torso_joint" type="fixed">
