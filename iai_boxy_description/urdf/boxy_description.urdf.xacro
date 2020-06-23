@@ -10,7 +10,7 @@
   <xacro:include filename="$(find iai_adapters_description)/urdf/adapter_kms40_fwk050.urdf.xacro"/>
   <xacro:include filename="$(find iai_adapters_description)/urdf/fwk_fwa_050.urdf.xacro"/>
   <xacro:include filename="$(find iai_adapters_description)/urdf/adapter_boxy_ur3.urdf.xacro"/>
-  <xacro:include filename="$(find ur_description)/urdf/ur3.urdf.xacro"/>
+  <xacro:include filename="$(find iai_ur_description)/urdf/ur3.urdf.xacro"/>
   <xacro:include filename="$(find iai_kinect2_description)/urdf/kinect2.urdf.xacro"/>
   <xacro:include filename="$(find iai_adapter_iso50_kinect2_description)/urdf/adapter_iso50_kinect2.urdf.xacro"/>
   <!-- Property definitions e.g. constants -->
