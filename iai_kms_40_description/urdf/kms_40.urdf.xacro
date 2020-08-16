@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"
-       name="kms_40"> 
+       name="kms_40">
 
   <xacro:macro name="kms_40_xacro" params="prefix parent *origin">
 
@@ -16,10 +16,19 @@
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://iai_kms_40_description/meshes/adapter_plate_iso50_kms40_weiss.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://iai_kms_40_description/meshes/adapter_plate_iso50_kms40_weiss.stl"
+                scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Grey"/>
       </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://iai_kms_40_description/meshes/adapter_plate_iso50_kms40_weiss.stl"
+                scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
     </link>
 
 
@@ -37,8 +46,6 @@
 
 
     <!-- Now joint connecting the actual kms40 sensor -->
-
-
     <joint name="${prefix}kms40_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />
       <parent link="${prefix}adapter_iso50_kms40_frame_out"/>
@@ -50,10 +57,19 @@
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://iai_kms_40_description/meshes/kms40_simple.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://iai_kms_40_description/meshes/kms40_simple.stl"
+                scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Grey"/>
       </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://iai_kms_40_description/meshes/kms40_simple.stl"
+                scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
     </link>
 
     <!-- Empty link just to get the frame out -->
@@ -69,6 +85,6 @@
       <axis xyz="0 0 0" />
     </joint>
 
-
   </xacro:macro>
+
 </robot>
