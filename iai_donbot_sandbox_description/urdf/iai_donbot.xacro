@@ -34,210 +34,214 @@
   <xacro:property name="arm_mounting_plate_y_offset" value="0.027" />
   <xacro:property name="kms_mounting_plate_height" value="0.016" />
 
-  <xacro:ur5_robot joint_limited="false" />
-  <joint name="arm_base_mounting_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="${prefix}base_link" />
-    <origin xyz="-0.525 -0.424 0.470" rpy="0.0 0.0 0.0" />
-  </joint>
+  <xacro:macro name="iai_donbot" params="odom">
+    <xacro:ur5_robot joint_limited="false" />
+    <xacro:if value="${odom}">
+      <xacro:include filename="$(find iai_donbot_sandbox_description)/urdf/include/iai_donbot_odom.xacro"/> 
+    </xacro:if>
+    <joint name="arm_base_mounting_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="${prefix}base_link" />
+      <origin xyz="-0.525 -0.424 0.470" rpy="0.0 0.0 0.0" />
+    </joint>
 
-  <link name="kms_mounting_plate">
-    <visual>
-      <geometry>
-        <mesh filename="package://iai_donbot_sandbox_description/meshes/iai_table_robot/adapter_plate_iso50_kms40_weiss.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="gray"/>
-    </visual>
-  </link>
+    <link name="kms_mounting_plate">
+      <visual>
+        <geometry>
+          <mesh filename="package://iai_donbot_sandbox_description/meshes/iai_table_robot/adapter_plate_iso50_kms40_weiss.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+    </link>
 
-  <joint name="kms_mounting_plate_joint" type="fixed">
-    <parent link="${prefix}ee_link" />
-    <child link="kms_mounting_plate" />
-    <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
-  </joint>
+    <joint name="kms_mounting_plate_joint" type="fixed">
+      <parent link="${prefix}ee_link" />
+      <child link="kms_mounting_plate" />
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+    </joint>
 
-  <xacro:kms_40_xacro parent="kms_mounting_plate" prefix="">
-    <origin xyz="0 0 0" rpy="0 0 ${pi}" />
-  </xacro:kms_40_xacro>
+    <xacro:kms_40_xacro parent="kms_mounting_plate" prefix="">
+      <origin xyz="0 0 0" rpy="0 0 ${pi}" />
+    </xacro:kms_40_xacro>
 
-  <xacro:adapter_kms40_fwk050_xacro parent="kms40_frame_out" prefix="">
-    <origin xyz="0 0 0" rpy="0 0 0" /> 
-  </xacro:adapter_kms40_fwk050_xacro>
+    <xacro:adapter_kms40_fwk050_xacro parent="kms40_frame_out" prefix="">
+      <origin xyz="0 0 0" rpy="0 0 0" /> 
+    </xacro:adapter_kms40_fwk050_xacro>
 
-  <xacro:fwk_fwa_050_xacro parent="adapter_kms40_fwk050_frame_out" prefix="">
-    <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:fwk_fwa_050_xacro>
+    <xacro:fwk_fwa_050_xacro parent="adapter_kms40_fwk050_frame_out" prefix="">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:fwk_fwa_050_xacro>
 
-  <xacro:adapter_fwa050_wsg50_xacro parent="fwk_fwa_050_frame_out" prefix="">
-    <origin xyz="0 0 0.0" rpy="0 0 0" />
-  </xacro:adapter_fwa050_wsg50_xacro>
+    <xacro:adapter_fwa050_wsg50_xacro parent="fwk_fwa_050_frame_out" prefix="">
+      <origin xyz="0 0 0.0" rpy="0 0 0" />
+    </xacro:adapter_fwa050_wsg50_xacro>
 
-  <xacro:wsg_50_xacro name="gripper" parent="adapter_fwa050_wsg50_frame_out">
-    <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
-  </xacro:wsg_50_xacro>
+    <xacro:wsg_50_xacro name="gripper" parent="adapter_fwa050_wsg50_frame_out">
+      <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
+    </xacro:wsg_50_xacro>
 
-  <link name="camera_holder_link">
-    <visual>
-      <geometry>
-        <mesh filename="package://iai_donbot_sandbox_description/meshes/iai_refills_camera/refills_camera_holder_and_camera.stl" scale="1 1 1"/>
-      </geometry>
-      <material name="gray"/>
-    </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://iai_donbot_sandbox_description/meshes/iai_refills_camera/refills_camera_holder_and_camera.stl" scale="1 1 1"/>
-      </geometry>
-      <material name="gray"/>
-    </collision>
-  </link>
+    <link name="camera_holder_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://iai_donbot_sandbox_description/meshes/iai_refills_camera/refills_camera_holder_and_camera.stl" scale="1 1 1"/>
+        </geometry>
+        <material name="gray"/>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://iai_donbot_sandbox_description/meshes/iai_refills_camera/refills_camera_holder_and_camera.stl" scale="1 1 1"/>
+        </geometry>
+        <material name="gray"/>
+      </collision>
+    </link>
 
-  <joint name="gripper_to_camera_holder_joint" type="fixed">
-    <parent link="gripper_base_link" />
-    <child link="camera_holder_link" />
-    <origin xyz="0 0 0" rpy="0 0 ${pi}" />
-  </joint>
+    <joint name="gripper_to_camera_holder_joint" type="fixed">
+      <parent link="gripper_base_link" />
+      <child link="camera_holder_link" />
+      <origin xyz="0 0 0" rpy="0 0 ${pi}" />
+    </joint>
 
-  <link name="camera_link">
-    <visual>
-      <geometry>
-        <cylinder radius="0.001" length="0.005"/>
-      </geometry>
-    </visual>
-  </link>
+    <link name="camera_link">
+      <visual>
+        <geometry>
+          <cylinder radius="0.001" length="0.005"/>
+        </geometry>
+      </visual>
+    </link>
 
-  <joint name="gripper_to_camera_joint" type="fixed">
-    <parent link="gripper_base_link" />
-    <child link="camera_link" />
-    <origin xyz="0.002956 -0.066498 0.060947" rpy="0.204429 6.281375 3.127197" />
-  </joint>
+    <joint name="gripper_to_camera_joint" type="fixed">
+      <parent link="gripper_base_link" />
+      <child link="camera_link" />
+      <origin xyz="0.002956 -0.066498 0.060947" rpy="0.204429 6.281375 3.127197" />
+    </joint>
 
-  <link name="rs_camera_link"/>
+    <link name="rs_camera_link"/>
 
-  <joint name="wristcam_to_realsense_joint" type="fixed">
-    <parent link="camera_link" />
-    <child link="rs_camera_link" />
-    <origin xyz="-0.017993 -0.107556 0.017699" rpy="6.270618 4.930698 1.578454"/>
-  </joint>
+    <joint name="wristcam_to_realsense_joint" type="fixed">
+      <parent link="camera_link" />
+      <child link="rs_camera_link" />
+      <origin xyz="-0.017993 -0.107556 0.017699" rpy="6.270618 4.930698 1.578454"/>
+    </joint>
 
-  <!-- boxes to cover up switches and stuff -->
-  <joint name="switches_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="switches" />
-    <origin xyz="-0.66 -0.225 0.225" rpy="0 0 0" />
-  </joint>
+    <!-- boxes to cover up switches and stuff -->
+    <joint name="switches_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="switches" />
+      <origin xyz="-0.66 -0.225 0.225" rpy="0 0 0" />
+    </joint>
 
-  <link name="switches">
-    <visual>
-      <geometry>
-        <box size="0.12 0.4 0.45"/>
-      </geometry>
-      <material name="Silver"/>
-    </visual>
-    <collision>
-      <geometry>
-        <box size="0.12 0.4 0.45"/>
-      </geometry>
-      <material name="Silver"/>
-    </collision>
-  </link>
+    <link name="switches">
+      <visual>
+        <geometry>
+          <box size="0.12 0.4 0.45"/>
+        </geometry>
+        <material name="Silver"/>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.12 0.4 0.45"/>
+        </geometry>
+        <material name="Silver"/>
+      </collision>
+    </link>
 
-  <joint name="charger_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="charger" />
-    <origin xyz="0.075 -0.225 0.19" rpy="0 0 0" />
-  </joint>
+    <joint name="charger_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="charger" />
+      <origin xyz="0.075 -0.225 0.19" rpy="0 0 0" />
+    </joint>
 
-  <link name="charger">
-    <visual>
-      <geometry>
-        <box size="0.15 0.3 0.38"/>
-      </geometry>
-      <material name="Silver"/>
-    </visual>
-    <collision>
-      <geometry>
-        <box size="0.15 0.3 0.38"/>
-      </geometry>
-      <material name="Silver"/>
-    </collision>
-  </link>
+    <link name="charger">
+      <visual>
+        <geometry>
+          <box size="0.15 0.3 0.38"/>
+        </geometry>
+        <material name="Silver"/>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.15 0.3 0.38"/>
+        </geometry>
+        <material name="Silver"/>
+      </collision>
+    </link>
 
-  <joint name="e_stop_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="e_stop" />
-    <origin xyz="-0.035 -0.0015 0.52" rpy="0 0 0" />
-  </joint>
+    <joint name="e_stop_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="e_stop" />
+      <origin xyz="-0.035 -0.0015 0.52" rpy="0 0 0" />
+    </joint>
 
-  <link name="e_stop">
-    <visual>
-      <geometry>
-        <box size="0.07 0.07 0.1"/>
-      </geometry>
-      <material name="yellow"/>
-    </visual>
-    <collision>
-      <geometry>
-        <box size="0.07 0.07 0.1"/>
-      </geometry>
-      <material name="yellow"/>
-    </collision>
-  </link>
+    <link name="e_stop">
+      <visual>
+        <geometry>
+          <box size="0.07 0.07 0.1"/>
+        </geometry>
+        <material name="yellow"/>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.07 0.07 0.1"/>
+        </geometry>
+        <material name="yellow"/>
+      </collision>
+    </link>
 
-  <joint name="wlan_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="wlan" />
-    <origin xyz="0.05 -0.225 0.405" rpy="0 -0.314 0" />
-  </joint>
+    <joint name="wlan_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="wlan" />
+      <origin xyz="0.05 -0.225 0.405" rpy="0 -0.314 0" />
+    </joint>
 
-  <link name="wlan">
-    <visual>
-      <geometry>
-        <box size="0.25 0.14 0.05"/>
-      </geometry>
-      <material name="Silver"/>
-    </visual>
-    <collision>
-      <geometry>
-        <box size="0.25 0.14 0.05"/>
-      </geometry>
-      <material name="Silver"/>
-    </collision>
-  </link>
+    <link name="wlan">
+      <visual>
+        <geometry>
+          <box size="0.25 0.14 0.05"/>
+        </geometry>
+        <material name="Silver"/>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.25 0.14 0.05"/>
+        </geometry>
+        <material name="Silver"/>
+      </collision>
+    </link>
 
-  <joint name="ur5_touchpad_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="ur5_touchpad" />
-    <origin xyz="-0.16 -0.5355 0.38" rpy="0 0 0" />
-  </joint>
+    <joint name="ur5_touchpad_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="ur5_touchpad" />
+      <origin xyz="-0.16 -0.5355 0.38" rpy="0 0 0" />
+    </joint>
 
-  <link name="ur5_touchpad">
-    <visual>
-      <geometry>
-        <box size="0.32 0.06 0.24"/>
-      </geometry>
-      <material name="Silver"/>
-    </visual>
-    <collision>
-      <geometry>
-        <box size="0.32 0.06 0.24"/>
-      </geometry>
-      <material name="Silver"/>
-    </collision>
-  </link>
+    <link name="ur5_touchpad">
+      <visual>
+        <geometry>
+          <box size="0.32 0.06 0.24"/>
+        </geometry>
+        <material name="Silver"/>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.32 0.06 0.24"/>
+        </geometry>
+        <material name="Silver"/>
+      </collision>
+    </link>
 
-  <joint name="wrist_collision_joint" type="fixed">
-    <parent link="adapter_kms40_fwk050_frame_in" />
-    <child link="wrist_collision" />
-    <origin xyz="0 0 -0.005" rpy="0 0 0" />
-  </joint>
+    <joint name="wrist_collision_joint" type="fixed">
+      <parent link="adapter_kms40_fwk050_frame_in" />
+      <child link="wrist_collision" />
+      <origin xyz="0 0 -0.005" rpy="0 0 0" />
+    </joint>
 
-  <link name="wrist_collision">
-    <collision>
-      <geometry>
-        <cylinder radius="0.04" length="0.08"/>
-      </geometry>
-      <material name="Silver"/>
-    </collision>
-  </link>
-
+    <link name="wrist_collision">
+      <collision>
+        <geometry>
+          <cylinder radius="0.04" length="0.08"/>
+        </geometry>
+        <material name="Silver"/>
+      </collision>
+    </link>
+  </xacro:macro>
 </robot>

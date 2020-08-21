@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iai_donbot">
 
   <xacro:include filename="$(find iai_donbot_sandbox_description)/urdf/iai_donbot.xacro"/>
-  <xacro:include filename="$(find iai_donbot_sandbox_description)/urdf/include/iai_donbot_odom.xacro"/> 
+  <xacro:iai_donbot odom="true"/>
 
   <link name="map">
     </link>
