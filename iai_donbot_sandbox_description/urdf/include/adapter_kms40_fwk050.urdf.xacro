@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- This is a hand-made URDF XACRO file for the adapter from Weiss Robotics KMS-40 to the Schunk FWK050 -->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="adapter_kms40_fwk050"> 
+
+  <xacro:macro name="adapter_kms40_fwk050_xacro" params="prefix parent *origin">
+
+    <!-- Joint connecting the parent to our frame_in -->
+    <joint name="${prefix}adapter_kms40_fwk050_in_joint" type="fixed">
+      <xacro:insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}adapter_kms40_fwk050_frame_in"/>
+    </joint>
+
+    <link name="${prefix}adapter_kms40_fwk050_frame_in">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <!-- these meshes were exported in mm, so scale back to m -->
+          <mesh filename="package://iai_donbot_sandbox_description/meshes/iai_adapters/adapter_kms40_fwk050.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="Grey"/>
+      </visual>
+    </link>
+
+    <!-- Empty link just to get the frame out -->
+    <link name="${prefix}adapter_kms40_fwk050_frame_out"/>
+    
+    <!-- joint positioning the frame_out -->
+    <joint name="${prefix}adapter_kms40_fwk050_trans_frame_out"
+           type="fixed">
+      <origin xyz="0 0 0.01"
+              rpy="0 0 0" />
+      <parent link="${prefix}adapter_kms40_fwk050_frame_in" />
+      <child link="${prefix}adapter_kms40_fwk050_frame_out" />
+      <axis xyz="0 0 0" />
+    </joint>
+
+    <!-- The joint connecting us to the next part of the chain is in the next URDF -->
+
+  </xacro:macro>
+</robot>

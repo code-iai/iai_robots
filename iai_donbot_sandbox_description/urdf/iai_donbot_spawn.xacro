@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iai_donbot">
+
+  <xacro:include filename="$(find iai_donbot_sandbox_description)/urdf/iai_donbot.xacro"/>
+  <xacro:include filename="$(find iai_donbot_sandbox_description)/urdf/include/iai_donbot_odom.xacro"/> 
+
+  <link name="map">
+    </link>
+    <joint name="map_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="map"/>
+        <child link="odom"/>
+    </joint>
+
+</robot>

@@ -1,0 +1,15 @@
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find iai_donbot_sandbox_description)/urdf/iai_donbot_spawn.xacro'" />
+
+  <arg name="gui" default="True" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="fake_localization" output="screen" args="0 0 0 0 0 0 map odom" />
+  
+  <param name="use_gui" value="$(arg gui)" />
+  
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find iai_donbot_sandbox_description)/rviz_config/iai_donbot.rviz" />
+</launch>
