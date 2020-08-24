@@ -18,23 +18,23 @@
 	<material name="yellow">
 		<color rgba="1.0 1.0 0.0 1.0" />
 	</material>
-	<property name="base_link_to_table_top" value="0.47" />
-	<property name="table_length" value="0.6" />
-	<property name="table_width" value="0.553" />
-	<property name="ur5_prefix" value="ur5_" />
-	<property name="arm_mounting_plate_width" value="0.18" />
-	<property name="arm_mounting_plate_length" value="0.15" />
-	<property name="arm_mounting_plate_height" value="0.006" />
-	<property name="arm_mounting_plate_x_offset" value="0.0" />
-	<property name="arm_mounting_plate_y_offset" value="0.027" />
-	<property name="kms_mounting_plate_height" value="0.016" />
-	<arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
+	<xacro:property name="base_link_to_table_top" value="0.47" />
+	<xacro:property name="table_length" value="0.6" />
+	<xacro:property name="table_width" value="0.553" />
+	<xacro:property name="ur5_prefix" value="ur5_" />
+	<xacro:property name="arm_mounting_plate_width" value="0.18" />
+	<xacro:property name="arm_mounting_plate_length" value="0.15" />
+	<xacro:property name="arm_mounting_plate_height" value="0.006" />
+	<xacro:property name="arm_mounting_plate_x_offset" value="0.0" />
+	<xacro:property name="arm_mounting_plate_y_offset" value="0.027" />
+	<xacro:property name="kms_mounting_plate_height" value="0.016" />
+	<xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
 	<!-- common stuff -->
 	<xacro:include filename="$(find iai_ur_description)/urdf/common.gazebo.xacro" />
 	<!-- ur5 -->
 	<xacro:include filename="$(find iai_ur_description)/urdf/ur5.urdf.xacro" />
 	<!-- arm -->
-	<arg name="kinematics_config" default="$(find iai_ur_description)/config/ur5_default.yaml" />
+	<xacro:arg name="kinematics_config" default="$(find iai_ur_description)/config/ur5_default.yaml" />
 	<xacro:macro name="iai_donbot" params="odom">
 		<xacro:base odom="${odom}"/>
 		<!-- create base -->
@@ -74,21 +74,21 @@
 			<child link="kms_mounting_plate" />
 			<origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
 		</joint>
-		<kms_40_xacro parent="kms_mounting_plate" prefix="">
+		<xacro:kms_40_xacro parent="kms_mounting_plate" prefix="">
 			<origin xyz="0 0 0" rpy="0 0 ${pi}" />
-		</kms_40_xacro>
-		<adapter_kms40_fwk050_xacro parent="kms40_frame_out" prefix="">
+		</xacro:kms_40_xacro>
+		<xacro:adapter_kms40_fwk050_xacro parent="kms40_frame_out" prefix="">
 			<origin xyz="0 0 0" rpy="0 0 0" />
-		</adapter_kms40_fwk050_xacro>
-		<fwk_fwa_050_xacro parent="adapter_kms40_fwk050_frame_out" prefix="">
+		</xacro:adapter_kms40_fwk050_xacro>
+		<xacro:fwk_fwa_050_xacro parent="adapter_kms40_fwk050_frame_out" prefix="">
 			<origin xyz="0 0 0" rpy="0 0 0" />
-		</fwk_fwa_050_xacro>
-		<adapter_fwa050_wsg50_xacro parent="fwk_fwa_050_frame_out" prefix="">
+		</xacro:fwk_fwa_050_xacro>
+		<xacro:adapter_fwa050_wsg50_xacro parent="fwk_fwa_050_frame_out" prefix="">
 			<origin xyz="0 0 0.0" rpy="0 0 0" />
-		</adapter_fwa050_wsg50_xacro>
-		<wsg_50_xacro name="gripper" parent="adapter_fwa050_wsg50_frame_out">
+		</xacro:adapter_fwa050_wsg50_xacro>
+		<xacro:wsg_50_xacro name="gripper" parent="adapter_fwa050_wsg50_frame_out">
 			<origin xyz="0 0 0" rpy="0 0 3.14159265359" />
-		</wsg_50_xacro>
+		</xacro:wsg_50_xacro>
 		<link name="camera_holder_link">
 			<visual>
 				<geometry>

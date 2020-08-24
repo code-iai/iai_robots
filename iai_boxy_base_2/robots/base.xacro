@@ -38,7 +38,7 @@
 			<child link="laser_reference_back" />
 			<axis xyz="-1 0 0" />
 		</joint>
-		<if value="${odom}">
+		<xacro:if value="${odom}">
 			<link name="odom" />
 			<joint name="odom_x_joint" type="prismatic">
 				<parent link="odom" />
@@ -77,7 +77,7 @@
 				-->
 				<limit velocity="1" effort="200" />
 			</joint>
-		</if>
+		</xacro:if>
 		<!-- Definition of base_footprint -> base_link -->
 		<link name="base_footprint">
 			<visual>
