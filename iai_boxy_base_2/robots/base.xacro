@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="base" params="odom">
+		<link name="base_link">
+			<inertial>
+				<origin xyz="-0.257082749974343 -0.227847593519202 0.0535404411050965" rpy="0 0 0" />
+				<mass value="70.0210745907357" />
+				<inertia ixx="9.06122735721955" ixy="0.0933988942518672" ixz="0.665662584048376" iyy="12.5350462868938" iyz="0.00262520723302998" izz="7.44839974564544" />
+			</inertial>
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<!-- <mesh -->
+					<mesh filename="package://iai_boxy_base_2/meshes/base.stl" />
+				</geometry>
+				<material name="">
+					<color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+				</material>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh filename="package://iai_boxy_base_2/meshes/base_lowres.stl" />
+				</geometry>
+			</collision>
+		</link>
+		<link name="laser_reference_front" />
+		<joint name="laser_reference_front_joint" type="fixed">
+			<origin xyz="0.1772 0.060215 0.149929" rpy="0.0 0.0 0.7853975" />
+			<parent link="base_link" />
+			<child link="laser_reference_front" />
+			<axis xyz="0.0 0.0 0.0" />
+		</joint>
+		<link name="laser_reference_back" />
+		<joint name="laser_reference_back_joint" type="fixed">
+			<origin xyz="-0.69357 -0.506 0.1575" rpy="4.9333E-15 4.5082E-15 -2.3562" />
+			<parent link="base_link" />
+			<child link="laser_reference_back" />
+			<axis xyz="-1 0 0" />
+		</joint>
+		<if value="${odom}">
+			<link name="odom" />
+			<joint name="odom_x_joint" type="prismatic">
+				<parent link="odom" />
+				<child link="odom_x_frame" />
+				<axis xyz="1 0 0" />
+				<!--
+				limits chosen heuristically
+				lower/upper: +-1km to create a quasi limitless prismatic joint
+				velocity: slow walking speed is 3-4km/hour ~= 1m/s
+				effort: reach max speed within 1s, Boxy has a mass of 200kg, so Fmax=200kg*1m/s2
+				-->
+				<limit lower="-1000" upper="1000" velocity="1" effort="200" />
+			</joint>
+			<link name="odom_x_frame" />
+			<joint name="odom_y_joint" type="prismatic">
+				<parent link="odom_x_frame" />
+				<child link="odom_y_frame" />
+				<axis xyz="0 1 0" />
+				<!--
+				limits chosen heuristically
+				lower/upper: +-1km to create a quasi limitless prismatic joint
+				velocity: slow walking speed is 3-4km/hour ~= 1m/s
+				effort: reach max speed within 1s, Boxy has a mass of 200kg, so Fmax=200kg*1m/s2
+				-->
+				<limit lower="-1000" upper="1000" velocity="1" effort="200" />
+			</joint>
+			<link name="odom_y_frame" />
+			<joint name="odom_z_joint" type="continuous">
+				<parent link="odom_y_frame" />
+				<child link="base_footprint" />
+				<axis xyz="0 0 1" />
+				<!--
+				limits chosen heuristically
+				velocity: one slow complete turn around in 5-6s, so 6.2rad/6s ~= 1rad/s
+				effort: reach max speed within 1s, Boxy has a mass of 200kg and a diagonale of 1m, so Fmax=200kg*1m*1m/s2
+				-->
+				<limit velocity="1" effort="200" />
+			</joint>
+		</if>
+		<!-- Definition of base_footprint -> base_link -->
+		<link name="base_footprint">
+			<visual>
+				<origin rpy="0 0 0" xyz="0 0 0" />
+				<geometry>
+					<box size="0.01 0.01 0.01" />
+				</geometry>
+				<material name="White" />
+			</visual>
+			<collision>
+				<origin rpy="0 0 0" xyz="0 0 0.071" />
+				<geometry>
+					<box size="0.001 0.001 0.001" />
+				</geometry>
+			</collision>
+		</link>
+		<!-- JOINT to define base_footprint -->
+		<joint name="base_footprint_joint" type="fixed">
+			<!--
+			Explanation of the calculations to find base_link relative
+			to /base_footprint.
+			
+			/base_footprint is on the floor, exactly in the center of the four wheels to
+			simplify the odometry and FK/IK calculations of the base.
+			Orientation: X pointing forward, and Z up.
+			
+			/base_link is on the front left upper corner of the main alu enclosure.
+			with the same orientation as /base_footprint
+			
+			X:  wheel-axis to wheel-axis distance = 789.5mm.
+			Distance front wheel axis to plane where base_link is: 139.5mm
+			X = 789.5/2 - 139.5 = 255.25mm
+			
+			Y:  main alu enclosure is 450mm wide, and the
+			center of the wheels is also the center of the alu enclosure,
+			so half is Y = 225mm.
+			
+			Z:   base_link is at the top of a 120mm plate.
+			The wheels are aligned with the center of the plate.
+			The wheels are 8", so base_link is
+			Z = 60+4*25.4mm = 161.6mm (above the floor).
+			-->
+			<origin xyz="0.25525 0.225 0.1616" rpy="0 0 0" />
+			<parent link="base_footprint" />
+			<child link="base_link" />
+		</joint>
+		<link name="plate">
+			<visual>
+				<origin rpy="0 0 0" xyz="0 0 0" />
+				<geometry>
+					<box size="0.6 0.553 0.02" />
+				</geometry>
+				<material name="White" />
+			</visual>
+			<collision>
+				<origin rpy="0 0 0" xyz="0 0 0" />
+				<geometry>
+					<box size="0.6 0.553 0.02" />
+				</geometry>
+			</collision>
+		</link>
+		<!-- JOINT to define base_footprint -->
+		<joint name="plate_joint" type="fixed">
+			<origin xyz="-0.300 -0.230 0.460" rpy="0 0 0" />
+			<parent link="base_link" />
+			<child link="plate" />
+		</joint>
+	</xacro:macro>
+</robot>
