@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+  <!--xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" /-->
   <!-- <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" /> -->
   <xacro:include filename="$(find iai_kms_40_description)/urdf/kms_40.urdf.xacro"/>
   <xacro:include filename="$(find iai_adapters_description)/urdf/adapter_fwa050_wsg50.urdf.xacro"/>
@@ -39,13 +39,13 @@
   <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
 
   <!-- common stuff -->
-  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+  <xacro:include filename="$(find iai_ur_description)/urdf/common.gazebo.xacro" />
 
   <!-- ur5 -->
-  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+  <xacro:include filename="$(find iai_ur_description)/urdf/ur5.urdf.xacro" />
 
   <!-- arm -->
-  <xacro:arg name="kinematics_config" default="$(find ur_description)/config/ur5_default.yaml"/>
+  <xacro:arg name="kinematics_config" default="$(find iai_ur_description)/config/ur5_default.yaml"/>
   
 
   <xacro:macro name="iai_donbot">
