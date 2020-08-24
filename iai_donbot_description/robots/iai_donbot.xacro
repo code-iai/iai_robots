@@ -35,9 +35,8 @@
 	<xacro:include filename="$(find iai_ur_description)/urdf/ur5.urdf.xacro" />
 	<!-- arm -->
 	<xacro:arg name="kinematics_config" default="$(find iai_ur_description)/config/ur5_default.yaml" />
-	<xacro:macro name="iai_donbot" params="odom">
-		<xacro:base odom="${odom}"/>
-		<!-- create base -->
+	<xacro:macro name="iai_donbot" params="odom"> 
+		<xacro:base odom="${odom}"/> <!-- create base -->
 		<!--
 		<joint name="arm_mounting_plate_joint" type="fixed">
 		<parent link="base_footprint"/>
