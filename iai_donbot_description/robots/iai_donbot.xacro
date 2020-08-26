@@ -107,7 +107,13 @@
 			<child link="camera_holder_link" />
 			<origin xyz="0 0 0" rpy="0 0 ${pi}" />
 		</joint>
-		<link name="camera_link" />
+		<link name="camera_link">
+			<visual>
+				<geometry>
+					<cylinder radius="0.001" length="0.005"/>
+				</geometry>
+			</visual>
+		</link>
 		<joint name="gripper_to_camera_joint" type="fixed">
 			<parent link="gripper_base_link" />
 			<child link="camera_link" />
