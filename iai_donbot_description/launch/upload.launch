@@ -1,5 +1,5 @@
 <launch>
-  <arg name="urdf" default="$(find iai_donbot_description)/robots/iai_donbot_spawn.xacro"/>
+  <arg name="urdf" default="$(find iai_donbot_description)/robots/iai_donbot.urdf.xacro"/>
   <arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
   <arg name="kinematics_config" default="$(find iai_donbot_description)/config/ur5_calibration.yaml"/>
 

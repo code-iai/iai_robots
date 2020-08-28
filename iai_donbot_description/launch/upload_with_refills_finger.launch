@@ -1,5 +1,5 @@
 <launch>
-  <arg name="urdf" default="$(find iai_donbot_description)/robots/iai_donbot_with_refills_finger.xacro"/>
+  <arg name="urdf" default="$(find iai_donbot_description)/robots/iai_donbot_with_refills_finger.urdf.xacro"/>
 
   <include file="$(find iai_donbot_description)/launch/upload.launch">
     <arg name="urdf" value="$(arg urdf)"/>
