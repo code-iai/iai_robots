@@ -24,14 +24,26 @@
 				</geometry>
 			</collision>
 		</link>
-		<link name="laser_reference_front" />
+		<link name="laser_reference_front">
+			<visual>
+				<geometry>
+					<cylinder radius="0.001" length="0.005"/>
+				</geometry>
+			</visual>
+		</link>
 		<joint name="laser_reference_front_joint" type="fixed">
 			<origin xyz="0.1772 0.060215 0.149929" rpy="0.0 0.0 0.7853975" />
 			<parent link="base_link" />
 			<child link="laser_reference_front" />
 			<axis xyz="0.0 0.0 0.0" />
 		</joint>
-		<link name="laser_reference_back" />
+		<link name="laser_reference_back">
+			<visual>
+				<geometry>
+					<cylinder radius="0.001" length="0.005"/>
+				</geometry>
+			</visual>
+		</link>
 		<joint name="laser_reference_back_joint" type="fixed">
 			<origin xyz="-0.69357 -0.506 0.1575" rpy="4.9333E-15 4.5082E-15 -2.3562" />
 			<parent link="base_link" />
