@@ -201,7 +201,7 @@
 				<material name="White" />
 			</visual>
 			<collision>
-				<origin rpy="0 0 0" xyz="0 0 0.071" />
+				<origin rpy="0 0 0" xyz="0 0 0" />
 				<geometry>
 					<box size="0.001 0.001 0.001" />
 				</geometry>

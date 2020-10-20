@@ -6,7 +6,7 @@
 
   <!-- <link name="map"/> -->
 
-  <xacro:iai_donbot odom="True"/>
+  <xacro:iai_donbot odom="True" with_wheels="True" with_boxes="False" />
 
   <joint name="refills_tool_frame_joint" type="fixed">
     <parent link="gripper_tool_frame"/>
