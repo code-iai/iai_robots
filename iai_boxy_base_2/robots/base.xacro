@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-	<xacro:macro name="base" params="odom">
+	<material name="grey">
+    <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+  </material>
+	<xacro:macro name="base" params="odom with_wheels">
 		<link name="base_link">
 			<inertial>
 				<origin xyz="-0.257082749974343 -0.227847593519202 0.0535404411050965" rpy="0 0 0" />
@@ -11,19 +14,125 @@
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
 					<!-- <mesh -->
-					<mesh filename="package://iai_boxy_base_2/meshes/base.stl" />
+					<mesh filename="package://iai_boxy_base_2/meshes/base_without_wheels.stl" />
 				</geometry>
-				<material name="">
-					<color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
-				</material>
+				<material name="grey"/>
 			</visual>
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://iai_boxy_base_2/meshes/base_lowres.stl" />
+					<mesh filename="package://iai_boxy_base_2/meshes/base_without_wheels.stl" />
 				</geometry>
 			</collision>
 		</link>
+		
+		<xacro:if value="${with_wheels}">
+			<joint name="wheel_front_left_joint" type="revolute">
+				<limit lower="-1000.0" upper="1000.0" effort="200.0" velocity="1.0" />
+				<origin xyz="0.13 0.09 -0.06" rpy="0.0 0.0 0.0" />
+				<parent link="base_link" />
+				<child link="wheel_front_left" />
+				<axis xyz="0 1 0" />
+			</joint>
+			<link name="wheel_front_left">
+				<inertial>
+					<origin xyz="0 0 0" rpy="0 0 0" />
+					<mass value="2.0" />
+					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.03" />
+				</inertial>
+				<visual>
+					<geometry>
+						<mesh filename="package://iai_boxy_base_2/meshes/wheel_front_left.stl" />
+					</geometry>
+					<material name="grey"/>
+				</visual>
+				<collision>
+					<origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+					<geometry>
+						<cylinder radius="0.105" length="0.08"/>
+					</geometry>
+				</collision>
+			</link>
+			<joint name="wheel_back_left_joint" type="revolute">
+				<limit lower="-1000.0" upper="1000.0" effort="200.0" velocity="1.0" />
+				<origin xyz="-0.648 0.09 -0.06" rpy="0.0 0.0 0.0" />
+				<parent link="base_link" />
+				<child link="wheel_back_left" />
+				<axis xyz="0 1 0" />
+			</joint>
+			<link name="wheel_back_left">
+				<inertial>
+					<origin xyz="0 0 0" rpy="0 0 0" />
+					<mass value="2.0" />
+					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.03" />
+				</inertial>
+				<visual>
+					<geometry>
+						<mesh filename="package://iai_boxy_base_2/meshes/wheel_back_left.stl" />
+					</geometry>
+					<material name="grey"/>
+				</visual>
+				<collision>
+					<origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+					<geometry>
+						<cylinder radius="0.105" length="0.08"/>
+					</geometry>
+				</collision>
+			</link>
+			<joint name="wheel_front_right_joint" type="revolute">
+				<limit lower="-1000.0" upper="1000.0" effort="200.0" velocity="1.0" />
+				<origin xyz="0.13 -0.545 -0.06" rpy="0.0 0.0 0.0" />
+				<parent link="base_link" />
+				<child link="wheel_front_right" />
+				<axis xyz="0 1 0" />
+			</joint>
+			<link name="wheel_front_right">
+				<inertial>
+					<origin xyz="0 0 0" rpy="0 0 0" />
+					<mass value="2.0" />
+					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.03" />
+				</inertial>
+				<visual>
+					<geometry>
+						<mesh filename="package://iai_boxy_base_2/meshes/wheel_front_right.stl" />
+					</geometry>
+					<material name="grey"/>
+				</visual>
+				<collision>
+					<origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+					<geometry>
+						<cylinder radius="0.105" length="0.08"/>
+					</geometry>
+				</collision>
+			</link>
+			<joint name="wheel_back_right_joint" type="revolute">
+				<limit lower="-1000.0" upper="1000.0" effort="200.0" velocity="1.0" />
+				<origin xyz="-0.648 -0.545 -0.06" rpy="0.0 0.0 0.0" />
+				<parent link="base_link" />
+				<child link="wheel_back_right" />
+				<axis xyz="0 1 0" />
+			</joint>
+			<link name="wheel_back_right">
+				<inertial>
+					<origin xyz="0 0 0" rpy="0 0 0" />
+					<mass value="2.0" />
+					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.03" />
+				</inertial>
+				<visual>
+					<geometry>
+						<mesh filename="package://iai_boxy_base_2/meshes/wheel_back_right.stl" />
+					</geometry>
+					<material name="grey"/>
+				</visual>
+				<collision>
+					<origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+					<geometry>
+						<cylinder radius="0.105" length="0.08"/>
+					</geometry>
+				</collision>
+			</link>
+		</xacro:if>
+
 		<link name="laser_reference_front">
 			<visual>
 				<geometry>
@@ -50,6 +159,7 @@
 			<child link="laser_reference_back" />
 			<axis xyz="-1 0 0" />
 		</joint>
+
 		<xacro:if value="${odom}">
 			<link name="odom" />
 			<joint name="odom_x_joint" type="prismatic">
@@ -100,7 +210,7 @@
 				<material name="White" />
 			</visual>
 			<collision>
-				<origin rpy="0 0 0" xyz="0 0 0.071" />
+				<origin rpy="0 0 0" xyz="0 0 0" />
 				<geometry>
 					<box size="0.001 0.001 0.001" />
 				</geometry>

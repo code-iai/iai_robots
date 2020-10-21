@@ -1,0 +1,12 @@
+<launch>
+	<arg name="model" />
+	<arg name="gui" default="True" />
+	<include file="$(find iai_donbot_description)/launch/upload.launch">
+		<arg name="urdf" value="$(find iai_donbot_description)/robots/iai_donbot_with_wheels.urdf.xacro" />
+	</include>
+	<node pkg="tf2_ros" type="static_transform_publisher" name="fake_localization" output="screen" args="0 0 0 0 0 0 map odom" />
+	<param name="use_gui" value="$(arg gui)" />
+	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find iai_donbot_description)/rviz/urdf.rviz" />
+</launch>
