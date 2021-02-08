@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iai_donbot">
+
+  <xacro:include filename="$(find iai_donbot_description)/robots/iai_donbot.xacro"/>
+  <!-- <xacro:include filename="$(find fingertip_description)/urdf/mod2_fingertip.urdf.xacro"/> -->
+
+  <!-- <link name="map"/> -->
+
+  <xacro:iai_donbot odom="True" with_wheels="True" with_boxes="True" />
+
+  <joint name="refills_tool_frame_joint" type="fixed">
+    <parent link="gripper_tool_frame"/>
+    <child link="refills_tool_frame"/>
+    <origin xyz="0 0 0.037" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <link name="refills_tool_frame"/>
+
+  <joint name="refills_finger_joint" type="continuous">
+    <parent link="refills_tool_frame"/>
+    <child link="refills_finger"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <link name="refills_finger"/>
+
+  <joint name="marco_left_finger_joint" type="fixed">
+    <parent link="gripper_finger_left_link"/>
+    <child link="marco_left_finger_link"/>
+    <origin xyz="-0.004 0.0 0.115" rpy="0 0 0" />
+  </joint>
+
+  <link name="marco_left_finger_link">
+    <visual>
+      <geometry>
+        <box size="0.008 0.03 0.13"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.008 0.03 0.13"/>
+      </geometry>
+      <material name="gray"/>
+    </collision>
+  </link>
+
+  <joint name="marco_right_finger_joint" type="fixed">
+    <parent link="gripper_finger_right_link"/>
+    <child link="marco_right_finger_link"/>
+    <origin xyz="-0.004 0.0 0.115" rpy="0 0 0" />
+  </joint>
+
+  <link name="marco_right_finger_link">
+    <visual>
+      <geometry>
+        <box size="0.008 0.03 0.13"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.008 0.03 0.13"/>
+      </geometry>
+      <material name="gray"/>
+    </collision>
+  </link>
+  <!-- include the xacro file with the fingertip sensor description //
+   instantiate one left fingertip pcb and one for the right
+   define joints that connect /gripper_finger_left_link to left_fingertip_base
+    and connect /gripper_finger_right_link to  right_fingertip_base /-->
+
+  <!-- <xacro:fingertip_board_xacro prefix="left" parent="gripper_finger_left_link"   base_xyz = "-0.009 -0.023 0.12" base_rpy = "${pi/2.0} 0 ${pi/2}"/> -->
+  <!-- <xacro:fingertip_board_xacro prefix="right" parent="gripper_finger_right_link"  base_xyz = "-0.009 -0.023 0.12" base_rpy = "${pi/2.0} 0 ${pi/2}"/> -->
+
+</robot>
