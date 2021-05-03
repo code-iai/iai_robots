@@ -5,7 +5,7 @@
 
   <!-- <link name="map"/> -->
 
-  <xacro:iai_donbot odom="True" with_wheels="False" with_boxes="True"/>
+  <xacro:iai_donbot odom="True" with_wheels="True" with_boxes="True"/>
 
   <!-- <joint name="table_localization" type="fixed">
     <parent link="map"/>
