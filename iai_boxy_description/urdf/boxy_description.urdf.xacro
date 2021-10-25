@@ -24,6 +24,7 @@
   <xacro:property name="torso_joint_z" value="0.410"/>
   <!-- /Property definitions e.g. constants -->
   <xacro:include filename="$(find iai_boxy_base)/robots/base.URDF"/>
+  <xacro:property name="M_PI" value="${pi}" />
   <xacro:macro name="boxy">
     <!-- virtual joints to model odometry -->
     <link name="odom"/>
@@ -89,10 +90,10 @@
     <!-- NEW NECK ASSEMBLY -->
     <!-- mounting plate of UR3 -->
     <xacro:property name="ur3_prefix" value="neck_"/>
-    <adapter_boxy_ur3_xacro prefix="${ur3_prefix}" parent="base_link">
+    <xacro:adapter_boxy_ur3_xacro prefix="${ur3_prefix}" parent="base_link">
       <origin xyz="0.175 -0.227 1.48" rpy="0 0 0"/>
-    </adapter_boxy_ur3_xacro>
-    <xacro:ur3_robot prefix="${ur3_prefix}" joint_limited="true" transmission_hw_interface="$(arg transmission_hw_interface)" kinematics_file="${load_yaml('$(arg kinematics_config)')}"/>
+    </xacro:adapter_boxy_ur3_xacro>
+    <xacro:ur3_robot prefix="${ur3_prefix}" joint_limited="true" transmission_hw_interface="$(arg transmission_hw_interface)" kinematics_file="${xacro.load_yaml('$(arg kinematics_config)')}"/>
 
     <joint name="${ur3_prefix}base_mounting_joint" type="fixed">
       <parent link="${ur3_prefix}adapter_ur3_frame_out" />
@@ -101,13 +102,13 @@
     </joint>
 
     <!-- The following URDF has frame_in / frame_out, so it is placed at the parent -->
-    <adapter_iso50_kinect2_xacro parent="neck_tool0" prefix="neck">
+    <xacro:adapter_iso50_kinect2_xacro parent="neck_tool0" prefix="neck">
       <origin xyz="0 0 0" rpy="0 0 -1.570795"/>
-    </adapter_iso50_kinect2_xacro>
+    </xacro:adapter_iso50_kinect2_xacro>
  
-    <kinect2_xacro parent="neck_adapter_iso50_kinect2_frame_out" prefix="head_mount">
+    <xacro:kinect2_xacro parent="neck_adapter_iso50_kinect2_frame_out" prefix="head_mount">
       <origin xyz="-0.031284 0.098627 0.023544" rpy="4.728550 6.279385 1.578295"/>
-    </kinect2_xacro>
+    </xacro:kinect2_xacro>
 
 
     <!-- JOINT to connect the base with the torso -->
@@ -121,33 +122,33 @@
     <xacro:include filename="$(find iai_boxy_torso)/robots/torso.URDF"/>
 
     <!--FIXME: triangle_left_arm_link should be rotated, and not the origin of the arm (which right now is calib_left_arm_base_link -->
-    <kuka_lwr_arm parent="triangle_left_arm_link" prefix="left_" color_postfix="">
+    <xacro:kuka_lwr_arm parent="triangle_left_arm_link" prefix="left_" color_postfix="">
       <!-- From CAD -->
       <!--origin xyz="0 0 0" rpy="0 0 1.047198"/-->
       <!-- from calibration on 20160903 -->
       <origin xyz="-0.006185 0.004080 -0.010726" rpy="6.276354 6.281653 1.074679"/>
-    </kuka_lwr_arm>
-    <lwr4_cabling_adaptor parent="left_arm_flange_link" prefix="left_arm_">
+    </xacro:kuka_lwr_arm>
+    <xacro:lwr4_cabling_adaptor parent="left_arm_flange_link" prefix="left_arm_">
       <origin xyz="0 0 0.01" rpy="0 0 0"/>
-    </lwr4_cabling_adaptor>
+    </xacro:lwr4_cabling_adaptor>
 
     <!-- The following URDFs have frame_in / frame_out, so they are simply placed at their parent -->
-    <kms_40_xacro parent="left_arm_cabling_adaptor_link" prefix="left_arm_">
+    <xacro:kms_40_xacro parent="left_arm_cabling_adaptor_link" prefix="left_arm_">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <!--places the kms40 frame 13mm from the parent -->
-    </kms_40_xacro>
-    <adapter_kms40_fwk050_xacro parent="left_arm_kms40_frame_out" prefix="left_arm_">
+    </xacro:kms_40_xacro>
+    <xacro:adapter_kms40_fwk050_xacro parent="left_arm_kms40_frame_out" prefix="left_arm_">
       <origin xyz="0 0 0" rpy="0 0 0"/>
-    </adapter_kms40_fwk050_xacro>
-    <fwk_fwa_050_xacro parent="left_arm_adapter_kms40_fwk050_frame_out" prefix="left_arm_">
+    </xacro:adapter_kms40_fwk050_xacro>
+    <xacro:fwk_fwa_050_xacro parent="left_arm_adapter_kms40_fwk050_frame_out" prefix="left_arm_">
       <origin xyz="0 0 0" rpy="0 0 0"/>
-    </fwk_fwa_050_xacro>
-    <adapter_fwa050_wsg50_xacro parent="left_arm_fwk_fwa_050_frame_out" prefix="left_arm_">
+    </xacro:fwk_fwa_050_xacro>
+    <xacro:adapter_fwa050_wsg50_xacro parent="left_arm_fwk_fwa_050_frame_out" prefix="left_arm_">
       <origin xyz="0 0 0.0" rpy="0 0 0"/>
-    </adapter_fwa050_wsg50_xacro>
-    <wsg_50_xacro name="left_gripper" parent="left_arm_adapter_fwa050_wsg50_frame_out">
+    </xacro:adapter_fwa050_wsg50_xacro>
+    <xacro:wsg_50_xacro name="left_gripper" parent="left_arm_adapter_fwa050_wsg50_frame_out">
       <origin xyz="0 0 0" rpy="0 0 0"/>
-    </wsg_50_xacro>
+    </xacro:wsg_50_xacro>
 
     <link name="left_wrist_optical_frame_x">
       <inertial>
@@ -259,29 +260,32 @@
           <origin xyz="0 0 0" rpy="0 0 2.35619183661"/>
 	</wsg_50_xacro-->
     <!--This is a 60deg rotation to calib_right_arm_base_link -->
-    <kuka_lwr_arm parent="triangle_right_arm_link" prefix="right_" color_postfix="">
+    <xacro:kuka_lwr_arm parent="triangle_right_arm_link" prefix="right_" color_postfix="">
       <origin xyz="0 0 0" rpy="0 0 -1.047198"/>
-    </kuka_lwr_arm>
-    <lwr4_cabling_adaptor parent="right_arm_flange_link" prefix="right_arm_">
+    </xacro:kuka_lwr_arm>
+    <xacro:lwr4_cabling_adaptor parent="right_arm_flange_link" prefix="right_arm_">
       <origin xyz="0 0 0.01" rpy="0 0 0"/>
-    </lwr4_cabling_adaptor>
+    </xacro:lwr4_cabling_adaptor>
 
     <!-- The following URDFs have frame_in / frame_out, so they are simply placed at their parent -->
-    <kms_40_xacro parent="right_arm_cabling_adaptor_link" prefix="right_arm_">
+    <xacro:kms_40_xacro parent="right_arm_cabling_adaptor_link" prefix="right_arm_">
       <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
       <!--places the kms40 frame 13mm from the parent -->
-    </kms_40_xacro>
-    <adapter_kms40_fwk050_xacro parent="right_arm_kms40_frame_out" prefix="right_arm_">
+    </xacro:kms_40_xacro>
+    <xacro:adapter_kms40_fwk050_xacro parent="right_arm_kms40_frame_out" prefix="right_arm_">
       <origin xyz="0 0 0" rpy="0 0 0"/>
-    </adapter_kms40_fwk050_xacro>
-    <fwk_fwa_050_xacro parent="right_arm_adapter_kms40_fwk050_frame_out" prefix="right_arm_">
+    </xacro:adapter_kms40_fwk050_xacro>
+    <xacro:fwk_fwa_050_xacro parent="right_arm_adapter_kms40_fwk050_frame_out" prefix="right_arm_">
       <origin xyz="0 0 0" rpy="0 0 0"/>
-    </fwk_fwa_050_xacro>
-    <adapter_fwa050_wsg50_xacro parent="right_arm_fwk_fwa_050_frame_out" prefix="right_arm_">
+    </xacro:fwk_fwa_050_xacro>
+    <xacro:adapter_fwa050_wsg50_xacro parent="right_arm_fwk_fwa_050_frame_out" prefix="right_arm_">
       <origin xyz="0 0 0.0" rpy="0 0 0"/>
-    </adapter_fwa050_wsg50_xacro>
-    <wsg_50_xacro name="right_gripper" parent="right_arm_adapter_fwa050_wsg50_frame_out">
+    </xacro:adapter_fwa050_wsg50_xacro>
+    <xacro:wsg_50_xacro name="right_gripper" parent="right_arm_adapter_fwa050_wsg50_frame_out">
       <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
-    </wsg_50_xacro>
+    </xacro:wsg_50_xacro>
   </xacro:macro>
+
+  <xacro:boxy >
+  </xacro:boxy>
 </robot>
