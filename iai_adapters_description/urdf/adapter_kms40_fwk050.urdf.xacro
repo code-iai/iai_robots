@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- This is a hand-made URDF XACRO file for the adapter from Weiss Robotics KMS-40 to the Schunk FWK050 -->
 
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="adapter_kms40_fwk050"> 
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="adapter_kms40_fwk050">
 
   <xacro:macro name="adapter_kms40_fwk050_xacro" params="prefix parent *origin">
 
@@ -17,20 +17,29 @@
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
           <!-- these meshes were exported in mm, so scale back to m -->
-          <mesh filename="package://iai_adapters_description/meshes/adapter_kms40_fwk050.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://iai_adapters_description/meshes/adapter_kms40_fwk050.stl"
+                scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Grey"/>
       </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <!-- these meshes were exported in mm, so scale back to m -->
+          <mesh filename="package://iai_adapters_description/meshes/adapter_kms40_fwk050.stl"
+                scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
     </link>
 
     <!-- Empty link just to get the frame out -->
     <link name="${prefix}adapter_kms40_fwk050_frame_out"/>
-    
+
     <!-- joint positioning the frame_out -->
     <joint name="${prefix}adapter_kms40_fwk050_trans_frame_out"
            type="fixed">
-      <origin xyz="0 0 0.01"
-              rpy="0 0 0" />
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
       <parent link="${prefix}adapter_kms40_fwk050_frame_in" />
       <child link="${prefix}adapter_kms40_fwk050_frame_out" />
       <axis xyz="0 0 0" />
@@ -39,4 +48,5 @@
     <!-- The joint connecting us to the next part of the chain is in the next URDF -->
 
   </xacro:macro>
+
 </robot>
