@@ -93,7 +93,7 @@
     <xacro:adapter_boxy_ur3_xacro prefix="${ur3_prefix}" parent="base_link">
       <origin xyz="0.175 -0.227 1.48" rpy="0 0 0"/>
     </xacro:adapter_boxy_ur3_xacro>
-    <xacro:ur3_robot prefix="${ur3_prefix}" joint_limited="true" transmission_hw_interface="$(arg transmission_hw_interface)" kinematics_file="${xacro.load_yaml('$(arg kinematics_config)')}"/>
+    <xacro:ur3_robot prefix="${ur3_prefix}" joint_limited="true" transmission_hw_interface="$(arg transmission_hw_interface)" kinematics_file="${load_yaml('$(arg kinematics_config)')}"/>
 
     <joint name="${ur3_prefix}base_mounting_joint" type="fixed">
       <parent link="${ur3_prefix}adapter_ur3_frame_out" />
