@@ -17,20 +17,29 @@
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
           <!-- these meshes were exported in mm, so scale back to m -->
-          <mesh filename="package://iai_adapters_description/meshes/fwk_fwa_050_simple.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://iai_adapters_description/meshes/fwk_fwa_050_simple.stl"
+                scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Grey"/>
       </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <!-- these meshes were exported in mm, so scale back to m -->
+          <mesh filename="package://iai_adapters_description/meshes/fwk_fwa_050_simple.stl"
+                scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="Grey"/>
+      </collision>
     </link>
 
     <!-- Empty link just to get the frame out -->
     <link name="${prefix}fwk_fwa_050_frame_out"/>
-    
+
     <!-- joint positioning the frame_out -->
     <joint name="${prefix}fwk_fwa_050_trans_frame_out"
            type="fixed">
-      <origin xyz="0 0 0.0141"
-              rpy="0 0 0" />
+      <origin xyz="0 0 0.0141" rpy="0 0 0" />
       <parent link="${prefix}fwk_fwa_050_frame_in" />
       <child link="${prefix}fwk_fwa_050_frame_out" />
       <axis xyz="0 0 0" />
@@ -39,4 +48,5 @@
     <!-- The joint connecting us to the next part of the chain is in the next URDF -->
 
   </xacro:macro>
+
 </robot>
