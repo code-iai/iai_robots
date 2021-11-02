@@ -286,6 +286,4 @@
     </xacro:wsg_50_xacro>
   </xacro:macro>
 
-  <xacro:boxy >
-  </xacro:boxy>
 </robot>
