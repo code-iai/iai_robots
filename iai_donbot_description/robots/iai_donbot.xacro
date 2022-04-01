@@ -85,7 +85,7 @@
 		<xacro:adapter_fwa050_wsg50_xacro parent="fwk_fwa_050_frame_out" prefix="">
 			<origin xyz="0 0 0.0" rpy="0 0 0" />
 		</xacro:adapter_fwa050_wsg50_xacro>
-		<xacro:wsg_50_xacro name="gripper" parent="adapter_fwa050_wsg50_frame_out" use_mimic="true">
+		<xacro:wsg_50_xacro name="gripper" parent="adapter_fwa050_wsg50_frame_out">
 			<origin xyz="0 0 0" rpy="0 0 3.14159265359" />
 		</xacro:wsg_50_xacro>
 		<link name="camera_holder_link">
