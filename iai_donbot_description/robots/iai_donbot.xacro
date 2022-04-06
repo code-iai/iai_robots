@@ -124,13 +124,19 @@
 			<!-- from base_link origin xyz="0.004174 -0.067273 0.062438" rpy="0.209203 0.001106 3.120208"/ -->
 			<!-- from ur5_base_link origin xyz="0.002956 -0.066498 0.060947" rpy="0.204429 6.281375 3.127197"/ -->
 			<!-- calib errors: 0.00311, 0.24373, 0.00688, 0.4558 -->
-			<origin xyz="0.002956 -0.066498 0.060947" rpy="0.204429 6.281375 3.127197" />
+			<!-- old camera holders -->
+			<!-- <origin xyz="0.002956 -0.066498 0.060947" rpy="0.204429 6.281375 3.127197" /> -->
+			<!-- new camera holders -->
+			<origin xyz="0.0013289 -0.06619 0.031583" rpy="0.231224 -0.0034913 -3.134637307" />
 		</joint>
 		<link name="rs_camera_link" />
 		<joint name="wristcam_to_realsense_joint" type="fixed">
 			<parent link="camera_link" />
 			<child link="rs_camera_link" />
-			<origin xyz="-0.017993 -0.107556 0.017699" rpy="6.270618 4.930698 1.578454" />
+			<!-- old camera holder -->
+			<!-- <origin xyz="-0.017993 -0.107556 0.017699" rpy="6.270618 4.930698 1.578454" /> -->
+			<!-- new camera holder -->
+			<origin xyz="-0.018594 -0.105693 0.017161" rpy="-0.0120443 -1.3424873 1.579879" />
 		</joint>
 
 		<!-- boxes to cover up switches and stuff -->
