@@ -1,31 +1,8 @@
 <launch>
-  <arg
-    name="model" />
-  <arg
-    name="gui"
-    default="True" />
-  <arg name="urdf-name" default="boxy_description.urdf.xacro"/>
-  <arg name="urdf-path" value="$(find iai_boxy_description)/robots/$(arg urdf-name)"/>
+  <arg name="gui" default="True" />
+  <include file="$(find iai_boxy_description)/launch/upload_boxy.launch" />
 
-  <include file="$(find iai_boxy_description)/launch/upload_boxy.launch">
-    <arg name="urdf-name" value="$(arg urdf-name)"/>
-    <arg name="urdf-path" value="$(arg urdf-path)"/>
-  </include>
-
-  <param
-    name="use_gui"
-    value="$(arg gui)" />
-  <node
-    name="joint_state_publisher"
-    pkg="joint_state_publisher"
-    type="joint_state_publisher" />
-  <node
-    name="robot_state_publisher"
-    pkg="robot_state_publisher"
-    type="state_publisher" />
-  <!--node
-    name="rviz"
-    pkg="rviz"
-    type="rviz"
-    args="-d $(find boxy_description)/urdf.rviz" /-->
+  <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find iai_boxy_description)/urdf.rviz" />
 </launch>

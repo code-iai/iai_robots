@@ -38,7 +38,7 @@
 				<inertial>
 					<origin xyz="0 0 0" rpy="0 0 0" />
 					<mass value="2.0" />
-					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.03" />
+					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" />
 				</inertial>
 				<visual>
 					<geometry>
@@ -64,7 +64,7 @@
 				<inertial>
 					<origin xyz="0 0 0" rpy="0 0 0" />
 					<mass value="2.0" />
-					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.03" />
+					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" />
 				</inertial>
 				<visual>
 					<geometry>
@@ -90,7 +90,7 @@
 				<inertial>
 					<origin xyz="0 0 0" rpy="0 0 0" />
 					<mass value="2.0" />
-					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.03" />
+					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" />
 				</inertial>
 				<visual>
 					<geometry>
@@ -116,7 +116,7 @@
 				<inertial>
 					<origin xyz="0 0 0" rpy="0 0 0" />
 					<mass value="2.0" />
-					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.03" />
+					<inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" />
 				</inertial>
 				<visual>
 					<geometry>
@@ -252,7 +252,7 @@
 				<geometry>
 					<box size="0.6 0.553 0.02" />
 				</geometry>
-				<material name="White" />
+				<material name="Grey" />
 			</visual>
 			<collision>
 				<origin rpy="0 0 0" xyz="0 0 0" />
