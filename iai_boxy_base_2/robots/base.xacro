@@ -21,7 +21,7 @@
 			<collision>
 				<origin xyz="0 0 0" rpy="0 0 0" />
 				<geometry>
-					<mesh filename="package://iai_boxy_base_2/meshes/base_without_wheels.stl" />
+					<mesh filename="package://iai_boxy_base_2/meshes/base_without_wheels_lowres.stl" />
 				</geometry>
 			</collision>
 		</link>
