@@ -5,11 +5,11 @@
     URDF description of the dlr rollin justin robot.
   </description>
 
-  <maintainer email="dummy@dummy.de">dummy</maintainer>
+  <maintainer email="luc_kro@uni-bremen.de">Luca Krohm</maintainer>
 
-  <author email="dummy@dummy.de">dummy</author>
+  <author email="hoanggia@uni-bremen.de">Giang Nguyen</author>
   
-    <license>dummy</license>
+    <license>GPLv3+</license>
 
   <buildtool_depend>catkin</buildtool_depend>
 
