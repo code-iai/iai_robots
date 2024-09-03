@@ -1,0 +1,16 @@
+<package>
+  <name>iai_dlr_rollin_justin</name>
+  <version>0.0.0</version>
+  <description>
+    URDF description of the dlr rollin justin robot.
+  </description>
+
+  <maintainer email="luc_kro@uni-bremen.de">Luca Krohm</maintainer>
+
+  <author email="hoanggia@uni-bremen.de">Giang Nguyen</author>
+  
+    <license>GPLv3+</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
