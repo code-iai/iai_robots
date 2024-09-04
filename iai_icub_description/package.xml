@@ -1,0 +1,17 @@
+<package>
+  <name>iai_icub_description</name>
+  <version>0.0.0</version>
+  <description>
+    URDF description of the iCub robot.
+  </description>
+
+  <maintainer email="luc_kro@uni-bremen.de">Luca Krohm</maintainer>
+
+
+  <author email="dummy@dummy.com">https://github.com/robotology/icub-models</author>
+
+  <license>CC BY-SA 4.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
