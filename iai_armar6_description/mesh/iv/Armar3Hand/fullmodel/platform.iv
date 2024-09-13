@@ -1,0 +1,16 @@
+#Inventor V2.1 ascii
+
+Separator { #Model
+
+ RotationXYZ {
+   axis X
+   angle 1.57
+   }
+ RotationXYZ{
+ 	axis Z
+	angle -1.57
+ }
+ File { 
+  name "armar/platform/platform.iv"
+ }
+}
