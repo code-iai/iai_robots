@@ -1,0 +1,12 @@
+#Inventor V2.1 ascii
+
+Separator {
+	Transform {
+		translation 0 0 0
+		rotation 1 0 0 -1.57
+	}	
+	Separator 
+	{
+		File {name armar/hands/metacarpals.iv }
+	}
+}
