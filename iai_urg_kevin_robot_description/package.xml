@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<?xml-model
+    href="http://download.ros.org/schema/package_format3.xsd"
+    schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>iai_urg_kevin_robot_description</name>
+  <version>1.0.0</version>
+  <description>
+    The kevin_robot_description package.
+  </description>
+
+  <maintainer email="rmartin@robotnik.es">Rafael Martin</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/kevin_common</url>
+  <url type="repository">https://github.com/RobotnikAutomation/kevin_common.git</url>
+  <url type="bugtracker">https://github.com/RobotnikAutomation/kevin_common/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- ROS2 -->
+  <exec_depend>roslaunch</exec_depend>
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+
+ 
+
+  <export>
+    <gazebo_ros gazebo_model_path="${prefix}/.."/>
+  </export>
+</package>

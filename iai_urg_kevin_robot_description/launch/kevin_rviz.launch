@@ -1,0 +1,9 @@
+<launch>
+  <arg name="model" default="kevin_std" />
+  <include file="$(find kevin_robot_description)/launch/kevin_upload.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" required="true" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find kevin_robot_description)/rviz/default.rviz" required="true" />
+</launch>
