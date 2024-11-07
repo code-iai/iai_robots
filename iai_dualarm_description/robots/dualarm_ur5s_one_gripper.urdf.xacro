@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
+       name="ur5dualarm" >
+
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find iai_ur_description)/urdf/common.gazebo.xacro" />
+
+  <!-- ur5 -->
+  <xacro:include filename="$(find iai_ur_description)/urdf/ur5.urdf.xacro" />
+
+  <!-- arm left -->
+  <xacro:arg name="kinematics_config_left" default="$(find iai_ur_description)/config/ur5_default.yaml"/>
+  <xacro:ur5_robot prefix="left_" joint_limited="false"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+    kinematics_file="${load_yaml('$(arg kinematics_config_left)')}"
+  />
+  <!-- arm right -->
+  <xacro:arg name="kinematics_config_right" default="$(find iai_ur_description)/config/ur5_default.yaml"/>
+  <xacro:ur5_robot prefix="right_" joint_limited="false"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+    kinematics_file="${load_yaml('$(arg kinematics_config_right)')}"
+  />
+
+  <link name="world" />
+  <joint name="world_joint_right" type="fixed">
+    <parent link="world" />
+    <child link = "right_base_link" />
+    <origin xyz="0.464 -0.125 0.0" rpy="0.0 0 0.785" />
+  </joint>
+
+  <joint name="world_joint_left" type="fixed">
+    <parent link="world" />
+    <child link = "left_base_link" />
+    <origin xyz="0.475 -1.0615 0.0" rpy="0.0 0.0 3.14" />
+  </joint>
+  
+<!--Gripper-->
+<xacro:include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/>
+
+<link name="left_adapter">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.035" length="0.01"/>
+      </geometry>
+      <material name="Cyan">
+        <color rgba="0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+  </link> 
+  <joint name="left_adapter_joint" type="fixed">
+    <parent link="left_wrist_3_link"/>
+    <child link="left_adapter"/>
+    <origin xyz="0 0 0.005" rpy="0.0 0.0 3.14" />
+  </joint>
+  
+  <xacro:wsg_50_xacro parent="left_adapter" name="left_gripper">
+    <origin xyz="0 0 0" rpy="0 0 -0.785"/>
+  </xacro:wsg_50_xacro>
+
+</robot>
