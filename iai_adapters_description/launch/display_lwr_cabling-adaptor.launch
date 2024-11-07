@@ -1,9 +1,0 @@
-<launch>
-
-  <include file="$(find iai_adapters_description)/launch/upload.launch" >
-    <arg name="urdf-name" value="lwr4_cabling_adaptor.urdf.xacro" />
-  </include>
-
-  <include file="$(find iai_adapters_description)/launch/display_infrastructure.launch" />
-
-</launch>
