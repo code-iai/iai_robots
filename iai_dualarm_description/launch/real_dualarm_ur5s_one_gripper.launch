@@ -1,12 +1,12 @@
 <launch>
 
   <arg name="kinematics_config_right" default="$(find iai_dualarm_description)/config/ur5_right_arm_calibration.yaml"/>
-  <arg name="kinematics_config_left" default="$(find iai_dualarm_description)/config/ur5_table_left_arm_calibration.yaml"/>
+  <arg name="kinematics_config_left" default="$(find iai_dualarm_description)/config/ur5_left_arm_calibration.yaml"/>
 
   <node pkg="tf" type="static_transform_publisher" name="map_world_transformer" args="0 0 0 0 0 0 1 map world 100" />
   <node pkg="tf" type="static_transform_publisher" name="map_world_transformer2" args="0 0 0 0 0 0 1 map ur5dualarm/world 100" />
 
-  <arg name="urdf-name" default="dualarm_ur5s_one_gripper.urdf"/>
+  <arg name="urdf-name" default="dualarm_ur5s_one_gripper.urdf.xacro"/>
   <arg name="urdf-path" default="$(find iai_dualarm_description)/robots/$(arg urdf-name)"/>
   <arg name="param-name" default="robot_description"/>
   <arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
@@ -20,7 +20,7 @@
     <arg name="tf_prefix" value="left_"/>
     <arg name="controller_config_file" value="$(find iai_dualarm_description)/config/ur5_real_left_arm_control.yaml"/>
     <arg name="kinematics_config" value="$(arg kinematics_config_left)"/>
-    <arg name="robot_description_file" value="$(find iai_dualarm_description)/launch/load_ur5table.launch"/>
+    <arg name="robot_description_file" value="$(find iai_dualarm_description)/launch/upload_dualarm_ur5s_one_gripper.launch"/>
     <arg name="controllers" value="joint_state_controller_left joint_group_vel_controller_left"/>
     <arg name="stopped_controllers" value="pos_joint_traj_controller_left"/>
     <arg name="reverse_port" value="50008"/>
@@ -34,7 +34,7 @@
     <arg name="tf_prefix" value="right_"/>
     <arg name="controller_config_file" value="$(find iai_dualarm_description)/config/ur5_real_right_arm_control.yaml"/>
     <arg name="kinematics_config" value="$(arg kinematics_config_right)"/>
-    <arg name="robot_description_file" value="$(find iai_dualarm_description)/launch/load_ur5table.launch"/>
+    <arg name="robot_description_file" value="$(find iai_dualarm_description)/launch/upload_dualarm_ur5s_one_gripper.launch"/>
     <arg name="controllers" value="joint_state_controller_right joint_group_vel_controller_right"/>
     <arg name="stopped_controllers" value="pos_joint_traj_controller_right"/>
     <arg name="reverse_port" value="50000"/>

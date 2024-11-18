@@ -5,6 +5,7 @@
   <arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
   <arg name="kinematics_config_left" default="$(find iai_ur_description)/config/ur5_default.yaml"/>
   <arg name="kinematics_config_right" default="$(find iai_ur_description)/config/ur5_default.yaml"/>
+  <arg name="kinematics_params" default="$(find iai_ur_description)/config/ur5_default.yaml"/>
 
   <param name="$(arg param-name)" command="xacro --inorder '$(arg urdf-path)' transmission_hw_interface:=$(arg transmission_hw_interface)
     kinematics_config_left:=$(arg kinematics_config_left) kinematics_config_right:=$(arg kinematics_config_right)" />
