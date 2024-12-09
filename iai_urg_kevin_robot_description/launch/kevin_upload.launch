@@ -2,7 +2,7 @@
   <arg name="robot_id" default="robot"/>
   <arg name="prefix" default="$(arg robot_id)_" />
   <arg name="model" default="kevin_std" />
-  <arg name="robot_description_path" default="$(find kevin_robot_description)/urdf/kevin.urdf" />
+  <arg name="robot_description_path" default="$(find iai_urg_kevin_robot_description)/urdf/kevin.urdf" />
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg robot_description_path)" />
 
