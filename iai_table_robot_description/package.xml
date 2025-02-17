@@ -20,4 +20,9 @@
   <run_depend>iai_wsg_50_description</run_depend>
   <run_depend>iai_adapters_description</run_depend>
   <run_depend>rviz</run_depend>
+
+  <export>                               
+   <build_type>ament_cmake</build_type> 
+</export> 
+
 </package>

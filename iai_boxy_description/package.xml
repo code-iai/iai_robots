@@ -24,4 +24,9 @@
   <run_depend>iai_ur_description</run_depend>
   <run_depend>iai_kinect2_description</run_depend>
 
+<export>                               
+   <build_type>ament_cmake</build_type> 
+</export> 
+
+
 </package>
