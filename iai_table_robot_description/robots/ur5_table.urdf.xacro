@@ -5,7 +5,7 @@
 
   <link name="map"/>
 
-  <ur5_table/>
+  <xacro:ur5_table/>
 
   <joint name="table_localization" type="fixed">
     <parent link="map"/>
