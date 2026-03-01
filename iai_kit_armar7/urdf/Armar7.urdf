@@ -1,0 +1,3217 @@
+<robot name="Armar7">
+    <!-- This file contains a simplified ARMAR-7 model by converting converting complex joints such as wrist and knee joint to simple revolute joints. --> 
+
+    <mujoco>
+        <compiler meshdir="meshes" balanceinertia="true" fusestatic="true" discardvisual="true"/>
+    </mujoco>
+
+    <link name="Ankle_body_link">
+        <inertial>
+            <mass value="7.4199"/>
+            <origin xyz="-0.00510651 0.213053 -0.0051806" rpy="0 -0 0"/>
+            <inertia ixx="0.103337" ixy="-0.00223745" ixz="0.00323384" iyy="0.0485436" iyz="0.00588342" izz="0.0729877"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/body_lower_leg.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/body_lower_leg.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Ankle_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Ankle_ref_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL1_Cla1_body_link">
+        <inertial>
+            <mass value="1.41266"/>
+            <origin xyz="0.0281196 -0.00874244 0.00685683" rpy="0 -0 0"/>
+            <inertia ixx="0.0040529" ixy="-5.65332e-06" ixz="-2.16909e-06" iyy="0.00302597" iyz="-4.84261e-05" izz="0.00356974"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/cla1_sho1_exo.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/cla1_sho1_exo.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmL1_Cla1_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL1_Cla1_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL2_Sho1_body_link">
+        <inertial>
+            <mass value="1.3209"/>
+            <origin xyz="-0.0200959 -0.00428674 0.0275877" rpy="0 -0 0"/>
+            <inertia ixx="0.00270724" ixy="-1.09109e-06" ixz="0.000166031" iyy="0.00375814" iyz="-5.3142e-05" izz="0.00327077"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/sho1_sho2_exo.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/sho1_sho2_exo_updated.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmL2_Sho1_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL2_Sho1_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL3_Sho2_body_link">
+        <inertial>
+            <mass value="1.45268"/>
+            <origin xyz="0.122177 0.0089827 -4.29661e-05" rpy="0 -0 0"/>
+            <inertia ixx="0.00688435" ixy="-0.000103523" ixz="-0.000658886" iyy="0.0137648" iyz="-4.66134e-06" izz="0.0109076"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/arm_sho2_ex.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/arm_sho2_ex.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmL3_Sho2_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL3_Sho2_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL4_Sho3_body_link">
+        <inertial>
+            <mass value="1.54852"/>
+            <origin xyz="-0.0115627 -0.0158816 0.175717" rpy="0 -0 0"/>
+            <inertia ixx="0.0110909" ixy="0.00045749" ixz="-0.000904647" iyy="0.0110237" iyz="0.00204263" izz="0.00417336"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/left_arm_sho3.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/left_arm_sho3.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmL4_Sho3_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL5_Elb1_body_link">
+        <inertial>
+            <mass value="0.535875"/>
+            <origin xyz="0.00606711 0.00855467 -0.00409847" rpy="0 -0 0"/>
+            <inertia ixx="0.00152013" ixy="-4.56548e-05" ixz="2.3935e-06" iyy="0.00138165" iyz="4.46932e-05" izz="0.000803862"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/elbow1_left.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/elbow1_left.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmL5_Elb1_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL5_Elb_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL6_Elb2_body_link">
+        <inertial>
+            <mass value="2.57285"/>
+            <origin xyz="-0.00213338 0.00491397 0.0651225" rpy="0 -0 0"/>
+            <inertia ixx="0.0176279" ixy="-1.59585e-05" ixz="0.000163327" iyy="0.0176027" iyz="-1.05294e-05" izz="0.00316996"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/wrist.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/wrist.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmL6_Elb2_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL7_Wri_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL7_Wrist_Hemisphere_A_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL8_Wrist_Hemisphere_B_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmL_Wrist_Mechanism_Center_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR1_Cla1_body_link">
+        <inertial>
+            <mass value="2.20728"/>
+            <origin xyz="-0.0299944 -0.00874244 -0.0261718" rpy="0 -0 0"/>
+            <inertia ixx="0.0040529" ixy="5.65332e-06" ixz="-2.16909e-06" iyy="0.00302597" iyz="4.84261e-05" izz="0.00356974"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/cla1_sho1_exo.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/cla1_sho1_exo.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmR1_Cla1_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR1_Cla1_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR2_Sho1_body_link">
+        <inertial>
+            <mass value="1.3209"/>
+            <origin xyz="0.0145959 -0.030455 0.0275877" rpy="0 -0 0"/>
+            <inertia ixx="0.00270724" ixy="1.09109e-06" ixz="0.000166031" iyy="0.00375814" iyz="5.3142e-05" izz="0.00327077"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/sho1_sho2_exo.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/sho1_sho2_exo_updated.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmR2_Sho1_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR3_Sho2_body_link">
+        <inertial>
+            <mass value="1.45268"/>
+            <origin xyz="0.141256 0.0227366 -0.0269336" rpy="0 -0 0"/>
+            <inertia ixx="0.00688435" ixy="0.000103523" ixz="0.000658886" iyy="0.0137648" iyz="-4.66134e-06" izz="0.0109076"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/arm_sho2_ex.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/arm_sho2_ex.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmR3_Sho2_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR3_Sho2_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR4_Sho3_body_link">
+        <inertial>
+            <mass value="1.54852"/>
+            <origin xyz="-0.0108254 -0.0347309 0.175774" rpy="0 -0 0"/>
+            <inertia ixx="0.0111096" ixy="0.000456347" ixz="-0.000912162" iyy="0.0110486" iyz="0.00204211" izz="0.00419413"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/right_arm_sho3.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/right_arm_sho3.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmR4_Sho3_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR5_Elb1_body_link">
+        <inertial>
+            <mass value="0.639293"/>
+            <origin xyz="-0.0338376 -0.0184482 0.0276766" rpy="0 -0 0"/>
+            <inertia ixx="0.00152013" ixy="-4.56548e-05" ixz="-2.3935e-06" iyy="0.00138165" iyz="-4.46932e-05" izz="0.000803862"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/elbow1_right.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/elbow1_right.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmR5_Elb1_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR5_Elb_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR6_Elb2_body_link">
+        <inertial>
+            <mass value="2.47266"/>
+            <origin xyz="0.00662271 0.0111663 0.0617885" rpy="0 -0 0"/>
+            <inertia ixx="0.0176279" ixy="-1.59585e-05" ixz="-0.000163327" iyy="0.0176027" iyz="1.05294e-05" izz="0.00316996"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/wrist.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/wrist.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="ArmR6_Elb2_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR7_Wri_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR7_Wrist_Hemisphere_A_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR8_Wrist_Hemisphere_B_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR_Sho_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ArmR_Wrist_Mechanism_Center_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="AzureKinect_Base_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="AzureKinect_Calibration_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="AzureKinect_Depth_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="AzureKinect_RGB_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="AzureKinect_body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-4.76837e-10 0.0627 0.005" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/azure_kinect.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="AzureKinect_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="CenterArms_body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0.00132711 4.93622e-05 0.00521495" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armanbindung.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armanbindung.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="CenterArms_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="DepthCameraSim_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Dummy_Platform_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="FT L Root_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="FT R Root_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Gaze_Root_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand L Col_link">
+        <inertial>
+            <mass value="0.56415"/>
+            <origin xyz="0.100764 0.0162875 0.0332602" rpy="0 -0 0"/>
+            <inertia ixx="0.000419322" ixy="-5.52615e-05" ixz="-6.30161e-05" iyy="0.00135921" iyz="-2.82489e-05" izz="0.00101975"/>
+        </inertial>
+    </link>
+    <link name="Hand L GCP_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand L Index TCP_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand L Palm_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0.0625496 -0.00428975 -0.00115683" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_palm_left.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_palm_left.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Hand L Power TCP_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand L Precision TCP_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand L Root_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand L TCP_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand R Col_link">
+        <inertial>
+            <mass value="0.56415"/>
+            <origin xyz="0.100764 -0.0307184 -0.0144453" rpy="0 -0 0"/>
+            <inertia ixx="0.000419322" ixy="-5.52615e-05" ixz="-6.30161e-05" iyy="0.00135921" iyz="-2.82489e-05" izz="0.00101975"/>
+        </inertial>
+    </link>
+    <link name="Hand R GCP_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand R Index TCP_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand R Palm_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0.0624417 -0.0046169 0.0014875" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_palm_right.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_palm_right.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Hand R Power TCP_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand R Precision TCP_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand R Root_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hand R TCP_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="HandL_Adapter_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0.00415002 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/handadapter.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="HandL_Base_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="HandR_Adapter_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0.00415002 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/handadapter.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="HandR_Base_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Head_Root_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Head_body_link">
+        <inertial>
+            <mass value="4.9272"/>
+            <origin xyz="0.00132734 0.0738255 -0.0612339" rpy="0 -0 0"/>
+            <inertia ixx="0.0356502" ixy="-0.000346667" ixz="3.05047e-05" iyy="0.0206909" iyz="0.0042005" izz="0.0372005"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/head.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/head.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Hip_body_link">
+        <inertial>
+            <mass value="13.8014"/>
+            <origin xyz="0.00661999 0.30123 -0.00524495" rpy="0 -0 0"/>
+            <inertia ixx="0.384405" ixy="0.00598433" ixz="4.58441e-05" iyy="0.111015" iyz="0.00203799" izz="0.324988"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/body_shoulder.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/body_shoulder.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Hip_body_monitor_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0.34 -0.12 1.81899e-15" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hip_body_prim_link">
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    <link name="Hip_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Hip_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Index L 1 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-5.79834e-07 -0.0141771 0.000107836" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_index_proximal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_index_proximal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Index L 1 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Index L 2 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-1.52588e-08 -0.0246395 -0.00116587" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_index_intermediate_distal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_index_intermediate_distal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Index L 2 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Index L Tip_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Index R 1 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-5.79834e-07 -0.0141771 0.000107836" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_index_proximal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_index_proximal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Index R 1 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Index R 2 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-1.52588e-08 -0.0246395 -0.00116587" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_index_intermediate_distal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_index_intermediate_distal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Index R 2 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Index R Tip_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Knee_body_link">
+        <inertial>
+            <mass value="7.3232"/>
+            <origin xyz="0.00520461 0.205866 -0.00822409" rpy="0 -0 0"/>
+            <inertia ixx="0.131666" ixy="0.00368176" ixz="-9.00074e-05" iyy="0.059659" iyz="0.00307771" izz="0.0904037"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/thigh.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/thigh.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Knee_body_prim_link">
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+        </inertial>
+    </link>
+    <link name="Knee_body_ref_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Knee_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Knee_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="LaserScannerBackLeftBody_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-0.00913108 -0.000313711 -0.0200281" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/sick_tim_5xx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="LaserScannerBackLeft_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="LaserScannerBackRightBody_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-0.00913108 -0.000313711 -0.0200281" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/sick_tim_5xx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="LaserScannerBackRight_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="LaserScannerFrontBody_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-0.00913108 -0.000313711 -0.0200281" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/sick_tim_5xx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="LaserScannerFront_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="LeftHandFingers_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="LeftHandIndex_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="LeftHandThumbCircumduction_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="LeftHandThumbFlexion_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Middle L 1 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="3.05176e-07 -0.0167145 8.81672e-05" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_middle_proximal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_middle_proximal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Middle L 1 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Middle L 2 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 -0.0285883 -0.0015486" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_middle_intermediate_distal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_middle_intermediate_distal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Middle L 2 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Middle L Tip_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Middle R 1 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="3.05176e-07 -0.0167145 8.81672e-05" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_middle_proximal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_middle_proximal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Middle R 1 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Middle R 2 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 -0.0285883 -0.0015486" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_middle_intermediate_distal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_middle_intermediate_distal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Middle R 2 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Middle R Tip_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Neck_1_Yaw_body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-0.000987999 0.0035 0.0305" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/neck_yaw.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="Neck_1_Yaw_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Neck_2_Pitch_body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-0.0065 0 -0.0005" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/neck_pitch.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="Neck_2_Pitch_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Neck_Root_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Neck_body_link">
+        <inertial>
+            <mass value="0.01"/>
+            <origin xyz="1.13373e-05 0.000178509 0.0491395" rpy="0 -0 0"/>
+            <inertia ixx="2.07076e-05" ixy="0" ixz="0" iyy="3.82138e-05" iyz="0" izz="4.29586e-05"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/neck.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/neck.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="OmniWheelBackGroundContact_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="OmniWheelBack_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="OmniWheelFrontLeftGroundContact_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="OmniWheelFrontLeft_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="OmniWheelFrontRightGroundContact_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="OmniWheelFrontRight_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Pinky L 1 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 -0.0114999 7.14512e-05" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_little_proximal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_little_proximal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Pinky L 1 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Pinky L 2 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0.000220825 -0.0216054 -0.00251699" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_little_intermediate_distal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_little_intermediate_distal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Pinky L 2 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Pinky L Tip_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Pinky R 1 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-3.05176e-08 -0.0114999 7.14512e-05" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_little_proximal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_little_proximal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Pinky R 1 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Pinky R 2 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0.000220795 -0.0216054 -0.00251699" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_little_intermediate_distal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_little_intermediate_distal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Pinky R 2 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Pinky R Tip_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Platform-navigation-colmodel_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Platform_body_link">
+        <inertial>
+            <mass value="1"/>
+            <origin xyz="0.0027905 0.191439 0.008" rpy="0 -0 0"/>
+            <inertia ixx="0.0636657" ixy="0" ixz="0" iyy="0.0934234" iyz="0" izz="0.0623364"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/7a30000_plattform.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/7a30000_plattform.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Platform_link">
+        <inertial>
+            <mass value="131.746"/>
+            <origin xyz="-0.0173717 0.15082 -0.0036366" rpy="0 -0 0"/>
+            <inertia ixx="5.93318" ixy="0.0925544" ixz="-0.171718" iyy="7.99928" iyz="0.0469724" izz="6.15192"/>
+        </inertial>
+    </link>
+    <link name="RightHandFingers_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="RightHandIndex_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="RightHandThumbCircumduction_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="RightHandThumbFlexion_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Ring L 1 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 -0.015257 9.0332e-05" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_ring_proximal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_ring_proximal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Ring L 1 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Ring L 2 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="3.05176e-08 -0.0280854 -0.00164396" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_ring_intermediate_distal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_ring_intermediate_distal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Ring L 2 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Ring L Tip_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Ring R 1 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 -0.015257 9.03339e-05" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_ring_proximal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_ring_proximal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Ring R 1 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Ring R 2 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="-3.05176e-08 -0.0280854 -0.00164396" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_ring_intermediate_distal_phalanx.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_ring_intermediate_distal_phalanx.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Ring R 2 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Ring R Tip_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Stereo_Base_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Stereo_Calib_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Stereo_Left_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Stereo_Right_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Stereo_SensorPlane_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Thumb L 1 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0.00011216 0.0137963 0.00117456" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_basis.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_basis.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Thumb L 1 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Thumb L 2 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="3.31574e-05 -0.0169416 -0.00103424" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_proximal.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_proximal.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Thumb L 2 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Thumb L 3 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="6.28815e-05 -0.0125941 0.000136353" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_distal.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_distal.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Thumb L 3 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Thumb L Tip_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Thumb R 1 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0.00011216 0.0137963 -0.00117456" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_basis_right.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_basis_right.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Thumb R 1 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Thumb R 2 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="3.31421e-05 -0.0169416 -0.0010343" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_proximal.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_proximal.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Thumb R 2 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Thumb R 3 Body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="6.28815e-05 -0.0125941 0.000136353" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_distal.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/armar-7_thumb_distal.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Thumb R 3 Joint_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Thumb R Tip_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ToF L Palm_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="ToF R Palm_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Torso_fixed_link">
+        <inertial>
+            <mass value="131.819"/>
+            <origin xyz="0.00553335 -0.0168532 0.150745" rpy="0 -0 0"/>
+            <inertia ixx="6.25031" ixy="0.00886315" ixz="-0.00565286" iyy="5.84349" iyz="0.103808" izz="8.0053"/>
+        </inertial>
+    </link>
+    <link name="Torso_mount_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Torso_root_body_link">
+        <inertial>
+            <mass value="1"/>
+            <origin xyz="-0.00510651 0.213053 -0.0051806" rpy="0 -0 0"/>
+            <inertia ixx="0.103337" ixy="-0.00223745" ixz="0.00323384" iyy="0.0485436" iyz="0.00588342" izz="0.0729877"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/ankle.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <geometry>
+                <mesh filename="package://iai_kit_armar7/meshes/ankle.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="Torso_root_fixed_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="UpperBody_body_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="VirtualCentralGazeDepthCamera_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="VirtualCentralGaze_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="X_Platform_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Y_Platform_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="Yaw_Platform_link">
+        <inertial>
+            <mass value="1e-6"/>
+            <origin xyz="0 0 0" rpy="0 -0 0"/>
+            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
+        </inertial>
+    </link>
+    <link name="root"/>
+    <joint name="Ankle" type="revolute">
+        <origin xyz="0 0 0" rpy="0 -0 -0.757037"/>
+        <axis xyz="0 0 1"/>
+        <parent link="Ankle_ref_link"/>
+        <child link="Ankle_link"/>
+        <limit effort="1" velocity="1" lower="-0.757037" upper="0"/>
+    </joint>
+    <joint name="Ankle_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 -1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Ankle_link"/>
+        <child link="Ankle_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Ankle_ref" type="fixed">
+        <origin xyz="0.05 0 0" rpy="0 -0 0.785398"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Torso_root_fixed_link"/>
+        <child link="Ankle_ref_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL1_Cla1" type="revolute">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmL1_Cla1_fixed_link"/>
+        <child link="ArmL1_Cla1_link"/>
+        <limit effort="1" velocity="1" lower="-1.41372" upper="1.41372"/>
+    </joint>
+    <joint name="ArmL1_Cla1_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL1_Cla1_link"/>
+        <child link="ArmL1_Cla1_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL1_Cla1_link" type="fixed">
+        <origin xyz="-0.0585 0 0" rpy="0 -0 -1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="CenterArms_fixed_link"/>
+        <child link="ArmL1_Cla1_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL2_Sho1" type="continuous">
+        <origin xyz="0 0 0" rpy="1.5708 -0 0"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmL2_Sho1_fixed_link"/>
+        <child link="ArmL2_Sho1_link"/>
+        <limit effort="1" velocity="1" lower="-3.14159" upper="3.14159"/>
+    </joint>
+    <joint name="ArmL2_Sho1_body" type="fixed">
+        <origin xyz="0 0 0.088" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL2_Sho1_link"/>
+        <child link="ArmL2_Sho1_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL2_Sho1_link" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL1_Cla1_link"/>
+        <child link="ArmL2_Sho1_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL3_Sho2" type="revolute">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmL3_Sho2_fixed_link"/>
+        <child link="ArmL3_Sho2_link"/>
+        <limit effort="1" velocity="1" lower="0.0872665" upper="3.24631"/>
+    </joint>
+    <joint name="ArmL3_Sho2_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL3_Sho2_link"/>
+        <child link="ArmL3_Sho2_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL3_Sho2_link" type="fixed">
+        <origin xyz="0 0 0.156" rpy="1.5708 -5.55112e-17 -1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL2_Sho1_link"/>
+        <child link="ArmL3_Sho2_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL4_Sho3" type="continuous">
+        <origin xyz="0 0 0" rpy="1.5708 5.55112e-17 1.5708"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmL3_Sho2_link"/>
+        <child link="ArmL4_Sho3_link"/>
+        <limit effort="1" velocity="1" lower="-3.14159" upper="3.14159"/>
+    </joint>
+    <joint name="ArmL4_Sho3_body" type="fixed">
+        <origin xyz="0 0 0.185" rpy="0 -0 -3.14159"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL4_Sho3_link"/>
+        <child link="ArmL4_Sho3_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL5_Elb1" type="revolute">
+        <origin xyz="1.09278e-09 0.025 0.3516" rpy="1.5708 -5.55112e-17 -1.5708"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmL5_Elb_fixed_link"/>
+        <child link="ArmL5_Elb1_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="2.37365"/>
+    </joint>
+    <joint name="ArmL5_Elb1_body" type="fixed">
+        <origin xyz="0 0 -0.01" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL5_Elb1_link"/>
+        <child link="ArmL5_Elb1_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL5_Elb_link" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL4_Sho3_link"/>
+        <child link="ArmL5_Elb_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL6_Elb2" type="continuous">
+        <origin xyz="0 0 -0.01" rpy="-1.5708 -0 0"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmL5_Elb1_link"/>
+        <child link="ArmL6_Elb2_link"/>
+        <limit effort="1" velocity="1" lower="-3.14159" upper="3.14159"/>
+    </joint>
+    <joint name="ArmL6_Elb2_body" type="fixed">
+        <origin xyz="0 0 0.097" rpy="0 -0 -1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL6_Elb2_link"/>
+        <child link="ArmL6_Elb2_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL7_Wri_link" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 -0.785398"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL6_Elb2_link"/>
+        <child link="ArmL7_Wri_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmL7_Wrist_Hemisphere_A" type="revolute">
+        <origin xyz="0 0 0.295249" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="ArmL7_Wri_fixed_link"/>
+        <child link="ArmL7_Wrist_Hemisphere_A_link"/>
+        <limit effort="1" velocity="1" lower="-0.541052" upper="0.680678"/>
+    </joint>
+    <joint name="ArmL8_Wrist_Hemisphere_B" type="revolute">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 -1 0"/>
+        <parent link="ArmL7_Wrist_Hemisphere_A_link"/>
+        <child link="ArmL8_Wrist_Hemisphere_B_link"/>
+        <limit effort="1" velocity="1" lower="-0.541052" upper="0.680678"/>
+    </joint>
+    <joint name="ArmL_Wrist_Mechanism_Center" type="fixed">
+        <origin xyz="0 0 0.294" rpy="0 -0 2.35619"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL7_Wri_fixed_link"/>
+        <child link="ArmL_Wrist_Mechanism_Center_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR1_Cla1" type="revolute">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmR1_Cla1_fixed_link"/>
+        <child link="ArmR1_Cla1_link"/>
+        <limit effort="1" velocity="1" lower="-1.41372" upper="1.41372"/>
+    </joint>
+    <joint name="ArmR1_Cla1_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 -3.14159"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR1_Cla1_link"/>
+        <child link="ArmR1_Cla1_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR1_Cla1_link" type="fixed">
+        <origin xyz="0.0585 0 0" rpy="0 -0 -1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="CenterArms_fixed_link"/>
+        <child link="ArmR1_Cla1_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR2_Sho1" type="continuous">
+        <origin xyz="0 0 0" rpy="-1.5708 -0 0"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmR_Sho_fixed_link"/>
+        <child link="ArmR2_Sho1_link"/>
+        <limit effort="1" velocity="1" lower="-3.14159" upper="3.14159"/>
+    </joint>
+    <joint name="ArmR2_Sho1_body" type="fixed">
+        <origin xyz="0 0 0.088" rpy="0 -0 3.14159"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR2_Sho1_link"/>
+        <child link="ArmR2_Sho1_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR3_Sho2" type="revolute">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmR3_Sho2_fixed_link"/>
+        <child link="ArmR3_Sho2_link"/>
+        <limit effort="1" velocity="1" lower="0.0872665" upper="3.24631"/>
+    </joint>
+    <joint name="ArmR3_Sho2_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR3_Sho2_link"/>
+        <child link="ArmR3_Sho2_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR3_Sho2_link" type="fixed">
+        <origin xyz="0 0 0.156" rpy="1.5708 5.55112e-17 1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR2_Sho1_link"/>
+        <child link="ArmR3_Sho2_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR4_Sho3" type="continuous">
+        <origin xyz="0 0 0" rpy="1.5708 5.55112e-17 1.5708"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmR3_Sho2_link"/>
+        <child link="ArmR4_Sho3_link"/>
+        <limit effort="1" velocity="1" lower="-3.14159" upper="3.14159"/>
+    </joint>
+    <joint name="ArmR4_Sho3_body" type="fixed">
+        <origin xyz="0 0 0.185" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR4_Sho3_link"/>
+        <child link="ArmR4_Sho3_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR5_Elb1" type="revolute">
+        <origin xyz="1.09278e-09 -0.025 0.3516" rpy="1.5708 5.55112e-17 1.5708"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmR5_Elb_fixed_link"/>
+        <child link="ArmR5_Elb1_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="2.37365"/>
+    </joint>
+    <joint name="ArmR5_Elb1_body" type="fixed">
+        <origin xyz="0 0 0.01" rpy="0 -0 -3.14159"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR5_Elb1_link"/>
+        <child link="ArmR5_Elb1_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR5_Elb_link" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR4_Sho3_link"/>
+        <child link="ArmR5_Elb_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR6_Elb2" type="continuous">
+        <origin xyz="0 0 0.01" rpy="0 -1.5708 4.71239"/>
+        <axis xyz="0 0 1"/>
+        <parent link="ArmR5_Elb1_link"/>
+        <child link="ArmR6_Elb2_link"/>
+        <limit effort="1" velocity="1" lower="-3.14159" upper="3.14159"/>
+    </joint>
+    <joint name="ArmR6_Elb2_body" type="fixed">
+        <origin xyz="0 0 0.097" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR6_Elb2_link"/>
+        <child link="ArmR6_Elb2_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR7_Wri_link" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0.785398"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR6_Elb2_link"/>
+        <child link="ArmR7_Wri_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR7_Wrist_Hemisphere_A" type="revolute">
+        <origin xyz="0 0 0.295249" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="ArmR7_Wri_fixed_link"/>
+        <child link="ArmR7_Wrist_Hemisphere_A_link"/>
+        <limit effort="1" velocity="1" lower="-0.541052" upper="0.680678"/>
+    </joint>
+    <joint name="ArmR8_Wrist_Hemisphere_B" type="revolute">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 -1 0"/>
+        <parent link="ArmR7_Wrist_Hemisphere_A_link"/>
+        <child link="ArmR8_Wrist_Hemisphere_B_link"/>
+        <limit effort="1" velocity="1" lower="-0.541052" upper="0.680678"/>
+    </joint>
+    <joint name="ArmR_Sho_link" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR1_Cla1_link"/>
+        <child link="ArmR_Sho_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ArmR_Wrist_Mechanism_Center" type="fixed">
+        <origin xyz="0 0 0.294" rpy="0 -0 2.35619"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR7_Wri_fixed_link"/>
+        <child link="ArmR_Wrist_Mechanism_Center_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="AzureKinect" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="AzureKinect_Calibration_link"/>
+        <child link="AzureKinect_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="AzureKinect_Base" type="fixed">
+        <origin xyz="0 -0.035 0.078" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Head_Root_link"/>
+        <child link="AzureKinect_Base_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="AzureKinect_Calibration" type="fixed">
+        <origin xyz="0.005 -0.015 0.015" rpy="-0.035 0.015 0.025"/>
+        <axis xyz="0 0 0"/>
+        <parent link="AzureKinect_Base_link"/>
+        <child link="AzureKinect_Calibration_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="AzureKinect_Depth" type="fixed">
+        <origin xyz="0 0.1254 0.0068" rpy="-1.67552 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="AzureKinect_link"/>
+        <child link="AzureKinect_Depth_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="AzureKinect_RGB" type="fixed">
+        <origin xyz="0.032 0.1254 0.005" rpy="-1.5708 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="AzureKinect_link"/>
+        <child link="AzureKinect_RGB_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="AzureKinect_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="AzureKinect_link"/>
+        <child link="AzureKinect_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="CenterArms_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="CenterArms_fixed_link"/>
+        <child link="CenterArms_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="CenterArms_link" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Torso_mount_link"/>
+        <child link="CenterArms_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="DepthCameraSim" type="fixed">
+        <origin xyz="0 0 0.015" rpy="0 -0 1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Head_Root_link"/>
+        <child link="DepthCameraSim_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Dummy_Platform" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="root"/>
+        <child link="Dummy_Platform_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="FT L Root" type="fixed">
+        <origin xyz="0 0 0.0303392" rpy="0 -0 1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL8_Wrist_Hemisphere_B_link"/>
+        <child link="FT L Root_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="FT R Root" type="fixed">
+        <origin xyz="0 0 0.0303392" rpy="0 -0 1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR8_Wrist_Hemisphere_B_link"/>
+        <child link="FT R Root_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Gaze_Root" type="fixed">
+        <origin xyz="0 0 0.21" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Neck_Root_link"/>
+        <child link="Gaze_Root_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand L Col" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand L Root_link"/>
+        <child link="Hand L Col_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand L GCP" type="fixed">
+        <origin xyz="0.105 -0.035 0.015" rpy="-1.5708 8.74228e-08 -2.35619"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand L Root_link"/>
+        <child link="Hand L GCP_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand L Index TCP" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -1.5708 -4.71239"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Index L Tip_link"/>
+        <child link="Hand L Index TCP_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand L Palm" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand L Root_link"/>
+        <child link="Hand L Palm_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand L Power TCP" type="fixed">
+        <origin xyz="0.105 -0.035 0.015" rpy="-1.5708 8.74228e-08 -2.35619"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand L Root_link"/>
+        <child link="Hand L Power TCP_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand L Precision TCP" type="fixed">
+        <origin xyz="0.11 -0.07 0.025" rpy="-1.5708 8.74228e-08 -2.35619"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand L Root_link"/>
+        <child link="Hand L Precision TCP_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand L Root" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="HandL_Base_link"/>
+        <child link="Hand L Root_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand L TCP" type="fixed">
+        <origin xyz="0.09 -0.03 0" rpy="-1.5708 8.74228e-08 -1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand L Root_link"/>
+        <child link="Hand L TCP_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand R Col" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand R Root_link"/>
+        <child link="Hand R Col_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand R GCP" type="fixed">
+        <origin xyz="0.105 -0.035 -0.015" rpy="1.5708 -0 0.785398"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand R Root_link"/>
+        <child link="Hand R GCP_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand R Index TCP" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -1.5708 -4.71239"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Index R Tip_link"/>
+        <child link="Hand R Index TCP_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand R Palm" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand R Root_link"/>
+        <child link="Hand R Palm_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand R Power TCP" type="fixed">
+        <origin xyz="0.105 -0.035 -0.015" rpy="1.5708 -0 0.785398"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand R Root_link"/>
+        <child link="Hand R Power TCP_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand R Precision TCP" type="fixed">
+        <origin xyz="0.11 -0.07 -0.025" rpy="1.5708 -0 0.785398"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand R Root_link"/>
+        <child link="Hand R Precision TCP_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand R Root" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="HandR_Base_link"/>
+        <child link="Hand R Root_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hand R TCP" type="fixed">
+        <origin xyz="0.09 -0.03 0" rpy="1.5708 5.55112e-17 1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand R Root_link"/>
+        <child link="Hand R TCP_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="HandL_Adapter" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="HandL_Base_link"/>
+        <child link="HandL_Adapter_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="HandL_Base" type="fixed">
+        <origin xyz="0 0 0.0453392" rpy="0 -1.5708 5.49779"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmL8_Wrist_Hemisphere_B_link"/>
+        <child link="HandL_Base_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="HandR_Adapter" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="HandR_Base_link"/>
+        <child link="HandR_Adapter_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="HandR_Base" type="fixed">
+        <origin xyz="0 0 0.0453392" rpy="0 -1.5708 5.49779"/>
+        <axis xyz="0 0 0"/>
+        <parent link="ArmR8_Wrist_Hemisphere_B_link"/>
+        <child link="HandR_Base_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Head_Root" type="fixed">
+        <origin xyz="0.0235 0.025 0" rpy="0 1.5708 6.60024e-15"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Neck_2_Pitch_link"/>
+        <child link="Head_Root_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Head_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Neck_2_Pitch_link"/>
+        <child link="Head_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hip" type="revolute">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 -1"/>
+        <parent link="Hip_fixed_link"/>
+        <child link="Hip_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="2.18166"/>
+    </joint>
+    <joint name="Hip_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 -1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hip_link"/>
+        <child link="Hip_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hip_body_monitor" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0.0698132"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hip_link"/>
+        <child link="Hip_body_monitor_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hip_body_prim" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hip_link"/>
+        <child link="Hip_body_prim_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Hip_link" type="fixed">
+        <origin xyz="0.2829 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Knee_body_ref_link"/>
+        <child link="Hip_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Index L 1 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Index L 1 Joint_link"/>
+        <child link="Index L 1 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Index L 1 Joint" type="revolute">
+        <origin xyz="0.11544 0.00335938 0.0307256" rpy="-1.5708 1.51844 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand L Palm_link"/>
+        <child link="Index L 1 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Index L 2 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Index L 2 Joint_link"/>
+        <child link="Index L 2 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Index L 2 Joint" type="revolute">
+        <origin xyz="0 -0.03029 0" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Index L 1 Body_link"/>
+        <child link="Index L 2 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Index L Tip" type="fixed">
+        <origin xyz="0 -0.056037 -0.00806739" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Index L 2 Body_link"/>
+        <child link="Index L Tip_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Index R 1 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Index R 1 Joint_link"/>
+        <child link="Index R 1 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Index R 1 Joint" type="revolute">
+        <origin xyz="0.11544 0.00335938 -0.0307256" rpy="1.5708 1.51844 -3.14159"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand R Palm_link"/>
+        <child link="Index R 1 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Index R 2 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Index R 2 Joint_link"/>
+        <child link="Index R 2 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Index R 2 Joint" type="revolute">
+        <origin xyz="0 -0.03029 0" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Index R 1 Body_link"/>
+        <child link="Index R 2 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Index R Tip" type="fixed">
+        <origin xyz="0 -0.056037 -0.00806739" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Index R 2 Body_link"/>
+        <child link="Index R Tip_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Knee" type="revolute">
+        <origin xyz="0.28 0 0" rpy="-8.88178e-16 3.55271e-15 0.227697"/>
+        <axis xyz="0 0 1"/>
+        <parent link="Knee_fixed_link"/>
+        <child link="Knee_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.74533"/>
+    </joint>
+    <joint name="Knee_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 -1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Knee_body_ref_link"/>
+        <child link="Knee_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Knee_body_prim" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Knee_body_ref_link"/>
+        <child link="Knee_body_prim_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Knee_body_ref" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 -0.15708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Knee_link"/>
+        <child link="Knee_body_ref_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Knee_link" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Ankle_link"/>
+        <child link="Knee_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="LaserScannerBackLeft" type="fixed">
+        <origin xyz="-0.279726 -0.1615 0.07" rpy="0 -0 -2.61799"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Platform_link"/>
+        <child link="LaserScannerBackLeft_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="LaserScannerBackLeftBody" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="LaserScannerBackLeft_link"/>
+        <child link="LaserScannerBackLeftBody_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="LaserScannerBackRight" type="fixed">
+        <origin xyz="0.279726 -0.1615 0.07" rpy="0 -0 -0.523599"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Platform_link"/>
+        <child link="LaserScannerBackRight_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="LaserScannerBackRightBody" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="LaserScannerBackRight_link"/>
+        <child link="LaserScannerBackRightBody_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="LaserScannerFront" type="fixed">
+        <origin xyz="0 0.323 0.07" rpy="0 -0 1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Platform_link"/>
+        <child link="LaserScannerFront_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="LaserScannerFrontBody" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="LaserScannerFront_link"/>
+        <child link="LaserScannerFrontBody_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="LeftHandFingers" type="revolute">
+        <origin xyz="0.130318 0 0.0553" rpy="-1.5708 1.16932 -1.42052e-16"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand L Palm_link"/>
+        <child link="LeftHandFingers_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1"/>
+    </joint>
+    <joint name="LeftHandIndex" type="revolute">
+        <origin xyz="0.130318 0 0.0553" rpy="-1.5708 1.16932 -1.42052e-16"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand L Palm_link"/>
+        <child link="LeftHandIndex_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1"/>
+    </joint>
+    <joint name="LeftHandThumbCircumduction" type="revolute">
+        <origin xyz="0.081114 -0.046914 -0.0395" rpy="2.918 -1.1864 -2.93478"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand L Palm_link"/>
+        <child link="LeftHandThumbCircumduction_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="LeftHandThumbFlexion" type="revolute">
+        <origin xyz="0.081114 -0.046914 -0.0395" rpy="2.918 -1.1864 -2.93478"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand L Palm_link"/>
+        <child link="LeftHandThumbFlexion_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1"/>
+    </joint>
+    <joint name="Middle L 1 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Middle L 1 Joint_link"/>
+        <child link="Middle L 1 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Middle L 1 Joint" type="revolute">
+        <origin xyz="0.11754 0.00585938 0.00682562" rpy="0 1.5708 1.5708"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand L Palm_link"/>
+        <child link="Middle L 1 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Middle L 2 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Middle L 2 Joint_link"/>
+        <child link="Middle L 2 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Middle L 2 Joint" type="revolute">
+        <origin xyz="0 -0.0352 0" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Middle L 1 Body_link"/>
+        <child link="Middle L 2 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Middle L Tip" type="fixed">
+        <origin xyz="0 -0.0626449 -0.0085462" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Middle L 2 Body_link"/>
+        <child link="Middle L Tip_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Middle R 1 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Middle R 1 Joint_link"/>
+        <child link="Middle R 1 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Middle R 1 Joint" type="revolute">
+        <origin xyz="0.11754 0.00585938 -0.00682562" rpy="0 1.5708 1.5708"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand R Palm_link"/>
+        <child link="Middle R 1 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Middle R 2 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Middle R 2 Joint_link"/>
+        <child link="Middle R 2 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Middle R 2 Joint" type="revolute">
+        <origin xyz="0 -0.0352 0" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Middle R 1 Body_link"/>
+        <child link="Middle R 2 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Middle R Tip" type="fixed">
+        <origin xyz="0 -0.0626449 -0.0085462" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Middle R 2 Body_link"/>
+        <child link="Middle R Tip_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Neck_1_Yaw" type="revolute">
+        <origin xyz="0 0 0.011" rpy="0 -0 0"/>
+        <axis xyz="0 0 1"/>
+        <parent link="Neck_Root_link"/>
+        <child link="Neck_1_Yaw_link"/>
+        <limit effort="1" velocity="1" lower="-2.09293" upper="2.09293"/>
+    </joint>
+    <joint name="Neck_1_Yaw_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Neck_1_Yaw_link"/>
+        <child link="Neck_1_Yaw_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Neck_2_Pitch" type="revolute">
+        <origin xyz="0 0 0.1009" rpy="0 -1.5708 -6.28319"/>
+        <axis xyz="0 0 1"/>
+        <parent link="Neck_1_Yaw_link"/>
+        <child link="Neck_2_Pitch_link"/>
+        <limit effort="1" velocity="1" lower="-0.658216" upper="0.658216"/>
+    </joint>
+    <joint name="Neck_2_Pitch_body" type="fixed">
+        <origin xyz="0 0 0.1009" rpy="0 -1.5708 -6.28319"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Neck_1_Yaw_body_link"/>
+        <child link="Neck_2_Pitch_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Neck_Root" type="fixed">
+        <origin xyz="0 0 0.075" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="CenterArms_fixed_link"/>
+        <child link="Neck_Root_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Neck_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Neck_Root_link"/>
+        <child link="Neck_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="OmniWheelBack" type="fixed">
+        <origin xyz="-2.82376e-08 -0.323 0.035" rpy="0 -0 -1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Platform_link"/>
+        <child link="OmniWheelBack_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="OmniWheelBackGroundContact" type="fixed">
+        <origin xyz="0 0 -0.0625" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="OmniWheelBack_link"/>
+        <child link="OmniWheelBackGroundContact_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="OmniWheelFrontLeft" type="fixed">
+        <origin xyz="-0.279726 0.1615 0.035" rpy="0 -0 2.61799"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Platform_link"/>
+        <child link="OmniWheelFrontLeft_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="OmniWheelFrontLeftGroundContact" type="fixed">
+        <origin xyz="0 0 -0.0625" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="OmniWheelFrontLeft_link"/>
+        <child link="OmniWheelFrontLeftGroundContact_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="OmniWheelFrontRight" type="fixed">
+        <origin xyz="0.279726 0.1615 0.035" rpy="0 -0 0.523599"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Platform_link"/>
+        <child link="OmniWheelFrontRight_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="OmniWheelFrontRightGroundContact" type="fixed">
+        <origin xyz="0 0 -0.0625" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="OmniWheelFrontRight_link"/>
+        <child link="OmniWheelFrontRightGroundContact_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Pinky L 1 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Pinky L 1 Joint_link"/>
+        <child link="Pinky L 1 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Pinky L 1 Joint" type="revolute">
+        <origin xyz="0.10644 0.00185938 -0.0382744" rpy="1.5708 1.37008 -3.14159"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand L Palm_link"/>
+        <child link="Pinky L 1 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Pinky L 2 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Pinky L 2 Joint_link"/>
+        <child link="Pinky L 2 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Pinky L 2 Joint" type="revolute">
+        <origin xyz="0 -0.02436 0" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Pinky L 1 Body_link"/>
+        <child link="Pinky L 2 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Pinky L Tip" type="fixed">
+        <origin xyz="0 -0.0486933 -0.00757046" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Pinky L 2 Body_link"/>
+        <child link="Pinky L Tip_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Pinky R 1 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Pinky R 1 Joint_link"/>
+        <child link="Pinky R 1 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Pinky R 1 Joint" type="revolute">
+        <origin xyz="0.10644 0.00185938 0.0382744" rpy="-1.5708 1.37008 -2.78436e-16"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand R Palm_link"/>
+        <child link="Pinky R 1 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Pinky R 2 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Pinky R 2 Joint_link"/>
+        <child link="Pinky R 2 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Pinky R 2 Joint" type="revolute">
+        <origin xyz="0 -0.02436 0" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Pinky R 1 Body_link"/>
+        <child link="Pinky R 2 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Pinky R Tip" type="fixed">
+        <origin xyz="0 -0.0486933 -0.00757046" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Pinky R 2 Body_link"/>
+        <child link="Pinky R Tip_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Platform" type="fixed">
+        <origin xyz="0 0 0.0275" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Yaw_Platform_link"/>
+        <child link="Platform_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Platform-navigation-colmodel" type="fixed">
+        <origin xyz="0 0 0" rpy="1.5708 -3.78552e-08 2.0944"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Platform_link"/>
+        <child link="Platform-navigation-colmodel_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Platform_body" type="fixed">
+        <origin xyz="0 0 0" rpy="1.5708 -3.78552e-08 2.0944"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Platform_link"/>
+        <child link="Platform_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="RightHandFingers" type="revolute">
+        <origin xyz="0.130318 0 0.0553" rpy="-1.5708 1.16932 -1.42052e-16"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand R Palm_link"/>
+        <child link="RightHandFingers_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1"/>
+    </joint>
+    <joint name="RightHandIndex" type="revolute">
+        <origin xyz="0.130318 0 0.0553" rpy="-1.5708 1.16932 -1.42052e-16"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand R Palm_link"/>
+        <child link="RightHandIndex_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1"/>
+    </joint>
+    <joint name="RightHandThumbCircumduction" type="revolute">
+        <origin xyz="0.081114 -0.046914 -0.0395" rpy="2.918 -1.1864 -2.93478"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand R Palm_link"/>
+        <child link="RightHandThumbCircumduction_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="RightHandThumbFlexion" type="revolute">
+        <origin xyz="0.081114 -0.046914 -0.0395" rpy="2.918 -1.1864 -2.93478"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand R Palm_link"/>
+        <child link="RightHandThumbFlexion_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1"/>
+    </joint>
+    <joint name="Ring L 1 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Ring L 1 Joint_link"/>
+        <child link="Ring L 1 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Ring L 1 Joint" type="revolute">
+        <origin xyz="0.11474 0.00485938 -0.0168744" rpy="1.5708 1.48353 -3.14159"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand L Palm_link"/>
+        <child link="Ring L 1 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Ring L 2 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Ring L 2 Joint_link"/>
+        <child link="Ring L 2 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Ring L 2 Joint" type="revolute">
+        <origin xyz="0 -0.03207 0" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Ring L 1 Body_link"/>
+        <child link="Ring L 2 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Ring L Tip" type="fixed">
+        <origin xyz="0 -0.0611187 -0.00859279" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Ring L 2 Body_link"/>
+        <child link="Ring L Tip_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Ring R 1 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Ring R 1 Joint_link"/>
+        <child link="Ring R 1 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Ring R 1 Joint" type="revolute">
+        <origin xyz="0.11474 0.00485938 0.0168744" rpy="-1.5708 1.48353 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Hand R Palm_link"/>
+        <child link="Ring R 1 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Ring R 2 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Ring R 2 Joint_link"/>
+        <child link="Ring R 2 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Ring R 2 Joint" type="revolute">
+        <origin xyz="0 -0.03207 0" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Ring R 1 Body_link"/>
+        <child link="Ring R 2 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Ring R Tip" type="fixed">
+        <origin xyz="0 -0.0611187 -0.00859279" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Ring R 2 Body_link"/>
+        <child link="Ring R Tip_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Stereo_Base" type="fixed">
+        <origin xyz="0 0.098 0.083" rpy="1.5708 -8.74228e-08 -3.14159"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Head_Root_link"/>
+        <child link="Stereo_Base_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Stereo_Calib" type="fixed">
+        <origin xyz="0 -0.012 0.012" rpy="-0.017 -0.07 -0.005"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Stereo_SensorPlane_link"/>
+        <child link="Stereo_Calib_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Stereo_Left" type="fixed">
+        <origin xyz="-0.088 0 -0.03" rpy="0 0.03 -0.01"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Stereo_Calib_link"/>
+        <child link="Stereo_Left_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Stereo_Right" type="fixed">
+        <origin xyz="0.176 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Stereo_Left_link"/>
+        <child link="Stereo_Right_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Stereo_SensorPlane" type="fixed">
+        <origin xyz="0 0 0.01343" rpy="0 -0 -3.14159"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Stereo_Base_link"/>
+        <child link="Stereo_SensorPlane_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Thumb L 1 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Thumb L 1 Joint_link"/>
+        <child link="Thumb L 1 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Thumb L 1 Joint" type="revolute">
+        <origin xyz="0.03929 -0.0148406 0.0327256" rpy="1.5708 5.55112e-17 1.5708"/>
+        <axis xyz="0 0 1"/>
+        <parent link="Hand L Palm_link"/>
+        <child link="Thumb L 1 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Thumb L 2 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Thumb L 2 Joint_link"/>
+        <child link="Thumb L 2 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Thumb L 2 Joint" type="revolute">
+        <origin xyz="0 0.024 0" rpy="-3.14159 -0.261799 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Thumb L 1 Body_link"/>
+        <child link="Thumb L 2 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Thumb L 3 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="-3.14159 -8.74228e-08 -3.14159"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Thumb L 3 Joint_link"/>
+        <child link="Thumb L 3 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Thumb L 3 Joint" type="revolute">
+        <origin xyz="0 -0.0327 0" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Thumb L 2 Body_link"/>
+        <child link="Thumb L 3 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Thumb L Tip" type="fixed">
+        <origin xyz="0 -0.0332 -0.00316667" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Thumb L 3 Body_link"/>
+        <child link="Thumb L Tip_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Thumb R 1 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Thumb R 1 Joint_link"/>
+        <child link="Thumb R 1 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Thumb R 1 Joint" type="revolute">
+        <origin xyz="0.03929 -0.0148406 -0.0327256" rpy="-1.5708 5.55112e-17 -1.5708"/>
+        <axis xyz="0 0 -1"/>
+        <parent link="Hand R Palm_link"/>
+        <child link="Thumb R 1 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Thumb R 2 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Thumb R 2 Joint_link"/>
+        <child link="Thumb R 2 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Thumb R 2 Joint" type="revolute">
+        <origin xyz="0 0.024 0" rpy="-3.14159 0.261799 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Thumb R 1 Body_link"/>
+        <child link="Thumb R 2 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Thumb R 3 Body" type="fixed">
+        <origin xyz="0 0 0" rpy="-3.14159 -8.74228e-08 -3.14159"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Thumb R 3 Joint_link"/>
+        <child link="Thumb R 3 Body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Thumb R 3 Joint" type="revolute">
+        <origin xyz="0 -0.0327 0" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Thumb R 2 Body_link"/>
+        <child link="Thumb R 3 Joint_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="1.5708"/>
+    </joint>
+    <joint name="Thumb R Tip" type="fixed">
+        <origin xyz="0 -0.0332 -0.00316667" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Thumb R 3 Body_link"/>
+        <child link="Thumb R Tip_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ToF L Palm" type="fixed">
+        <origin xyz="0.05 -0.019 -0.0038" rpy="-2.70577 -1.41611 -1.49585"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand L Palm_link"/>
+        <child link="ToF L Palm_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="ToF R Palm" type="fixed">
+        <origin xyz="0.05 -0.019 0.0038" rpy="0.435822 -1.41611 1.64574"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hand R Palm_link"/>
+        <child link="ToF R Palm_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Torso_link" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Platform_link"/>
+        <child link="Torso_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Torso_mount" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -1.5708 -3.14159"/>
+        <axis xyz="0 0 0"/>
+        <parent link="UpperBody_body_link"/>
+        <child link="Torso_mount_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Torso_root_body" type="fixed">
+        <origin xyz="0 0 0" rpy="0 1.5708 -1.5708"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Torso_root_fixed_link"/>
+        <child link="Torso_root_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Torso_root_link" type="fixed">
+        <origin xyz="0 0 0.31" rpy="0 -1.5708 3.14159"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Torso_fixed_link"/>
+        <child link="Torso_root_fixed_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="UpperBody_body" type="fixed">
+        <origin xyz="0.51314 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Hip_link"/>
+        <child link="UpperBody_body_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="VirtualCentralGaze" type="prismatic">
+        <origin xyz="0 0 0" rpy="0 -1.5708 3.14159"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Head_Root_link"/>
+        <child link="VirtualCentralGaze_link"/>
+        <limit effort="1" velocity="0.001" lower="0" upper="10"/>
+    </joint>
+    <joint name="VirtualCentralGazeDepthCamera" type="prismatic">
+        <origin xyz="0 0 0" rpy="0 -1.5708 3.14159"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Head_Root_link"/>
+        <child link="VirtualCentralGazeDepthCamera_link"/>
+        <limit effort="1" velocity="0.001" lower="0" upper="10"/>
+    </joint>
+    <joint name="X_Platform" type="prismatic">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="1 0 0"/>
+        <parent link="Dummy_Platform_link"/>
+        <child link="X_Platform_link"/>
+        <limit effort="1" velocity="1" lower="-10" upper="10"/>
+    </joint>
+    <joint name="Y_Platform" type="prismatic">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 1 0"/>
+        <parent link="X_Platform_link"/>
+        <child link="Y_Platform_link"/>
+        <limit effort="1" velocity="1" lower="-10" upper="10"/>
+    </joint>
+    <joint name="Yaw_Platform" type="revolute">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 1"/>
+        <parent link="Y_Platform_link"/>
+        <child link="Yaw_Platform_link"/>
+        <limit effort="1" velocity="1" lower="-3.14159" upper="3.14159"/>
+    </joint>
+</robot>
