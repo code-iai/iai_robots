@@ -1876,27 +1876,6 @@
             <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
         </inertial>
     </link>
-    <link name="X_Platform_link">
-        <inertial>
-            <mass value="1e-6"/>
-            <origin xyz="0 0 0" rpy="0 -0 0"/>
-            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
-        </inertial>
-    </link>
-    <link name="Y_Platform_link">
-        <inertial>
-            <mass value="1e-6"/>
-            <origin xyz="0 0 0" rpy="0 -0 0"/>
-            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
-        </inertial>
-    </link>
-    <link name="Yaw_Platform_link">
-        <inertial>
-            <mass value="1e-6"/>
-            <origin xyz="0 0 0" rpy="0 -0 0"/>
-            <inertia ixx="1e-12" ixy="0" ixz="0" iyy="1e-12" iyz="0" izz="1e-12"/>
-        </inertial>
-    </link>
     <link name="root"/>
     <joint name="Ankle" type="revolute">
         <origin xyz="0 0 0" rpy="0 -0 -0.757037"/>
@@ -2267,6 +2246,13 @@
         <axis xyz="0 0 0"/>
         <parent link="root"/>
         <child link="Dummy_Platform_link"/>
+        <limit effort="1" velocity="1" lower="0" upper="0"/>
+    </joint>
+    <joint name="Dummy_Platform" type="fixed">
+        <origin xyz="0 0 0" rpy="0 -0 0"/>
+        <axis xyz="0 0 0"/>
+        <parent link="Dummy_Platform_link"/>
+        <child link="Platform_link"/>
         <limit effort="1" velocity="1" lower="0" upper="0"/>
     </joint>
     <joint name="FT L Root" type="fixed">
@@ -2878,13 +2864,6 @@
         <child link="Pinky R Tip_link"/>
         <limit effort="1" velocity="1" lower="0" upper="0"/>
     </joint>
-    <joint name="Platform" type="fixed">
-        <origin xyz="0 0 0.0275" rpy="0 -0 0"/>
-        <axis xyz="0 0 0"/>
-        <parent link="Yaw_Platform_link"/>
-        <child link="Platform_link"/>
-        <limit effort="1" velocity="1" lower="0" upper="0"/>
-    </joint>
     <joint name="Platform-navigation-colmodel" type="fixed">
         <origin xyz="0 0 0" rpy="1.5708 -3.78552e-08 2.0944"/>
         <axis xyz="0 0 0"/>
@@ -3193,25 +3172,5 @@
         <child link="VirtualCentralGazeDepthCamera_link"/>
         <limit effort="1" velocity="0.001" lower="0" upper="10"/>
     </joint>
-    <joint name="X_Platform" type="prismatic">
-        <origin xyz="0 0 0" rpy="0 -0 0"/>
-        <axis xyz="1 0 0"/>
-        <parent link="Dummy_Platform_link"/>
-        <child link="X_Platform_link"/>
-        <limit effort="1" velocity="1" lower="-10" upper="10"/>
-    </joint>
-    <joint name="Y_Platform" type="prismatic">
-        <origin xyz="0 0 0" rpy="0 -0 0"/>
-        <axis xyz="0 1 0"/>
-        <parent link="X_Platform_link"/>
-        <child link="Y_Platform_link"/>
-        <limit effort="1" velocity="1" lower="-10" upper="10"/>
-    </joint>
-    <joint name="Yaw_Platform" type="revolute">
-        <origin xyz="0 0 0" rpy="0 -0 0"/>
-        <axis xyz="0 0 1"/>
-        <parent link="Y_Platform_link"/>
-        <child link="Yaw_Platform_link"/>
-        <limit effort="1" velocity="1" lower="-3.14159" upper="3.14159"/>
-    </joint>
+
 </robot>
