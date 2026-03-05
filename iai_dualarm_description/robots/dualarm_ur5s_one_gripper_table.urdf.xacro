@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://wiki.ros.org/xacro"
-       name="ur5dualarm" >
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="ur5dualarm">
 
+  <!-- Args -->
   <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
 
   <material name="gray">
@@ -11,6 +12,12 @@
   <material name="Silver">
     <color rgba="1.0 1.0 1.0 1.0"/>
   </material>
+
+  <!-- Common stuff -->
+  <xacro:include filename="$(find iai_ur_description)/urdf/common.gazebo.xacro"/>
+
+  <!-- UR5 Arm -->
+  <xacro:include filename="$(find iai_ur_description)/urdf/ur5.urdf.xacro"/>
 
   <material name="Grey">
     <color rgba="0.7 0.7 0.7 1.0"/>
@@ -45,7 +52,8 @@
     transmission_hw_interface="$(arg transmission_hw_interface)"
     kinematics_file="${xacro.load_yaml('$(arg kinematics_config_left)')}"
   />
-  <!-- arm right -->
+
+  <!-- Right arm -->
   <xacro:arg name="kinematics_config_right" default="$(find iai_ur_description)/config/ur5_default.yaml"/>
   <xacro:ur5_robot prefix="right_" joint_limited="false"
     transmission_hw_interface="$(arg transmission_hw_interface)"
@@ -155,10 +163,11 @@
     <origin xyz="0 0 0" rpy="0 0 0" />
   </kms_40_xacro>
 
-<!--Gripper-->
-<xacro:include filename="$(find iai_wsg_50_description)/urdf/wsg_50.urdf.xacro"/>
+  <!-- Gripper -->
+  <xacro:include filename="$(find wpg_300_120_description)/urdf/wpg_300_120_meshed.urdf.xacro"/>
 
-<link name="left_adapter">
+  <!-- Adapter -->
+  <link name="left_adapter">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -169,14 +178,16 @@
       </material>
     </visual>
   </link>
+
   <joint name="left_adapter_joint" type="fixed">
     <parent link="left_wrist_3_link"/>
     <child link="left_adapter"/>
-    <origin xyz="0 0 0.005" rpy="0.0 0.0 3.14" />
+    <origin xyz="0 0 0.005" rpy="0 0 3.14"/>
   </joint>
 
-  <xacro:wsg_50_xacro parent="left_adapter" name="left_gripper">
+  <!-- WSG 300-120 gripper attached to adapter -->
+  <xacro:wsg_300_120_xacro parent="left_adapter" name="left_gripper">
     <origin xyz="0 0 0" rpy="0 0 -0.785"/>
-  </xacro:wsg_50_xacro>
+  </xacro:wsg_300_120_xacro>
 
 </robot>
