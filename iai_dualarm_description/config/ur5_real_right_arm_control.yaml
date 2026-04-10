@@ -1,166 +1,224 @@
-# Settings for ros_control control loop
-hardware_control_loop:
-   loop_hz: &loop_hz 125
+controller_manager:
+  ros__parameters:
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
 
-# Settings for ros_control hardware interface
-ur_hardware_interface:
-   joints: &robot_joints
-     - right_shoulder_pan_joint
-     - right_shoulder_lift_joint
-     - right_elbow_joint
-     - right_wrist_1_joint
-     - right_wrist_2_joint
-     - right_wrist_3_joint
+    io_and_status_controller:
+      type: ur_controllers/GPIOController
 
-# Publish all joint states ----------------------------------
-joint_state_controller_right:
-   type:         joint_state_controller/JointStateController
-   publish_rate: *loop_hz
+    speed_scaling_state_broadcaster:
+      type: ur_controllers/SpeedScalingStateBroadcaster
 
-# Publish wrench ----------------------------------
-force_torque_sensor_controller_right:
-   type:         force_torque_sensor_controller/ForceTorqueSensorController
-   publish_rate: *loop_hz
+    force_torque_sensor_broadcaster:
+      type: force_torque_sensor_broadcaster/ForceTorqueSensorBroadcaster
 
-# Publish speed_scaling factor
-speed_scaling_state_controller_right:
-   type:         scaled_controllers/SpeedScalingStateController
-   publish_rate: *loop_hz
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
 
-# Joint Trajectory Controller - position based -------------------------------
-# For detailed explanations of parameter see http://wiki.ros.org/joint_trajectory_controller
-scaled_pos_joint_traj_controller_right:
-   type: position_controllers/ScaledJointTrajectoryController
-   joints: *robot_joints
-   constraints:
-      goal_time: 0.6
-      stopped_velocity_tolerance: 0.05
-      right_shoulder_pan_joint: {trajectory: 0.2, goal: 0.1}
-      right_shoulder_lift_joint: {trajectory: 0.2, goal: 0.1}
-      right_elbow_joint: {trajectory: 0.2, goal: 0.1}
-      right_wrist_1_joint: {trajectory: 0.2, goal: 0.1}
-      right_wrist_2_joint: {trajectory: 0.2, goal: 0.1}
-      right_wrist_3_joint: {trajectory: 0.2, goal: 0.1}
-   stop_trajectory_duration: 0.5
-   state_publish_rate: *loop_hz
-   action_monitor_rate: 20
+    scaled_joint_trajectory_controller:
+      type: ur_controllers/ScaledJointTrajectoryController
 
-pos_joint_traj_controller_right:
-   type: position_controllers/JointTrajectoryController
-   joints: *robot_joints
-   constraints:
-      goal_time: 0.6
-      stopped_velocity_tolerance: 0.05
-      right_shoulder_pan_joint: {trajectory: 0.2, goal: 0.1}
-      right_shoulder_lift_joint: {trajectory: 0.2, goal: 0.1}
-      right_elbow_joint: {trajectory: 0.2, goal: 0.1}
-      right_wrist_1_joint: {trajectory: 0.2, goal: 0.1}
-      right_wrist_2_joint: {trajectory: 0.2, goal: 0.1}
-      right_wrist_3_joint: {trajectory: 0.2, goal: 0.1}
-   stop_trajectory_duration: 0.5
-   state_publish_rate: *loop_hz
-   action_monitor_rate: 20
+    forward_velocity_controller:
+      type: forward_command_controller/ForwardCommandController
 
-scaled_vel_joint_traj_controller_right:
-   type: velocity_controllers/ScaledJointTrajectoryController
-   joints: *robot_joints
-   constraints:
-      goal_time: 0.6
-      stopped_velocity_tolerance: 0.05
-      right_shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
-      right_shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
-      right_elbow_joint: {trajectory: 0.1, goal: 0.1}
-      right_wrist_1_joint: {trajectory: 0.1, goal: 0.1}
-      right_wrist_2_joint: {trajectory: 0.1, goal: 0.1}
-      right_wrist_3_joint: {trajectory: 0.1, goal: 0.1}
-   gains:
-      #!!These values have not been optimized!!
-      right_shoulder_pan_joint:  {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      right_shoulder_lift_joint: {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      right_elbow_joint:         {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      right_wrist_1_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      right_wrist_2_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      right_wrist_3_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-   # Use a feedforward term to reduce the size of PID gains
-   velocity_ff:
-      right_shoulder_pan_joint: 1.0
-      right_shoulder_lift_joint: 1.0
-      right_elbow_joint: 1.0
-      right_wrist_1_joint: 1.0
-      right_wrist_2_joint: 1.0
-      right_wrist_3_joint: 1.0
-   stop_trajectory_duration: 0.5
-   state_publish_rate: *loop_hz
-   action_monitor_rate: 20
+    forward_effort_controller:
+      type: forward_command_controller/ForwardCommandController
 
-vel_joint_traj_controller_right:
-   type: velocity_controllers/JointTrajectoryController
-   joints: *robot_joints
-   constraints:
-      goal_time: 0.6
-      stopped_velocity_tolerance: 0.05
-      right_shoulder_pan_joint: {trajectory: 0.1, goal: 0.1}
-      right_shoulder_lift_joint: {trajectory: 0.1, goal: 0.1}
-      right_elbow_joint: {trajectory: 0.1, goal: 0.1}
-      right_wrist_1_joint: {trajectory: 0.1, goal: 0.1}
-      right_wrist_2_joint: {trajectory: 0.1, goal: 0.1}
-      right_wrist_3_joint: {trajectory: 0.1, goal: 0.1}
-   gains:
-      #!!These values have not been optimized!!
-      right_shoulder_pan_joint:  {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      right_shoulder_lift_joint: {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      right_elbow_joint:         {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      right_wrist_1_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      right_wrist_2_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-      right_wrist_3_joint:       {p: 5.0,  i: 0.05, d: 0.1, i_clamp: 1}
-   # Use a feedforward term to reduce the size of PID gains
-   velocity_ff:
-      right_shoulder_pan_joint: 1.0
-      right_shoulder_lift_joint: 1.0
-      right_elbow_joint: 1.0
-      right_wrist_1_joint: 1.0
-      right_wrist_2_joint: 1.0
-      right_wrist_3_joint: 1.0
-   stop_trajectory_duration: 0.5
-   state_publish_rate: *loop_hz
-   action_monitor_rate: 20
+    forward_position_controller:
+      type: forward_command_controller/ForwardCommandController
 
-# Pass an array of joint velocities directly to the joints
-joint_group_vel_controller_right:
-   type: velocity_controllers/JointGroupVelocityController
-   joints: *robot_joints
+    force_mode_controller:
+      type: ur_controllers/ForceModeController
 
-forward_joint_traj_controller_right:
-    type: "pass_through_controllers/JointTrajectoryController"
-    joints: *robot_joints
+    friction_model_controller:
+      type: ur_controllers/FrictionModelController
 
-forward_cartesian_traj_controller_right:
-    type: "pass_through_controllers/CartesianTrajectoryController"
-    joints: *robot_joints
+    freedrive_mode_controller:
+      type: ur_controllers/FreedriveModeController
 
-twist_controller_right:
-  type: "ros_controllers_cartesian/TwistController"
-  frame_id: "tool0_controller"
-  publish_rate: *loop_hz
-  joints: *robot_joints
+    passthrough_trajectory_controller:
+      type: ur_controllers/PassthroughTrajectoryController
 
-pose_based_cartesian_traj_controller_right:
-    type: pose_controllers/CartesianTrajectoryController
+    tcp_pose_broadcaster:
+      type: pose_broadcaster/PoseBroadcaster
 
-    # UR driver convention
-    base: base
-    tip: tool0_controller
-    joints: *robot_joints
+    ur_configuration_controller:
+      type: ur_controllers/URConfigurationController
 
-joint_based_cartesian_traj_controller_right:
-    type: position_controllers/CartesianTrajectoryController
+    tool_contact_controller:
+      type: ur_controllers/ToolContactController
 
-    # UR driver convention
-    base: base
-    tip: tool0
-    joints: *robot_joints
+    # The way this is currently implemented upstream doesn't really work for us. When using
+    # position control, the robot will have a tracking error. However, limits will be enforced
+    # from the currently reported position, effectively limiting the possible step size using the
+    # joints' velocity limits. Until this is resolved, we will keep command limits non-enforced.
+    # Note: On Jazzy this is the default behavior, anyway. For Rolling / Kilted this defaults to
+    # true.
+    enforce_command_limits: false
 
-robot_status_controller_right:
-   type: industrial_robot_status_controller/IndustrialRobotStatusController
-   handle_name: industrial_robot_status_handle
-   publish_rate: 10
+    motion_primitive_forward_controller:
+      type: motion_primitives_controllers/MotionPrimitivesForwardController
+
+speed_scaling_state_broadcaster:
+  ros__parameters:
+    state_publish_rate: 100.0
+    tf_prefix: "$(var tf_prefix)"
+
+io_and_status_controller:
+  ros__parameters:
+    tf_prefix: "$(var tf_prefix)"
+
+ur_configuration_controller:
+  ros__parameters:
+    tf_prefix: "$(var tf_prefix)"
+
+force_torque_sensor_broadcaster:
+  ros__parameters:
+    sensor_name: $(var tf_prefix)tcp_fts_sensor
+    state_interface_names:
+      - force.x
+      - force.y
+      - force.z
+      - torque.x
+      - torque.y
+      - torque.z
+    frame_id: $(var tf_prefix)tool0_controller
+    topic_name: ft_data
+
+
+joint_trajectory_controller:
+  ros__parameters:
+    joints:
+      - $(var tf_prefix)shoulder_pan_joint
+      - $(var tf_prefix)shoulder_lift_joint
+      - $(var tf_prefix)elbow_joint
+      - $(var tf_prefix)wrist_1_joint
+      - $(var tf_prefix)wrist_2_joint
+      - $(var tf_prefix)wrist_3_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    state_publish_rate: 100.0
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: false
+    constraints:
+      stopped_velocity_tolerance: 0.2
+      goal_time: 0.0
+      $(var tf_prefix)shoulder_pan_joint: {trajectory: 0.2, goal: 0.1}
+      $(var tf_prefix)shoulder_lift_joint: {trajectory: 0.2, goal: 0.1}
+      $(var tf_prefix)elbow_joint: {trajectory: 0.2, goal: 0.1}
+      $(var tf_prefix)wrist_1_joint: {trajectory: 0.2, goal: 0.1}
+      $(var tf_prefix)wrist_2_joint: {trajectory: 0.2, goal: 0.1}
+      $(var tf_prefix)wrist_3_joint: {trajectory: 0.2, goal: 0.1}
+    speed_scaling:
+      state_interface: $(var tf_prefix)speed_scaling/speed_scaling_factor
+      # Setting the command interface currently would clash with the io_and_status_controller
+      # This will probably be changed in the future.
+      # command_interface: $(var tf_prefix)speed_scaling/target_speed_fraction_cmd
+
+
+scaled_joint_trajectory_controller:
+  ros__parameters:
+    joints:
+      - $(var tf_prefix)shoulder_pan_joint
+      - $(var tf_prefix)shoulder_lift_joint
+      - $(var tf_prefix)elbow_joint
+      - $(var tf_prefix)wrist_1_joint
+      - $(var tf_prefix)wrist_2_joint
+      - $(var tf_prefix)wrist_3_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    state_publish_rate: 100.0
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: false
+    constraints:
+      stopped_velocity_tolerance: 0.2
+      goal_time: 0.0
+      $(var tf_prefix)shoulder_pan_joint: { trajectory: 0.2, goal: 0.1 }
+      $(var tf_prefix)shoulder_lift_joint: { trajectory: 0.2, goal: 0.1 }
+      $(var tf_prefix)elbow_joint: { trajectory: 0.2, goal: 0.1 }
+      $(var tf_prefix)wrist_1_joint: { trajectory: 0.2, goal: 0.1 }
+      $(var tf_prefix)wrist_2_joint: { trajectory: 0.2, goal: 0.1 }
+      $(var tf_prefix)wrist_3_joint: { trajectory: 0.2, goal: 0.1 }
+    speed_scaling_interface_name: $(var tf_prefix)speed_scaling/speed_scaling_factor
+
+passthrough_trajectory_controller:
+  ros__parameters:
+    tf_prefix: "$(var tf_prefix)"
+    joints:
+      - $(var tf_prefix)shoulder_pan_joint
+      - $(var tf_prefix)shoulder_lift_joint
+      - $(var tf_prefix)elbow_joint
+      - $(var tf_prefix)wrist_1_joint
+      - $(var tf_prefix)wrist_2_joint
+      - $(var tf_prefix)wrist_3_joint
+    state_interfaces:
+      - position
+      - velocity
+    speed_scaling_interface_name: $(var tf_prefix)speed_scaling/speed_scaling_factor
+
+forward_velocity_controller:
+  ros__parameters:
+    joints:
+      - $(var tf_prefix)shoulder_pan_joint
+      - $(var tf_prefix)shoulder_lift_joint
+      - $(var tf_prefix)elbow_joint
+      - $(var tf_prefix)wrist_1_joint
+      - $(var tf_prefix)wrist_2_joint
+      - $(var tf_prefix)wrist_3_joint
+    interface_name: velocity
+
+forward_effort_controller:
+  ros__parameters:
+    joints:
+      - $(var tf_prefix)shoulder_pan_joint
+      - $(var tf_prefix)shoulder_lift_joint
+      - $(var tf_prefix)elbow_joint
+      - $(var tf_prefix)wrist_1_joint
+      - $(var tf_prefix)wrist_2_joint
+      - $(var tf_prefix)wrist_3_joint
+    interface_name: effort
+
+forward_position_controller:
+  ros__parameters:
+    joints:
+      - $(var tf_prefix)shoulder_pan_joint
+      - $(var tf_prefix)shoulder_lift_joint
+      - $(var tf_prefix)elbow_joint
+      - $(var tf_prefix)wrist_1_joint
+      - $(var tf_prefix)wrist_2_joint
+      - $(var tf_prefix)wrist_3_joint
+    interface_name: position
+
+force_mode_controller:
+  ros__parameters:
+    tf_prefix: "$(var tf_prefix)"
+
+friction_model_controller:
+  ros__parameters:
+    tf_prefix: "$(var tf_prefix)"
+
+freedrive_mode_controller:
+  ros__parameters:
+    tf_prefix: "$(var tf_prefix)"
+
+tcp_pose_broadcaster:
+  ros__parameters:
+    frame_id: $(var tf_prefix)base
+    pose_name: $(var tf_prefix)tcp_pose
+    tf:
+      child_frame_id: $(var tf_prefix)tool0_controller
+
+tool_contact_controller:
+  ros__parameters:
+    tf_prefix: "$(var tf_prefix)"
+
+
+motion_primitive_forward_controller:
+  ros__parameters:
+    tf_prefix: "$(var tf_prefix)"

@@ -16,6 +16,7 @@ def generate_launch_description():
     left_ip = LaunchConfiguration('left_robot_ip')
     right_ip = LaunchConfiguration('right_robot_ip')
     left_gripper_ip = LaunchConfiguration('left_gripper_ip')
+#    right_gripper_ip = LaunchConfiguration('right_gripper_ip')
 
     # Paths
 
@@ -42,7 +43,7 @@ def generate_launch_description():
     ur_bringup_launch = os.path.join(
         get_package_share_directory('ur_robot_driver'),
         'launch',
-        'ur5_bringup.launch.py'
+        'ur_control.launch.py'
     )
 
     rviz_config = os.path.join(
@@ -70,6 +71,7 @@ def generate_launch_description():
         DeclareLaunchArgument('left_robot_ip', default_value='192.168.101.1'),
         DeclareLaunchArgument('right_robot_ip', default_value='192.168.101.171'),
         DeclareLaunchArgument('left_gripper_ip', default_value='192.168.1.40'),
+#        DeclareLaunchArgument('right_gripper_ip', default_value='#TODO'),
 
         # Static Transforms
 
@@ -126,6 +128,23 @@ def generate_launch_description():
             )
         ]),
 
+        # RIGHT GRIPPER
+
+        # GroupAction([
+        #     PushRosNamespace('right_gripper'),
+        #
+        #     Node(
+        #         package='griplink',
+        #         executable='griplink_node',
+        #         name='griplink_node',
+        #         namespace='griplink_node',
+        #         output='screen',
+        #         parameters=[
+        #             {"ip": right_gripper_ip},
+        #             {"port": 10001}
+        #         ]
+        #     )
+        # ]),
         # Joint State Merger
 
         Node(
