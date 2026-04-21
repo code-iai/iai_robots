@@ -16,7 +16,7 @@ def generate_launch_description():
     urdf_file = os.path.join(
         get_package_share_directory("iai_dualarm_description"),
         "robots",
-        "dualarm_ur5s_one_gripper_table.urdf.xacro",
+        "dualarm_ur5s_two_gripper_table.urdf.xacro",
     )
     kinematics_file = os.path.join(
         get_package_share_directory("iai_ur_description"), "config", "ur5_default.yaml"
@@ -38,7 +38,7 @@ def generate_launch_description():
     return LaunchDescription(
         [
             DeclareLaunchArgument(
-                "urdf_name", default_value="dualarm_ur5s_one_gripper.urdf.xacro"
+                "urdf_name", default_value="dualarm_ur5s_two_gripper.urdf.xacro"
             ),
             DeclareLaunchArgument("param_name", default_value="robot_description"),
             DeclareLaunchArgument(
