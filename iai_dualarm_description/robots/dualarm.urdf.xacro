@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<robot name="my_dual_robot_cell" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <material name="grey">
+      <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+  </material>
+  <material name="Cyan">
+      <color rgba="0 1.0 1.0 1.0"/>
+  </material>
+  <material name="gray">
+    <color rgba="0.56 0.67 0.67 1"/>
+  </material>
+  <material name="Silver">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+
+  <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro" />
+  <xacro:include filename="$(find ur_robot_driver)/urdf/ur.ros2_control.xacro" />
+  <xacro:include filename="$(find wpg_300_120_description)/urdf/wpg_300-120_meshed.urdf.xacro"/>
+
+  <xacro:arg name="left_ur_type" default="ur5" />
+  <xacro:arg name="left_joint_limits_parameters_file" default="$(find ur_description)/config/$(arg left_ur_type)/joint_limits.yaml" />
+  <xacro:arg name="left_kinematics_parameters_file" default="$(find ur_description)/config/$(arg left_ur_type)/default_kinematics.yaml" />
+  <xacro:arg name="left_physical_parameters_file" default="$(find ur_description)/config/$(arg left_ur_type)/physical_parameters.yaml" />
+  <xacro:arg name="left_visual_parameters_file" default="$(find ur_description)/config/$(arg left_ur_type)/visual_parameters.yaml" />
+  
+  <xacro:arg name="left_use_mock_hardware" default="false" />
+  <xacro:arg name="left_mock_sensor_commands" default="false" />
+  <xacro:arg name="left_robot_ip" default="192.168.57.101" />
+  <xacro:arg name="left_reverse_port" default="50012" />
+  <xacro:arg name="left_script_sender_port" default="50011" />
+  <xacro:arg name="left_trajectory_port" default="50013" />
+  <xacro:arg name="left_script_command_port" default="50014" />
+
+  <xacro:arg name="right_ur_type" default="ur5" />
+  <xacro:arg name="right_joint_limits_parameters_file" default="$(find ur_description)/config/$(arg right_ur_type)/joint_limits.yaml" />
+  <xacro:arg name="right_kinematics_parameters_file" default="$(find ur_description)/config/$(arg right_ur_type)/default_kinematics.yaml" />
+  <xacro:arg name="right_physical_parameters_file" default="$(find ur_description)/config/$(arg right_ur_type)/physical_parameters.yaml" />
+  <xacro:arg name="right_visual_parameters_file" default="$(find ur_description)/config/$(arg right_ur_type)/visual_parameters.yaml" />
+
+  <xacro:arg name="right_use_mock_hardware" default="false" />
+  <xacro:arg name="right_mock_sensor_commands" default="false" />
+  <xacro:arg name="right_robot_ip" default="192.168.57.100" />
+  <xacro:arg name="right_reverse_port" default="50001" />
+  <xacro:arg name="right_script_sender_port" default="50002" />
+  <xacro:arg name="right_trajectory_port" default="50003" />
+  <xacro:arg name="right_script_command_port" default="50005" />
+
+  <xacro:arg name="headless_mode" default="false" />
+  <xacro:arg name="ur_script_filename" default="$(find ur_client_library)/resources/external_control.urscript" />
+  <xacro:arg name="ur_output_recipe_filename" default="$(find ur_robot_driver)/resources/rtde_output_recipe.txt" />
+  <xacro:arg name="ur_input_recipe_filename" default="$(find ur_robot_driver)/resources/rtde_input_recipe.txt" />
+
+  <xacro:property name="M_PI" value="3.1415926535897931"/>
+  <xacro:property name="table_height" value="0.6077" />
+  <xacro:property name="table_length" value="1.19" />
+  
+  <xacro:property name="left_arm_mounting_plate_width" value="0.18" />
+  <xacro:property name="left_arm_mounting_plate_length" value="0.15" />
+  <xacro:property name="left_arm_mounting_plate_height" value="0.006" />
+  <xacro:property name="left_arm_mounting_plate_x_offset" value="0.045" />
+  <xacro:property name="left_arm_mounting_plate_y_offset" value="0.368" />
+  
+  <xacro:property name="right_arm_mounting_plate_width" value="0.18" />
+  <xacro:property name="right_arm_mounting_plate_length" value="0.15" />
+  <xacro:property name="right_arm_mounting_plate_height" value="0.006" />
+  <xacro:property name="right_arm_mounting_plate_x_offset" value="0.994" />
+  <xacro:property name="right_arm_mounting_plate_y_offset" value="0.368" />
+
+  <link name="map" />
+
+  <joint name="table_joint" type="fixed">
+      <parent link="map"/>
+      <child link="table"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <link name="table">
+    <visual>
+      <geometry>
+        <mesh filename="package://iai_table_robot_description/meshes/complete_table.dae"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://iai_table_robot_description/meshes/complete_table.stl"/>
+      </geometry>
+      <material name="gray"/>
+    </collision>
+  </link>
+
+  <joint name="left_arm_mounting_plate_joint" type="fixed">
+    <parent link="table"/>
+    <child link="left_arm_mounting_plate"/>
+    <origin xyz="${-table_length+left_arm_mounting_plate_x_offset+left_arm_mounting_plate_length/2} ${-left_arm_mounting_plate_y_offset-left_arm_mounting_plate_width/2} ${table_height}"/>
+  </joint>
+
+  <link name="left_arm_mounting_plate">
+    <visual>
+      <geometry>
+        <mesh filename="package://iai_table_robot_description/meshes/base_to_optical_table.stl"/>
+      </geometry>
+      <material name="Silver"/>
+    </visual>
+  </link>
+
+  <xacro:ur_robot
+    name="ur_left"
+    tf_prefix="left_"
+    parent="left_arm_mounting_plate"
+    joint_limits_parameters_file="$(arg left_joint_limits_parameters_file)"
+    kinematics_parameters_file="$(arg left_kinematics_parameters_file)"
+    physical_parameters_file="$(arg left_physical_parameters_file)"
+    visual_parameters_file="$(arg left_visual_parameters_file)"
+    safety_limits="false"
+    safety_pos_margin="0.15"
+    safety_k_position="20"
+    force_abs_paths="false">
+    <origin xyz="0.0 0.0 ${left_arm_mounting_plate_height}" rpy="0 0 -${pi/4}" />
+  </xacro:ur_robot>
+
+  <link name="left_kms_mounting_plate">
+    <visual>
+      <geometry>
+        <mesh filename="package://iai_table_robot_description/meshes/adapter_plate_iso50_kms40_weiss.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+
+  <joint name="left_kms_mounting_plate_joint" type="fixed">
+    <parent link="left_tool0" />
+    <child link="left_kms_mounting_plate" />
+    <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+  </joint>
+
+  <kms_40_xacro parent="left_kms_mounting_plate" prefix="left_kms_">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </kms_40_xacro>
+
+  <link name="left_adapter">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.035" length="0.01"/>
+      </geometry>
+      <material name="Cyan"/>
+    </visual>
+  </link>
+
+  <joint name="left_adapter_joint" type="fixed">
+    <parent link="left_wrist_3_link"/>
+    <child link="left_adapter"/>
+    <origin xyz="0 0 0.005" rpy="0 0 3.14"/>
+  </joint>
+
+  <xacro:wsg_300_120_xacro parent="left_adapter" name="left_gripper">
+    <origin xyz="0 0 0" rpy="0 0 -0.785"/>
+  </xacro:wsg_300_120_xacro>
+
+  <joint name="right_arm_mounting_plate_joint" type="fixed">
+    <parent link="table"/>
+    <child link="right_arm_mounting_plate"/>
+    <origin xyz="${-table_length+right_arm_mounting_plate_x_offset+right_arm_mounting_plate_length/2} ${-right_arm_mounting_plate_y_offset-right_arm_mounting_plate_width/2} ${table_height}"/>
+  </joint>
+
+  <link name="right_arm_mounting_plate">
+    <visual>
+      <geometry>
+        <mesh filename="package://iai_table_robot_description/meshes/base_to_optical_table.stl"/>
+      </geometry>
+      <material name="Silver"/>
+    </visual>
+  </link>
+
+  <xacro:ur_robot
+    name="ur_right"
+    tf_prefix="right_"
+    parent="right_arm_mounting_plate"
+    joint_limits_parameters_file="$(arg right_joint_limits_parameters_file)"
+    kinematics_parameters_file="$(arg right_kinematics_parameters_file)"
+    physical_parameters_file="$(arg right_physical_parameters_file)"
+    visual_parameters_file="$(arg right_visual_parameters_file)"
+    safety_limits="false"
+    safety_pos_margin="0.15"
+    safety_k_position="20"
+    force_abs_paths="false">
+    <origin xyz="0.0 0.0 ${right_arm_mounting_plate_height}" rpy="0 0 -${pi/4}" />
+  </xacro:ur_robot>
+
+  <link name="right_kms_mounting_plate">
+    <visual>
+      <geometry>
+        <mesh filename="package://iai_table_robot_description/meshes/adapter_plate_iso50_kms40_weiss.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+  </link>
+
+  <joint name="right_kms_mounting_plate_joint" type="fixed">
+    <parent link="right_tool0" />
+    <child link="right_kms_mounting_plate" />
+    <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+  </joint>
+
+  <kms_40_xacro parent="right_kms_mounting_plate" prefix="right_kms_">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </kms_40_xacro>
+
+  <link name="right_adapter">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.035" length="0.01"/>
+      </geometry>
+      <material name="Cyan"/>
+    </visual>
+  </link>
+
+  <joint name="right_adapter_joint" type="fixed">
+    <parent link="right_wrist_3_link"/>
+    <child link="right_adapter"/>
+    <origin xyz="0 0 0.005" rpy="0 0 3.14"/>
+  </joint>
+
+  <xacro:wsg_300_120_xacro parent="right_adapter" name="right_gripper">
+    <origin xyz="0 0 0" rpy="0 0 -0.785"/>
+  </xacro:wsg_300_120_xacro>
+
+  <xacro:ur_ros2_control
+    name="left"
+    tf_prefix="left_"
+    kinematics_parameters_file="$(arg left_kinematics_parameters_file)"
+    robot_ip="$(arg left_robot_ip)"
+    script_filename="$(arg ur_script_filename)"
+    output_recipe_filename="$(arg ur_output_recipe_filename)"
+    input_recipe_filename="$(arg ur_input_recipe_filename)"
+    use_mock_hardware="$(arg left_use_mock_hardware)"
+    mock_sensor_commands="$(arg left_mock_sensor_commands)"
+    headless_mode="$(arg headless_mode)"
+    reverse_port="$(arg left_reverse_port)"
+    script_sender_port="$(arg left_script_sender_port)"
+    script_command_port="$(arg left_script_command_port)"
+    trajectory_port="$(arg left_trajectory_port)"
+  />
+
+  <xacro:ur_ros2_control
+    name="right"
+    tf_prefix="right_"
+    kinematics_parameters_file="$(arg right_kinematics_parameters_file)"
+    robot_ip="$(arg right_robot_ip)"
+    script_filename="$(arg ur_script_filename)"
+    output_recipe_filename="$(arg ur_output_recipe_filename)"
+    input_recipe_filename="$(arg ur_input_recipe_filename)"
+    use_mock_hardware="$(arg right_use_mock_hardware)"
+    mock_sensor_commands="$(arg right_mock_sensor_commands)"
+    headless_mode="$(arg headless_mode)"
+    reverse_port="$(arg right_reverse_port)"
+    script_sender_port="$(arg right_script_sender_port)"
+    script_command_port="$(arg right_script_command_port)"
+    trajectory_port="$(arg right_trajectory_port)"
+  />
+
+</robot>

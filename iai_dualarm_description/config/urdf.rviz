@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
+        - /RobotModel1/Status1
       Splitter Ratio: 0.5
     Tree Height: 542
   - Class: rviz_common/Selection
@@ -71,6 +72,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        left_arm_mounting_plate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         left_base:
           Alpha: 1
           Show Axes: false
@@ -79,17 +85,24 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        left_ee_link:
+        left_base_link_inertia:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        left_flange:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         left_forearm_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        left_ft_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         left_gripper_base_link:
           Alpha: 1
           Show Axes: false
@@ -109,6 +122,11 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        left_kms_mounting_plate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         left_shoulder_link:
           Alpha: 1
           Show Axes: false
@@ -138,6 +156,20 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        map:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_adapter:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_arm_mounting_plate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         right_base:
           Alpha: 1
           Show Axes: false
@@ -146,13 +178,44 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        right_ee_link:
+        right_base_link_inertia:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        right_flange:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         right_forearm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_ft_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_gripper_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_gripper_left_finger_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_gripper_right_finger_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_gripper_tool_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_kms_mounting_plate:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -186,10 +249,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        world:
+        table:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
       Mass Properties:
         Inertia: false
         Mass: false
@@ -201,7 +265,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: world
+    Fixed Frame: table
     Frame Rate: 30
   Name: root
   Tools:
@@ -244,7 +308,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 10
+      Distance: 3.2965946197509766
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -259,10 +323,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4453982710838318
+      Pitch: 0.5753983855247498
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.3003983795642853
+      Yaw: 1.7803988456726074
     Saved: ~
 Window Geometry:
   Displays:
