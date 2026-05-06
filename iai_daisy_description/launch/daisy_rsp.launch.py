@@ -97,9 +97,9 @@ def generate_launch_description():
             " ",
             PathJoinSubstitution(
                 [
-                    FindPackageShare("iai_dualarm_description"),
+                    FindPackageShare("iai_daisy_description"),
                     "robots",
-                    "dualarm.urdf.xacro",
+                    "daisy.urdf.xacro",
                 ]
             ),
             " ",
@@ -186,7 +186,7 @@ def generate_launch_description():
         declared_arguments.append(DeclareLaunchArgument(f"{prefix}_robot_ip", default_value=default_ip, description=f"IP address by which {prefix} can be reached."))
         declared_arguments.append(DeclareLaunchArgument(f"{prefix}_use_mock_hardware", default_value="false", description=f"Start {prefix} with mock hardware mirroring command to its states."))
         declared_arguments.append(DeclareLaunchArgument(f"{prefix}_mock_sensor_commands", default_value="false", description=f"Enable mock command interfaces for {prefix} sensors."))
-        declared_arguments.append(DeclareLaunchArgument(f"{prefix}_kinematics_parameters_file", default_value=PathJoinSubstitution([FindPackageShare("iai_dualarm_description"), "config", f"{prefix}_calibration.yaml"]), description=f"The calibration configuration of {prefix}."))
+        declared_arguments.append(DeclareLaunchArgument(f"{prefix}_kinematics_parameters_file", default_value=PathJoinSubstitution([FindPackageShare("iai_daisy_description"), "config", f"{prefix}_calibration.yaml"]), description=f"The calibration configuration of {prefix}."))
         declared_arguments.append(DeclareLaunchArgument(f"{prefix}_tf_prefix", default_value=default_tf_prefix, description=f"tf_prefix for {prefix} arm."))
 
         # Safety & Limits

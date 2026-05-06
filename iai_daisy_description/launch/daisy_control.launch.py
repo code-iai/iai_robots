@@ -599,7 +599,7 @@ def generate_launch_description():
             "controllers_file",
             default_value=PathJoinSubstitution([
                 FindPackageShare(
-                    "iai_dualarm_description"
+                    "iai_daisy_description"
                 ),
                 "config",
                 "combined_controllers.yaml",
@@ -612,10 +612,10 @@ def generate_launch_description():
             "description_launchfile",
             default_value=PathJoinSubstitution([
                 FindPackageShare(
-                    "iai_dualarm_description"
+                    "iai_daisy_description"
                 ),
                 "launch",
-                "dualarm_rsp.launch.py",
+                "daisy_rsp.launch.py",
             ]),
         )
     )
@@ -704,7 +704,7 @@ def generate_launch_description():
             "rviz_config_file",
             default_value=PathJoinSubstitution([
                 FindPackageShare(
-                    "iai_dualarm_description"
+                    "iai_daisy_description"
                 ),
                 "config",
                 "urdf.rviz",
@@ -788,7 +788,7 @@ def generate_launch_description():
             default_value=[
                 PathJoinSubstitution([
                     FindPackageShare(
-                        "iai_dualarm_description"
+                        "iai_daisy_description"
                     ),
                     "config",
                 ]),

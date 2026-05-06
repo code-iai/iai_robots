@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>iai_dualarm_description</name>
+  <name>iai_daisy_description</name>
   <version>0.0.0</version>
-  <description>The iai_dualarm_description package</description>
+  <description>The iai_daisy_description package</description>
 
   <maintainer email="huerkamp@uni-bremen.de">huerkamp</maintainer>
 

@@ -5,26 +5,34 @@ from ament_index_python.packages import get_package_share_directory
 from launch_ros.parameter_descriptions import ParameterValue
 import os
 
+
 def generate_launch_description():
 
+    description_pkg = get_package_share_directory('iai_daisy_description')
+
     robot_xacro_file = os.path.join(
-        get_package_share_directory('iai_dualarm_description'),
+        description_pkg,
         'robots',
-        'dualarm_ur5s_one_gripper.urdf.xacro'
+        'daisy_ur5_two_gripper_table.urdf.xacro'
     )
 
     rviz_config_file = os.path.join(
-        get_package_share_directory('iai_dualarm_description'),
+        description_pkg,
         'config',
         'urdf.rviz'
     )
 
-    return LaunchDescription([
+    robot_description = ParameterValue(
+        Command(['xacro ', robot_xacro_file]),
+        value_type=str
+    )
 
+    return LaunchDescription([
         Node(
-            package='joint_state_publisher',
-            executable='joint_state_publisher',
-            name='joint_state_publisher',
+            package='joint_state_publisher_gui',
+            executable='joint_state_publisher_gui',
+            name='joint_state_publisher_gui',
+            parameters=[{'robot_description': robot_description}]
         ),
 
         Node(
@@ -32,12 +40,7 @@ def generate_launch_description():
             executable='robot_state_publisher',
             name='robot_state_publisher',
             output='screen',
-            parameters=[{
-                'robot_description': ParameterValue(
-                    Command(['xacro ', robot_xacro_file]),
-                    value_type=str
-                )
-            }]
+            parameters=[{'robot_description': robot_description}]
         ),
 
         Node(

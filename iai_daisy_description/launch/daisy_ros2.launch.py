@@ -11,14 +11,14 @@ def generate_launch_description():
     left_ip = LaunchConfiguration('left_robot_ip')
     right_ip = LaunchConfiguration('right_robot_ip')
 
-    tracy_xacro_file = os.path.join(get_package_share_directory('iai_dualarm_description'), 'robots',
-                                     'dualarm_ur5_two_gripper.urdf.xacro')
+    tracy_xacro_file = os.path.join(get_package_share_directory('iai_daisy_description'), 'robots',
+                                     'daisy_ur5_two_gripper.urdf.xacro')
 
     left_kinematics = os.path.join(
-        get_package_share_directory('iai_dualarm_description'), 'config', 'left_calibration.yaml')
+        get_package_share_directory('iai_daisy_description'), 'config', 'left_calibration.yaml')
 
     right_kinematics = os.path.join(
-        get_package_share_directory('iai_dualarm_description'), 'config', 'right_calibration.yaml')
+        get_package_share_directory('iai_daisy_description'), 'config', 'right_calibration.yaml')
 
     robot_description = Command([
         FindExecutable(name='xacro'), ' ', tracy_xacro_file,
@@ -38,7 +38,7 @@ def generate_launch_description():
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([
                     os.path.join(
-                        get_package_share_directory('iai_dualarm_description'),
+                        get_package_share_directory('iai_daisy_description'),
                         'launch',
                         'iai_ur_control.launch.py'
                     )
@@ -56,7 +56,7 @@ def generate_launch_description():
                     'script_command_port': '50014',
                     'kinematics_params_file': left_kinematics,
                     'controllers_file': os.path.join(
-                        get_package_share_directory('iai_dualarm_description'),
+                        get_package_share_directory('iai_daisy_description'),
                         'config',
                         'ur5_left_tracy.yaml'
                     ),
@@ -70,7 +70,7 @@ def generate_launch_description():
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([
                     os.path.join(
-                        get_package_share_directory('iai_dualarm_description'),
+                        get_package_share_directory('iai_daisy_description'),
                         'launch',
                         'iai_ur_control.launch.py'
                     )
@@ -88,7 +88,7 @@ def generate_launch_description():
                     'script_command_port': '50004',
                     'kinematics_params_file': right_kinematics,
                     'controllers_file': os.path.join(
-                        get_package_share_directory('iai_dualarm_description'),
+                        get_package_share_directory('iai_daisy_description'),
                         'config',
                         'ur5_right_tracy.yaml'
                     ),
