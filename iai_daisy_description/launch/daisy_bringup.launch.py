@@ -3,11 +3,12 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, GroupAction, OpaqueFunction
 from launch.conditions import IfCondition, UnlessCondition
 from launch.launch_description_sources import AnyLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command, FindExecutable
 from launch_ros.actions import Node, PushRosNamespace
 from launch_ros.parameter_descriptions import ParameterFile
 from launch_ros.substitutions import FindPackageShare
 from ament_index_python.packages import get_package_share_directory
+from launch_ros.parameter_descriptions import ParameterValue, ParameterFile
 
 def launch_setup(context, *args, **kwargs):
 
@@ -16,18 +17,6 @@ def launch_setup(context, *args, **kwargs):
     right_ur_type = LaunchConfiguration("right_ur_type")
     left_robot_ip = LaunchConfiguration("left_robot_ip")
     right_robot_ip = LaunchConfiguration("right_robot_ip")
-
-    # Robot Specific arguments
-    left_reverse_port = LaunchConfiguration("left_reverse_port")
-    left_script_sender_port = LaunchConfiguration("left_script_sender_port")
-    left_trajectory_port = LaunchConfiguration("left_trajectory_port")
-    left_script_command_port = LaunchConfiguration("left_script_command_port")
-
-    # Robot Specific arguments
-    right_reverse_port = LaunchConfiguration("right_reverse_port")
-    right_script_sender_port = LaunchConfiguration("right_script_sender_port")
-    right_trajectory_port = LaunchConfiguration("right_trajectory_port")
-    right_script_command_port = LaunchConfiguration("right_script_command_port")
 
     controllers_file = LaunchConfiguration("controllers_file")
     controller_spawner_timeout = LaunchConfiguration("controller_spawner_timeout")
@@ -41,11 +30,34 @@ def launch_setup(context, *args, **kwargs):
     left_initial_joint_controller = LaunchConfiguration("left_initial_joint_controller")
     right_initial_joint_controller = LaunchConfiguration("right_initial_joint_controller")
 
+    # --- Generate URDF via Xacro ---
+    left_kinematics = PathJoinSubstitution([FindPackageShare("iai_daisy_description"), "config", "ur5_left_arm_calibration.yaml"])
+    right_kinematics = PathJoinSubstitution([FindPackageShare("iai_daisy_description"), "config", "ur5_right_arm_calibration.yaml"])
+
+    robot_description_command = Command([
+        PathJoinSubstitution([FindExecutable(name="xacro")]),
+        " ",
+        PathJoinSubstitution([FindPackageShare("iai_daisy_description"), "robots", "daisy.urdf.xacro"]),
+        " ",
+        "left_robot_ip:=", left_robot_ip, " ",
+        "right_robot_ip:=", right_robot_ip, " ",
+        "left_ur_type:=", left_ur_type, " ",
+        "right_ur_type:=", right_ur_type, " ",
+        "left_use_mock_hardware:=", left_use_mock_hardware, " ",
+        "right_use_mock_hardware:=", right_use_mock_hardware, " ",
+        "left_kinematics_parameters_file:=", left_kinematics, " ",
+        "right_kinematics_parameters_file:=", right_kinematics, " ",
+        "headless_mode:=", headless_mode,
+    ])
+
+    robot_description_param = ParameterValue(robot_description_command, value_type=str)
+
     # Main Control Node
     control_node = Node(
         package="controller_manager",
         executable="ros2_control_node",
         parameters=[
+            {"robot_description": robot_description_param}, 
             LaunchConfiguration("update_rate_config_file"),
             ParameterFile(controllers_file, allow_substs=True),
         ],
@@ -156,6 +168,7 @@ def launch_setup(context, *args, **kwargs):
     rsp = IncludeLaunchDescription(
         AnyLaunchDescriptionSource(description_launchfile),
         launch_arguments={
+            "robot_description": robot_description_command, # <--- Update this
             "left_robot_ip": left_robot_ip,
             "right_robot_ip": right_robot_ip,
             "left_ur_type": left_ur_type,
@@ -163,19 +176,9 @@ def launch_setup(context, *args, **kwargs):
             "left_use_mock_hardware": left_use_mock_hardware,
             "right_use_mock_hardware": right_use_mock_hardware,
             "headless_mode": headless_mode,
-
-            "left_reverse_port" : left_reverse_port,
-            "left_script_sender_port" : left_script_sender_port,
-            "left_trajectory_port" : left_trajectory_port,
-            "left_script_command_port" : left_script_command_port,
-
-
-            "right_reverse_port" : right_reverse_port,
-            "right_script_sender_port" : right_script_sender_port,
-            "right_trajectory_port" : right_trajectory_port,
-            "right_script_command_port" : right_script_command_port,
         }.items(),
     )
+    
     joint_state_publisher_node = Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
@@ -189,7 +192,7 @@ def launch_setup(context, *args, **kwargs):
             ],
             'rate': 100.0,
         }]
-    )
+    )    
     nodes_to_start = [
         control_node,
         left_dashboard,
@@ -228,16 +231,6 @@ def generate_launch_description():
         DeclareLaunchArgument("left_activate_joint_controller", default_value="true"),
         DeclareLaunchArgument("right_activate_joint_controller", default_value="true"),
         DeclareLaunchArgument("update_rate_config_file", default_value=[PathJoinSubstitution([FindPackageShare("ur_robot_driver"), "config"]), "/", LaunchConfiguration("left_ur_type"), "_update_rate.yaml"]),
-        DeclareLaunchArgument("left_reverse_port", default_value="50012"),
-        DeclareLaunchArgument("left_script_sender_port", default_value="50011"),
-        DeclareLaunchArgument("left_trajectory_port", default_value="50013"),
-        DeclareLaunchArgument("left_script_command_port", default_value="50014"),
-
-        DeclareLaunchArgument("right_reverse_port", default_value="50001"),
-        DeclareLaunchArgument("right_script_sender_port", default_value="50002"),
-        DeclareLaunchArgument("right_trajectory_port", default_value="50003"),
-        DeclareLaunchArgument("right_script_command_port", default_value="50004"),    
-    
     ]
 
     return LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])
