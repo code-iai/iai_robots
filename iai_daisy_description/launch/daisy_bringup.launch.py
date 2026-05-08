@@ -181,6 +181,14 @@ def launch_setup(context, *args, **kwargs):
         executable='joint_state_publisher',
         name='joint_state_publisher',
         output='screen',
+        parameters=[{
+            'source_list': [
+                '/joint_states',
+                '/left_gripper/device_states',
+                '/right_gripper/device_states'
+            ],
+            'rate': 100.0,
+        }]
     )
     nodes_to_start = [
         control_node,
