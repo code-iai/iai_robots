@@ -8,7 +8,7 @@ import os
 
 def generate_launch_description():
 
-    description_pkg = get_package_share_directory('iai_daisy_description')
+    description_pkg = get_package_share_directory('iai_dualarm_description')
 
     robot_xacro_file = os.path.join(
         description_pkg,
@@ -28,12 +28,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        Node(
-            package='joint_state_publisher_gui',
-            executable='joint_state_publisher_gui',
-            name='joint_state_publisher_gui',
-            parameters=[{'robot_description': robot_description}]
-        ),
 
         Node(
             package='robot_state_publisher',
