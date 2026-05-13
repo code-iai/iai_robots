@@ -39,7 +39,7 @@ After succesfully booting up the robot by pressing power button which turns Gree
 
 When the robot is switched on, following screen will appear. When everything is safe and ready, select 'Go to Initialization screen' and release Emergency Stop button.
 
-`![Initial Screen](docs/image/initial_screen.png)`
+`![Initial Screen](/docs/image/initial_screen.png)`
 
 Once the robot is initialized, Select **ON** and then **START**. Robot's motors will be activated and then it will be ready-to-use.
 Exit the `Initialize Robot` screen by selecting **OK** on bottom right corner of Teaching pendent.
@@ -81,7 +81,8 @@ source install/devel.bash
 ```
 
 ---
-## Bringup Instruction
+
+## Bringup Instructions
 
 ### Launch Daisy bringup file
 ```bash
