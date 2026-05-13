@@ -13,7 +13,7 @@ def generate_launch_description():
     robot_xacro_file = os.path.join(
         description_pkg,
         'robots',
-        'daisy_ur5_two_gripper_table.urdf.xacro'
+        'daisy.urdf.xacro'
     )
 
     rviz_config_file = os.path.join(
