@@ -39,24 +39,23 @@ After succesfully booting up the robot by pressing power button which turns Gree
 
 When the robot is switched on, following screen will appear. When everything is safe and ready, select 'Go to Initialization screen' and release Emergency Stop button.
 
-`![Initial Screen](/docs/image/initial_screen.png)`
+<img src="docs/image/initial_screen.png" width="400" alt="Initial Screen">
 
 Once the robot is initialized, Select **ON** and then **START**. Robot's motors will be activated and then it will be ready-to-use.
 Exit the `Initialize Robot` screen by selecting **OK** on bottom right corner of Teaching pendent.
 
-`![Exit Initialize Robot](docs/image/exit_menu.png)`
-
+<img src="docs/image/exit_menu.png" width="400" alt="Exit Initialize Robot">
 ### 2. Load External Program
 
 In order work with ROS2, we need to load `external_control.urp` and then launch the ros2 launch file to bringup Daisy robot.
 
 From below screen Select **Run Program** 
 
-`![Run Program](docs/image/run_program.png)`
+<img src="docs/image/run_program.png" width="400" alt="Run Program">
 
 Then from top-left corner, select **File** and from drop-down menu, choose **Load Program**,
 
-`![Load Program](docs/image/load_program.png)`
+<img src="docs/image/load_program.png" width="400" alt="Load Program">
 
 A file menu will appear and choose the file named `external_control.urp` and Open it. 
 
@@ -77,7 +76,7 @@ rosdep install --from-paths src --ignore-src -y
 ### Build the workspace
 ```bash
 colcon build
-source install/devel.bash
+source install/setup.bash
 ```
 
 ---
@@ -90,6 +89,6 @@ ros2 launch iai_daisy_description daisy_bringup.launch.py
 ```
 Press Play button after launching ROS2 launch file and you're ready to go.
 
-`![external control](docs/image/external_control.png)`
+<img src="docs/image/external_control.png" width="400" alt="External Control">
 
   
