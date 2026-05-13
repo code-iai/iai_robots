@@ -8,7 +8,7 @@ import os
 
 def generate_launch_description():
 
-    description_pkg = get_package_share_directory('iai_dualarm_description')
+    description_pkg = get_package_share_directory('iai_daisy_description')
 
     robot_xacro_file = os.path.join(
         description_pkg,
