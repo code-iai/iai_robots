@@ -120,25 +120,6 @@
     <origin xyz="0.0 0.0 ${left_arm_mounting_plate_height}" rpy="0 0 -${pi/4}" />
   </xacro:ur_robot>
 
-  <link name="left_kms_mounting_plate">
-    <visual>
-      <geometry>
-        <mesh filename="package://iai_table_robot_description/meshes/adapter_plate_iso50_kms40_weiss.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="gray"/>
-    </visual>
-  </link>
-
-  <joint name="left_kms_mounting_plate_joint" type="fixed">
-    <parent link="left_tool0" />
-    <child link="left_kms_mounting_plate" />
-    <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
-  </joint>
-
-  <kms_40_xacro parent="left_kms_mounting_plate" prefix="left_kms_">
-    <origin xyz="0 0 0" rpy="0 0 0" />
-  </kms_40_xacro>
-
   <link name="left_adapter">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -188,25 +169,6 @@
     force_abs_paths="false">
     <origin xyz="0.0 0.0 ${right_arm_mounting_plate_height}" rpy="0 0 -${pi/4}" />
   </xacro:ur_robot>
-
-  <link name="right_kms_mounting_plate">
-    <visual>
-      <geometry>
-        <mesh filename="package://iai_table_robot_description/meshes/adapter_plate_iso50_kms40_weiss.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="gray"/>
-    </visual>
-  </link>
-
-  <joint name="right_kms_mounting_plate_joint" type="fixed">
-    <parent link="right_tool0" />
-    <child link="right_kms_mounting_plate" />
-    <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
-  </joint>
-
-  <kms_40_xacro parent="right_kms_mounting_plate" prefix="right_kms_">
-    <origin xyz="0 0 0" rpy="0 0 0" />
-  </kms_40_xacro>
 
   <link name="right_adapter">
     <visual>
