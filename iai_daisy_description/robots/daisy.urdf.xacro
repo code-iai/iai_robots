@@ -117,7 +117,7 @@
     safety_pos_margin="0.15"
     safety_k_position="20"
     force_abs_paths="false">
-    <origin xyz="0.0 0.0 ${left_arm_mounting_plate_height}" rpy="0 0 -${pi/4}" />
+    <origin xyz="0.0 0.0 ${left_arm_mounting_plate_height}" rpy="0 0 ${pi/2}" />
   </xacro:ur_robot>
 
   <link name="left_adapter">
