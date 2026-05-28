@@ -225,7 +225,7 @@ def generate_launch_description():
         DeclareLaunchArgument("headless_mode", default_value="false"),
         DeclareLaunchArgument("controller_spawner_timeout", default_value="30"),
         DeclareLaunchArgument("left_initial_joint_controller", default_value="left_forward_velocity_controller"),
-        DeclareLaunchArgument("right_initial_joint_controller", default_value="right_forward_velocity_controlle"),
+        DeclareLaunchArgument("right_initial_joint_controller", default_value="right_forward_velocity_controller"),
         DeclareLaunchArgument("left_activate_joint_controller", default_value="true"),
         DeclareLaunchArgument("right_activate_joint_controller", default_value="true"),
         DeclareLaunchArgument("update_rate_config_file", default_value=[PathJoinSubstitution([FindPackageShare("ur_robot_driver"), "config"]), "/", LaunchConfiguration("left_ur_type"), "_update_rate.yaml"]),
