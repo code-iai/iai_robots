@@ -59,6 +59,7 @@ def launch_setup(context, *args, **kwargs):
             ParameterFile(controllers_file, allow_substs=True),
         ],
         output="screen",
+        remappings=[("joint_states", "arms/joint_states")],
     )
 
     left_dashboard = Node(
@@ -183,9 +184,9 @@ def launch_setup(context, *args, **kwargs):
         output='screen',
         parameters=[{
             'source_list': [
-                '/joint_states',
-                '/left_gripper/device_states',
-                '/right_gripper/device_states'
+                '/arms/joint_states',
+                # '/left_gripper/device_states', # DeviceStates are different from JointStates. Can't find JointStates for grippers
+                # '/right_gripper/device_states'
             ],
             'rate': 100.0,
         }]
