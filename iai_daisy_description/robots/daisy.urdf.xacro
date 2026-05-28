@@ -137,7 +137,7 @@
   </joint>
 
   <xacro:wsg_300_120_xacro parent="left_adapter" name="left_gripper">
-    <origin xyz="0 0 0" rpy="0 0 -0.785"/>
+    <origin xyz="0 0 0" rpy="0 0 -${pi/2}"/>
   </xacro:wsg_300_120_xacro>
 
   <joint name="right_arm_mounting_plate_joint" type="fixed">
@@ -187,7 +187,7 @@
   </joint>
 
   <xacro:wsg_300_120_xacro parent="right_adapter" name="right_gripper">
-    <origin xyz="0 0 0" rpy="0 0 -0.785"/>
+    <origin xyz="0 0 0" rpy="0 0 -${pi/2}"/>
   </xacro:wsg_300_120_xacro>
 
   <xacro:ur_ros2_control
