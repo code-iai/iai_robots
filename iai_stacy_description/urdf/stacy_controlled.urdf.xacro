@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="stacy">
+
+  <xacro:include filename="$(find iai_stacy_description)/urdf/stacy_macro.xacro"/>
+  <xacro:include filename="$(find ur_robot_driver)/urdf/ur.ros2_control.xacro"/>
+
+  <xacro:arg name="ur_type"                    default="ur5"/>
+  <xacro:arg name="robot_ip"                   default="192.168.1.2"/>
+  <xacro:arg name="kinematics_parameters_file" default="$(find ur_description)/config/$(arg ur_type)/default_kinematics.yaml"/>
+  <xacro:arg name="joint_limits_parameters_file"  default="$(find ur_description)/config/$(arg ur_type)/joint_limits.yaml"/>
+  <xacro:arg name="physical_parameters_file"      default="$(find ur_description)/config/$(arg ur_type)/physical_parameters.yaml"/>
+  <xacro:arg name="visual_parameters_file"        default="$(find ur_description)/config/$(arg ur_type)/visual_parameters.yaml"/>
+  <xacro:arg name="use_mock_hardware"          default="false"/>
+  <xacro:arg name="mock_sensor_commands"       default="false"/>
+  <xacro:arg name="headless_mode"              default="false"/>
+  <xacro:arg name="script_filename"            default="$(find ur_client_library)/resources/external_control.urscript"/>
+  <xacro:arg name="input_recipe_filename"      default="$(find ur_robot_driver)/resources/rtde_input_recipe.txt"/>
+  <xacro:arg name="output_recipe_filename"     default="$(find ur_robot_driver)/resources/rtde_output_recipe.txt"/>
+
+  <link name="map"/>
+
+  <xacro:stacy
+    parent="map"
+    ur_type="$(arg ur_type)"
+    joint_limits_parameters_file="$(arg joint_limits_parameters_file)"
+    kinematics_parameters_file="$(arg kinematics_parameters_file)"
+    physical_parameters_file="$(arg physical_parameters_file)"
+    visual_parameters_file="$(arg visual_parameters_file)">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:stacy>
+
+  <xacro:ur_ros2_control
+    name="ur"
+    tf_prefix=""
+    kinematics_parameters_file="$(arg kinematics_parameters_file)"
+    robot_ip="$(arg robot_ip)"
+    script_filename="$(arg script_filename)"
+    input_recipe_filename="$(arg input_recipe_filename)"
+    output_recipe_filename="$(arg output_recipe_filename)"
+    use_mock_hardware="$(arg use_mock_hardware)"
+    mock_sensor_commands="$(arg mock_sensor_commands)"
+    headless_mode="$(arg headless_mode)"/>
+
+</robot>
