@@ -1,134 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="stacy">
 
-  <xacro:property name="models_dir" value="package://iai_stacy_description/meshes"/>
+  <xacro:include filename="$(find iai_stacy_description)/urdf/stacy_macro.xacro"/>
 
-  <!-- Include UR generic macro file -->
-  <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
-
-  <!-- Include Femto Bolt macro -->
-  <xacro:include filename="$(find orbbec_description)/urdf/femto_bolt.urdf.xacro"/>
+  <xacro:arg name="ur_type" default="ur5"/>
+  <xacro:arg name="joint_limits_parameters_file"  default="$(find ur_description)/config/$(arg ur_type)/joint_limits.yaml"/>
+  <xacro:arg name="kinematics_parameters_file"    default="$(find ur_description)/config/$(arg ur_type)/default_kinematics.yaml"/>
+  <xacro:arg name="physical_parameters_file"      default="$(find ur_description)/config/$(arg ur_type)/physical_parameters.yaml"/>
+  <xacro:arg name="visual_parameters_file"        default="$(find ur_description)/config/$(arg ur_type)/visual_parameters.yaml"/>
 
   <link name="map"/>
 
-  <!-- Base column -->
-  <link name="column_link">
-    <visual>
-      <origin xyz="0 0 -0.27" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="${models_dir}/item_robot_column.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="aluminum">
-        <color rgba="0.8 0.8 0.8 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0 0 -0.27" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="${models_dir}/item_robot_column.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="map_to_column" type="fixed">
-    <parent link="map"/>
-    <child link="column_link"/>
+  <xacro:stacy
+    parent="map"
+    ur_type="$(arg ur_type)"
+    joint_limits_parameters_file="$(arg joint_limits_parameters_file)"
+    kinematics_parameters_file="$(arg kinematics_parameters_file)"
+    physical_parameters_file="$(arg physical_parameters_file)"
+    visual_parameters_file="$(arg visual_parameters_file)">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-  </joint>
-
-  <!-- UR5 mounted on top of the column — adjust Z to match column height -->
-  <xacro:ur_robot
-    parent="column_link"
-    name="ur"
-    tf_prefix=""
-    joint_limits_parameters_file="$(find ur_description)/config/ur5/joint_limits.yaml"
-    kinematics_parameters_file="$(find ur_description)/config/ur5/default_kinematics.yaml"
-    physical_parameters_file="$(find ur_description)/config/ur5/physical_parameters.yaml"
-    visual_parameters_file="$(find ur_description)/config/ur5/visual_parameters.yaml"
-    safety_limits="false"
-    safety_pos_margin="0.15"
-    safety_k_position="20"
-    force_abs_paths="false">
-    <origin xyz="0.50245 -0.5025 1.0515" rpy="0 0 -1.57"/>
-  </xacro:ur_robot>
-
-  <!-- Adapter link between ur5 tool0 and Femto Bolt -->
-  <joint name="tool0_to_adapter" type="fixed">
-    <parent link="tool0"/>
-    <child link="adapter_link"/>
-    <origin xyz="0 0 -0.005" rpy="0 0 3.14"/>
-  </joint>
-
-  <link name="adapter_link">
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="${models_dir}/camera_adapter.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="aluminum">
-        <color rgba="0.8 0.8 0.8 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="${models_dir}/camera_adapter.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="adapter_to_precam" type="fixed">
-    <parent link="adapter_link"/>
-    <child link="pre_camera_link"/>
-    <origin xyz="0 0.09 0" rpy="0.139 0 0"/>
-  </joint>
-
-  <link name="pre_camera_link"/>
-
-  <joint name="precam_to_cam" type="fixed">
-    <parent link="pre_camera_link"/>
-    <child link="camera_link"/>
-    <origin xyz="0 0 0.028" rpy="-1.57 -1.57 0"/>
-  </joint>
-
-  <link name="camera_link"/>
-
-  <!-- Mount the Femto Bolt to ur5 tool0 -->
-  <xacro:femto_bolt prefix="femto_bolt" parent="camera_link">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-  </xacro:femto_bolt>
-
-  <link name="tool1">
-    <visual>
-      <origin xyz="0 0 -0.1" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.01" length="0.2"/>
-      </geometry>
-      <material name="gray">
-        <color rgba="0.6 0.6 0.6 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0 0 -0.1" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.01" length="0.2"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="flange-tool1" type="fixed">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.2"/>
-    <parent link="adapter_link"/>
-    <child link="tool1"/>
-  </joint>
-
-  <!-- Calibrated camera optical frame -->
-  <joint name="tool0_to_calibrated_optical" type="fixed">
-    <parent link="tool0"/>
-    <child link="calibrated_color_optical_frame"/>
-    <origin xyz="-0.0228365114 -0.0577200470 0.0197721492" rpy="-0.1313746375 -0.0026046150 -0.0241800395"/>
-  </joint>
-
-  <link name="calibrated_color_optical_frame"/>
+  </xacro:stacy>
 
 </robot>

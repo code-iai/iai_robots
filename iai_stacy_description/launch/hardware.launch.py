@@ -29,6 +29,11 @@ def generate_launch_description():
                 'ur_type': 'ur5',
                 'initial_joint_controller': 'forward_velocity_controller',
                 'launch_rviz': 'false',
+                'description_launchfile': os.path.join(
+                    get_package_share_directory('iai_stacy_description'),
+                    'launch',
+                    'rsp.launch.py'
+                ),
             }.items()
         ),
         IncludeLaunchDescription(
