@@ -128,6 +128,12 @@
       </geometry>
       <material name="Cyan"/>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+      <geometry>
+        <mesh filename="package://iai_daisy_description/meshes/FL-ISO50-WPG300_WITH_FILLET.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
   <joint name="left_gripper_mounting_plate_joint" type="fixed">
@@ -177,6 +183,12 @@
         <mesh filename="package://iai_daisy_description/meshes/FL-ISO50-WPG300_WITH_FILLET.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+      <geometry>
+        <mesh filename="package://iai_daisy_description/meshes/FL-ISO50-WPG300_WITH_FILLET.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
   <joint name="right_gripper_mounting_plate_joint" type="fixed">
@@ -196,6 +208,12 @@
         <mesh filename="package://iai_daisy_description/meshes/WeissGripperFinger2.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_daisy_description/meshes/WeissGripperFinger2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
   <joint name="left_gripper_left_finger_tip_joint" type="fixed">
@@ -211,6 +229,12 @@
         <mesh filename="package://iai_daisy_description/meshes/WeissGripperFinger2.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_daisy_description/meshes/WeissGripperFinger2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
     <joint name="left_gripper_right_finger_tip_joint" type="fixed">
@@ -226,6 +250,12 @@
         <mesh filename="package://iai_daisy_description/meshes/WeissGripperFinger2.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_daisy_description/meshes/WeissGripperFinger2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
     <joint name="right_gripper_left_finger_tip_joint" type="fixed">
@@ -241,6 +271,12 @@
         <mesh filename="package://iai_daisy_description/meshes/WeissGripperFinger2.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_daisy_description/meshes/WeissGripperFinger2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
 
     <joint name="right_gripper_right_finger_tip_joint" type="fixed">
