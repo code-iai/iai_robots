@@ -91,7 +91,8 @@ def launch_setup(context, *args, **kwargs):
         name='griplink_node',
         parameters=[
             {"ip": LaunchConfiguration("left_gripper_ip")},
-            {"port": LaunchConfiguration("griplink_network_port")}
+            {"port": LaunchConfiguration("griplink_network_port")},
+            {"joint_name": "left_gripper_finger_joint"}
         ],
     )
 
@@ -102,7 +103,8 @@ def launch_setup(context, *args, **kwargs):
         name='griplink_node',
         parameters=[
             {"ip": LaunchConfiguration("right_gripper_ip")},
-            {"port": LaunchConfiguration("griplink_network_port")}
+            {"port": LaunchConfiguration("griplink_network_port")},
+            {"joint_name": "right_gripper_finger_joint"}
         ],
     )
 
@@ -185,12 +187,12 @@ def launch_setup(context, *args, **kwargs):
         parameters=[{
             'source_list': [
                 '/arms/joint_states',
-                # '/left_gripper/device_states', # DeviceStates are different from JointStates. Can't find JointStates for grippers
-                # '/right_gripper/device_states'
+                '/left_gripper/joint_states',
+                '/right_gripper/joint_states'
             ],
             'rate': 100.0,
         }]
-    )    
+    )
     nodes_to_start = [
         control_node,
         left_dashboard,
