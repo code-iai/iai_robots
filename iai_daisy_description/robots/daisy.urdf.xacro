@@ -139,7 +139,7 @@
   <joint name="left_gripper_mounting_plate_joint" type="fixed">
     <parent link="left_flange"/>
     <child link="left_gripper_mounting_plate"/>
-    <origin xyz="0 0 0.005" rpy="0 ${pi/2} 0"/>
+    <origin xyz="0 0 0.005" rpy="${pi/2} 0 ${pi/2}"/>
   </joint>
 
   <xacro:wsg_300_120_xacro parent="left_gripper_mounting_plate" name="left_gripper">
@@ -194,7 +194,7 @@
   <joint name="right_gripper_mounting_plate_joint" type="fixed">
     <parent link="right_flange"/>
     <child link="right_gripper_mounting_plate"/>
-    <origin xyz="0 0 0.005" rpy="0 ${pi/2} 0"/>
+    <origin xyz="0 0 0.005" rpy="${pi/2} 0 ${pi/2}"/>
   </joint>
 
   <xacro:wsg_300_120_xacro parent="right_gripper_mounting_plate" name="right_gripper">
