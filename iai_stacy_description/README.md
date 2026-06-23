@@ -15,6 +15,14 @@ Then configure a static IPv4 interface on that network adapter:
 
 The robot controller is reachable at `192.168.1.2`.
 
+## Package structure
+
+The hardware bringup uses a two-URDF pattern required by `ur_robot_driver`:
+
+- **`urdf/stacy.urdf.xacro`** — plain description used by `display.launch.py` (no ros2_control tag).
+- **`urdf/stacy_controlled.urdf.xacro`** — hardware description: same geometry plus the `<ros2_control>` hardware interface tag that `ur_control.launch.py` needs.
+- **`launch/rsp.launch.py`** — custom robot state publisher launch that processes `stacy_controlled.urdf.xacro`. Passed to `ur_control.launch.py` via the `description_launchfile` argument, overriding the driver's default `ur_rsp.launch.py` so the full robot (column, camera, tool) is published on `/robot_description` instead of just the bare UR5.
+
 ## Launch
 
 **RViz visualization (no hardware required):**
