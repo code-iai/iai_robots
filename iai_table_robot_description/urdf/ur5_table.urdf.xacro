@@ -60,7 +60,10 @@
       </visual>
     </link>
 
-    <xacro:ur5_robot prefix="" joint_limited="false"/>
+    <xacro:ur5_robot prefix="" joint_limited="false"
+      transmission_hw_interface="hardware_interface/PositionJointInterface"
+      kinematics_file="${xacro.load_yaml('$(find ur_description)/config/ur5_default.yaml')}"
+    />
 
     <joint name="arm_base_mounting_joint" type="fixed">
       <parent link="arm_mounting_plate" />
