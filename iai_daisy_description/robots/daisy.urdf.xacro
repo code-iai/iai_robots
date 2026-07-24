@@ -54,6 +54,7 @@
   <xacro:property name="M_PI" value="3.1415926535897931"/>
   <xacro:property name="table_height" value="0.6077" />
   <xacro:property name="table_length" value="1.19" />
+  <xacro:property name="table_width" value="0.60" />
   
   <xacro:property name="left_arm_mounting_plate_width" value="0.18" />
   <xacro:property name="left_arm_mounting_plate_length" value="0.15" />
@@ -69,20 +70,24 @@
 
   <link name="map" />
 
+  <link name="table"/>
+
   <joint name="table_joint" type="fixed">
       <parent link="map"/>
       <child link="table"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
 
-  <link name="table">
+  <link name="table_center">
     <visual>
+      <origin xyz="${table_length/2} ${table_width/2} 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://iai_table_robot_description/meshes/complete_table.dae"/>
       </geometry>
       <material name="gray"/>
     </visual>
     <collision>
+      <origin xyz="${table_length/2} ${table_width/2} 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://iai_table_robot_description/meshes/complete_table.stl"/>
       </geometry>
@@ -90,10 +95,16 @@
     </collision>
   </link>
 
+  <joint name="table_center_joint" type="fixed">
+      <parent link="table"/>
+      <child link="table_center"/>
+      <origin xyz="${table_width/2} ${table_length/2} 0" rpy="0 0 ${-pi/2}"/>
+  </joint>
+
   <joint name="left_arm_mounting_plate_joint" type="fixed">
-    <parent link="table"/>
+    <parent link="table_center"/>
     <child link="left_arm_mounting_plate"/>
-    <origin xyz="${-table_length+left_arm_mounting_plate_x_offset+left_arm_mounting_plate_length/2} ${-left_arm_mounting_plate_y_offset-left_arm_mounting_plate_width/2} ${table_height}"/>
+    <origin xyz="${-table_length/2+left_arm_mounting_plate_x_offset+left_arm_mounting_plate_length/2} ${+table_width/2-left_arm_mounting_plate_y_offset-left_arm_mounting_plate_width/2} ${table_height}"/>
   </joint>
 
   <link name="left_arm_mounting_plate">
@@ -147,9 +158,9 @@
   </xacro:wsg_300_120_xacro>
 
   <joint name="right_arm_mounting_plate_joint" type="fixed">
-    <parent link="table"/>
+    <parent link="table_center"/>
     <child link="right_arm_mounting_plate"/>
-    <origin xyz="${-table_length+right_arm_mounting_plate_x_offset+right_arm_mounting_plate_length/2} ${-right_arm_mounting_plate_y_offset-right_arm_mounting_plate_width/2} ${table_height}"/>
+    <origin xyz="${-table_length/2+right_arm_mounting_plate_x_offset+right_arm_mounting_plate_length/2} ${+table_width/2-right_arm_mounting_plate_y_offset-right_arm_mounting_plate_width/2} ${table_height}"/>
   </joint>
 
   <link name="right_arm_mounting_plate">
