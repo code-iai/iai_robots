@@ -73,6 +73,65 @@
   <xacro:property name="right_arm_mounting_plate_x_offset" value="0.994" />
   <xacro:property name="right_arm_mounting_plate_y_offset" value="0.368" />
 
+  <!-- Gripper cable guide properties + macro === -->
+  <xacro:property name="gripper_side_cylinder_length" value="0.10" />
+  <xacro:property name="gripper_side_cylinder_radius" value="0.0175" /> <!-- 3.5 cm diameter -->
+  <xacro:property name="gripper_side_cylinder_y_offset" value="0.075" /> <!-- adjust to clear the mounting plate edge -->
+
+  <xacro:macro name="gripper_side_cylinder" params="parent prefix">
+    <link name="${prefix}_side_cylinder_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder length="${gripper_side_cylinder_length}" radius="${gripper_side_cylinder_radius}"/>
+        </geometry>
+        <material name="grey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder length="${gripper_side_cylinder_length}" radius="${gripper_side_cylinder_radius}"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_side_cylinder_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${prefix}_side_cylinder_link"/>
+      <!-- offset in +Y of the parent frame; rpy=0 keeps the cylinder's
+           native Z-axis aligned with the parent's Z-axis -->
+      <origin xyz="0 ${gripper_side_cylinder_y_offset} -${gripper_side_cylinder_length/2 - 0.02}" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+    <!-- Gripper Wrist 2 collision === -->
+  <xacro:property name="gripper_collision_cylinder_length" value="0.005" />
+  <xacro:property name="gripper_collision_cylinder_radius" value="0.034" /> <!-- 7.2 cm diameter -->
+
+  <xacro:macro name="wrist_collision_cylinder_macro" params="parent prefix">
+    <link name="${prefix}_wrist_collision_cylinder_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder length="${gripper_collision_cylinder_length}" radius="${gripper_collision_cylinder_radius}"/>
+        </geometry>
+        <material name="grey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder length="${gripper_collision_cylinder_length}" radius="${gripper_collision_cylinder_radius}"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}_wrist_collision_cylinder_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${prefix}_wrist_collision_cylinder_link"/>
+      <origin xyz="0 -0.051 -0.0028" rpy="${pi/2} 0 0"/>
+    </joint>
+  </xacro:macro>
+
   <link name="map" />
 
   <link name="table"/>
@@ -153,14 +212,14 @@
 
   <link name="left_gripper_mounting_plate">
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="${pi} 0 0"/>
       <geometry>
         <mesh filename="package://iai_daisy_description/meshes/FL-ISO50-WPG300_WITH_FILLET.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Cyan"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="${pi} 0 0"/>
       <geometry>
         <mesh filename="package://iai_daisy_description/meshes/FL-ISO50-WPG300_WITH_FILLET.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -170,11 +229,16 @@
   <joint name="left_gripper_mounting_plate_joint" type="fixed">
     <parent link="left_flange"/>
     <child link="left_gripper_mounting_plate"/>
-    <origin xyz="0 0 0.005" rpy="0 ${pi/2} 0"/>
+    <origin xyz="0.005 0 0" rpy="0 ${pi/2} 0"/>
   </joint>
 
+  <!-- === Cable guide on the left gripper === -->
+  <xacro:gripper_side_cylinder parent="left_gripper_mounting_plate" prefix="left_gripper" />
+
+  <xacro:wrist_collision_cylinder_macro parent="left_wrist_2_link" prefix="left_gripper" />
+
   <xacro:wsg_300_120_xacro parent="left_gripper_mounting_plate" name="left_gripper">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 0.005" rpy="0 0 0"/>
   </xacro:wsg_300_120_xacro>
 
   <joint name="right_arm_mounting_plate_joint" type="fixed">
@@ -209,13 +273,13 @@
 
   <link name="right_gripper_mounting_plate">
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="${pi} 0 0"/>
       <geometry>
         <mesh filename="package://iai_daisy_description/meshes/FL-ISO50-WPG300_WITH_FILLET.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="${pi} 0 0"/>
       <geometry>
         <mesh filename="package://iai_daisy_description/meshes/FL-ISO50-WPG300_WITH_FILLET.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -225,11 +289,16 @@
   <joint name="right_gripper_mounting_plate_joint" type="fixed">
     <parent link="right_flange"/>
     <child link="right_gripper_mounting_plate"/>
-    <origin xyz="0 0 0.005" rpy="0 ${pi/2} 0"/>
+    <origin xyz="0.005 0 0" rpy="-${pi/2} 0 -${pi/2}"/>
   </joint>
 
+  <!-- === Cable guide on the right gripper === -->
+  <xacro:gripper_side_cylinder parent="right_gripper_mounting_plate" prefix="right_gripper" />
+
+  <xacro:wrist_collision_cylinder_macro parent="right_wrist_2_link" prefix="right_gripper" />
+
   <xacro:wsg_300_120_xacro parent="right_gripper_mounting_plate" name="right_gripper">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 0.005" rpy="0 0 0"/>
   </xacro:wsg_300_120_xacro>
 
   <link name="left_gripper_left_finger_tip_link">
