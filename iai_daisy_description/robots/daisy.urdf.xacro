@@ -23,10 +23,11 @@
   <xacro:arg name="left_kinematics_parameters_file" default="$(find ur_description)/config/$(arg left_ur_type)/default_kinematics.yaml" />
   <xacro:arg name="left_physical_parameters_file" default="$(find ur_description)/config/$(arg left_ur_type)/physical_parameters.yaml" />
   <xacro:arg name="left_visual_parameters_file" default="$(find ur_description)/config/$(arg left_ur_type)/visual_parameters.yaml" />
-  
+
   <xacro:arg name="left_use_mock_hardware" default="false" />
   <xacro:arg name="left_mock_sensor_commands" default="false" />
   <xacro:arg name="left_robot_ip" default="192.168.57.101" />
+  <xacro:arg name="left_reverse_ip" default="192.168.250.1" />
   <xacro:arg name="left_reverse_port" default="50012" />
   <xacro:arg name="left_script_sender_port" default="50011" />
   <xacro:arg name="left_trajectory_port" default="50013" />
@@ -41,6 +42,7 @@
   <xacro:arg name="right_use_mock_hardware" default="false" />
   <xacro:arg name="right_mock_sensor_commands" default="false" />
   <xacro:arg name="right_robot_ip" default="192.168.57.100" />
+  <xacro:arg name="right_reverse_ip" default="192.168.250.1" />
   <xacro:arg name="right_reverse_port" default="50001" />
   <xacro:arg name="right_script_sender_port" default="50002" />
   <xacro:arg name="right_trajectory_port" default="50003" />
@@ -51,17 +53,20 @@
   <xacro:arg name="ur_output_recipe_filename" default="$(find ur_robot_driver)/resources/rtde_output_recipe.txt" />
   <xacro:arg name="ur_input_recipe_filename" default="$(find ur_robot_driver)/resources/rtde_input_recipe.txt" />
 
+  <xacro:arg name="non_blocking_read" default="true" />
+  <xacro:arg name="robot_receive_timeout" default="0.1" />
+
   <xacro:property name="M_PI" value="3.1415926535897931"/>
   <xacro:property name="table_height" value="0.6077" />
   <xacro:property name="table_length" value="1.19" />
-  <xacro:property name="table_width" value="0.60" />
-  
+<xacro:property name="table_width" value="0.60" />
+
   <xacro:property name="left_arm_mounting_plate_width" value="0.18" />
   <xacro:property name="left_arm_mounting_plate_length" value="0.15" />
   <xacro:property name="left_arm_mounting_plate_height" value="0.006" />
   <xacro:property name="left_arm_mounting_plate_x_offset" value="0.045" />
   <xacro:property name="left_arm_mounting_plate_y_offset" value="0.368" />
-  
+
   <xacro:property name="right_arm_mounting_plate_width" value="0.18" />
   <xacro:property name="right_arm_mounting_plate_length" value="0.15" />
   <xacro:property name="right_arm_mounting_plate_height" value="0.006" />
@@ -316,12 +321,15 @@
     tf_prefix="left_"
     kinematics_parameters_file="$(arg left_kinematics_parameters_file)"
     robot_ip="$(arg left_robot_ip)"
+    reverse_ip="$(arg left_reverse_ip)"
     script_filename="$(arg ur_script_filename)"
     output_recipe_filename="$(arg ur_output_recipe_filename)"
     input_recipe_filename="$(arg ur_input_recipe_filename)"
     use_mock_hardware="$(arg left_use_mock_hardware)"
     mock_sensor_commands="$(arg left_mock_sensor_commands)"
     headless_mode="$(arg headless_mode)"
+    non_blocking_read="$(arg non_blocking_read)"
+    robot_receive_timeout="$(arg robot_receive_timeout)"
     reverse_port="$(arg left_reverse_port)"
     script_sender_port="$(arg left_script_sender_port)"
     script_command_port="$(arg left_script_command_port)"
@@ -333,12 +341,15 @@
     tf_prefix="right_"
     kinematics_parameters_file="$(arg right_kinematics_parameters_file)"
     robot_ip="$(arg right_robot_ip)"
+    reverse_ip="$(arg right_reverse_ip)"
     script_filename="$(arg ur_script_filename)"
     output_recipe_filename="$(arg ur_output_recipe_filename)"
     input_recipe_filename="$(arg ur_input_recipe_filename)"
     use_mock_hardware="$(arg right_use_mock_hardware)"
     mock_sensor_commands="$(arg right_mock_sensor_commands)"
     headless_mode="$(arg headless_mode)"
+    non_blocking_read="$(arg non_blocking_read)"
+    robot_receive_timeout="$(arg robot_receive_timeout)"
     reverse_port="$(arg right_reverse_port)"
     script_sender_port="$(arg right_script_sender_port)"
     script_command_port="$(arg right_script_command_port)"
