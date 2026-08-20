@@ -1,0 +1,20 @@
+iai_franka_panda_description
+
+This package vendors the Franka Emika Panda MJCF scene and mesh assets from:
+
+  https://github.com/google-deepmind/mujoco_menagerie
+  path: franka_emika_panda/
+
+Licensed under the Apache License, Version 2.0 (see LICENSE in this directory).
+
+Per that repository's franka_emika_panda/README.md:
+
+  Source: Franka Emika Panda Description (MJCF) documentation
+  Original Robot: The Franka Emika Panda robot was developed by Franka Emika
+  (https://www.franka.de/)
+  Derivation Source: The MJCF description was derived from the publicly
+  available URDF description maintained by Franka Emika on GitHub
+  (franka_ros repository)
+
+No modifications have been made to the vendored files beyond relocating them
+into this package's mjcf/ directory.
