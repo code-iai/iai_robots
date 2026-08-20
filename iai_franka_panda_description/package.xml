@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>iai_franka_panda_description</name>
+  <version>0.0.0</version>
+  <description>
+    MJCF scene and mesh assets for the Franka Emika Panda arm, vendored from
+    google-deepmind/mujoco_menagerie.
+  </description>
+
+  <maintainer email="mrsoran2009@googlemail.com">sorinar329</maintainer>
+
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+
+</package>
