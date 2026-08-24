@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>iai_stacy_description</name>
+  <version>1.0.0</version>
+  <description>URDF description and bringup launch files for the Stacy robot at IAI, University of Bremen.</description>
+
+  <maintainer email="huerkamp@uni-bremen.de">Malte Huerkamp</maintainer>
+
+  <license>LGPL</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <build_depend>xacro</build_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>ur_description</exec_depend>
+  <exec_depend>ur_robot_driver</exec_depend>
+  <exec_depend>orbbec_description</exec_depend>
+  <exec_depend>orbbec_camera</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
