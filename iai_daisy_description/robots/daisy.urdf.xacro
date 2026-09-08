@@ -212,14 +212,14 @@
 
   <link name="left_gripper_mounting_plate">
     <visual>
-      <origin xyz="0 0 0" rpy="${pi} 0 0"/>
+      <origin xyz="0 0 0" rpy="${pi} 0 ${pi/2}"/>
       <geometry>
         <mesh filename="package://iai_daisy_description/meshes/FL-ISO50-WPG300_WITH_FILLET.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Cyan"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="${pi} 0 0"/>
+      <origin xyz="0 0 0" rpy="${pi} 0 ${pi/2}"/>
       <geometry>
         <mesh filename="package://iai_daisy_description/meshes/FL-ISO50-WPG300_WITH_FILLET.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -229,7 +229,7 @@
   <joint name="left_gripper_mounting_plate_joint" type="fixed">
     <parent link="left_flange"/>
     <child link="left_gripper_mounting_plate"/>
-    <origin xyz="0.005 0 0" rpy="0 ${pi/2} 0"/>
+    <origin xyz="0.005 0 0" rpy="${pi/2} 0 ${pi/2}"/>
   </joint>
 
   <!-- === Cable guide on the left gripper === -->
@@ -238,7 +238,7 @@
   <xacro:wrist_collision_cylinder_macro parent="left_wrist_2_link" prefix="left_gripper" />
 
   <xacro:wsg_300_120_xacro parent="left_gripper_mounting_plate" name="left_gripper">
-    <origin xyz="0 0 0.005" rpy="0 0 0"/>
+    <origin xyz="0 0 0.005" rpy="0 0 -${pi/2}"/>
   </xacro:wsg_300_120_xacro>
 
   <joint name="right_arm_mounting_plate_joint" type="fixed">
@@ -273,13 +273,13 @@
 
   <link name="right_gripper_mounting_plate">
     <visual>
-      <origin xyz="0 0 0" rpy="${pi} 0 0"/>
+      <origin xyz="0 0 0" rpy="${pi} 0 ${pi/2}"/>
       <geometry>
         <mesh filename="package://iai_daisy_description/meshes/FL-ISO50-WPG300_WITH_FILLET.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="${pi} 0 0"/>
+      <origin xyz="0 0 0" rpy="${pi} 0 ${pi/2}"/>
       <geometry>
         <mesh filename="package://iai_daisy_description/meshes/FL-ISO50-WPG300_WITH_FILLET.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -298,7 +298,7 @@
   <xacro:wrist_collision_cylinder_macro parent="right_wrist_2_link" prefix="right_gripper" />
 
   <xacro:wsg_300_120_xacro parent="right_gripper_mounting_plate" name="right_gripper">
-    <origin xyz="0 0 0.005" rpy="0 0 0"/>
+    <origin xyz="0 0 0.005" rpy="0 0 -${pi/2}"/>
   </xacro:wsg_300_120_xacro>
 
   <link name="left_gripper_left_finger_tip_link">
