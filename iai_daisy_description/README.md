@@ -25,7 +25,7 @@ This repo was tested on following setup
 
 This was the network configuration for this robot setup
 
-* **Host PC IP:** `192.168.102.180` (Subnet: `255.255.252.0`)
+* **Host PC IP:** `192.168.250.1` (Subnet: `255.255.252.0`)
 * **Left Arm IP:** `192.168.102.44`
 * **Right Arm IP:** `192.168.102.43`
 
