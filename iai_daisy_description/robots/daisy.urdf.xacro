@@ -151,9 +151,9 @@
       <material name="gray"/>
     </visual>
     <collision>
-      <origin xyz="${table_length/2} ${table_width/2} 0" rpy="0 0 0"/>
+      <origin xyz="0 0 ${table_height/2}" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://iai_table_robot_description/meshes/complete_table.stl"/>
+        <box size="${table_length} ${table_width} ${table_height}"/>
       </geometry>
       <material name="gray"/>
     </collision>
