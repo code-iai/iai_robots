@@ -160,7 +160,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        map:
+        table_footprint:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -274,7 +274,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: map
+    Fixed Frame: table_footprint
     Frame Rate: 30
   Name: root
   Tools:

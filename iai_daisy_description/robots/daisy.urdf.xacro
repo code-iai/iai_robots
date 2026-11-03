@@ -132,12 +132,12 @@
     </joint>
   </xacro:macro>
 
-  <link name="map" />
+  <link name="table_footprint" />
 
   <link name="table"/>
 
   <joint name="table_joint" type="fixed">
-      <parent link="map"/>
+      <parent link="table_footprint"/>
       <child link="table"/>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
