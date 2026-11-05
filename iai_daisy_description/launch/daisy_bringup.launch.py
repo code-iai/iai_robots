@@ -196,11 +196,21 @@ def launch_setup(context, *args, **kwargs):
             'rate': 100.0,
         }]
     )
+    # Where the table stands in the map; the URDF only describes the robot from the table's footprint up.
+    map_to_table_footprint = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        name="map_to_table_footprint",
+        output="screen",
+        arguments=["--frame-id", "map", "--child-frame-id", "table_footprint"],
+    )
+
     nodes_to_start = [
         control_node,
         left_dashboard,
         right_dashboard,
         rsp,
+        map_to_table_footprint,
         joint_state_publisher_node,
         left_gripper,
         right_gripper,
